@@ -19,14 +19,14 @@ create table houses (
 create table step_types (
 	id serial,
 	triple_store_id char(8) not null,
-	name varchar(100) not null,
+	name varchar(255) not null,
 	description varchar(500) not null,
 	primary key (id)
 );
 create table steps (
 	id serial,
 	triple_store_id char(8) not null,
-	name varchar(100) not null,
+	name varchar(255) not null,
 	description varchar(500) not null,
 	step_type_id int not null,
 	constraint fk_step_type foreign key (step_type_id) references step_types(id),
