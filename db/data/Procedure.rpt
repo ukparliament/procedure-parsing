@@ -1,0 +1,13 @@
+﻿Id	TripleStoreId	ProcedureName	ProcedureDescription	ModifiedBy	ModifiedAt
+1	iWugpxMn	Made affirmative	Instruments subject to the made affirmative procedure are signed into law before being laid in Parliament. They either come into force before being laid, or on approval by Parliament. The approval period for instruments that come into force before being la	somervillea@parliament.uk	2019-01-22 16:57:30 +00:00
+2	iCdMN1MW	Proposed negative statutory instrument	A Minister may exercise powers under the EU (Withdrawal) Act 2018 to propose that instruments be subject to the proposed negative procedure. After a proposed negative instrument has been laid, each House has ten sitting days in which it may consider the in	somervillea@parliament.uk	2019-01-23 12:37:36 +00:00
+3	H5YJQsK2	Draft affirmative	Instruments subject to the draft affirmative procedure are laid in draft and require approval in Parliament before being signed into law. Instruments concerning taxation are not laid in the Lords and only require the approval of the Commons. The Commons de	somervillea@parliament.uk	2019-01-22 16:58:00 +00:00
+4	5S6p4YsP	Made negative	Instruments subject to the made negative procedure do not require approval in Parliament before becoming law. These instruments may come into force on any date after being laid. Instruments concerning taxation are not laid in the Lords. Either House may pa	somervillea@parliament.uk	2019-01-22 16:58:24 +00:00
+5	gTgidljI	Draft negative	Instruments subject to the draft negative procedure are laid in draft and do not require approval in Parliament before being signed in law. Instruments concerning taxation are not laid in the Lords. Either House may pass a motion within the objection perio	somervillea@parliament.uk	2019-01-22 16:58:46 +00:00
+6	D00dsjR2	Treaties subject to the Constitutional Reform and Governance Act 2010	A treaty may be ratified if the Commons does not resolve against ratification within 21 sitting days. A Minister may extend this period. If the Commons resolves against ratification, a Minister may make a statement in disagreement, following which the Comm	somervillea@parliament.uk	2019-01-25 16:57:37 +00:00
+7	3OwAZDIm	Draft composite	Exceptionally, a parent Act may contemplate the making of an instrument part of which requires affirmative approval and part of which may be exposed to annulment on a negative ‘prayer’.	sunleyJ@parliament.uk	2021-01-20 09:55:40 +00:00
+
+(7 rows affected)
+
+
+Completion time: 2021-02-15T12:53:48.0810797+00:00
