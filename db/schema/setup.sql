@@ -47,7 +47,7 @@ create table parliamentary_procedures (
 	id serial,
 	triple_store_id char(8) not null,
 	name varchar(100) not null,
-	description varchar(500) not null,
+	description varchar(1000) not null,
 	primary key (id)
 );
 create table procedure_routes (
