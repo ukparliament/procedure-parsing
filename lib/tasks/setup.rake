@@ -94,6 +94,13 @@ task :import_work_packages => :environment do
 end
 task :import_house_steps => :environment do
   puts "importing house steps"
+  CSV.foreach( 'db/data/house_steps.tsv', { :col_sep => "\t" } ) do |row|
+    house_step = HouseStep.new
+    house_step.id = row[0]
+    house_step.step_id = row[1]
+    house_step.house_id = row[2]
+    house_step.save
+  end
 end
 task :import_business_items => :environment do
   puts "importing business items"
@@ -109,4 +116,11 @@ task :import_business_items => :environment do
 end
 task :import_actualisations => :environment do
   puts "importing actualisations"
+  CSV.foreach( 'db/data/actualisations.tsv', { :col_sep => "\t" } ) do |row|
+    actualisation = Actualisation.new
+    actualisation.id = row[0]
+    actualisation.business_item_id = row[1]
+    actualisation.step_id = row[2]
+    actualisation.save
+  end
 end
