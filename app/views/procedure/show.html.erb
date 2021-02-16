@@ -1,0 +1,6 @@
+<%= content_tag( 'h1', @procedure.name ) %>
+<%= content_tag( 'p', @procedure.description ) %>
+<ol>
+	<%= content_tag( 'li', "#{@procedure.routes.size} routes" ) %>
+	<%= content_tag( 'li', link_to( "#{@procedure.work_packages.size} work packages", procedure_work_package_list_url ) ) %>
+</ol>
