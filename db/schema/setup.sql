@@ -1,3 +1,4 @@
+drop table if exists step_collections;
 drop table if exists actualisations;
 drop table if exists business_items;
 drop table if exists house_steps;
@@ -8,8 +9,14 @@ drop table if exists routes;
 drop table if exists houses;
 drop table if exists steps;
 drop table if exists step_types;
+drop table if exists step_collection_types;
 
 
+create table step_collection_types (
+	id serial,
+	name varchar(255) not null,
+	primary key (id)
+);
 create table houses (
 	id serial,
 	triple_store_id char(8) not null,
@@ -90,5 +97,15 @@ create table actualisations (
 	step_id int not null,
 	constraint fk_business_item foreign key (business_item_id) references business_items(id),
 	constraint fk_step foreign key (step_id) references steps(id),
+	primary key (id)
+);
+create table step_collections (
+	id serial,
+	step_id int not null,
+	parliamentary_procedure_id int not null,
+	step_collection_type_id int not null,
+	constraint fk_step foreign key (step_id) references steps(id),
+	constraint fk_parliamentary_procedure foreign key (parliamentary_procedure_id) references parliamentary_procedures(id),
+	constraint fk_step_collection_type foreign key (step_collection_type_id) references step_collection_types(id),
 	primary key (id)
 );
