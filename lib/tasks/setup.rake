@@ -10,7 +10,9 @@ task :import => [
   :import_work_packages,
   :import_house_steps,
   :import_business_items,
-  :import_actualisations] do
+  :import_actualisations,
+  :import_step_collection_types,
+  :import_step_collections] do
 end
 
 task :import_step_types => :environment do
@@ -122,5 +124,23 @@ task :import_actualisations => :environment do
     actualisation.business_item_id = row[1]
     actualisation.step_id = row[2]
     actualisation.save
+  end
+end
+task :import_step_collection_types => :environment do
+  puts "importing step collection types"
+  CSV.foreach( 'db/data/step_collection_types.tsv', { :col_sep => "\t" } ) do |row|
+    step_collection_type = StepCollectionType.new
+    step_collection_type.name = row[0]
+    step_collection_type.save
+  end
+end
+task :import_step_collections => :environment do
+  puts "importing step collections"
+  CSV.foreach( 'db/data/step_collections.tsv', { :col_sep => "\t" } ) do |row|
+    step_collection = StepCollection.new
+    step_collection.step_id = row[0]
+    step_collection.parliamentary_procedure_id = row[1]
+    step_collection.step_collection_type_id = row[2]
+    step_collection.save
   end
 end
