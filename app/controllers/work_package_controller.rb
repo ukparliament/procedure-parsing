@@ -22,8 +22,6 @@ class WorkPackageController < ApplicationController
       route_hash = { :current => 'null', :status => 'unparsed', :parsed => false }
       @routes[route] = route_hash
     end
-    puts "@@@@@@"
-    puts @routes.size
     
     # Get the start steps of the procedure the work package is subject to.
     start_steps = @work_package.parliamentary_procedure.start_steps
@@ -31,20 +29,26 @@ class WorkPackageController < ApplicationController
     # Loop through the start steps.
     start_steps.each do |step|
       step.outbound_routes_in_procedure( procedure ).each do |outbound_route|
-        parse_route( outbound_route, procedure )
+        parse_route( step, outbound_route, procedure )
       end
     end
   end
 end
 
-def parse_route( route, procedure )
-  puts route.triple_store_id
+def parse_route( source_step, route, procedure )
+  
+  puts "********"
+  puts source_step.step_type_name
+  
   current = @routes[route][:current]
   status = @routes[route][:status]
   parsed = @routes[route][:parsed]
   route_hash = { :current => current, :status => status, :parsed => true }
   @routes[route] = route_hash
-  route.target_step.outbound_routes_in_procedure( procedure ).each do |outbound_route|
-    parse_route( outbound_route, procedure ) unless @routes[outbound_route][:parsed] == true
+  
+  target_step = route.target_step
+  
+  target_step.outbound_routes_in_procedure( procedure ).each do |outbound_route|
+    parse_route( target_step, outbound_route, procedure ) unless @routes[outbound_route][:parsed] == true
   end
 end
