@@ -1,0 +1,2 @@
+class StepCollection < ApplicationRecord
+end
