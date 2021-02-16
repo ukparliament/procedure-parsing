@@ -15,6 +15,8 @@ Rails.application.routes.draw do
   get 'procedures/:procedure' => 'procedure#show', as: :procedure_show
   get 'procedures/:procedure/work-packages' => 'procedure#work_package_index', as: :procedure_work_package_list
   
+  get 'work-packages/:work_package' => 'work_package#show', as: :work_package_show
+  
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
