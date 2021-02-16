@@ -1,1 +1,17 @@
 <%= content_tag( 'h1', "Work package #{@work_package.triple_store_id}" ) %>
+
+<%= content_tag( 'h2', 'Things that have happened' ) %>
+<ol>
+	<%= render :partial => 'business_item/business_item', :collection => @work_package.business_items_that_have_happened %>
+</ol>
+
+<%= content_tag( 'h2', 'Things that are scheduled to happen' ) %>
+<ol>
+	<%= render :partial => 'business_item/business_item', :collection => @work_package.business_items_that_are_scheduled_to_happen %>
+</ol>
+
+<%= content_tag( 'h2', 'Things that may have happened or may be scheduled to happen' ) %>
+
+<%= content_tag( 'h2', 'Things that should happen' ) %>
+
+<%= content_tag( 'h2', 'Things that may happen' ) %>
