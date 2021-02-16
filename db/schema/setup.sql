@@ -37,6 +37,8 @@ create table routes (
 	triple_store_id char(8) not null,
 	from_step_id int not null,
 	to_step_id int not null,
+	start_date date,
+	end_date date,
 	constraint fk_from_step foreign key (from_step_id) references steps(id),
 	constraint fk_to_step foreign key (to_step_id) references steps(id),
 	primary key (id)
@@ -76,8 +78,8 @@ create table house_steps (
 create table business_items (
 	id serial,
 	triple_store_id char(8) not null,
-	web_link varchar(255) not null,
-	date date not null,
+	web_link varchar(255),
+	date date,
 	work_package_id int not null,
 	constraint fk_work_package foreign key (work_package_id) references work_packages(id),
 	primary key (id)
