@@ -1,5 +1,5 @@
 class ProcedureRoute < ActiveRecord::Base
   
-  belongs_to :procedure
+  belongs_to :parliamentary_procedure
   belongs_to :route
 end
