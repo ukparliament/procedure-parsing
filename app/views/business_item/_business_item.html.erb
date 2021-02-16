@@ -1,4 +1,10 @@
 <li>
+	<h2>
+		<% if business_item.web_link %>
+			<%= link_to( business_item.step_names.html_safe, business_item.web_link ) %>
+		<% else -%>
+			<%= business_item.step_names %>
+		<% end -%>
+	</h2>
 	<%= business_item.date %>
-	<%= business_item.web_link %>
 </li>
