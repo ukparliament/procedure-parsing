@@ -1,0 +1,17 @@
+<%= content_tag( 'h1', 'Parsing results' ) %>
+
+<table>
+	<thead>
+		<tr>
+			<%= content_tag( 'td', 'Route' ) %>
+			<%= content_tag( 'td', 'Parsed' ) %>
+			<%= content_tag( 'td', 'Status' ) %>
+			<%= content_tag( 'td', 'Current' ) %>
+			<%= content_tag( 'td', 'Source step' ) %>
+			<%= content_tag( 'td', 'Target step' ) %>
+		</tr>
+	</thead>
+	<tbody>
+		<%= render :partial => 'route', :collection => @routes %>
+	</tbody>
+</table>
