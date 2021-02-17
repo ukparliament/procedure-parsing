@@ -2,7 +2,7 @@
 require 'parsing/business_step'
 #require 'parsing/decision_step'
 #require 'parsing/not_step'
-#require 'parsing/and_step'
+require 'parsing/and_step'
 #require 'parsing/or_step'
 
 class WorkPackageController < ApplicationController
@@ -11,7 +11,7 @@ class WorkPackageController < ApplicationController
   include PARSING_BUSINESS_STEP
   #include PARSING_DECISION_STEP
   #include PARSING_NOT_STEP
-  #include PARSING_AND_STEP
+  include PARSING_AND_STEP
   #include PARSING_OR_STEP
   
   def show
@@ -70,6 +70,25 @@ def parse_route( route, source_step, procedure )
   update_route_hash( route, nil, nil, true, nil, nil, nil, nil )
   # HACK
   
+  # Get inbound routes to the source step
+  inbound_routes = source_step.inbound_routes_in_procedure( procedure )
+  
+  # Check the type of the source step
+  case @routes[route][:source_step_type]
+  when "Business step"
+    parse_route_from_business_step( route, source_step, procedure, inbound_routes )
+  when "Decision step"
+    parse_route_from_decision_step( route, source_step, procedure, inbound_routes )
+  when "NOT"
+    parse_route_from_not_step( route, source_step, procedure, inbound_routes )
+  when "AND"
+    parse_route_from_and_step( route, source_step, procedure, inbound_routes )
+  when "OR"
+    parse_route_from_or_step( route, source_step, procedure, inbound_routes )
+  end
+  
+
+  
   # If the route is current...
   if route.current
     
@@ -82,24 +101,6 @@ def parse_route( route, source_step, procedure )
     # ... update the route current attribute to 'FALSE', the status attribute to 'UNTRAVERSABLE' and the parsed attribute to 'TRUE'
     update_route_hash( route, 'FALSE', 'UNTRAVERSABLE', 'TRUE', nil, nil, nil, nil )
   end
-  
-  # Get inbound routes to the source step
-  inbound_routes = source_step.inbound_routes_in_procedure( procedure )
-  
-  # Check the type of the source step
-  case @routes[route][:source_step_type]
-  when "Business step"
-    parse_route_from_business_step( route, source_step, procedure, inbound_routes )
-  when "Decision step"
-    parse_route_from_decision_step( route, source_step, procedure, inbound_routes )
-  when "NOT"
-    parse_route_from_not_step( route, source_step, procedure, inbound_routes )
-  when "OR"
-    parse_route_from_or_step( route, source_step, procedure, inbound_routes )
-  when "AND"
-    parse_route_from_and_step( route, source_step, procedure, inbound_routes )
-  end
-  
   
   
   
