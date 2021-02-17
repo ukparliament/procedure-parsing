@@ -12,15 +12,25 @@ class WorkPackageController < ApplicationController
     procedure = @work_package.parliamentary_procedure
     
     # Get all the routes in the procedure the work package is subject to.
-    routes = @work_package.parliamentary_procedure.routes
+    routes = @work_package.parliamentary_procedure.routes_with_steps
     
     # Create a hash to hold the routes and their attributes
     @routes = {}
     
-    # Loop through the routes and...
+    # Loop through the routes and ...
     routes.each do |route|
-      route_hash = { :current => 'null', :status => 'unparsed', :parsed => false }
-      @routes[route] = route_hash
+      
+      # ... create a hash of values we want to store for the route
+      route_hash = create_route_hash(
+        route,
+        'null',
+        'unparsed',
+        false,
+        route.source_step_name,
+        route.source_step_type,
+        route.target_step_name,
+        route.target_step_type
+      )
     end
     
     # Get the start steps of the procedure the work package is subject to.
@@ -36,19 +46,47 @@ class WorkPackageController < ApplicationController
 end
 
 def parse_route( source_step, route, procedure )
-  
-  puts "********"
-  puts source_step.step_type_name
-  
-  current = @routes[route][:current]
-  status = @routes[route][:status]
-  parsed = @routes[route][:parsed]
-  route_hash = { :current => current, :status => status, :parsed => true }
-  @routes[route] = route_hash
-  
+  update_route_hash( route, nil, nil, true, nil, nil, nil, nil)
   target_step = route.target_step
   
   target_step.outbound_routes_in_procedure( procedure ).each do |outbound_route|
     parse_route( target_step, outbound_route, procedure ) unless @routes[outbound_route][:parsed] == true
   end
+end
+
+# Method to create a hash of route attributes and add it to the route hash
+def create_route_hash( route, current, status, parsed, source_step_name, source_step_type, target_step_name, target_step_type )
+  # Create a hash of route attributes
+  route_hash = {
+    :current => current,
+    :status => status,
+    :parsed => parsed,
+    :source_step_name => source_step_name,
+    :source_step_type => source_step_type,
+    :target_step_name => target_step_name,
+    :target_step_type => target_step_type
+  }
+  # Add the hash to the routes hash keyed off the route
+  @routes[route] = route_hash
+end
+
+# Method to update route attributes in the routes hash
+def update_route_hash( route, current, status, parsed, source_step_name, source_step_type, target_step_name, target_step_type )
+  current = current || @routes[route][:current]
+  status = status || @routes[route][:status]
+  parsed = parsed || @routes[route][:parsed]
+  source_step_name = source_step_name || @routes[route][:source_step_name]
+  source_step_type = source_step_type || @routes[route][:source_step_type]
+  target_step_name = target_step_name || @routes[route][:target_step_name]
+  target_step_type = target_step_type || @routes[route][:target_step_type]
+  route_hash = {
+    :current => current,
+    :status => status,
+    :parsed => parsed,
+    :source_step_name => source_step_name,
+    :source_step_type => source_step_type,
+    :target_step_name => target_step_name,
+    :target_step_type => target_step_type
+  }
+  @routes[route] = route_hash
 end
