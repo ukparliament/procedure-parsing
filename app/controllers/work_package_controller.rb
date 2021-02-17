@@ -22,6 +22,9 @@ class WorkPackageController < ApplicationController
   # This method attempts to parse a procedure in the context of a work package.
   def parse
     
+    # Set up an array to log the parsing
+    @parse_log = []
+    
     # Get the work package we're trying to parse.
     work_package = params[:work_package]
     @work_package = WorkPackage.find( work_package )
@@ -47,6 +50,9 @@ end
 # Method to parse a route
 # We pass in the route to be parsed, the source step of that route and the procedure the route is in
 def parse_route( route, source_step, procedure )
+  
+  # Update the parse log with what's being parsed
+  @parse_log << "Parsing route from #{@routes[route][:source_step_name]} (#{@routes[route][:source_step_type]}) to #{@routes[route][:target_step_name]} (#{@routes[route][:target_step_type]})"
   
   # Get inbound routes to the source step.
   inbound_routes = source_step.inbound_routes_in_procedure( procedure )
