@@ -5,7 +5,7 @@ module PARSING_AND_STEP
     # If the AND step does not have two and only two inbound routes ...
     if inbound_routes.size != 2
   
-      # ... flag the step has an unexpected number of routes
+      # ... flag the step has an unexpected number of routes.
       logger.error "AND step with ID #{source_step.id} has #{inbound_routes.size} inbound routes."
   
     # Otherwise, if the AND step has exactly two inbound routes ...
@@ -23,50 +23,50 @@ module PARSING_AND_STEP
           # ... set the route status to 'UNTRAVERSABLE'
           update_route_hash( route, nil, 'UNTRAVERSABLE', nil, nil, nil, nil, nil )
         
-        # Otherwise, if inbound input route has a status of 'FALSE' ...
-        if @routes[inbound_routes[0]][:status] == 'FALSE' or @routes[inbound_routes[1]][:parsed] == 'FALSE'
+        # ...otherwise, if inbound input route has a status of 'FALSE' ...
+        elsif @routes[inbound_routes[0]][:status] == 'FALSE' or @routes[inbound_routes[1]][:parsed] == 'FALSE'
         
           # ... set the route status to 'FALSE'
           update_route_hash( route, nil, 'FALSE', nil, nil, nil, nil, nil )
           
         # ... otherwise, if inbound route 1 has a status of 'TRUE' and inbound route 2 has a status of 'NULL'
-        if @routes[inbound_routes[0]][:status] == 'TRUE' and @routes[inbound_routes[1]][:parsed] == 'NULL'
+        elsif @routes[inbound_routes[0]][:status] == 'TRUE' and @routes[inbound_routes[1]][:parsed] == 'NULL'
           
           # ... set the route status to 'TRUE'
           update_route_hash( route, nil, 'TRUE', nil, nil, nil, nil, nil )
           
         # ... otherwise, if inbound route 1 has a status of 'NULL' and inbound route 2 has a status of 'TRUE'
-        if @routes[inbound_routes[0]][:status] == 'NULL' and @routes[inbound_routes[1]][:parsed] == 'TRUE'
+        elsif @routes[inbound_routes[0]][:status] == 'NULL' and @routes[inbound_routes[1]][:parsed] == 'TRUE'
           
           # ... set the route status to 'TRUE'
           update_route_hash( route, nil, 'TRUE', nil, nil, nil, nil, nil )
           
         # ... otherwise, if inbound route 1 has a status of 'TRUE' and inbound route 2 has a status of 'TRUE'
-        if @routes[inbound_routes[0]][:status] == 'TRUE' and @routes[inbound_routes[1]][:parsed] == 'TRUE'
+        elsif @routes[inbound_routes[0]][:status] == 'TRUE' and @routes[inbound_routes[1]][:parsed] == 'TRUE'
           
           # ... set the route status to 'TRUE'
           update_route_hash( route, nil, 'TRUE', nil, nil, nil, nil, nil )
           
         # ... otherwise, if inbound route 1 has a status of 'NULL' and inbound route 2 has a status of 'NULL'
-        if @routes[inbound_routes[0]][:status] == 'NULL' and @routes[inbound_routes[1]][:parsed] == 'NULL'
+        elsif @routes[inbound_routes[0]][:status] == 'NULL' and @routes[inbound_routes[1]][:parsed] == 'NULL'
           
           # ... set the route status to 'NULL'
           update_route_hash( route, nil, 'NULL', nil, nil, nil, nil, nil )
         end
+      end
       
       # ... otherwise if one inbound route 1 has been parsed and inbound route 2 has not been parsed ....
-      unless @routes[inbound_routes[0]][:parsed] == true  @routes[inbound_routes[1]][:parsed] == false
+      unless @routes[inbound_routes[0]][:parsed] == true and @routes[inbound_routes[1]][:parsed] == false
         
           # ... set the route status to the route status of inbound route 1
-          update_route_hash( route, nil, inbound_routes[0]][:status], nil, nil, nil, nil, nil )
-        end
+          update_route_hash( route, nil, @routes[inbound_routes[0]][:status], nil, nil, nil, nil, nil )
+      end
       
       # ... otherwise if one inbound route 1 has not been parsed and inbound route 2 has been parsed ....
-      unless @routes[inbound_routes[0]][:parsed] == false  @routes[inbound_routes[1]][:parsed] == true
+      unless @routes[inbound_routes[0]][:parsed] == false and @routes[inbound_routes[1]][:parsed] == true
         
           # ... set the route status to the route status of inbound route 2
-          update_route_hash( route, nil, inbound_routes[2]][:status], nil, nil, nil, nil, nil )
-        end
+          update_route_hash( route, nil, @routes[inbound_routes[1]][:status], nil, nil, nil, nil, nil )
         
       # ...otherwise, if neither inbound route has been parsed ...
       # ... do nothing and parse on subsequent pass.
