@@ -5,7 +5,7 @@ module PARSING_BUSINESS_STEP
     # If the business step does not have one and only one inbound route ...
     if inbound_routes.size != 1
   
-      # ... flag the step has an unexpected number of routes
+      # ... flag the step has an unexpected number of routes.
       logger.error "Business step with ID #{source_step.id} has #{inbound_routes.size} inbound routes."
   
     # Otherwise, if the business step has one and only one inbound route ...
@@ -24,7 +24,7 @@ module PARSING_BUSINESS_STEP
           # ... setting the status of this route to also be 'UNTRAVERSABLE'.
   				update_route_hash( route, nil, 'UNTRAVERSABLE', nil, nil, nil, nil, nil )
       
-        # ... otherwise if the inbound routes does not have a status of 'UNTRAVERSABLE'
+        # ... otherwise if the inbound route does not have a status of 'UNTRAVERSABLE'
         else
       
           # ... if the source step has been actualised by a business item with a date in the past or a date of today
