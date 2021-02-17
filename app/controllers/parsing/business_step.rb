@@ -13,9 +13,12 @@ module PARSING_BUSINESS_STEP
   
       # If the inbound route has been parsed ....
       unless @routes[inbound_routes[0]][:parsed] == true
+        
+        # ... update the parse log.
+        @parse_log << 'Parsed'
     
-        # ... set the parsed attribute to 'TRUE' because this route will be parsed.
-        update_route_hash( route, nil, nil, 'TRUE', nil, nil, nil, nil )
+        # ... set the parsed attribute to true because this route will be parsed.
+        update_route_hash( route, nil, nil, true, nil, nil, nil, nil )
     
         # ... if the inbound route has a status of 'UNTRAVERSABLE'
         if @routes[inbound_routes[0]][:status] == 'UNTRAVERSABLE'
