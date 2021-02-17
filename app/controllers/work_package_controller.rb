@@ -1,4 +1,18 @@
+# Individual parsing rules for steps types are are packaged into separate files. This code requires those files to be loaded.
+require 'parsing/business_step'
+#require 'parsing/decision_step'
+#require 'parsing/not_step'
+#require 'parsing/and_step'
+#require 'parsing/or_step'
+
 class WorkPackageController < ApplicationController
+  
+  # Include code from each of the modules for the different styles of parsing.
+  include PARSING_BUSINESS_STEP
+  #include PARSING_DECISION_STEP
+  #include PARSING_NOT_STEP
+  #include PARSING_AND_STEP
+  #include PARSING_OR_STEP
   
   def show
     work_package = params[:work_package]
@@ -23,8 +37,8 @@ class WorkPackageController < ApplicationController
       # ... create a hash of values we want to store for the route
       route_hash = create_route_hash(
         route,
-        'null',
-        'unparsed',
+        'NULL',
+        'UNPARSED',
         false,
         route.source_step_name,
         route.source_step_type,
@@ -38,21 +52,83 @@ class WorkPackageController < ApplicationController
     
     # Loop through the start steps.
     start_steps.each do |step|
-      step.outbound_routes_in_procedure( procedure ).each do |outbound_route|
-        parse_route( step, outbound_route, procedure )
+      step.outbound_routes_in_procedure( procedure ).each do |route|
+        parse_route( route, step, procedure )
       end
     end
   end
 end
 
-def parse_route( source_step, route, procedure )
-  update_route_hash( route, nil, nil, true, nil, nil, nil, nil)
+# Method to parse a route
+# We pass in the route to be parsed, the source step of that route and the procedure the route is in
+def parse_route( route, source_step, procedure )
+  
+  
+
+  # HACK
+  # This is a temp hack to stop parsing
+  update_route_hash( route, nil, nil, true, nil, nil, nil, nil )
+  # HACK
+  
+  # If the route is current...
+  if route.current
+    
+    # ... update the route current attribute to true
+    update_route_hash( route, 'TRUE', nil, nil, nil, nil, nil, nil )
+    
+  # Otherwise, if the route is not current ...
+  else
+    
+    # ... update the route current attribute to 'FALSE', the status attribute to 'UNTRAVERSABLE' and the parsed attribute to 'TRUE'
+    update_route_hash( route, 'FALSE', 'UNTRAVERSABLE', 'TRUE', nil, nil, nil, nil )
+  end
+  
+  # Get inbound routes to the source step
+  inbound_routes = source_step.inbound_routes_in_procedure( procedure )
+  
+  # Check the type of the source step
+  case @routes[route][:source_step_type]
+  when "Business step"
+    parse_route_from_business_step( route, source_step, procedure, inbound_routes )
+  when "Decision step"
+    parse_route_from_decision_step( route, source_step, procedure, inbound_routes )
+  when "NOT"
+    parse_route_from_not_step( route, source_step, procedure, inbound_routes )
+  when "OR"
+    parse_route_from_or_step( route, source_step, procedure, inbound_routes )
+  when "AND"
+    parse_route_from_and_step( route, source_step, procedure, inbound_routes )
+  end
+  
+  
+  
+  
+  
+  
+  
+  
+  # Get the target step of the route.
   target_step = route.target_step
   
+  # For each outbound route from the target step in this procedure ...
   target_step.outbound_routes_in_procedure( procedure ).each do |outbound_route|
-    parse_route( target_step, outbound_route, procedure ) unless @routes[outbound_route][:parsed] == true
+    
+    # If the route has not already been parsed ....
+    unless @routes[outbound_route][:parsed] == true
+      
+      # ...parse the route.
+      parse_route( outbound_route, target_step, procedure ) 
+    end
   end
 end
+
+
+
+
+
+
+
+
 
 # Method to create a hash of route attributes and add it to the route hash
 def create_route_hash( route, current, status, parsed, source_step_name, source_step_type, target_step_name, target_step_type )
