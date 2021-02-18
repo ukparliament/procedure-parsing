@@ -12,7 +12,7 @@ module PARSING_OR_STEP
     else
       
       # ... if both inbound routes have been parsed ....
-      unless @routes[inbound_routes[0]][:parsed] == true and @routes[inbound_routes[1]][:parsed] == true
+      if @routes[inbound_routes[0]][:status] != 'UNPARSED' and @routes[inbound_routes[1]][:status] != 'UNPARSED'
         
         # ... update the parse log.
         @parse_log << 'Parsed'
@@ -47,14 +47,14 @@ module PARSING_OR_STEP
       end
         
       # ... otherwise if one inbound route 1 has been parsed and inbound route 2 has not been parsed ....
-      unless @routes[inbound_routes[0]][:parsed] == true and @routes[inbound_routes[1]][:parsed] == false
+      unless @routes[inbound_routes[0]][:status] != 'UNPARSED' and @routes[inbound_routes[1]][:status] == 'UNPARSED'
         
         # ... set the route status to the route status of inbound route 1
         update_route_hash( route, nil, @routes[inbound_routes[0]][:status], nil, nil, nil, nil, nil )
       end
       
       # ... otherwise if one inbound route 1 has not been parsed and inbound route 2 has been parsed ....
-      unless @routes[inbound_routes[0]][:parsed] == false and @routes[inbound_routes[1]][:parsed] == true
+      unless @routes[inbound_routes[0]][:status] == 'UNPARSED' and @routes[inbound_routes[1]][:status] != 'UNPARSED'
         
         # ... set the route status to the route status of inbound route 2
         update_route_hash( route, nil, @routes[inbound_routes[1]][:status], nil, nil, nil, nil, nil )
