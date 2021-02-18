@@ -6,12 +6,6 @@ module PARSE
   # The procedure is passed to ensure that we only parse routes in that procedure as we continue to traverse.
   # This is made necessary because we will encounter steps that are attached to routes in other procedures.
   def parse_route( route, source_step, procedure )
-  
-    # THIS IS A HACK.
-    # It will be removed if and when the code ever works.
-    # It sets the route parsed attribute to true to avoid parsing a second time and causing an infinte loop.
-    update_route_hash( route, nil, nil, true, nil, nil, nil, nil )
-    # END HACK.
     
     # We're parsing a route so we increment the parse count.
     @parse_count += 1
@@ -26,18 +20,43 @@ module PARSE
     inbound_routes = source_step.inbound_routes_in_procedure( procedure )
   
     # We check the type of the source step of the route we're parsing and parse it accordingly.
-    #case @routes[route][:source_step_type]
-    #when "Business step"
+    case @routes[route][:source_step_type]
+    when "Business step"
       #parse_route_from_business_step( route, source_step, procedure, inbound_routes )
-      #when "Decision"
+      # THIS IS A HACK.
+      # It will be removed if and when the code ever works.
+      # It sets the route parsed attribute to true to avoid parsing a second time and causing an infinte loop.
+      update_route_hash( route, nil, nil, true, nil, nil, nil, nil )
+      # END HACK.
+    when "Decision"
       #parse_route_from_decision_step( route, source_step, procedure, inbound_routes )
-      #when "NOT"
+      # THIS IS A HACK.
+      # It will be removed if and when the code ever works.
+      # It sets the route parsed attribute to true to avoid parsing a second time and causing an infinte loop.
+      update_route_hash( route, nil, nil, true, nil, nil, nil, nil )
+      # END HACK.
+    when "NOT"
       #parse_route_from_not_step( route, source_step, procedure, inbound_routes )
-      #when "AND"
+      # THIS IS A HACK.
+      # It will be removed if and when the code ever works.
+      # It sets the route parsed attribute to true to avoid parsing a second time and causing an infinte loop.
+      update_route_hash( route, nil, nil, true, nil, nil, nil, nil )
+      # END HACK.
+    when "AND"
       #parse_route_from_and_step( route, source_step, procedure, inbound_routes )
-      #when "OR"
+      # THIS IS A HACK.
+      # It will be removed if and when the code ever works.
+      # It sets the route parsed attribute to true to avoid parsing a second time and causing an infinte loop.
+      update_route_hash( route, nil, nil, true, nil, nil, nil, nil )
+      # END HACK.
+    when "OR"
       #parse_route_from_or_step( route, source_step, procedure, inbound_routes )
-      #end
+      # THIS IS A HACK.
+      # It will be removed if and when the code ever works.
+      # It sets the route parsed attribute to true to avoid parsing a second time and causing an infinte loop.
+      update_route_hash( route, nil, nil, true, nil, nil, nil, nil )
+      # END HACK.
+    end
         
     # ## We check for route currency.
     # Regardless of the type of the source step of the route we know that some routes are not current.
