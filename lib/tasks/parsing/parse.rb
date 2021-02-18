@@ -38,19 +38,24 @@ module PARSE
       #when "OR"
       #parse_route_from_or_step( route, source_step, procedure, inbound_routes )
       #end
-  
+        
+    # ## We check for route currency.
+    # Regardless of the type of the source step of the route we know that some routes are not current.
+    # A non-current route is one with a start date that is later than today or one with an end date that is today or earlier than today.
     # If the route is current...
-    #if route.current
+    if route.current
     
-      # ... update the route current attribute to true
+      # ... we update the route current attribute to true.
       #update_route_hash( route, 'TRUE', nil, nil, nil, nil, nil, nil )
     
     # Otherwise, if the route is not current ...
-    #else
+    else
     
-      # ... update the route current attribute to 'FALSE', the status attribute to 'UNTRAVERSABLE' and the parsed attribute to 'TRUE'
-      #update_route_hash( route, 'FALSE', 'UNTRAVERSABLE', true, nil, nil, nil, nil )
-      #end
+      # ... we update the route current attribute to 'FALSE' and the route status attribute to 'UNTRAVERSABLE' ...
+      # ... setting the route status to 'UNTRAVERSABLE' records that this route in not currently active and is used to infer that routes from this route are also not currently active.
+      # ... we also record this route as parsed because we don't want to visit it and attempt to parse again.
+      update_route_hash( route, 'FALSE', 'UNTRAVERSABLE', true, nil, nil, nil, nil )
+    end
       
     # ## Having parsed this route, we now want to continue to traverse the graph, following outbound routes from the target step of this route.
     # This forces us to traverse the procedure in a depth first fashion.
