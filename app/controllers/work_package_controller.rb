@@ -1,17 +1,17 @@
 # Individual parsing rules for steps types are are packaged into separate files. This code requires those files to be loaded.
 require 'parsing/business_step'
-require 'parsing/decision_step'
-require 'parsing/not_step'
-require 'parsing/and_step'
+#require 'parsing/decision_step'
+#require 'parsing/not_step'
+#require 'parsing/and_step'
 require 'parsing/or_step'
 
 class WorkPackageController < ApplicationController
   
   # Include code from each of the modules for the different styles of parsing.
   include PARSING_BUSINESS_STEP
-  include PARSING_DECISION_STEP
-  include PARSING_NOT_STEP
-  include PARSING_AND_STEP
+  #include PARSING_DECISION_STEP
+  #include PARSING_NOT_STEP
+  #include PARSING_AND_STEP
   include PARSING_OR_STEP
   
   def show
@@ -36,11 +36,15 @@ class WorkPackageController < ApplicationController
     initialise_route_hash( @work_package )
     
     # Get the start steps of the procedure the work package is subject to.
-    start_steps = procedure.start_steps
+    @start_steps = procedure.start_steps
     
-    # Loop through the start steps.
-    start_steps.each do |step|
+    # Loop through the start steps ...
+    @start_steps.each do |step|
+      
+      # ... loop through the outbound routes of the start steps ...
       step.outbound_routes_in_procedure( procedure ).each do |route|
+        
+        # ... and parse each route.
         parse_route( route, step, procedure )
       end
     end
@@ -51,22 +55,27 @@ end
 # We pass in the route to be parsed, the source step of that route and the procedure the route is in
 def parse_route( route, source_step, procedure )
   
-  # Update the parse log with what's being parsed
+  # hack
+  # force set the route to parsed to avoid infinte loop
+  update_route_hash( route, nil, nil, true, nil, nil, nil, nil )
+  # hack
+  
+  # Update the parse log with what's being parsed.
   @parse_log << "Parsing route from #{@routes[route][:source_step_name]} (#{@routes[route][:source_step_type]}) to #{@routes[route][:target_step_name]} (#{@routes[route][:target_step_type]})"
   
   # Get inbound routes to the source step.
   inbound_routes = source_step.inbound_routes_in_procedure( procedure )
   
-  # Check the type of the source step.
+  # Check the type of the source step of the route and parse accordingly.
   case @routes[route][:source_step_type]
   when "Business step"
     parse_route_from_business_step( route, source_step, procedure, inbound_routes )
-  when "Decision step"
-    parse_route_from_decision_step( route, source_step, procedure, inbound_routes )
+  when "Decision"
+    #parse_route_from_decision_step( route, source_step, procedure, inbound_routes )
   when "NOT"
-    parse_route_from_not_step( route, source_step, procedure, inbound_routes )
+    #parse_route_from_not_step( route, source_step, procedure, inbound_routes )
   when "AND"
-    parse_route_from_and_step( route, source_step, procedure, inbound_routes )
+    #parse_route_from_and_step( route, source_step, procedure, inbound_routes )
   when "OR"
     parse_route_from_or_step( route, source_step, procedure, inbound_routes )
   end
