@@ -11,8 +11,8 @@ module PARSING_BUSINESS_STEP
     # Otherwise, if the business step has one and only one inbound route ...
     else
   
-      # If the inbound route has been parsed ....
-      unless @routes[inbound_routes[0]][:parsed] == true
+      # ...if the inbound route has been parsed ....
+      if @routes[inbound_routes[0]][:status] != 'UNPARSED'
         
         # ... update the parse log.
         @parse_log << 'Parsed'
@@ -25,7 +25,7 @@ module PARSING_BUSINESS_STEP
       
           # ... taint the roads off the bridge as closed if the bridge is closed.
           # ... setting the status of this route to also be 'UNTRAVERSABLE'.
-  				update_route_hash( route, nil, 'UNTRAVERSABLE', nil, nil, nil, nil, nil )
+  				update_route_hash( route, nil, 'UNTRAVERSABLE', true, nil, nil, nil, nil )
       
         # ... otherwise if the inbound route does not have a status of 'UNTRAVERSABLE'
         else
@@ -42,6 +42,25 @@ module PARSING_BUSINESS_STEP
             # ... set the route status to 'NULL'
             update_route_hash( route, nil, 'NULL', nil, nil, nil, nil, nil )
           end 
+        end
+      
+      # ...otherwise, if the source step is in the list of start steps ...
+      elsif @start_steps.include?( source_step )
+        
+        # ... update the parse log.
+        @parse_log << 'Parsed'
+        
+        # ... if the source step has been actualised by a business item with a date in the past or a date of today
+        if source_step.actualised_has_happened_in_work_package?( @work_package )
+      
+          # ... set the route status to 'TRUE'
+          update_route_hash( route, nil, 'TRUE', true, nil, nil, nil, nil )
+      
+        # ... otherwise, if the source step has not been actualised or has only been actualised by business items with dates in the past ....
+        else
+      
+          # ... set the route status to 'NULL'
+          update_route_hash( route, nil, 'NULL', true, nil, nil, nil, nil )
         end
       end
     end

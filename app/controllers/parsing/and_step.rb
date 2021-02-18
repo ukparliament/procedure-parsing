@@ -12,7 +12,7 @@ module PARSING_AND_STEP
     else
       
       # ... if both inbound routes have been parsed ....
-      unless @routes[inbound_routes[0]][:parsed] == true and @routes[inbound_routes[1]][:parsed] == true
+      if @routes[inbound_routes[0]][:parsed] == true and @routes[inbound_routes[1]][:parsed] == true
         
         # Update the parse log.
         @parse_log << 'Parsed'

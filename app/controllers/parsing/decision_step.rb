@@ -12,7 +12,7 @@ module PARSING_DECISION_STEP
     else
   
       # If the inbound route has been parsed ....
-      unless @routes[inbound_routes[0]][:parsed] == true
+      if @routes[inbound_routes[0]][:parsed] == true
         
         # ... update the parse log.
         @parse_log << 'Parsed'
