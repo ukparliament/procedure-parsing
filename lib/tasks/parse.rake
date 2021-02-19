@@ -8,7 +8,7 @@ require 'tasks/parsing/parse'
 require 'tasks/parsing/business_step'
 #require 'tasks/parsing/decision_step'
 #require 'tasks/parsing/not_step'
-#require 'tasks/parsing/or_step'
+require 'tasks/parsing/or_step'
 
 
 # # Rake task to begin parsing.
@@ -22,7 +22,7 @@ task :parse => :environment do
   include PARSE_BUSINESS_STEP
   #include PARSE_DECISION_STEP
   #include PARSE_NOT_STEP
-  #include PARSE_OR_STEP
+  include PARSE_OR_STEP
   
   # We set up an array to log the parsing.
   # Create as an instance variable because we want to write to and from it later.
