@@ -7,7 +7,7 @@ require 'tasks/parsing/parse'
 require 'tasks/parsing/and_step'
 require 'tasks/parsing/business_step'
 #require 'tasks/parsing/decision_step'
-#require 'tasks/parsing/not_step'
+require 'tasks/parsing/not_step'
 require 'tasks/parsing/or_step'
 
 
@@ -21,7 +21,7 @@ task :parse => :environment do
   include PARSE_AND_STEP
   include PARSE_BUSINESS_STEP
   #include PARSE_DECISION_STEP
-  #include PARSE_NOT_STEP
+  include PARSE_NOT_STEP
   include PARSE_OR_STEP
   
   # We set up an array to log the parsing.
