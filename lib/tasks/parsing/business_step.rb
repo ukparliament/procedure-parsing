@@ -3,13 +3,13 @@ module PARSE_BUSINESS_STEP
   # # Method to parse a route whose source step is a business step.
   def parse_route_from_business_step( route, source_step, procedure, inbound_routes )
   
-    # If the business step does not have one and only one inbound route ...
+    # If the business step does not have exactly one inbound route ...
     if inbound_routes.size != 1
   
       # ... flag the step has having an unexpected number of routes.
       logger.error "Business step with ID #{source_step.id} has #{inbound_routes.size} inbound routes."
   
-    # Otherwise, if the business step has one and only one inbound route ...
+    # Otherwise, if the business step has exactly one inbound route ...
     else
       
       # ## We only parse a business step if it's inbound route has already been parsed.
@@ -39,14 +39,14 @@ module PARSE_BUSINESS_STEP
       # ... otherwise, if the source step for this route is not in the array of start steps...
       else
         
-        # ...we treat the route as any other route with a source step of type business step ...
+        # ... we treat the route as any other route with a source step of type business step ...
         # ... if the inbound route to the source step of the route has been parsed ....
         if @routes[inbound_routes[0]][:parsed] == true
         
           # ... we update the parse log to say this route has also been parsed.
           @parse_log << 'Parsed'
           
-          # ... we updated the route parsed attribute to true.
+          # ... we update the route parsed attribute to true.
           update_route_hash( route, nil, nil, true, nil, nil, nil, nil )
           
           # If the inbound route to the source step has a status of 'UNTRAVERSABLE' ...
@@ -73,7 +73,8 @@ module PARSE_BUSINESS_STEP
             end 
           end
           
-        # ... otherwise, we do nothing and parse this route on a subsequent pass.
+        # ... otherwise, if the inbound route has not been parsed ...
+        # ... we do nothing and parse this route on a subsequent pass.
         end
       end
     end
