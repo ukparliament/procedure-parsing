@@ -1,10 +1,11 @@
-# # Module containng the main parsing code including initialisation of the route hash, creation of a hash per route and updating of a hash per route
+# # Module containng the main parsing code including initialisation of the route hash, creation of a hash per route and updating of a hash per route.
+# Design notes for the [parsing of a procedure map with logic gates are here](https://ukparliament.github.io/ontologies/procedure/flowcharts/meta/design-notes/#procedure-maps-with-logic-gates).
 module PARSE
   
   # ## Method to parse a route.
   # We pass in the route to be parsed, the source step of that route and the procedure the route is in.
   # The procedure is passed to ensure that we only parse routes in that procedure as we continue to traverse.
-  # This is made necessary because we will encounter steps that are attached to routes in other procedures.
+  # This is necessary because we will encounter steps that are attached to routes in other procedures.
   def parse_route( route, source_step, procedure )
     
     # We're parsing a route so we increment the parse count.
@@ -45,12 +46,7 @@ module PARSE
       update_route_hash( route, nil, nil, true, nil, nil, nil, nil )
       # END HACK.
     when "OR"
-      #parse_route_from_or_step( route, source_step, procedure, inbound_routes )
-      # THIS IS A HACK.
-      # It will be removed if and when the code ever works.
-      # It sets the route parsed attribute to true to avoid parsing a second time and causing an infinte loop.
-      update_route_hash( route, nil, nil, true, nil, nil, nil, nil )
-      # END HACK.
+      parse_route_from_or_step( route, source_step, procedure, inbound_routes )
     end
         
     # ## We check for route currency.
@@ -122,8 +118,8 @@ module PARSE
         route_hash = create_route_hash(
           route, # We pass in the route which we'll use as the key of the hash.
           'NULL', # We pass in the current attribute to capture if the route is currently active. This is 'NULL' until the route is parsed.
-          'UNPARSED', # Was pass in the status attribute of the route. This is 'UNPARSED' until the route is parsed.
-          false,
+          'UNPARSED', # We pass in the status attribute of the route. This is 'UNPARSED' until the route is parsed.
+          false, # We pass in the parsed attribute of the route. This is false until the route is fully parsed.
           route.source_step_name, # We pass in the name of the source step.
           route.source_step_type, # We pass in the name of the type of the source step.
           route.target_step_name, # We pass in the name of the target step.
