@@ -25,12 +25,7 @@ module PARSE
     when "Business step"
       parse_route_from_business_step( route, source_step, procedure, inbound_routes )
     when "Decision"
-      #parse_route_from_decision_step( route, source_step, procedure, inbound_routes )
-      # THIS IS A HACK.
-      # It will be removed if and when the code ever works.
-      # It sets the route parsed attribute to true to avoid parsing a second time and causing an infinte loop.
-      update_route_hash( route, nil, nil, true, nil, nil, nil, nil )
-      # END HACK.
+      parse_route_from_decision_step( route, source_step, procedure, inbound_routes )
     when "NOT"
       parse_route_from_not_step( route, source_step, procedure, inbound_routes )
     when "AND"
