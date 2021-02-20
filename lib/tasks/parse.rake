@@ -6,7 +6,7 @@ require 'parsing/parse'
 # We require the step type specific parsing code to be loaded.
 require 'parsing/and_step'
 require 'parsing/business_step'
-#require 'parsing/decision_step'
+require 'parsing/decision_step'
 require 'parsing/not_step'
 require 'parsing/or_step'
 
@@ -20,7 +20,7 @@ task :parse => :environment do
   # We include code for the different styles of parsing according to the source step type.
   include PARSE_AND_STEP
   include PARSE_BUSINESS_STEP
-  #include PARSE_DECISION_STEP
+  include PARSE_DECISION_STEP
   include PARSE_NOT_STEP
   include PARSE_OR_STEP
   
