@@ -1,14 +1,14 @@
 # The main parsing code is packaged into a separate file.
 # We require the main parsing code to be loaded.
-require 'tasks/parsing/parse'
+require 'parsing/parse'
 
 # Individual parsing rules for source steps types are packaged into separate files.
 # We require the step type specific parsing code to be loaded.
-require 'tasks/parsing/and_step'
-require 'tasks/parsing/business_step'
-#require 'tasks/parsing/decision_step'
-require 'tasks/parsing/not_step'
-require 'tasks/parsing/or_step'
+require 'parsing/and_step'
+require 'parsing/business_step'
+#require 'parsing/decision_step'
+require 'parsing/not_step'
+require 'parsing/or_step'
 
 
 # # Rake task to begin parsing.
