@@ -5,7 +5,7 @@ class Route < ActiveRecord::Base
   
   # Get the target step of a route
   def target_step
-    Step.all.where( 'id = ?', self.to_step_id ).first
+    Step.all.select( 's.*, st.name as step_type_name' ).joins( 'as s, step_types as st' ).where( 's.step_type_id = st.id' ).where( 's.id = ?', self.to_step_id ).order( 's.id' ).first
   end
   
   # Check if the route is current
