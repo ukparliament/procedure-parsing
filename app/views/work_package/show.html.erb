@@ -12,7 +12,26 @@
 </ol>
 
 <%= content_tag( 'h2', 'Things that may have happened or may be scheduled to happen' ) %>
+<ol>
+	<%= render :partial => 'business_item/business_item', :collection => @work_package.business_items_unknown %>
+</ol>
 
 <%= content_tag( 'h2', 'Things that should happen' ) %>
+<ol>
+	<%= render :partial => 'step/step', :collection => @caused_steps %>
+</ol>
 
 <%= content_tag( 'h2', 'Things that may happen' ) %>
+<ol>
+	<%= render :partial => 'step/step', :collection => @allowed_steps %>
+</ol>
+
+<%= content_tag( 'h2', 'Things that should not now happen' ) %>
+<ol>
+	<%= render :partial => 'step/step', :collection => @disallowed_now_steps %>
+</ol>
+
+<%= content_tag( 'h2', 'Things that should not yet happen' ) %>
+<ol>
+	<%= render :partial => 'step/step', :collection => @disallowed_yet_steps %>
+</ol>
