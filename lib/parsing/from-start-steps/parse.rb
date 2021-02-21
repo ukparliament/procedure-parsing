@@ -15,7 +15,7 @@ module PARSE
     @parse_log << "Parsing route from #{@routes[route][:source_step_name]} (#{@routes[route][:source_step_type]}) to #{@routes[route][:target_step_name]} (#{@routes[route][:target_step_type]})."
     
     # We tell the user which route we're parsing.
-    puts " #{@parse_count} of #{@route_count} - Parsing route from #{@routes[route][:source_step_name]} (#{@routes[route][:source_step_type]}) to #{@routes[route][:target_step_name]} (#{@routes[route][:target_step_type]})."
+    #puts " #{@parse_count} of #{@route_count} - Parsing route from #{@routes[route][:source_step_name]} (#{@routes[route][:source_step_type]}) to #{@routes[route][:target_step_name]} (#{@routes[route][:target_step_type]})."
   
     # We get the inbound routes to the source step of the route we're parsing.
     inbound_routes = source_step.inbound_routes_in_procedure( procedure )
@@ -41,7 +41,7 @@ module PARSE
     if route.current
     
       # ... we update the route current attribute to true.
-      #update_route_hash( route, 'TRUE', nil, nil, nil, nil, nil, nil )
+      update_route_hash( route, 'TRUE', nil, nil, nil, nil, nil, nil )
     
     # Otherwise, if the route is not current ...
     else
@@ -51,6 +51,20 @@ module PARSE
       # ... we also record this route as parsed because we don't want to visit it and attempt to parse again.
       update_route_hash( route, 'FALSE', 'UNTRAVERSABLE', true, nil, nil, nil, nil )
     end
+    
+    # HACK
+    if route.target_step.step_type_name == 'Business step'
+      if @routes[route][:status] == 'TRUE'
+        unless @caused_steps.include?( route.target_step )
+          @caused_steps << route.target_step 
+        end
+      elsif @routes[route][:status] == 'ALLOWS'
+        unless @allowed_steps.include?( route.target_step )
+          @allowed_steps << route.target_step 
+        end
+      end
+    end
+    # /HACK
       
     # ## Having parsed this route, we now want to continue to traverse the graph, following outbound routes from the target step of this route.
     # This forces us to traverse the procedure in a depth first fashion.
