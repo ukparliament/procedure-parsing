@@ -5,8 +5,15 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
 </head>
 <body>
+<header>
+  <nav>
+    <button><a href="/">Home</a></button>
+    <button><a href="procedures">Procedures</a></button>
+      <button><a href="work_packages">Work Packages</a></button>
 
-<%= yield %>
-
+  </nav>
+</header>
+<main><%= yield %></main>
+<footer></footer>
 </body>
 </html>
