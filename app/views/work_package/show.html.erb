@@ -3,50 +3,52 @@
 
 <%= "#{link_to( 'Instrument', @work_package.web_link )} subject to the #{link_to( @work_package.parliamentary_procedure.name, procedure_show_url( :procedure => @work_package.parliamentary_procedure ) )} procedure.".html_safe %>
 
-<%= content_tag( 'h2', 'Things that have happened' ) %>
+<h2>Things that have happened</h2>
+<p>Steps actualised by with business items having a date in the past, or today.</p>
 
-<%= content_tag( 'p', "Steps actualised by with business items having a date in the past, or today." ) %>
 <section>
 	<%= render :partial => 'business_item/business_item', :collection => @work_package.business_items_that_have_happened %>
 </section>
 
-<%= content_tag( 'h2', 'Things that are scheduled to happen' ) %>
+<h2>Things that are scheduled to happen</h2>
+<p>Steps actualised with business items having a date in the future.</p>
 
-<%= content_tag( 'p', "Steps actualised with business items having a date in the future." ) %>
-<ol>
+<section>
 	<%= render :partial => 'business_item/business_item', :collection => @work_package.business_items_that_are_scheduled_to_happen %>
-</ol>
+</section>
 
-<%= content_tag( 'h2', 'Things that may have happened or may be scheduled to happen' ) %>
-<%= content_tag( 'p', "Steps actualised with business items having no date." ) %>
-<ol>
+
+<h2>Things that may have happened or may be scheduled to happen</h2>
+<p>Steps actualised with business items having no date.</p>
+
+<section>
 	<%= render :partial => 'business_item/business_item', :collection => @work_package.business_items_unknown %>
-</ol>
+</section>
 
-<%= content_tag( 'h2', 'Things that should happen' ) %>
+<h2>Things that should happen</h2>
+<p>Steps with an input of 'TRUE' once the procedure map has been parsed.</p>
 
-<%= content_tag( 'p', "Steps with an input of 'TRUE' once the procedure map has been parsed." ) %>
-<ol>
+<section>
 	<%= render :partial => 'step/step', :collection => @caused_steps %>
-</ol>
+</section>
 
-<%= content_tag( 'h2', 'Things that may happen' ) %>
+<h2>Things that may happen</h2>
+<p>Steps with an input of 'ALLOWS' once the procedure map has been parsed.</p>
 
-<%= content_tag( 'p', "Steps with an input of 'ALLOWS' once the procedure map has been parsed." ) %>
-<ol>
+<section>
 	<%= render :partial => 'step/step', :collection => @allowed_steps %>
-</ol>
+</section>
 
-<%= content_tag( 'h2', 'Things that should not now happen' ) %>
+<h2>Things that should not now happen</h2>
+<p>Steps with an input of <code>UNTRAVSERSABLE</code> once the procedure map has been parsed.</p>
 
-<%= content_tag( 'p', "Steps with an input of 'UNTRAVSERSABLE' once the procedure map has been parsed." ) %>
-<ol>
+<section>
 	<%= render :partial => 'step/step', :collection => @disallowed_now_steps %>
-</ol>
+</section>
 
-<%= content_tag( 'h2', 'Things that should not yet happen' ) %>
+<h2>Things that should not yet happen</h2>
+<p>Steps with an input of 'NULL' or 'FALSE' once the procedure map has been parsed.</p>
 
-<%= content_tag( 'p', "Steps with an input of 'NULL' or 'FALSE' once the procedure map has been parsed." ) %>
-<ol>
+<section>
 	<%= render :partial => 'step/step', :collection => @disallowed_yet_steps %>
-</ol>
+</section>

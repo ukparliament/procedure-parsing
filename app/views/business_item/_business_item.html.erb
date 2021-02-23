@@ -1,7 +1,11 @@
 <article>
 	<p>
+    <%- if business_item.date %>
 
-    <time><%= business_item.date %></time>
+      <time><%= business_item.date %></time>
+    <% end %>
+
+
 <a href="<%= business_item.web_link %>" title="<%= business_item.web_link %>">
   <%= business_item.web_link_domain %></a>
 
