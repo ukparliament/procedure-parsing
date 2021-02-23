@@ -1,7 +1,11 @@
 
 <h1>Work Package: <%= @work_package.triple_store_id %></h1>
+<p>
+An instrument subject to the <%= link_to( @work_package.parliamentary_procedure.name, procedure_show_url( :procedure => @work_package.parliamentary_procedure ) ).html_safe %> procedure.
+<br>
+<small><a href="<%= @work_package.web_link %>" title="<%= @work_package.web_link %>"><%= @work_package.web_link %></a></small>
 
-<%= "#{link_to( 'Instrument', @work_package.web_link )} subject to the #{link_to( @work_package.parliamentary_procedure.name, procedure_show_url( :procedure => @work_package.parliamentary_procedure ) )} procedure.".html_safe %>
+</p>
 
 <h2>Things that have happened</h2>
 <p>Steps actualised by with business items having a date in the past, or today.</p>
@@ -18,7 +22,7 @@
 	<%= render :partial => 'business_item/business_item', :collection => @work_package.business_items_that_are_scheduled_to_happen %>
 </section>
 <% else %>
-  <em>There are no steps with these attributes.</em>
+  <em>There are no steps actualised with business items having a date in the future.</em>
 <% end %>
 
 <h2>Things that may have happened or may be scheduled to happen</h2>
@@ -35,7 +39,7 @@
 	<%= render :partial => 'step/step', :collection => @caused_steps %>
 </section>
 <% else %>
-  <em>There are no steps with these attributes.</em>
+  <em>There are no steps with an input of <code>TRUE</code> once the procedure map has been parsed.</em>
 <% end %>
 <h2>Things that may happen</h2>
 <p>Steps with an input of <code>ALLOWS</code> once the procedure map has been parsed.</p>
@@ -45,7 +49,7 @@
 	<%= render :partial => 'step/step', :collection => @allowed_steps %>
 </section>
 <% else %>
-  <em>There are no steps with these attributes.</em>
+  <em>There are no steps with an input of <code>ALLOWS</code> once the procedure map has been parsed.</em>
 <% end %>
 
 <h2>Things that should not now happen</h2>
@@ -57,7 +61,7 @@
 	<%= render :partial => 'step/step', :collection => @disallowed_now_steps %>
 </section>
 <% else %>
-  <em>There are no steps with these attributes.</em>
+  <em>There are no steps with an input of <code>UNTRAVSERSABLE</code> once the procedure map has been parsed.</em>
 <% end %>
 
 <h2>Things that should not yet happen</h2>
@@ -70,5 +74,5 @@
 </section>
 
   <% else %>
-  <em>There are no steps with these attributes.</em>
+  <em>There are no steps with an input of <code>NULL</code> or <code>FALSE</code> once the procedure map has been parsed.</em>
 <% end %>
