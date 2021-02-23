@@ -1,10 +1,14 @@
-<li>
+<article>
 	<p>
+    <time><%= business_item.date %></time>
+
 		<% if business_item.web_link %>
 			<%= link_to( business_item.step_names.html_safe, business_item.web_link ) %>
+      <br>
+      <%= business_item.web_link %>
 		<% else -%>
 			<%= business_item.step_names %>
 		<% end -%>
 	</p>
-	<%= content_tag( 'time', business_item.date ) %>
-</li>
+
+</article>
