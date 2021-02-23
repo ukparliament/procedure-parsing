@@ -1,7 +1,6 @@
 
 <h1>Work Package: <%= @work_package.triple_store_id %></h1>
 
-
 <%= "#{link_to( 'Instrument', @work_package.web_link )} subject to the #{link_to( @work_package.parliamentary_procedure.name, procedure_show_url( :procedure => @work_package.parliamentary_procedure ) )} procedure.".html_safe %>
 
 <%= content_tag( 'h2', 'Things that have happened' ) %>

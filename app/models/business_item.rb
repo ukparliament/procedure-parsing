@@ -2,7 +2,23 @@ class BusinessItem < ActiveRecord::Base
   
   has_many :actualisations
   has_many :steps, :through => 'actualisations'
-  
+
+  def web_link_domain
+    uri = URI.parse(web_link)
+
+    case uri.scheme
+
+    when "https"
+      uri.host
+    when "http"
+      uri.host
+    else
+      ""
+    end
+
+
+  end
+
   def step_names
     step_names = ''
     if self.steps.size == 1
