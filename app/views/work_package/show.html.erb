@@ -8,14 +8,18 @@ An instrument subject to the <%= link_to( @work_package.parliamentary_procedure.
 </p>
 
 <h2>Things that have happened</h2>
-<p>Steps actualised by with business items having a date in the past, or today.</p>
+<details>
+  <summary>Steps actualised by with business items having a date in the past, or today: <%= @work_package.business_items_that_have_happened_number %></summary>
+
 
 <section>
 	<%= render :partial => 'business_item/business_item', :collection => @work_package.business_items_that_have_happened %>
 </section>
+</details>
 
 <h2>Things that are scheduled to happen</h2>
-<p>Steps actualised with business items having a date in the future.</p>
+<details>
+  <summary>Steps actualised with business items having a date in the future: <%= @work_package.business_items_that_are_scheduled_to_happen_number %></summary>
 <%- if @work_package.business_items_that_are_scheduled_to_happen.length > 0 %>
 
 <section>
@@ -24,17 +28,20 @@ An instrument subject to the <%= link_to( @work_package.parliamentary_procedure.
 <% else %>
   <em>There are no steps actualised with business items having a date in the future.</em>
 <% end %>
+</details>
 
 <h2>Things that may have happened or may be scheduled to happen</h2>
-<p>Steps actualised with business items having no date.</p>
+<details>
+  <summary>Steps actualised with business items having no date: <%= @work_package.business_items_unknown_number %></summary>
 
 <section>
 	<%= render :partial => 'business_item/business_item', :collection => @work_package.business_items_unknown %>
 </section>
+</details>
 
 <h2>Things that should happen</h2>
 <details>
-  <summary>Steps with an input of <code>TRUE</code> once the procedure map has been parsed.</summary>
+  <summary>Steps with an input of <code>TRUE</code> once the procedure map has been parsed</summary>
 
 <%- if @allowed_steps.length > 0 %>
 <section>
@@ -47,7 +54,7 @@ An instrument subject to the <%= link_to( @work_package.parliamentary_procedure.
 
 <h2>Things that may happen</h2>
 <details>
-  <summary>Steps with an input of <code>ALLOWS</code> once the procedure map has been parsed.</summary>
+  <summary>Steps with an input of <code>ALLOWS</code> once the procedure map has been parsed</summary>
 
 <%- if @allowed_steps.length > 0 %>
 <section>
@@ -60,7 +67,7 @@ An instrument subject to the <%= link_to( @work_package.parliamentary_procedure.
 
 <h2>Things that should not now happen</h2>
 <details>
-  <summary>Steps with an input of <code>UNTRAVSERSABLE</code> once the procedure map has been parsed.</summary>
+  <summary>Steps with an input of <code>UNTRAVSERSABLE</code> once the procedure map has been parsed</summary>
 
 <%- if @disallowed_now_steps.length > 0 %>
 
@@ -74,7 +81,7 @@ An instrument subject to the <%= link_to( @work_package.parliamentary_procedure.
 
 <h2>Things that should not yet happen</h2>
 <details>
-  <summary>Steps with an input of <code>NULL</code> or <code>FALSE</code> once the procedure map has been parsed.</summary>
+  <summary>Steps with an input of <code>NULL</code> or <code>FALSE</code> once the procedure map has been parsed</summary>
 
 <%- if @disallowed_yet_steps.length > 0 %>
 
