@@ -33,7 +33,9 @@ An instrument subject to the <%= link_to( @work_package.parliamentary_procedure.
 </section>
 
 <h2>Things that should happen</h2>
-<p>Steps with an input of <code>TRUE</code> once the procedure map has been parsed.</p>
+<details>
+  <summary>Steps with an input of <code>TRUE</code> once the procedure map has been parsed.</summary>
+
 <%- if @allowed_steps.length > 0 %>
 <section>
 	<%= render :partial => 'step/step', :collection => @caused_steps %>
@@ -41,8 +43,11 @@ An instrument subject to the <%= link_to( @work_package.parliamentary_procedure.
 <% else %>
   <em>There are no steps with an input of <code>TRUE</code> once the procedure map has been parsed.</em>
 <% end %>
+</details>
+
 <h2>Things that may happen</h2>
-<p>Steps with an input of <code>ALLOWS</code> once the procedure map has been parsed.</p>
+<details>
+  <summary>Steps with an input of <code>ALLOWS</code> once the procedure map has been parsed.</summary>
 
 <%- if @allowed_steps.length > 0 %>
 <section>
@@ -51,9 +56,11 @@ An instrument subject to the <%= link_to( @work_package.parliamentary_procedure.
 <% else %>
   <em>There are no steps with an input of <code>ALLOWS</code> once the procedure map has been parsed.</em>
 <% end %>
+</details>
 
 <h2>Things that should not now happen</h2>
-<p>Steps with an input of <code>UNTRAVSERSABLE</code> once the procedure map has been parsed.</p>
+<details>
+  <summary>Steps with an input of <code>UNTRAVSERSABLE</code> once the procedure map has been parsed.</summary>
 
 <%- if @disallowed_now_steps.length > 0 %>
 
@@ -63,9 +70,11 @@ An instrument subject to the <%= link_to( @work_package.parliamentary_procedure.
 <% else %>
   <em>There are no steps with an input of <code>UNTRAVSERSABLE</code> once the procedure map has been parsed.</em>
 <% end %>
+</details>
 
 <h2>Things that should not yet happen</h2>
-<p>Steps with an input of <code>NULL</code> or <code>FALSE</code> once the procedure map has been parsed.</p>
+<details>
+  <summary>Steps with an input of <code>NULL</code> or <code>FALSE</code> once the procedure map has been parsed.</summary>
 
 <%- if @disallowed_yet_steps.length > 0 %>
 
@@ -76,3 +85,4 @@ An instrument subject to the <%= link_to( @work_package.parliamentary_procedure.
   <% else %>
   <em>There are no steps with an input of <code>NULL</code> or <code>FALSE</code> once the procedure map has been parsed.</em>
 <% end %>
+</details>
