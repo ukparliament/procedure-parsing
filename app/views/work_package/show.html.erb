@@ -7,9 +7,9 @@
 <%= content_tag( 'h2', 'Things that have happened' ) %>
 
 <%= content_tag( 'p', "Steps actualised by with business items having a date in the past, or today." ) %>
-<ol>
+<section>
 	<%= render :partial => 'business_item/business_item', :collection => @work_package.business_items_that_have_happened %>
-</ol>
+</section>
 
 <%= content_tag( 'h2', 'Things that are scheduled to happen' ) %>
 
