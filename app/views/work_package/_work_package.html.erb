@@ -1,1 +1,8 @@
-<%= content_tag( 'li', link_to( work_package.triple_store_id, work_package_show_url( :work_package => work_package ) ) ) %>
+<p>
+
+  ID: <%= link_to( work_package.triple_store_id, work_package_show_url( :work_package => work_package ) )  %>
+<br>
+  <small><a href="<%= work_package.web_link  %>" title="<%= work_package.web_link  %>"><%= work_package.web_link  %></a></small>
+
+
+</p>

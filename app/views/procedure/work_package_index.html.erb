@@ -1,4 +1,4 @@
-<%= content_tag( 'h1', "#{@procedure.name} work packages" ) %>
+<h1>Work packages: <%= @procedure.name %></h1>
 
 <section>
 	<%= render :partial => 'work_package/work_package', :collection => @procedure.work_packages %>
