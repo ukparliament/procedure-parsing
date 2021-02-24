@@ -1,7 +1,13 @@
 class ProcedureController < ApplicationController
-  
+
   def index
     @procedures = ParliamentaryProcedure.all.order( 'name' )
+
+    respond_to do |format|
+      format.html
+      format.xml { render xml: @procedures }
+      format.json { render json: @procedures }
+    end
   end
   
   def show
