@@ -1,4 +1,4 @@
-module PARSE_OR_STEP
+module PARSE_OR_STEP_FROM_BUSINESS_STEPS
   
   # # Method to parse a route whose source step is an OR step.
   def parse_route_from_or_step( route, source_step, procedure, inbound_routes )

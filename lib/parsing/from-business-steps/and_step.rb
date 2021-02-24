@@ -1,4 +1,4 @@
-module PARSE_AND_STEP
+module PARSE_AND_STEP_FROM_BUSINESS_STEPS
   
   # # Method to parse a route whose source step is an AND step.
   def parse_route_from_and_step( route, source_step, procedure, inbound_routes )
