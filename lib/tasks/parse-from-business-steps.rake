@@ -22,14 +22,14 @@ task :parse_from_business_steps => :environment do
   @disallowed_now_steps = []
   
   # We include the main parsing code.
-  include PARSE
+  include PARSE_FROM_BUSINESS_STEPS
   
   # We include code for the different styles of parsing according to the source step type.
-  include PARSE_AND_STEP
-  include PARSE_BUSINESS_STEP
-  include PARSE_DECISION_STEP
-  include PARSE_NOT_STEP
-  include PARSE_OR_STEP
+  include PARSE_AND_STEP_FROM_BUSINESS_STEPS
+  include PARSE_BUSINESS_STEP_FROM_BUSINESS_STEPS
+  include PARSE_DECISION_STEP_FROM_BUSINESS_STEPS
+  include PARSE_NOT_STEP_FROM_BUSINESS_STEPS
+  include PARSE_OR_STEP_FROM_BUSINESS_STEPS
   
   # We get the work package we're trying to parse.
   work_package = WorkPackage.find( ENV['wp'] )
