@@ -1,4 +1,4 @@
-module PARSE_BUSINESS_STEP
+module PARSE_BUSINESS_STEP_FROM_START_STEPS
   
   # # Method to parse a route whose source step is a business step.
   def parse_route_from_business_step( route, source_step, procedure, inbound_routes )
