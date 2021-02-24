@@ -1,6 +1,6 @@
 # # Module containng the main parsing code including initialisation of the route hash, creation of a hash per route and updating of a hash per route.
 # Design notes for the [parsing of a procedure map with logic gates are here](https://ukparliament.github.io/ontologies/procedure/flowcharts/meta/design-notes/#procedure-maps-with-logic-gates).
-module PARSE
+module PARSE_FROM_START_STEPS
   
   # ## Method to parse a route.
   # We pass in the route to be parsed, the source step of that route and the procedure the route is in.
@@ -15,7 +15,7 @@ module PARSE
     @parse_log << "Parsing route from #{@routes[route][:source_step_name]} (#{@routes[route][:source_step_type]}) to #{@routes[route][:target_step_name]} (#{@routes[route][:target_step_type]})."
     
     # We tell the user which route we're parsing.
-    #puts " #{@parse_count} of #{@route_count} - Parsing route from #{@routes[route][:source_step_name]} (#{@routes[route][:source_step_type]}) to #{@routes[route][:target_step_name]} (#{@routes[route][:target_step_type]})."
+    puts "Parse pass #{@parse_count} over #{@route_count} routes - Parsing route from #{@routes[route][:source_step_name]} (#{@routes[route][:source_step_type]}) to #{@routes[route][:target_step_name]} (#{@routes[route][:target_step_type]})."
   
     # We get the inbound routes to the source step of the route we're parsing.
     inbound_routes = source_step.inbound_routes_in_procedure( procedure )
@@ -52,19 +52,38 @@ module PARSE
       update_route_hash( route, 'FALSE', 'UNTRAVERSABLE', true, nil, nil, nil, nil )
     end
     
-    # HACK
-    if route.target_step.step_type_name == 'Business step'
-      if @routes[route][:status] == 'TRUE'
-        unless @caused_steps.include?( route.target_step )
-          @caused_steps << route.target_step 
-        end
-      elsif @routes[route][:status] == 'ALLOWS'
-        unless @allowed_steps.include?( route.target_step )
-          @allowed_steps << route.target_step 
+    # ## Assign the potential state of any target business step.
+    # If the route we're attempting to parse has been fully parsed ...
+    if @routes[route][:parsed] == true
+      # ... if the target step of the route we've just parsed is a business step ...
+      if route.target_step.step_type_name == 'Business step'
+      
+        # ... if the status of the route we've just parsed is 'TRUE' ...
+        if @routes[route][:status] == 'TRUE'
+        
+          # ... we add the target step to the array of caused steps, unless it is already in that array.
+          @caused_steps << route.target_step
+        
+        # ... if the status of the route we've just parsed is 'ALLOWS' ...
+        elsif @routes[route][:status] == 'ALLOWS'
+        
+          # ... we add the target step to the array of allowed steps, unless it is already in that array.
+          @allowed_steps << route.target_step
+        
+        # ... if the status of the route we've just parsed is 'FALSE' or 'NULL' ...
+        elsif @routes[route][:status] == 'NULL' or  @routes[route][:status] == 'FALSE'
+        
+          # ... we add the target step to the array of disallowed as yet steps, unless it is already in that array.
+          @disallowed_yet_steps << route.target_step
+        
+        # ... if the status of the route we've just parsed is 'UNTRAVERSABLE' ...
+        elsif @routes[route][:status] == 'UNTRAVERSABLE'
+        
+          # ... we add the target step to the array of disallowed now steps, unless it is already in that array.
+          @disallowed_now_steps << route.target_step
         end
       end
     end
-    # /HACK
       
     # ## Having parsed this route, we now want to continue to traverse the graph, following outbound routes from the target step of this route.
     # This forces us to traverse the procedure in a depth first fashion.
