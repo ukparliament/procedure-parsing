@@ -5,7 +5,19 @@ An instrument subject to the <%= link_to( @work_package.parliamentary_procedure.
 <br>
 <small><a href="<%= @work_package.web_link %>" title="<%= @work_package.web_link %>"><%= @work_package.web_link %></a></small>
 
-</p>
+<details>
+  <summary>meta tags</summary>
+<% @work_package.web_link_meta_tags.each do |web_link_meta_tag| %>
+  <p><b><%= web_link_meta_tag['name'] %></b> <%= web_link_meta_tag['scheme'] %> / <%= web_link_meta_tag['content'] %></p>
+<% end %>
+</details>
+
+<details>
+  <summary>link tags</summary>
+<% @work_package.web_link_links.each do |web_link_link| %>
+  <p><b><%= web_link_link['rel'] %></b> <%= web_link_link['type'] %> / <%= web_link_link['href'] %></p>
+<% end %>
+</details>
 
 <h2>Things that have happened</h2>
 <details open>
