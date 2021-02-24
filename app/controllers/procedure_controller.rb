@@ -13,12 +13,10 @@ class ProcedureController < ApplicationController
   def show
     procedure = params[:procedure]
     @procedure = ParliamentaryProcedure.find( procedure )
-
   end
   
   def work_package_index
     procedure = params[:procedure]
     @procedure = ParliamentaryProcedure.find( procedure )
-    
   end
 end
