@@ -10,12 +10,12 @@ require "#{Rails.root}/lib/parsing/from-business-steps/or_step"
 class WorkPackageController < ApplicationController
   
   # We include code for the different styles of parsing according to the source step type.
-  include PARSE
-  include PARSE_BUSINESS_STEP
-  include PARSE_DECISION_STEP
-  include PARSE_NOT_STEP
-  include PARSE_AND_STEP
-  include PARSE_OR_STEP
+  include PARSE_FROM_BUSINESS_STEPS
+  include PARSE_BUSINESS_STEP_FROM_BUSINESS_STEPS
+  include PARSE_DECISION_STEP_FROM_BUSINESS_STEPS
+  include PARSE_NOT_STEP_FROM_BUSINESS_STEPS
+  include PARSE_AND_STEP_FROM_BUSINESS_STEPS
+  include PARSE_OR_STEP_FROM_BUSINESS_STEPS
   
   def show
     work_package = params[:work_package]
