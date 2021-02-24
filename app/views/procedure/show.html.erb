@@ -1,14 +1,17 @@
 
-
-
-
 <%= content_tag( 'h1', @procedure.name ) %>
 
 
-	<p>
+	<blockquote>
 		<%= @procedure.description_massaged %>
-		<br>
-		Routes: <%= @procedure.routes.size %>
-		&middot;
+  </blockquote>
+
+<p>
+  Routes: <%= @procedure.routes.size %></p>
+<p>
 		Work packages: <%= content_tag( 'span', link_to( "#{@procedure.work_packages.size}", procedure_work_package_list_url ) ) %>
 	</p>
+
+<p>Procedure Schema site: <a href="https://procedures.azurewebsites.net/Procedures/<%= @procedure.id %>">https://procedures.azurewebsites.net/Procedures/<%= @procedure.id %></a></p>
+
+<p>Render graph: <a href="https://procedures.azurewebsites.net/Procedures/<%= @procedure.id %>/graph">https://procedures.azurewebsites.net/Procedures/<%= @procedure.id %>/graph</a></p>
