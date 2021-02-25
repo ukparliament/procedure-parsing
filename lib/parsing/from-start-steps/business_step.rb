@@ -15,7 +15,7 @@ module PARSE_BUSINESS_STEP_FROM_START_STEPS
       # ## We only parse a business step if it's inbound route has already been parsed.
       # This is a problem for start steps which are self precluding.
       # They point to a NOT step which points back to the start step.
-      # Relying on the inbound route being parsed woukd rely on the outbound route being parsed and parsing could never start.
+      # Relying on the inbound route being parsed would rely on the outbound route being parsed and parsing could never start.
       # Therefore, for start steps we ignore the parsed attribute of the inbound route.
       # ... if the source step for this route is in the array of start steps ...
       if @start_steps.include?( source_step )

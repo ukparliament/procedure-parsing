@@ -4,7 +4,7 @@ require 'nokogiri'
 class WorkPackage < ActiveRecord::Base
   
   belongs_to :parliamentary_procedure
-
+  # https://guides.rubyonrails.org/caching_with_rails.html
   def web_link_meta_tags
     # Rails.cache.fetch([web_link], :expires => 1.hour) do
       Nokogiri::HTML(URI.open(self.web_link)).xpath('//meta')
