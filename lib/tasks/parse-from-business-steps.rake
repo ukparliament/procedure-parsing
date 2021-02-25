@@ -32,16 +32,16 @@ task :parse_from_business_steps => :environment do
   include PARSE_OR_STEP_FROM_BUSINESS_STEPS
   
   # We get the work package we're trying to parse.
-  work_package = WorkPackage.find( ENV['wp'] )
+  @work_package = WorkPackage.find( ENV['wp'] )
   
   # We get the procedure the work package is subject to.
-  procedure = work_package.parliamentary_procedure
+  procedure = @work_package.parliamentary_procedure
   
   # We tell the user what we're attempting to do.
   puts "Attempting to parse work package #{ENV['wp']}, subject to the #{procedure.name.downcase} procedure."
   
   # We initialise a hash of additional route attributes keyed off the route.
-  initialise_route_hash( work_package )
+  initialise_route_hash( @work_package )
   
   # We set the parse count to zero.
   # This will be incremented every time we parse a route and used for reporting.
