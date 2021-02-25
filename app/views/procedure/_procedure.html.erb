@@ -1,11 +1,11 @@
+<hr>
 <article>
 	<p>
-		<%= content_tag( 'big', link_to( procedure.name, procedure_show_url( :procedure => procedure ) ) ) %>
-		<br>
-		<%= procedure.description_massaged %>
-	<br>
-		Routes: <%= procedure.routes.size %>
-		-
-		Work packages: <%= content_tag( 'span', link_to( "#{procedure.work_packages.size}", procedure_work_package_list_url( :procedure => procedure ) ) ) %>
+		<blockquote>
+
+<%= content_tag( 'strong', link_to( procedure.name, procedure_show_url( :procedure => procedure ) ) ) %>
+		&mdash; <%= procedure.description_massaged %>
+    </blockquote>
+  <p>Routes: <%= procedure.routes.size %>. Work packages: <%= content_tag( 'span', link_to( "#{procedure.work_packages.size}", procedure_work_package_list_url( :procedure => procedure ) ) ) %>.
 	</p>
 </article>

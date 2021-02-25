@@ -1,6 +1,21 @@
+require 'open-uri'
+require 'nokogiri'
+
 class WorkPackage < ActiveRecord::Base
   
   belongs_to :parliamentary_procedure
+
+  def web_link_meta_tags
+    # Rails.cache.fetch([web_link], :expires => 1.hour) do
+      Nokogiri::HTML(URI.open(self.web_link)).xpath('//meta')
+    # end
+  end
+
+  def web_link_links
+    # Rails.cache.fetch([web_link], :expires => 1.hour) do
+    Nokogiri::HTML(URI.open(self.web_link)).xpath('//link')
+    # end
+  end
   
   def business_items_that_have_happened
     BusinessItem.all.where( 'work_package_id = ?', self).where( 'date <= ?', Date.today ).order( 'date' )
