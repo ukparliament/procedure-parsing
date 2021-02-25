@@ -34,7 +34,7 @@ module PARSE_BUSINESS_STEP_FROM_BUSINESS_STEPS
           # ... set the route status to 'TRUE'.
           update_route_hash( route, nil, 'TRUE', nil, nil, nil, nil, nil )
             
-        # ... otherwise, if the source step has not been actualised or has only been actualised by business items with dates in the past ....
+        # ... otherwise, if the source step has not been actualised or has only been actualised by business items with dates in the past or by business items with no date ....
         else
             
           # ... set the route status to 'NULL'.

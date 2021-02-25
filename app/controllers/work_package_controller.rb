@@ -6,6 +6,7 @@ require "#{Rails.root}/lib/parsing/from-business-steps/business_step"
 require "#{Rails.root}/lib/parsing/from-business-steps/decision_step"
 require "#{Rails.root}/lib/parsing/from-business-steps/not_step"
 require "#{Rails.root}/lib/parsing/from-business-steps/or_step"
+require "#{Rails.root}/lib/parsing/from-business-steps/equal_step"
 
 class WorkPackageController < ApplicationController
   
@@ -16,6 +17,7 @@ class WorkPackageController < ApplicationController
   include PARSE_NOT_STEP_FROM_BUSINESS_STEPS
   include PARSE_AND_STEP_FROM_BUSINESS_STEPS
   include PARSE_OR_STEP_FROM_BUSINESS_STEPS
+  include PARSE_EQUAL_STEP_FROM_BUSINESS_STEPS
   
   def show
     work_package = params[:work_package]
