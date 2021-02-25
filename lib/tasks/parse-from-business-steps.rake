@@ -6,6 +6,7 @@ require 'parsing/from-business-steps/business_step'
 require 'parsing/from-business-steps/decision_step'
 require 'parsing/from-business-steps/not_step'
 require 'parsing/from-business-steps/or_step'
+require 'parsing/from-business-steps/equal_step'
 
 # # Rake task to begin parsing from any business step down.
 task :parse_from_business_steps => :environment do
@@ -30,6 +31,7 @@ task :parse_from_business_steps => :environment do
   include PARSE_DECISION_STEP_FROM_BUSINESS_STEPS
   include PARSE_NOT_STEP_FROM_BUSINESS_STEPS
   include PARSE_OR_STEP_FROM_BUSINESS_STEPS
+  include PARSE_EQUAL_STEP_FROM_BUSINESS_STEPS
   
   # We get the work package we're trying to parse.
   @work_package = WorkPackage.find( ENV['wp'] )
