@@ -32,6 +32,8 @@ module PARSE_FROM_BUSINESS_STEPS
       parse_route_from_and_step( route, source_step, procedure, inbound_routes )
     when "OR"
       parse_route_from_or_step( route, source_step, procedure, inbound_routes )
+    when "Equals"
+      parse_route_from_equal_step( route, source_step, procedure, inbound_routes )
     end
         
     # ## We check for route currency.
