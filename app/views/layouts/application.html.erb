@@ -8,17 +8,16 @@
 <body>
 <header>
   <nav>
-	  <%= content_tag( 'p', link_to( 'Procedures', '/' ) ) %>
+	  <%= content_tag( 'p', link_to( 'Procedures', procedure_list_url ) ) %>
   </nav>
 </header>
-<main>
-	
-	
-	<%= content_tag( 'p', "This website has #{link_to( 'moved home', 'https://api.parliament.uk/procedures')}.".html_safe )%>
-</main>
+<main><%= yield %></main>
 
 
 <footer>
+	<%= link_to( 'Meta', meta_list_url ) %>
+	&middot;
+	<%= link_to( 'Schema', meta_schema_url )  %>
 </footer>
 
 </footer>
