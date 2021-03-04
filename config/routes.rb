@@ -20,6 +20,8 @@ Rails.application.routes.draw do
   get 'work-packages/:work_package' => 'work_package#show', as: :work_package_show
   get 'work-packages/:work_package/parse' => 'work_package#parse', as: :work_package_parse
   
+  get 'meta' => 'meta#index', as: :meta_list
+  get 'meta/schema' => 'meta#schema', as: :meta_schema
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
