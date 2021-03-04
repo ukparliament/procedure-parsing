@@ -12,11 +12,13 @@
   </nav>
 </header>
 <main><%= yield %></main>
-<footer>
 
-<p>
-  Source: <a href="https://github.com/fantasticlife/procedure">github.com/fantasticlife/procedure</a>
-</p>
+
+<footer>
+	<%= link_to( 'Meta', meta_list_url ) %>
+	&middot;
+	<%= link_to( 'Schema', meta_schema_url )  %>
+</footer>
 
 </footer>
 </body>
