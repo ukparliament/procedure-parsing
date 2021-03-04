@@ -1,3 +1,10 @@
+DB_HOST="procedures.postgres.database.azure.com"
+DB_DATABASE="procedures"
+DB_USERNAME="procedureuser@peerages"
+DB_PASSWORD="448aada9-168c-4bb9-bd84-ccdf46b0144a"
+
+
+
 # Load the Rails application.
 require File.expand_path('../application', __FILE__)
 
