@@ -8,9 +8,7 @@
 <body>
 <header>
   <nav>
-    <p>
-    <a href="/procedures">Procedures</a>
-    </p>
+	  <%= content_tag( 'p', link_to( 'Procedures', procedure_list_url ) ) %>
   </nav>
 </header>
 <main><%= yield %></main>
