@@ -19,5 +19,5 @@
 /.idea/
 /db/schema.rb
 /procedure.iml
-config/secrets.yml
-config/environment.rb
+
+
