@@ -138,6 +138,8 @@ GEM
     turbolinks-source (5.2.0)
     tzinfo (1.2.9)
       thread_safe (~> 0.1)
+    uglifier (4.2.0)
+      execjs (>= 0.3.0, < 3)
     web-console (2.3.0)
       activemodel (>= 4.0)
       binding_of_caller (>= 0.7.2)
@@ -160,6 +162,7 @@ DEPENDENCIES
   sass-rails (~> 5.0)
   spring
   turbolinks
+  uglifier
   web-console (~> 2.0)
 
 RUBY VERSION
