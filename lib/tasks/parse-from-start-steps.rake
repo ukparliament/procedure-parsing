@@ -48,7 +48,7 @@ task :parse_from_start_steps => :environment do
   # Created as an instance variable because we want to increment on each parse and report on it later.
   @parse_count = 0
   
-  # We get the all the business  steps of the procedure the work package is subject to.
+  # We get the all start steps of the procedure the work package is subject to.
   # Created as an instance variable because we want to check it when parsing business steps.
   @start_steps = procedure.start_steps
   
