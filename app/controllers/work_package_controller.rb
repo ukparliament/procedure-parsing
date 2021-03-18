@@ -1,23 +1,23 @@
 # The main parsing code and the individual parsing rules for source steps types are packaged into separate files.
 # We require the main parsing code and the step type specific parsing code to be loaded.
-require "#{Rails.root}/lib/parsing/from-business-steps/parse"
-require "#{Rails.root}/lib/parsing/from-business-steps/and_step"
-require "#{Rails.root}/lib/parsing/from-business-steps/business_step"
-require "#{Rails.root}/lib/parsing/from-business-steps/decision_step"
-require "#{Rails.root}/lib/parsing/from-business-steps/not_step"
-require "#{Rails.root}/lib/parsing/from-business-steps/or_step"
-require "#{Rails.root}/lib/parsing/from-business-steps/equal_step"
+require "#{Rails.root}/lib/parsing/from-start-steps/parse"
+require "#{Rails.root}/lib/parsing/from-start-steps/and_step"
+require "#{Rails.root}/lib/parsing/from-start-steps/business_step"
+require "#{Rails.root}/lib/parsing/from-start-steps/decision_step"
+require "#{Rails.root}/lib/parsing/from-start-steps/not_step"
+require "#{Rails.root}/lib/parsing/from-start-steps/or_step"
+#require "#{Rails.root}/lib/parsing/from-start-steps/equal_step"
 
 class WorkPackageController < ApplicationController
   
   # We include code for the different styles of parsing according to the source step type.
-  include PARSE_FROM_BUSINESS_STEPS
-  include PARSE_BUSINESS_STEP_FROM_BUSINESS_STEPS
-  include PARSE_DECISION_STEP_FROM_BUSINESS_STEPS
-  include PARSE_NOT_STEP_FROM_BUSINESS_STEPS
-  include PARSE_AND_STEP_FROM_BUSINESS_STEPS
-  include PARSE_OR_STEP_FROM_BUSINESS_STEPS
-  include PARSE_EQUAL_STEP_FROM_BUSINESS_STEPS
+  include PARSE_FROM_START_STEPS
+  include PARSE_BUSINESS_STEP_FROM_START_STEPS
+  include PARSE_DECISION_STEP_FROM_START_STEPS
+  include PARSE_NOT_STEP_FROM_START_STEPS
+  include PARSE_AND_STEP_FROM_START_STEPS
+  include PARSE_OR_STEP_FROM_START_STEPS
+  #include PARSE_EQUAL_STEP_FROM_START_STEPS
   
   def show
     work_package = params[:work_package]
@@ -58,12 +58,27 @@ class WorkPackageController < ApplicationController
     @parse_count = 0
   
     # We get the all the business in the procedure the work package is subject to.
-    business_steps = procedure.business_steps
+    #business_steps = procedure.business_steps
   
     # We loop through the business steps ...
-    business_steps.each do |step|
+    #business_steps.each do |step|
     
       # ... and loop through the outbound routes of each business step ...
+      #step.outbound_routes_in_procedure( procedure ).each do |route|
+      
+        # ... and parse each route.
+        #parse_route( route, step, procedure )
+        #end
+    #end
+    
+    # We get the all start steps of the procedure the work package is subject to.
+    # Created as an instance variable because we want to check it when parsing business steps.
+    @start_steps = procedure.start_steps
+  
+    # We loop through the start steps ...
+    @start_steps.each do |step|
+    
+      # ... and loop through the outbound routes of the start steps ...
       step.outbound_routes_in_procedure( procedure ).each do |route|
       
         # ... and parse each route.
