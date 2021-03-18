@@ -3,6 +3,11 @@ class Route < ActiveRecord::Base
   has_many :procedure_routes
   has_many :parliamentary_procedures, :through => 'procedure_routes'
   
+  # Get the source step of a route
+  def source_step
+    Step.all.select( 's.*, st.name as step_type_name' ).joins( 'as s, step_types as st' ).where( 's.step_type_id = st.id' ).where( 's.id = ?', self.from_step_id ).order( 's.id' ).first
+  end
+  
   # Get the target step of a route
   def target_step
     Step.all.select( 's.*, st.name as step_type_name' ).joins( 'as s, step_types as st' ).where( 's.step_type_id = st.id' ).where( 's.id = ?', self.to_step_id ).order( 's.id' ).first
