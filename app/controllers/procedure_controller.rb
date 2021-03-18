@@ -19,4 +19,9 @@ class ProcedureController < ApplicationController
     procedure = params[:procedure]
     @procedure = ParliamentaryProcedure.find( procedure )
   end
+  
+  def route_index
+    procedure = params[:procedure]
+    @procedure = ParliamentaryProcedure.find( procedure )
+  end
 end
