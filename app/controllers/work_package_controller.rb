@@ -57,7 +57,7 @@ class WorkPackageController < ApplicationController
     # Created as an instance variable because we want to increment on each parse and report on it later.
     @parse_count = 0
   
-    # We get the all the business in the procedure the work package is subject to.
+    # We get the all the business steps in the procedure the work package is subject to.
     #business_steps = procedure.business_steps
   
     # We loop through the business steps ...
@@ -80,7 +80,7 @@ class WorkPackageController < ApplicationController
     
       # ... and loop through the outbound routes of the start steps ...
       step.outbound_routes_in_procedure( procedure ).each do |route|
-      
+    
         # ... and parse each route.
         parse_route( route, step, procedure )
       end
