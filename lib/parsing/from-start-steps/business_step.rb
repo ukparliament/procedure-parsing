@@ -27,13 +27,17 @@ module PARSE_BUSINESS_STEP_FROM_START_STEPS
         if source_step.actualised_has_happened_in_work_package?( @work_package )
           
           # ... we set the route status to 'TRUE' and the route parsed attribute to true.
-          update_route_hash( route, nil, 'TRUE', true, nil, nil, nil, nil )
+          update_route_hash( route, nil, 'TRUE', true, nil, nil, nil, nil, nil )
+          
+          puts "parsed as TRUE"
           
         # ... otherwise, if the source step has not been actualised or has only been actualised by business items with dates in the past ....
         else
           
           # ... we set the route status to 'NULL' and the route parsed attribute to true.
-          update_route_hash( route, nil, 'NULL', true, nil, nil, nil, nil )
+          update_route_hash( route, nil, 'NULL', true, nil, nil, nil, nil, nil )
+          
+          puts "parsed as NULL"
         end
         
       # ... otherwise, if the source step for this route is not in the array of start steps...
@@ -47,14 +51,14 @@ module PARSE_BUSINESS_STEP_FROM_START_STEPS
           @parse_log << 'Parsed'
           
           # ... we update the route parsed attribute to true.
-          update_route_hash( route, nil, nil, true, nil, nil, nil, nil )
+          update_route_hash( route, nil, nil, true, nil, nil, nil, nil, nil )
           
           # If the inbound route to the source step has a status of 'UNTRAVERSABLE' ...
           if @routes[inbound_routes[0]][:status] == 'UNTRAVERSABLE'
             
             # ... we taint the roads off the bridge as closed if the bridge is closed ...
             # ... by setting the status of this route to also be 'UNTRAVERSABLE'.
-    			  update_route_hash( route, nil, 'UNTRAVERSABLE', nil, nil, nil, nil, nil )
+    			  update_route_hash( route, nil, 'UNTRAVERSABLE', nil, nil, nil, nil, nil, nil )
             
           # ... otherwise, if the inbound route to the source step does not have a status of 'UNTRAVERSABLE' ...
           else
@@ -63,13 +67,17 @@ module PARSE_BUSINESS_STEP_FROM_START_STEPS
             if source_step.actualised_has_happened_in_work_package?( @work_package )
               
               # ... set the route status to 'TRUE'.
-              update_route_hash( route, nil, 'TRUE', nil, nil, nil, nil, nil )
+              update_route_hash( route, nil, 'TRUE', nil, nil, nil, nil, nil, nil )
+          
+              puts "parsed as TRUE"
               
             # ... otherwise, if the source step has not been actualised or has only been actualised by business items with dates in the past ....
             else
               
               # ... set the route status to 'NULL'.
-              update_route_hash( route, nil, 'NULL', nil, nil, nil, nil, nil )
+              update_route_hash( route, nil, 'NULL', nil, nil, nil, nil, nil, nil )
+          
+              puts "parsed as NULL"
             end 
           end
           
