@@ -57,7 +57,7 @@ task :parse_from_start_steps => :environment do
     
     # ... and loop through the outbound routes of the start steps ...
     step.outbound_routes_in_procedure( procedure ).each do |route|
-      
+    
       # ... and parse each route.
       parse_route( route, step, procedure )
     end
