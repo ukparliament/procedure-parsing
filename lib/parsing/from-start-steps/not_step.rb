@@ -19,7 +19,7 @@ module PARSE_NOT_STEP_FROM_START_STEPS
         @parse_log << 'Parsed'
     
         # ... we update the route parsed attribute to true.
-        update_route_hash( route, nil, nil, true, nil, nil, nil, nil )
+        update_route_hash( route, nil, nil, true, nil, nil, nil, nil, nil )
         
         # ... we refer to the [NOT step truth table](https://ukparliament.github.io/ontologies/procedure/flowcharts/meta/design-notes/#truth-table-not) ...
         
@@ -29,19 +29,25 @@ module PARSE_NOT_STEP_FROM_START_STEPS
         when 'TRUE'
           
           # ... we set the status of this route to 'FALSE'.
-          update_route_hash( route, nil, 'FALSE', nil, nil, nil, nil, nil )
+          update_route_hash( route, nil, 'FALSE', nil, nil, nil, nil, nil, nil )
+          
+          puts "parsed as FALSE"
           
         # ... and if the status of the inbound route to the source step is 'FALSE' ...
         when 'FALSE'
           
           # ... we set the status of this route to 'TRUE'.
-          update_route_hash( route, nil, 'TRUE', nil, nil, nil, nil, nil )
+          update_route_hash( route, nil, 'TRUE', nil, nil, nil, nil, nil, nil )
+          
+          puts "parsed as TRUE"
           
         # ... and if the status of the inbound route is 'NULL' or 'UNTRAVERSABLE' ...
         else
           
           # ... we set the status of this route to the status of the inbound route.
-          update_route_hash( route, nil, @routes[inbound_routes[0]][:status], nil, nil, nil, nil, nil )
+          update_route_hash( route, nil, @routes[inbound_routes[0]][:status], nil, nil, nil, nil, nil, nil )
+          
+          puts "parsed as #{@routes[inbound_routes[0]][:status]}"
         end
         
       # ...otherwise, if the inbound route has not been parsed ...
