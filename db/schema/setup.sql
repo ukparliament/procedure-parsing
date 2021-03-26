@@ -32,7 +32,7 @@ create table step_types (
 );
 create table steps (
 	id serial,
-	triple_store_id char(8) not null,
+	triple_store_id char(8),
 	name varchar(255) not null,
 	description varchar(500) not null,
 	step_type_id int not null,
@@ -41,7 +41,7 @@ create table steps (
 );
 create table routes (
 	id serial,
-	triple_store_id char(8) not null,
+	triple_store_id char(8),
 	from_step_id int not null,
 	to_step_id int not null,
 	start_date date,
