@@ -23,5 +23,19 @@ class ProcedureController < ApplicationController
   def route_index
     procedure = params[:procedure]
     @procedure = ParliamentaryProcedure.find( procedure )
+    @steps = Step.all
+  end
+  
+  def route_create
+    procedure = params[:procedure]
+    @procedure = ParliamentaryProcedure.find( procedure )
+    route = Route.new
+    route.from_step_id = params[:route][:from_step_id]
+    route.to_step_id = params[:route][:to_step_id]
+    procedure_route = ProcedureRoute.new
+    procedure_route.route = route
+    procedure_route.parliamentary_procedure = @procedure
+    procedure_route.save
+    redirect_to procedure_route_list_url
   end
 end
