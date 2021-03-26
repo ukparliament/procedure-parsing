@@ -1,6 +1,7 @@
 <tr>
-	<%= content_tag( 'td', "#{route[0].id} (#{route[0].triple_store_id})" ) %>
+	<%= content_tag( 'td', route[0].id ) %>
 	<%= content_tag( 'td', route[1][:parsed] ) %>
+	<%= content_tag( 'td', route[1][:parse_pass_count] ) %>
 	<%= content_tag( 'td', route[1][:status] ) %>
 	<%= content_tag( 'td', route[1][:current] ) %>
 	<td>
