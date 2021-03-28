@@ -9,7 +9,7 @@ class Step < ActiveRecord::Base
   end
   
   def actualised_has_happened_in_work_package?( work_package )
-    BusinessItem.all.select( 'bi.*' ).joins( 'as bi, actualisations as a' ).where( 'a.step_id = ?', self ).where( 'a.business_item_id = bi.id' ).where( 'bi.work_package_id = ?', work_package ).where( 'bi.date >= ?', Date.today ).order( 'bi.id' ).first
+    BusinessItem.all.select( 'bi.*' ).joins( 'as bi, actualisations as a' ).where( 'a.step_id = ?', self ).where( 'a.business_item_id = bi.id' ).where( 'bi.work_package_id = ?', work_package ).where( 'bi.date <= ?', Date.today ).order( 'bi.id' ).first
   end
   
   def in_commons?
