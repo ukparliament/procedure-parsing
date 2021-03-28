@@ -111,13 +111,9 @@ module PARSE_FROM_START_STEPS
     
       # ... if the route has not already been parsed ....
       unless @routes[outbound_route][:parsed] == true
-        
-        # ... if the outbound route is parseable ...
-        if outbound_route.is_parseable?( procedure, @routes )
     
-          # ... we parse the route.
-          parse_route( outbound_route, target_step, procedure )
-        end
+        # ... we parse the route.
+        parse_route( outbound_route, target_step, procedure )
       end
     end
   end
