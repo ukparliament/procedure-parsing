@@ -45,7 +45,7 @@ module PARSE_BUSINESS_STEP_FROM_START_STEPS
         
         # ... we treat the route as any other route with a source step of type business step ...
         # ... if the inbound route to the source step of the route has been parsed ....
-        if @routes[inbound_routes[0]][:parsed] == true
+        #if @routes[inbound_routes[0]][:parsed] == true
         
           # ... we update the parse log to say this route has also been parsed.
           @parse_log << 'Parsed'
@@ -83,7 +83,7 @@ module PARSE_BUSINESS_STEP_FROM_START_STEPS
           
         # ... otherwise, if the inbound route has not been parsed ...
         # ... we do nothing and parse this route on a subsequent pass.
-        end
+        #end
       end
     end
   end
