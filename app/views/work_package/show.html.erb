@@ -18,7 +18,7 @@
 </details>
 
 <h2>Things that have happened</h2>
-<details open>
+<details>
 	<summary>Steps actualised by with business items having a date in the past, or today: <%= @work_package.business_items_that_have_happened_number %></summary>
 	<section>
 		<%= render :partial => 'business_item/business_item', :collection => @work_package.business_items_that_have_happened %>
@@ -26,7 +26,7 @@
 </details>
 
 <h2>Things that are scheduled to happen</h2>
-<details open>
+<details>
 	<summary>Steps actualised with business items having a date in the future: <%= @work_package.business_items_that_are_scheduled_to_happen_number %></summary>
 	<%- if @work_package.business_items_that_are_scheduled_to_happen.length > 0 %>
 		<section>
@@ -38,7 +38,7 @@
 </details>
 
 <h2>Things that may have happened or may be scheduled to happen</h2>
-<details open>
+<details>
 	<summary>Steps actualised with business items having no date: <%= @work_package.business_items_unknown_number %></summary>
 	<%- if @work_package.business_items_unknown.length > 0 %>
 		<section>
@@ -74,7 +74,7 @@
 </details>
 
 <h2>Things that should not now happen</h2>
-<details open>
+<details>
 	<summary>Steps with an input of <code>UNTRAVSERSABLE</code> once the procedure map has been parsed</summary>
 	<%- if @disallowed_now_steps.length > 0 %>
 		<section>
@@ -86,7 +86,7 @@
 </details>
 
 <h2>Things that should not yet happen</h2>
-<details open>
+<details>
 	<summary>Steps with an input of <code>NULL</code> or <code>FALSE</code> once the procedure map has been parsed</summary>
 	<%- if @disallowed_yet_steps.length > 0 %>
 		<section>
