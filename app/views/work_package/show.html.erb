@@ -3,6 +3,8 @@
 
 <p>An instrument subject to the <%= link_to( @work_package.parliamentary_procedure.name, procedure_show_url( :procedure => @work_package.parliamentary_procedure ) ).html_safe %> procedure.<br><small><a href="<%= @work_package.web_link %>" title="<%= @work_package.web_link %>"><%= @work_package.web_link %></a></small></p>
 
+<p><%= link_to( 'Parse log', work_package_parse_url ) %></p>
+
 <details>
 	<summary>meta tags</summary>
 	<% @work_package.web_link_meta_tags.each do |web_link_meta_tag| %>
