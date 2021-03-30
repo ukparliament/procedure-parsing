@@ -17,15 +17,17 @@ module PARSE
       
       ### EDITED TO HERE ###
       
-      # ... given we are parsing this route ...
-      # ... we update its parse pass count.
+      # ... given we are parsing a route, we increment its parse pass count ...
       parse_pass_count = @routes[route][:parse_pass_count] + 1
       
-      # ... and update the route hash with the new parse pass count.
+      # ... update the route hash with the new parse pass count ...
       update_route_hash( route, nil, nil, nil, parse_pass_count, nil, nil, nil, nil )
       
-      # ... we're parsing a route so we increment the parse count.
+      # ... and increment the parse count.
       @parse_pass_count += 1
+      
+      
+      
   
       # ... we log which route we're parsing.
       @parse_log << "Parsing route from #{@routes[route][:source_step_name]} (#{@routes[route][:source_step_type]}) to #{@routes[route][:target_step_name]} (#{@routes[route][:target_step_type]}) [#{@parse_pass_count}/#{@route_count}]."
@@ -71,6 +73,9 @@ module PARSE
         
         # ... we write to the parse logger, reporting the route's parsed status.
         @parse_log << "Successfully parsed as <strong>#{@routes[route][:status]}</strong>."
+        
+        
+        # Modularise this?
       
         # ... if the target step of the route we've just parsed is a business step ...
         if route.target_step.step_type_name == 'Business step'
@@ -103,7 +108,7 @@ module PARSE
       end
     end
       
-    # ## ... having parsed this route, we now want to continue to traverse the graph, following outbound routes from the target step of this route.
+    # ## ... having parsed this route, we want to continue to traverse the graph, following outbound routes from the target step of this route.
     # This forces us to traverse the procedure in a depth first fashion.
   
     # ... we get the target step of the route we're parsing.
