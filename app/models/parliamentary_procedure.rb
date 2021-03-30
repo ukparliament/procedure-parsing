@@ -15,10 +15,4 @@ class ParliamentaryProcedure < ActiveRecord::Base
   def routes_with_steps
     Route.all.select( 'r.*, ss.name as source_step_name, ts.name as target_step_name, sst.name as source_step_type, tst.name as target_step_type' ).joins( 'as r, procedure_routes as pr, steps as ss, steps as ts, step_types as sst, step_types as tst' ).where( 'r.id = pr.route_id' ).where( 'pr.parliamentary_procedure_id = ?', self ).where( 'r.from_step_id = ss.id' ).where( 'r.to_step_id = ts.id' ).where( 'ss.step_type_id = sst.id' ).where( 'ts.step_type_id = tst.id' )
   end
-  
-
-  # No longer used.
-  def business_steps
-    Step.all.select( 's.*, st.name as step_type_name' ).joins( 'as s, routes as r, procedure_routes as pr, step_types as st' ).where( 'pr.parliamentary_procedure_id = ?', self ).where( 'pr.route_id = r.id' ).where( 'r.to_step_id = s.id' ).where( 's.step_type_id = st.id' ).where( 'st.name = ?', 'Business step' )
-  end
 end
