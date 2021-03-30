@@ -20,31 +20,21 @@ module PARSE_BUSINESS_STEP
       # ... if the source step for this route is in the array of start steps ...
       if @start_steps.include?( source_step )
         
-        # ... we update the parse log to say this route has been parsed.
-        @parse_log << 'Parsed'
-        
         # ... and if the source step has been actualised by a business item with a date in the past or a date of today ...
         if source_step.actualised_has_happened_in_work_package?( @work_package )
           
           # ... we set the route status to 'TRUE' and the route parsed attribute to true.
           update_route_hash( route, nil, 'TRUE', true, nil, nil, nil, nil, nil )
           
-          puts "parsed as TRUE"
-          
         # ... otherwise, if the source step has not been actualised or has only been actualised by business items with dates in the past ....
         else
           
           # ... we set the route status to 'NULL' and the route parsed attribute to true.
           update_route_hash( route, nil, 'NULL', true, nil, nil, nil, nil, nil )
-          
-          puts "parsed as NULL"
         end
         
       # ... otherwise, if the source step for this route is not in the array of start steps...
       else
-        
-        # ... we update the parse log to say this route has also been parsed.
-        @parse_log << 'Parsed'
         
         # ... we update the route parsed attribute to true.
         update_route_hash( route, nil, nil, true, nil, nil, nil, nil, nil )
@@ -64,16 +54,12 @@ module PARSE_BUSINESS_STEP
             
             # ... set the route status to 'TRUE'.
             update_route_hash( route, nil, 'TRUE', nil, nil, nil, nil, nil, nil )
-        
-            puts "parsed as TRUE"
             
           # ... otherwise, if the source step has not been actualised or has only been actualised by business items with dates in the past ....
           else
             
             # ... set the route status to 'NULL'.
             update_route_hash( route, nil, 'NULL', nil, nil, nil, nil, nil, nil )
-        
-            puts "parsed as NULL"
           end 
         end
       end
