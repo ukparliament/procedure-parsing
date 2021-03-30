@@ -10,7 +10,7 @@ require "#{Rails.root}/lib/parsing/or_step"
 class WorkPackageController < ApplicationController
   
   ## We include code for the different styles of parsing according to the source step type.
-  include PARSE_FROM_START_STEPS
+  include PARSE
   include PARSE_BUSINESS_STEP_FROM_START_STEPS
   include PARSE_DECISION_STEP_FROM_START_STEPS
   include PARSE_NOT_STEP_FROM_START_STEPS
