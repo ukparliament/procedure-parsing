@@ -22,7 +22,7 @@ task :parse_from_start_steps => :environment do
   @disallowed_now_steps = []
   
   # We include the main parsing code.
-  include PARSE_FROM_START_STEPS
+  include PARSE
   
   # We include code for the different styles of parsing according to the source step type.
   include PARSE_AND_STEP_FROM_START_STEPS
