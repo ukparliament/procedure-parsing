@@ -14,9 +14,6 @@ module PARSE_AND_STEP
       
       # # ... if both inbound routes to the source step have been parsed ...
       if @routes[inbound_routes[0]][:parsed] == true and @routes[inbound_routes[1]][:parsed] == true
-        
-        # ... we update the parse log to say this route has also been parsed.
-        @parse_log << 'Parsed'
     
         # ... we update the route parsed attribute to true.
         update_route_hash( route, nil, nil, true, nil, nil, nil, nil, nil )
