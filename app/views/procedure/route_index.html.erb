@@ -1,0 +1,19 @@
+<h1>Routes: <%= @procedure.name %></h1>
+
+<table>
+	<thead>
+		<tr>
+			<%= content_tag( 'td', 'From' ) %>
+			<%= content_tag( 'td', 'To' ) %>
+		</tr>
+	</thead>
+	<tbody>
+		<%= render :partial => 'route/route', :collection => @procedure.routes %>
+	</tbody>
+</table>
+<%= content_tag( 'h2', 'Add a new route' ) %>
+<%= form_tag :action => 'route_create' do |f| %>
+	<%= select( "route", "from_step_id", @steps.collect {|s| [ s.name, s.id ] }) %>
+	<%= select( "route", "to_step_id", @steps.collect {|s| [ s.name, s.id ] }) %>
+	<%= submit_tag( "Create" ) %>
+<% end %>

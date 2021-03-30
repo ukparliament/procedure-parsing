@@ -16,9 +16,14 @@ Rails.application.routes.draw do
   get 'procedures' => 'procedure#index', as: :procedure_list
   get 'procedures/:procedure' => 'procedure#show', as: :procedure_show
   get 'procedures/:procedure/work-packages' => 'procedure#work_package_index', as: :procedure_work_package_list
+  get 'procedures/:procedure/routes' => 'procedure#route_index', as: :procedure_route_list
+  post 'procedures/:procedure/routes/create' => 'procedure#route_create', as: :procedure_route_create
   
   get 'work-packages/:work_package' => 'work_package#show', as: :work_package_show
   get 'work-packages/:work_package/parse' => 'work_package#parse', as: :work_package_parse
+  
+  get 'steps' => 'step#index', as: :step_list
+  post 'steps/create' => 'step#create', as: :step_create
   
   get 'meta' => 'meta#index', as: :meta_list
   get 'meta/schema' => 'meta#schema', as: :meta_schema
