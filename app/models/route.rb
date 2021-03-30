@@ -37,6 +37,7 @@ class Route < ActiveRecord::Base
     current
   end
   
+  # No longer used.
   # Check if the route is parseable.
   def is_parseable?( procedure, routes )
     
