@@ -1,12 +1,11 @@
 # The main parsing code and the individual parsing rules for source steps types are packaged into separate files.
 # We require the main parsing code and the step type specific parsing code to be loaded.
-require "#{Rails.root}/lib/parsing/from-start-steps/parse"
-require "#{Rails.root}/lib/parsing/from-start-steps/and_step"
-require "#{Rails.root}/lib/parsing/from-start-steps/business_step"
-require "#{Rails.root}/lib/parsing/from-start-steps/decision_step"
-require "#{Rails.root}/lib/parsing/from-start-steps/not_step"
-require "#{Rails.root}/lib/parsing/from-start-steps/or_step"
-#require "#{Rails.root}/lib/parsing/from-start-steps/equal_step"
+require "#{Rails.root}/lib/parsing/parse"
+require "#{Rails.root}/lib/parsing/and_step"
+require "#{Rails.root}/lib/parsing/business_step"
+require "#{Rails.root}/lib/parsing/decision_step"
+require "#{Rails.root}/lib/parsing/not_step"
+require "#{Rails.root}/lib/parsing/or_step"
 
 class WorkPackageController < ApplicationController
   
@@ -17,7 +16,6 @@ class WorkPackageController < ApplicationController
   include PARSE_NOT_STEP_FROM_START_STEPS
   include PARSE_AND_STEP_FROM_START_STEPS
   include PARSE_OR_STEP_FROM_START_STEPS
-  #include PARSE_EQUAL_STEP_FROM_START_STEPS
   
   def show
     work_package = params[:work_package]

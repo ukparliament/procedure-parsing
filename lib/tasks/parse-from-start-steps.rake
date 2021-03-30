@@ -1,11 +1,11 @@
 # The main parsing code and the individual parsing rules for source steps types are packaged into separate files.
 # We require the main parsing code and the step type specific parsing code to be loaded.
-require 'parsing/from-start-steps/parse'
-require 'parsing/from-start-steps/and_step'
-require 'parsing/from-start-steps/business_step'
-require 'parsing/from-start-steps/decision_step'
-require 'parsing/from-start-steps/not_step'
-require 'parsing/from-start-steps/or_step'
+require 'parsing/parse'
+require 'parsing/and_step'
+require 'parsing/business_step'
+require 'parsing/decision_step'
+require 'parsing/not_step'
+require 'parsing/or_step'
 
 # # Rake task to begin parsing.
 task :parse_from_start_steps => :environment do
