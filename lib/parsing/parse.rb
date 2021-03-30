@@ -27,7 +27,7 @@ module PARSE
       # ... we're parsing a route so we increment the parse count.
       @parse_pass_count += 1
   
-      # ... we tell the user which route we're parsing.
+      # ... we log which route we're parsing.
       @parse_log << "Parsing route from #{@routes[route][:source_step_name]} (#{@routes[route][:source_step_type]}) to #{@routes[route][:target_step_name]} (#{@routes[route][:target_step_type]}) [#{@parse_pass_count}/#{@route_count}]."
   
       # ... we get the inbound routes to the source step of the route we're parsing.
