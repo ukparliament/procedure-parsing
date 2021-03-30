@@ -1,33 +1,36 @@
-# # Module containing the main parsing code including initialisation of the route hash, creation of a hash per route and updating of a hash per route.
+# # Module containing the main parsing code: creation, initialisation and updating a hash for each route.
 # Design notes for the [parsing of a procedure map with logic gates are here](https://ukparliament.github.io/ontologies/procedure/flowcharts/meta/design-notes/#procedure-maps-with-logic-gates).
 module PARSE
   
   # ## Method to parse a route.
-  # We pass in the route to be parsed, the source step of that route and the procedure the route is in.
-  # The procedure is passed to ensure that we only parse routes in that procedure as we continue to traverse.
-  # This is necessary because we will encounter steps that are attached to routes in other procedures.
-  def parse_route( route, source_step, procedure )
+   # We pass in the route to be parsed, the source step of that route and the procedure the route is in.
+   # The procedure is passed in to ensure that we only parse routes in that particular procedure.
+   # This is necessary because we may encounter steps that are attached to routes in other procedures.
+   def parse_route( route, source_step, procedure )
     
-    # It's possible that a route being parsed as part of the set of routes originating from a start step has already been parsed as a result of a set of routes from the start step being cyclic back to the start step.
-    # So, we only parse a route if it's already been parsed.
+    # A route being parsed as part of the set of routes originating from a start step may have already been parsed, because a route subsequent to one of the routes from the start step may have that start step as its target.
+    # We only wish to parse a route if it has not already been parsed.
     # Unless this route has been parsed ...
     unless @routes[route][:parsed] == true
       
-      # ... given we are parsing this route ...
-      # ... we update it's parse pass count.
+      
+      
+      ### EDITED TO HERE ###
+      
+      # ... given we are parsing a route, we increment its parse pass count ...
       parse_pass_count = @routes[route][:parse_pass_count] + 1
       
-      # ... and update the route hash with the new parse pass count.
+      # ... update the route hash with the new parse pass count ...
       update_route_hash( route, nil, nil, nil, parse_pass_count, nil, nil, nil, nil )
       
-      # ... we're parsing a route so we increment the parse count.
-      @parse_count += 1
+      # ... and increment the parse count.
+      @parse_pass_count += 1
+      
+      
+      
   
-      # ... we update the parse log with details of the route being parsed.
-      @parse_log << "Parsing route from #{@routes[route][:source_step_name]} (#{@routes[route][:source_step_type]}) to #{@routes[route][:target_step_name]} (#{@routes[route][:target_step_type]})."
-    
-      # ... we tell the user which route we're parsing.
-      puts "Parse pass #{@parse_count} over #{@route_count} routes - Parsing route from #{@routes[route][:source_step_name]} (#{@routes[route][:source_step_type]}) to #{@routes[route][:target_step_name]} (#{@routes[route][:target_step_type]})."
+      # ... we log which route we're parsing.
+      @parse_log << "Parsing route from #{@routes[route][:source_step_name]} (#{@routes[route][:source_step_type]}) to #{@routes[route][:target_step_name]} (#{@routes[route][:target_step_type]}) [#{@parse_pass_count}/#{@route_count}]."
   
       # ... we get the inbound routes to the source step of the route we're parsing.
       inbound_routes = source_step.inbound_routes_in_procedure( procedure )
@@ -67,6 +70,12 @@ module PARSE
       # ## ... we assign the potential state of any target business step.
       # If the route we're attempting to parse has been fully parsed ...
       if @routes[route][:parsed] == true
+        
+        # ... we write to the parse logger, reporting the route's parsed status.
+        @parse_log << "Successfully parsed as <strong>#{@routes[route][:status]}</strong>."
+        
+        
+        # Modularise this?
       
         # ... if the target step of the route we've just parsed is a business step ...
         if route.target_step.step_type_name == 'Business step'
@@ -99,7 +108,7 @@ module PARSE
       end
     end
       
-    # ## ... having parsed this route, we now want to continue to traverse the graph, following outbound routes from the target step of this route.
+    # ## ... having parsed this route, we want to continue to traverse the graph, following outbound routes from the target step of this route.
     # This forces us to traverse the procedure in a depth first fashion.
   
     # ... we get the target step of the route we're parsing.
@@ -133,8 +142,8 @@ module PARSE
     # If the procedure has no routes ...
     if routes.empty?
     
-      # ... we tell the user that the work package cannot be parsed.
-      puts "Work package #{work_package.id} is subject to the subject to the #{work_package.parliamentary_procedure.name} procedure. This procedure has no routes and therefore the work package cannot be parsed."
+      # ... we write to the log, explaining that the work package cannot be parsed.
+      @parse_log << "Work package #{work_package.id} is subject to the subject to the #{work_package.parliamentary_procedure.name} procedure. This procedure has no routes and therefore the work package cannot be parsed."
     
     # Otherwise, if the procedure has routes ...
     else

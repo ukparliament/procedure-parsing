@@ -36,46 +36,4 @@ class Route < ActiveRecord::Base
     end
     current
   end
-  
-  # Check if the route is parseable.
-  def is_parseable?( procedure, routes )
-    
-    # We assume the route is not parseable ...
-    is_parseable = false
-    
-    # If the route has not been parsed ...
-    if routes[self][:parse_pass_count] == 0
-      
-      # ... the route can be parsed.
-      is_parseable = true
-      
-    # ... otherwise, if the route has been parsed ...
-    else
-      
-      # ... we check the type of the source step ...
-      case routes[self][:source_step_type]
-        
-      # ... if the source step of the route is of type AND or OR ...
-      when "AND", "OR"
-        
-        # ... if both inbound routes to the source step have been parsed ...
-        if routes[ self.source_step.inbound_routes_in_procedure( procedure )[0]][:parsed] == true and routes[ self.source_step.inbound_routes_in_procedure( procedure )[1]][:parsed] == true
-          
-          # ... then this route is parseable.
-          is_parseable = true
-        end
-        
-      # ... if the source step is not of type AND or OR ...
-      else
-        
-        # ... if the inbound route to the source step has been parsed ...
-        if routes[ self.source_step.inbound_routes_in_procedure( procedure )[0]][:parsed] == true
-          
-          # ... then this route is parseable.
-          is_parseable = true
-        end
-      end
-    end
-    is_parseable
-  end
 end
