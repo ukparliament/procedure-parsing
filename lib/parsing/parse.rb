@@ -68,6 +68,9 @@ module PARSE
       # ## ... we assign the potential state of any target business step.
       # If the route we're attempting to parse has been fully parsed ...
       if @routes[route][:parsed] == true
+        
+        # ... we write to the parse logger, reporting the route's parsed status.
+        @parse_log << "Successfully parsed as <strong>#{@routes[route][:status]}</strong>."
       
         # ... if the target step of the route we've just parsed is a business step ...
         if route.target_step.step_type_name == 'Business step'
@@ -134,8 +137,8 @@ module PARSE
     # If the procedure has no routes ...
     if routes.empty?
     
-      # ... we tell the user that the work package cannot be parsed.
-      puts "Work package #{work_package.id} is subject to the subject to the #{work_package.parliamentary_procedure.name} procedure. This procedure has no routes and therefore the work package cannot be parsed."
+      # ... we write to the log, explaining that the work package cannot be parsed.
+      @parse_log << "Work package #{work_package.id} is subject to the subject to the #{work_package.parliamentary_procedure.name} procedure. This procedure has no routes and therefore the work package cannot be parsed."
     
     # Otherwise, if the procedure has routes ...
     else
