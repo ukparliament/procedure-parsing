@@ -1,4 +1,4 @@
-module PARSE_DECISION_STEP_FROM_START_STEPS
+module PARSE_DECISION_STEP
   
   # # Method to parse a route whose source step is a decision step.
   def parse_route_from_decision_step( route, source_step, procedure, inbound_routes )

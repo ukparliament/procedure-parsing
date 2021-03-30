@@ -1,23 +1,26 @@
 # The main parsing code and the individual parsing rules for source steps types are packaged into separate files.
-# We require the main parsing code and the step type specific parsing code to be loaded.
-require "#{Rails.root}/lib/parsing/from-start-steps/parse"
-require "#{Rails.root}/lib/parsing/from-start-steps/and_step"
-require "#{Rails.root}/lib/parsing/from-start-steps/business_step"
-require "#{Rails.root}/lib/parsing/from-start-steps/decision_step"
-require "#{Rails.root}/lib/parsing/from-start-steps/not_step"
-require "#{Rails.root}/lib/parsing/from-start-steps/or_step"
-#require "#{Rails.root}/lib/parsing/from-start-steps/equal_step"
+# We require the main parsing code to be loaded ...
+require "#{Rails.root}/lib/parsing/parse"
 
+# ... together with the code for parsing specific step types.
+require "#{Rails.root}/lib/parsing/and_step"
+require "#{Rails.root}/lib/parsing/business_step"
+require "#{Rails.root}/lib/parsing/decision_step"
+require "#{Rails.root}/lib/parsing/not_step"
+require "#{Rails.root}/lib/parsing/or_step"
+
+# # Work package controller
 class WorkPackageController < ApplicationController
   
-  # We include code for the different styles of parsing according to the source step type.
-  include PARSE_FROM_START_STEPS
-  include PARSE_BUSINESS_STEP_FROM_START_STEPS
-  include PARSE_DECISION_STEP_FROM_START_STEPS
-  include PARSE_NOT_STEP_FROM_START_STEPS
-  include PARSE_AND_STEP_FROM_START_STEPS
-  include PARSE_OR_STEP_FROM_START_STEPS
-  #include PARSE_EQUAL_STEP_FROM_START_STEPS
+  # We include code for the main parsing rules ...
+  include PARSE
+  
+   # ... together with code for the different styles of parsing according to the type of the source step.
+  include PARSE_BUSINESS_STEP
+  include PARSE_DECISION_STEP
+  include PARSE_NOT_STEP
+  include PARSE_AND_STEP
+  include PARSE_OR_STEP
   
   def show
     work_package = params[:work_package]
@@ -25,63 +28,51 @@ class WorkPackageController < ApplicationController
     parse
   end
   
-  # This method attempts to parse a procedure in the context of a work package.
+  # ## This method attempts to parse a work package subject to a procedure.
+  # By taking actualised and non-actualised business steps and parsing the logical procedure map, we aim to determine business steps that may happen, should happen or should not happen in the future.
   def parse
     
-    # We get the work package we're trying to parse.
+    # We get the work package we're attempting to parse.
     work_package = params[:work_package]
     @work_package = WorkPackage.find( work_package )
   
     # We get the procedure the work package is subject to.
     procedure = @work_package.parliamentary_procedure
   
-    # We tell the user what we're attempting to do.
-    puts "Attempting to parse work package #{@work_package.id}, subject to the #{procedure.name.downcase} procedure."
+    # We set the parse pass count to zero.
+    # The parse pass count will be incremented every time we attempt to parse a route.
+    # The parse pass count is created as an instance variable because we want to increment on each parse and report from it later.
+    @parse_pass_count = 0
     
-    # We set up an array to log the parsing.
-    # Create as an instance variable because we want to write to and from it later.
+    # We create an array to log the parsing.
+    # The log is created as an instance variable because we want to write to it and report from it later.
     @parse_log = []
-  
-    # We create a set of arrays to store the target business steps of the routes we parse according to the value of the inbound route once parsed.
-    # Created as instance variables because we want to write to and from them later.
+    
+    # We write to the log, explaining what we're attempting to do.
+    @parse_log << "Attempting to parse work package #{@work_package.id}, subject to the #{procedure.name.downcase} procedure."
+    
+    # Having successfully parsed a route to a business step, we can determine the potential state of that business step. The potential state of a business state may be caused to be actualised, allowed to be actualised, not yet actualisable or not now actualisable.
+    # We create a set of arrays to store the target business steps of the routes we successfully parse - each array being named according to the potential state of the target step.
+    # These are created as instance variables because we want to write to them and report from them later.
     @caused_steps = []
     @allowed_steps = []
     @disallowed_yet_steps = []
     @disallowed_now_steps = []
   
-    # We initialise a hash of additional route attributes keyed off the route.
+    # We initialise a hash of additional route attributes: these are attributes used only during the parsing process.
     initialise_route_hash( @work_package )
-  
-    # We set the parse count to zero.
-    # This will be incremented every time we parse a route and used for reporting.
-    # Created as an instance variable because we want to increment on each parse and report on it later.
-    @parse_count = 0
-  
-    # We get the all the business steps in the procedure the work package is subject to.
-    #business_steps = procedure.business_steps
-  
-    # We loop through the business steps ...
-    #business_steps.each do |step|
     
-      # ... and loop through the outbound routes of each business step ...
-      #step.outbound_routes_in_procedure( procedure ).each do |route|
-      
-        # ... and parse each route.
-        #parse_route( route, step, procedure )
-        #end
-    #end
-    
-    # We get the all start steps of the procedure the work package is subject to.
-    # Created as an instance variable because we want to check it when parsing business steps.
+    # We get an array of the start steps in the procedure.
+    # The array is created as an instance variable because we want to check it when parsing business steps.
     @start_steps = procedure.start_steps
   
-    # We loop through the start steps ...
+    # We loop through the start steps in the procedure ...
     @start_steps.each do |step|
     
-      # ... and loop through the outbound routes of the start steps ...
+      # ... then loop through the outbound routes of each start step ...
       step.outbound_routes_in_procedure( procedure ).each do |route|
     
-        # ... and parse each route.
+        # ... and parse each of those routes.
         parse_route( route, step, procedure )
       end
     end
