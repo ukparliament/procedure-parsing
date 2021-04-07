@@ -7,6 +7,7 @@ gem 'pg'
 gem 'sass-rails', '~> 5.0'
 gem 'jbuilder', '~> 2.0'
 gem 'uglifier'
+gem 'redcarpet'
 
 gem 'coffee-rails'
 gem 'jquery-rails'
