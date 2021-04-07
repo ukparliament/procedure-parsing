@@ -8,6 +8,8 @@ require "#{Rails.root}/lib/parsing/business_step"
 require "#{Rails.root}/lib/parsing/decision_step"
 require "#{Rails.root}/lib/parsing/not_step"
 require "#{Rails.root}/lib/parsing/or_step"
+require "#{Rails.root}/lib/parsing/route_currency"
+require "#{Rails.root}/lib/parsing/assign_potential_business_step_state"
 
 # # Work package controller
 class WorkPackageController < ApplicationController
@@ -21,6 +23,8 @@ class WorkPackageController < ApplicationController
   include PARSE_NOT_STEP
   include PARSE_AND_STEP
   include PARSE_OR_STEP
+  include PARSE_ROUTE_CURRENCY
+  include PARSE_ASSIGN_POTENTIAL_BUSINESS_STEP_STATE
   
   def show
     work_package = params[:work_package]
