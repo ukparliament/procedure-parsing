@@ -27,6 +27,7 @@ Rails.application.routes.draw do
   
   get 'meta' => 'meta#index', as: :meta_list
   get 'meta/schema' => 'meta#schema', as: :meta_schema
+  get 'meta/comments' => 'meta#comments', as: :meta_comments
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products

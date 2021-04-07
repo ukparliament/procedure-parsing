@@ -5,4 +5,7 @@ class MetaController < ApplicationController
   
   def schema
   end
+  
+  def comments
+  end
 end
