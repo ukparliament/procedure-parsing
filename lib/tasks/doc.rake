@@ -4,7 +4,7 @@ namespace :doc do
 
   desc '.rb + .md comments -> /public/ .md, .html: path=path/to/file.rb'
   task comment: :environment do
-    the_path = ENV['path'] || './lib/monkey_patching/date.rb'
+    the_path = ENV['path'] || './lib/parsing/parse.rb'
     commentariat(the_path)
   end
 end
