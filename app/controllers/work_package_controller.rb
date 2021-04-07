@@ -2,12 +2,15 @@
 # We require the main parsing code to be loaded ...
 require "#{Rails.root}/lib/parsing/parse"
 
-# ... together with the code for parsing specific step types.
+# ... together with the code for parsing specific step types ...
 require "#{Rails.root}/lib/parsing/and_step"
 require "#{Rails.root}/lib/parsing/business_step"
 require "#{Rails.root}/lib/parsing/decision_step"
 require "#{Rails.root}/lib/parsing/not_step"
 require "#{Rails.root}/lib/parsing/or_step"
+
+# ... and the code for storing route attributes, determining route currency and assigning potential step states.
+require "#{Rails.root}/lib/parsing/route_hash"
 require "#{Rails.root}/lib/parsing/route_currency"
 require "#{Rails.root}/lib/parsing/assign_potential_business_step_state"
 
@@ -17,12 +20,15 @@ class WorkPackageController < ApplicationController
   # We include code for the main parsing rules ...
   include PARSE
   
-   # ... together with code for the different styles of parsing according to the type of the source step.
+   # ... together with code for the different styles of parsing according to the type of the source step ...
   include PARSE_BUSINESS_STEP
   include PARSE_DECISION_STEP
   include PARSE_NOT_STEP
   include PARSE_AND_STEP
   include PARSE_OR_STEP
+  
+  # ... and the code for storing route attributes, determining route currency and assigning potential step states.
+  include PARSE_ROUTE_HASH
   include PARSE_ROUTE_CURRENCY
   include PARSE_ASSIGN_POTENTIAL_BUSINESS_STEP_STATE
   
