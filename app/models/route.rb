@@ -3,7 +3,7 @@
 class Route < ActiveRecord::Base
   
   # We create an association to the procedures a route appears in.
-  # A route may appear in one or more procedures through the procedure_routes table.
+  # A route may appear in one or more procedures, through the procedure_routes table.
   has_many :procedure_routes
   has_many :parliamentary_procedures, :through => 'procedure_routes'
   
