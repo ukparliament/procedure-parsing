@@ -54,7 +54,7 @@ a {text-decoration:underline;color:white;}
 <code title='Line 27, app/models/route.rb'><pre><a name='27'  class='githubline' href='https://github.com/fantasticlife/egg-timer/tree/master/app/models/route.rb#L27'> 27</a>     if self.start_date and self.start_date >= Date.today
 </pre></code><p>.. we set current to false.</p>
 <code title='Line 30, app/models/route.rb'><pre><a name='30'  class='githubline' href='https://github.com/fantasticlife/egg-timer/tree/master/app/models/route.rb#L30'> 30</a>       current = false
-</pre></code><h1>Otherwise, if the route has an end date and the end date is in the past, being earlier than today ...</h1>
+</pre></code><p>Otherwise, if the route has an end date and the end date is in the past, being earlier than today ...</p>
 <code title='Line 33, app/models/route.rb'><pre><a name='33'  class='githubline' href='https://github.com/fantasticlife/egg-timer/tree/master/app/models/route.rb#L33'> 33</a>     elsif self.end_date and self.end_date < Date.today
 </pre></code><p>... we set current to false.</p>
 <code title='Line 36, app/models/route.rb'><pre><a name='36'  class='githubline' href='https://github.com/fantasticlife/egg-timer/tree/master/app/models/route.rb#L36'> 36</a>       current = false

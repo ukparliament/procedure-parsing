@@ -34,7 +34,7 @@ If the route has a start date and the start date is in the future, being today o
 .. we set current to false.
 
       current = false
-# Otherwise, if the route has an end date and the end date is in the past, being earlier than today ...
+Otherwise, if the route has an end date and the end date is in the past, being earlier than today ...
 
     elsif self.end_date and self.end_date < Date.today
 ... we set current to false.
