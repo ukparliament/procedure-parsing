@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <link rel="alternate" type="text/markdown" href="route.rb.md">
+    <style>
+      body {
+        max-width: 40rem;
+        margin: auto;
+        padding: 2rem 1rem;
+        font-family: 'Helvetica Neue','Helvetica', system-ui;
+        color: black;
+        background-color: white;
+      }
+      p {line-height: 1.4;}
+      code {
+      line-height: 1.4;
+      color:gray;
+      }
+      code pre {white-space: pre-wrap; word-break: break-word;}
+      code:hover {color:black;}
+      h1, h2 {font-weight:normal;}
+      a {text-decoration:none;}
+      a.githubline {color:gray;font-weight:bold;}
+      @media (prefers-color-scheme: dark) {
+body {color:white;background-color:black;}
+a {text-decoration:underline;color:white;}
+}
+    </style>
+    <title>app/models/route.rb</title>
+  </head>
+  <body><p><a href="/procedures/comments">/procedures/comments</a></p><h1>Route model.</h1>
+<p>A route joins two steps: a source step and a target step. The source step for the route is identified by the from_step_id attribute and the target step for the route by the to_step_id attribute.</p>
+<code title='Line 3, app/models/route.rb'><pre><a name='3'  class='githubline' href='https://github.com/fantasticlife/egg-timer/tree/master/app/models/route.rb#L3'> 3</a> class Route < ActiveRecord::Base
+</pre></code><p>We create an association to the procedures a route appears in.</p>
+<p>A route may appear in one or more procedures, through the procedure_routes table.</p>
+<code title='Line 7, app/models/route.rb'><pre><a name='7'  class='githubline' href='https://github.com/fantasticlife/egg-timer/tree/master/app/models/route.rb#L7'> 7</a>   has_many :procedure_routes
+</pre></code><code title='Line 8, app/models/route.rb'><pre><a name='8'  class='githubline' href='https://github.com/fantasticlife/egg-timer/tree/master/app/models/route.rb#L8'> 8</a>   has_many :parliamentary_procedures, :through => 'procedure_routes'
+</pre></code><h2>A method to get the source step of a route.</h2>
+<p>This method returns the source step and the name of its type, to save on querying for this later.</p>
+<code title='Line 12, app/models/route.rb'><pre><a name='12'  class='githubline' href='https://github.com/fantasticlife/egg-timer/tree/master/app/models/route.rb#L12'> 12</a>   def source_step
+</pre></code><code title='Line 13, app/models/route.rb'><pre><a name='13'  class='githubline' href='https://github.com/fantasticlife/egg-timer/tree/master/app/models/route.rb#L13'> 13</a>     Step.all.select( 's.*, st.name as step_type_name' ).joins( 'as s, step_types as st' ).where( 's.step_type_id = st.id' ).where( 's.id = ?', self.from_step_id ).order( 's.id' ).first
+</pre></code><code title='Line 14, app/models/route.rb'><pre><a name='14'  class='githubline' href='https://github.com/fantasticlife/egg-timer/tree/master/app/models/route.rb#L14'> 14</a>   end
+</pre></code><h2>A method to get the target step of a route.</h2>
+<p>This method returns the target step and the name of its type, to save on querying for this later.</p>
+<code title='Line 18, app/models/route.rb'><pre><a name='18'  class='githubline' href='https://github.com/fantasticlife/egg-timer/tree/master/app/models/route.rb#L18'> 18</a>   def target_step
+</pre></code><code title='Line 19, app/models/route.rb'><pre><a name='19'  class='githubline' href='https://github.com/fantasticlife/egg-timer/tree/master/app/models/route.rb#L19'> 19</a>     Step.all.select( 's.*, st.name as step_type_name' ).joins( 'as s, step_types as st' ).where( 's.step_type_id = st.id' ).where( 's.id = ?', self.to_step_id ).order( 's.id' ).first
+</pre></code><code title='Line 20, app/models/route.rb'><pre><a name='20'  class='githubline' href='https://github.com/fantasticlife/egg-timer/tree/master/app/models/route.rb#L20'> 20</a>   end
+</pre></code><h2>A method to show if a route is current.</h2>
+<p>A route may have start and end dates.</p>
+<code title='Line 24, app/models/route.rb'><pre><a name='24'  class='githubline' href='https://github.com/fantasticlife/egg-timer/tree/master/app/models/route.rb#L24'> 24</a>   def current
+</pre></code><p>If the route has a start date and the start date is in the future, being today or after today ...</p>
+<code title='Line 27, app/models/route.rb'><pre><a name='27'  class='githubline' href='https://github.com/fantasticlife/egg-timer/tree/master/app/models/route.rb#L27'> 27</a>     if self.start_date and self.start_date >= Date.today
+</pre></code><p>.. we set current to false.</p>
+<code title='Line 30, app/models/route.rb'><pre><a name='30'  class='githubline' href='https://github.com/fantasticlife/egg-timer/tree/master/app/models/route.rb#L30'> 30</a>       current = false
+</pre></code><h1>Otherwise, if the route has an end date and the end date is in the past, being earlier than today ...</h1>
+<code title='Line 33, app/models/route.rb'><pre><a name='33'  class='githubline' href='https://github.com/fantasticlife/egg-timer/tree/master/app/models/route.rb#L33'> 33</a>     elsif self.end_date and self.end_date < Date.today
+</pre></code><p>... we set current to false.</p>
+<code title='Line 36, app/models/route.rb'><pre><a name='36'  class='githubline' href='https://github.com/fantasticlife/egg-timer/tree/master/app/models/route.rb#L36'> 36</a>       current = false
+</pre></code><p>Otherwise, if the route has no start date or a start date in the past or no end date or an end date in the future ...</p>
+<code title='Line 39, app/models/route.rb'><pre><a name='39'  class='githubline' href='https://github.com/fantasticlife/egg-timer/tree/master/app/models/route.rb#L39'> 39</a>     else
+</pre></code><p>... we set current to true.</p>
+<code title='Line 42, app/models/route.rb'><pre><a name='42'  class='githubline' href='https://github.com/fantasticlife/egg-timer/tree/master/app/models/route.rb#L42'> 42</a>       current = true
+</pre></code><code title='Line 43, app/models/route.rb'><pre><a name='43'  class='githubline' href='https://github.com/fantasticlife/egg-timer/tree/master/app/models/route.rb#L43'> 43</a>     end
+</pre></code><p>We return the value we&#39;ve set for the route&#39;s currency.</p>
+<code title='Line 46, app/models/route.rb'><pre><a name='46'  class='githubline' href='https://github.com/fantasticlife/egg-timer/tree/master/app/models/route.rb#L46'> 46</a>     current
+</pre></code><code title='Line 47, app/models/route.rb'><pre><a name='47'  class='githubline' href='https://github.com/fantasticlife/egg-timer/tree/master/app/models/route.rb#L47'> 47</a>   end
+</pre></code><code title='Line 48, app/models/route.rb'><pre><a name='48'  class='githubline' href='https://github.com/fantasticlife/egg-timer/tree/master/app/models/route.rb#L48'> 48</a> end</pre></code></body></html>
