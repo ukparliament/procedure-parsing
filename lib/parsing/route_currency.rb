@@ -4,8 +4,7 @@ module PARSE_ROUTE_CURRENCY
   # ## Method to determine whether a route is currently traversible.
   def parse_route_currency( route )
     
-    # A route has optional start and end dates.
-    # A non-current route is one with a start date that is later than today or one with an end date of today or earlier than today.
+    
     # If the route is current...
     if route.current
 
