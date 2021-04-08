@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <link rel="alternate" type="text/markdown" href="parliamentary_procedure.rb.md">
+    <style>
+      body {
+        max-width: 40rem;
+        margin: auto;
+        padding: 2rem 1rem;
+        font-family: 'Helvetica Neue','Helvetica', system-ui;
+        color: black;
+        background-color: white;
+      }
+      p {line-height: 1.4;}
+      code {
+      line-height: 1.4;
+      color:gray;
+      }
+      code pre {white-space: pre-wrap; word-break: break-word;}
+      code:hover {color:black;}
+      h1, h2 {font-weight:normal;}
+      a {text-decoration:none;}
+      a.githubline {color:gray;font-weight:bold;}
+      @media (prefers-color-scheme: dark) {
+body {color:white;background-color:black;}
+a {text-decoration:underline;color:white;}
+}
+    </style>
+    <title>app/models/parliamentary_procedure.rb</title>
+  </head>
+  <body><p><a href="/procedures/comments">/procedures/comments</a></p><h1>Parliamentary procedure model.</h1>
+<p>Renamed from the source schema because Rails reserves the name procedure.</p>
+<code title='Line 3, app/models/parliamentary_procedure.rb'><pre><a name='3'  class='githubline' href='https://github.com/fantasticlife/egg-timer/tree/master/app/models/parliamentary_procedure.rb#L3'> 3</a> class ParliamentaryProcedure < ActiveRecord::Base
+</pre></code><p>We create an association to the routes which appear in a procedure.</p>
+<p>A route may appear in one or more procedures, through the procedure_routes table.</p>
+<code title='Line 7, app/models/parliamentary_procedure.rb'><pre><a name='7'  class='githubline' href='https://github.com/fantasticlife/egg-timer/tree/master/app/models/parliamentary_procedure.rb#L7'> 7</a>   has_many :procedure_routes
+</pre></code><code title='Line 8, app/models/parliamentary_procedure.rb'><pre><a name='8'  class='githubline' href='https://github.com/fantasticlife/egg-timer/tree/master/app/models/parliamentary_procedure.rb#L8'> 8</a>   has_many :routes, :through => 'procedure_routes'
+</pre></code><p>We create an association to the work packages subject to a procedure.</p>
+<code title='Line 11, app/models/parliamentary_procedure.rb'><pre><a name='11'  class='githubline' href='https://github.com/fantasticlife/egg-timer/tree/master/app/models/parliamentary_procedure.rb#L11'> 11</a>   has_many :work_packages
+</pre></code><h2>A method to add ellipses to a description of a procedure, if the description is longer than 255 characters.</h2>
+<code title='Line 14, app/models/parliamentary_procedure.rb'><pre><a name='14'  class='githubline' href='https://github.com/fantasticlife/egg-timer/tree/master/app/models/parliamentary_procedure.rb#L14'> 14</a>     def description_massaged
+</pre></code><code title='Line 15, app/models/parliamentary_procedure.rb'><pre><a name='15'  class='githubline' href='https://github.com/fantasticlife/egg-timer/tree/master/app/models/parliamentary_procedure.rb#L15'> 15</a>       description.length < 256 ? description : description + " ..."
+</pre></code><code title='Line 16, app/models/parliamentary_procedure.rb'><pre><a name='16'  class='githubline' href='https://github.com/fantasticlife/egg-timer/tree/master/app/models/parliamentary_procedure.rb#L16'> 16</a>     end
+</pre></code><h2>We return an array of start steps in a procedure.</h2>
+<p>New tables have been added to the database to reflect what we plan to happen with the step collections work: these place steps into a collection of start steps for a given procedure. Until this work happens, we&#39;ll need to hardcode an array.</p>
+<p>This method returns an array of start steps and the name of each step’s type, to save on querying for this later.</p>
+<code title='Line 21, app/models/parliamentary_procedure.rb'><pre><a name='21'  class='githubline' href='https://github.com/fantasticlife/egg-timer/tree/master/app/models/parliamentary_procedure.rb#L21'> 21</a>   def start_steps
+</pre></code><code title='Line 22, app/models/parliamentary_procedure.rb'><pre><a name='22'  class='githubline' href='https://github.com/fantasticlife/egg-timer/tree/master/app/models/parliamentary_procedure.rb#L22'> 22</a>     Step.all.select('s.*, st.name as step_type_name' ).joins( 'as s, step_collections as sc, step_collection_types as sct, step_types as st' ).where( 's.id = sc.step_id' ).where( 'sc.step_collection_type_id = sct.id' ).where( 'sct.name = ?', 'Start steps' ).where( 'sc.parliamentary_procedure_id =?', self ).where( 's.step_type_id = st.id' )
+</pre></code><code title='Line 23, app/models/parliamentary_procedure.rb'><pre><a name='23'  class='githubline' href='https://github.com/fantasticlife/egg-timer/tree/master/app/models/parliamentary_procedure.rb#L23'> 23</a>   end
+</pre></code><h2>We return all routes which appear in a procedure, together with the name and type of the source step of each route and the name and type of the target step of each route. This saves us having to query for these later.</h2>
+<code title='Line 26, app/models/parliamentary_procedure.rb'><pre><a name='26'  class='githubline' href='https://github.com/fantasticlife/egg-timer/tree/master/app/models/parliamentary_procedure.rb#L26'> 26</a>   def routes_with_steps
+</pre></code><code title='Line 27, app/models/parliamentary_procedure.rb'><pre><a name='27'  class='githubline' href='https://github.com/fantasticlife/egg-timer/tree/master/app/models/parliamentary_procedure.rb#L27'> 27</a>     Route.all.select( 'r.*, ss.name as source_step_name, ts.name as target_step_name, sst.name as source_step_type, tst.name as target_step_type' ).joins( 'as r, procedure_routes as pr, steps as ss, steps as ts, step_types as sst, step_types as tst' ).where( 'r.id = pr.route_id' ).where( 'pr.parliamentary_procedure_id = ?', self ).where( 'r.from_step_id = ss.id' ).where( 'r.to_step_id = ts.id' ).where( 'ss.step_type_id = sst.id' ).where( 'ts.step_type_id = tst.id' )
+</pre></code><code title='Line 28, app/models/parliamentary_procedure.rb'><pre><a name='28'  class='githubline' href='https://github.com/fantasticlife/egg-timer/tree/master/app/models/parliamentary_procedure.rb#L28'> 28</a>   end
+</pre></code><code title='Line 29, app/models/parliamentary_procedure.rb'><pre><a name='29'  class='githubline' href='https://github.com/fantasticlife/egg-timer/tree/master/app/models/parliamentary_procedure.rb#L29'> 29</a> end</pre></code></body></html>
