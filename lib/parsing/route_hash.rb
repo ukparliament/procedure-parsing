@@ -1,4 +1,7 @@
-module PARSE_ROUTE_HASH  # ## Method to initialise a hash of a hash of route attributes keyed off the route.
+# # Module to initialise, create and update a hash of route attributes keyed off the route.
+module PARSE_ROUTE_HASH 
+  
+  # ## Method to initialise a hash of a hash of route attributes keyed off the route.
   # We use this to store values that are generated from parsing and are not on the model.
   def initialise_route_hash( work_package )
   
@@ -6,32 +9,31 @@ module PARSE_ROUTE_HASH  # ## Method to initialise a hash of a hash of route att
     # We also get step name and the step type name for both the source and the target step of each route.
     routes = work_package.parliamentary_procedure.routes_with_steps
       
-    # We record how many routes the procedure has.
-    # Create as an instance variable so we can use to report progress.
+    # We record how many routes the procedure has, created as an instance variable so we can use it to report progress.
     @route_count = routes.size
   
     # If the procedure has no routes ...
     if routes.empty?
     
       # ... we write to the log, explaining that the work package cannot be parsed.
-      @parse_log << "Work package #{work_package.id} is subject to the subject to the #{work_package.parliamentary_procedure.name} procedure. This procedure has no routes and therefore the work package cannot be parsed."
+      @parse_log << "Work package #{work_package.id} is subject to the #{work_package.parliamentary_procedure.name} procedure. This procedure has no routes and therefore the work package cannot be parsed."
     
     # Otherwise, if the procedure has routes ...
     else
   
       #  ... we create a hash to hold the routes and their attributes.
-      #  ...create as an instance variable because we want to write to it as we parse and report on it later.
+      #  This is created as an instance variable because we want to write to it as we parse and report on it later.
       @routes = {}
   
-      # ... loop through the routes and ...
+      # ... we loop through the routes and ...
       routes.each do |route|
     
-        # ... create a hash of values we want to store for the route
+        # ... for each route create a hash of values we want to store for the route
         route_hash = create_route_hash(
           route, # We pass in the route which we'll use as the key of the hash.
           'NULL', # We pass in the current attribute to capture if the route is currently active. This is 'NULL' until the route is parsed.
           'UNPARSED', # We pass in the status attribute of the route. This is 'UNPARSED' until the route is parsed.
-          false, # We pass in the parsed attribute of the route. This is false until the route is fully parsed.
+          false, # We pass in the parsed attribute of the route. This is false until the route is successfully parsed.
           0, # We pass in the parse pass count attribute of this route. This is 0 until parsed.
           route.source_step_name, # We pass in the name of the source step.
           route.source_step_type, # We pass in the name of the type of the source step.
