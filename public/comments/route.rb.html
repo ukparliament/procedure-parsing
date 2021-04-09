@@ -30,7 +30,7 @@ a {text-decoration:underline;color:white;}
     </style>
     <title>app/models/route.rb</title>
   </head>
-  <body><p><a href="/procedures/comments">/procedures/comments</a></p><h1>Route model.</h1>
+  <body><p><a href="/procedures/meta/comments">/procedures/meta/comments</a></p><h1>Route model.</h1>
 <p>A route joins two steps: a source step and a target step. The source step for the route is identified by the from_step_id attribute and the target step for the route by the to_step_id attribute.</p>
 <code title='Line 3, app/models/route.rb'><pre><a name='3'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/app/models/route.rb#L3'> 3</a> class Route < ActiveRecord::Base
 </pre></code><p>We create an association to the procedures a route appears in.</p>
