@@ -48,7 +48,7 @@ a {text-decoration:underline;color:white;}
     </style>
     <title>#{with_path}</title>
   </head>
-  <body><p><a href="/procedures/comments">/procedures/comments</a></p>}
+  <body><p><a href="/procedures/meta/comments">/procedures/meta/comments</a></p>}
 
   File.foreach(with_path).with_index do |line, line_num|
     comment_line = /^\s*#\s*(?<content>.*)/.match(line)
