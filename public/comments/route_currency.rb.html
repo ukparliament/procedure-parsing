@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <link rel="alternate" type="text/markdown" href="route_currency.rb.md">
+    <style>
+      body {
+        max-width: 40rem;
+        margin: auto;
+        padding: 2rem 1rem;
+        font-family: 'Helvetica Neue','Helvetica', system-ui;
+        color: black;
+        background-color: white;
+      }
+      p {line-height: 1.4;}
+      code {
+      line-height: 1.4;
+      color:gray;
+      }
+      code pre {white-space: pre-wrap; word-break: break-word;}
+      code:hover {color:black;}
+      h1, h2 {font-weight:normal;}
+      a {text-decoration:none;}
+      a.githubline {color:gray;font-weight:bold;}
+      @media (prefers-color-scheme: dark) {
+body {color:white;background-color:black;}
+a {text-decoration:underline;color:white;}
+}
+    </style>
+    <title>lib/parsing/route_currency.rb</title>
+  </head>
+  <body><p><a href="/procedures/comments">/procedures/comments</a></p><h1>A module to determine whether a route is current.</h1>
+<code title='Line 2, lib/parsing/route_currency.rb'><pre><a name='2'  class='githubline' href='https://github.com/fantasticlife/egg-timer/tree/master/lib/parsing/route_currency.rb#L2'> 2</a> module PARSE_ROUTE_CURRENCY
+</pre></code><h2>A method to determine whether a route is current.</h2>
+<code title='Line 5, lib/parsing/route_currency.rb'><pre><a name='5'  class='githubline' href='https://github.com/fantasticlife/egg-timer/tree/master/lib/parsing/route_currency.rb#L5'> 5</a>   def parse_route_currency( route )
+</pre></code><p>If the route is current...</p>
+<code title='Line 8, lib/parsing/route_currency.rb'><pre><a name='8'  class='githubline' href='https://github.com/fantasticlife/egg-timer/tree/master/lib/parsing/route_currency.rb#L8'> 8</a>     if route.current
+</pre></code><p>... we update the route current attribute to TRUE.</p>
+<code title='Line 11, lib/parsing/route_currency.rb'><pre><a name='11'  class='githubline' href='https://github.com/fantasticlife/egg-timer/tree/master/lib/parsing/route_currency.rb#L11'> 11</a>       update_route_hash( route, 'TRUE', nil, nil, nil, nil, nil, nil, nil )
+</pre></code><p>Otherwise, if the route is not current ...</p>
+<code title='Line 14, lib/parsing/route_currency.rb'><pre><a name='14'  class='githubline' href='https://github.com/fantasticlife/egg-timer/tree/master/lib/parsing/route_currency.rb#L14'> 14</a>     else
+</pre></code><p>... we update the route current attribute to FALSE and the route status attribute to UNTRAVERSABLE.</p>
+<p>Setting the route status to UNTRAVERSABLE records that the route is not currently traversable - and is used to infer that routes which follow this route are also not currently traversable.</p>
+<p>We also record this route as parsed because we don&#39;t want to visit it and attempt to parse again.</p>
+<code title='Line 19, lib/parsing/route_currency.rb'><pre><a name='19'  class='githubline' href='https://github.com/fantasticlife/egg-timer/tree/master/lib/parsing/route_currency.rb#L19'> 19</a>       update_route_hash( route, 'FALSE', 'UNTRAVERSABLE', true, nil, nil, nil, nil, nil )
+</pre></code><code title='Line 20, lib/parsing/route_currency.rb'><pre><a name='20'  class='githubline' href='https://github.com/fantasticlife/egg-timer/tree/master/lib/parsing/route_currency.rb#L20'> 20</a>     end
+</pre></code><code title='Line 21, lib/parsing/route_currency.rb'><pre><a name='21'  class='githubline' href='https://github.com/fantasticlife/egg-timer/tree/master/lib/parsing/route_currency.rb#L21'> 21</a>   end
+</pre></code><code title='Line 22, lib/parsing/route_currency.rb'><pre><a name='22'  class='githubline' href='https://github.com/fantasticlife/egg-timer/tree/master/lib/parsing/route_currency.rb#L22'> 22</a> end</pre></code></body></html>
