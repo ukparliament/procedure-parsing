@@ -1,7 +1,7 @@
 # # A module to determine whether a route is current.
 module PARSE_ROUTE_CURRENCY
 
-  # ## A method to determine whether a route is current.
+  # ## Method to determine whether a route is current.
   def parse_route_currency( route )
     
     # If the route is current...
