@@ -1,6 +1,7 @@
+# # Module to assign potential state to a business step.
 module PARSE_ASSIGN_POTENTIAL_BUSINESS_STEP_STATE
   
-  # # A method to assign a [potential state](https://ukparliament.github.io/ontologies/procedure/flowcharts/meta/design-notes/#potential-states-of-a-business-step) to a business step, being the target of a parsed route.
+  # ## Method to assign a [potential state](https://ukparliament.github.io/ontologies/procedure/flowcharts/meta/design-notes/#potential-states-of-a-business-step) to a business step, being the target of a parsed route.
   def assign_potential_business_step_state( route )
     
     # If the route we're attempting to parse has been fully parsed ...
