@@ -57,7 +57,7 @@ a {text-decoration:underline;color:white;}
       html_out << markdown.render(comment_line['content'])
       markdown_out << comment_line['content'] << "\n\n"
     elsif !line.strip.empty?
-      html_out << "<code title='Line #{line_num + 1}, #{with_path}'><pre><a name='#{line_num + 1}'  class='githubline' href='https://github.com/fantasticlife/egg-timer/tree/master/#{with_path}#L#{line_num + 1}'> #{line_num + 1}</a> " << line << '</pre></code>'
+      html_out << "<code title='Line #{line_num + 1}, #{with_path}'><pre><a name='#{line_num + 1}'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/#{with_path}#L#{line_num + 1}'> #{line_num + 1}</a> " << line << '</pre></code>'
       markdown_out << line
     end
   end
