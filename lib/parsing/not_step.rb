@@ -1,6 +1,7 @@
+# # Module to parse a route whose source step is a NOT step.
 module PARSE_NOT_STEP
   
-  # # Method to parse a route whose source step is a NOT step.
+  # ## Method to parse a route whose source step is a NOT step.
   def parse_route_from_not_step( route, source_step, procedure, inbound_routes )
   
     # If the NOT step does not have exactly one inbound route ...
@@ -42,7 +43,7 @@ module PARSE_NOT_STEP
         end
         
       # ...otherwise, if the inbound route has not been parsed ...
-      # ... do nothing and parse on subsequent pass.
+      # ... we do nothing and parse on a subsequent pass.
       end
     end
   end
