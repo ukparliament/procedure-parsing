@@ -1,6 +1,7 @@
+# # Module to parse a route whose source step is a decision step.
 module PARSE_DECISION_STEP
   
-  # # Method to parse a route whose source step is a decision step.
+  # ## Method to parse a route whose source step is a decision step.
   def parse_route_from_decision_step( route, source_step, procedure, inbound_routes )
     
     # If the decision step does not have exactly one inbound route ...
@@ -9,7 +10,7 @@ module PARSE_DECISION_STEP
       # ... flag the step has an unexpected number of routes.
       logger.error "Decision step with ID #{source_step.id} has #{inbound_routes.size} inbound routes."
   
-    # Otherwise, if the NOT step has exactly one inbound route ...
+    # Otherwise, if the decision step has exactly one inbound route ...
     else
   
       # ... if the inbound route to the source step has been parsed ....
@@ -34,7 +35,7 @@ module PARSE_DECISION_STEP
         end
         
       # ...otherwise, if the inbound route has not been parsed ...
-      # ... do nothing and parse on subsequent pass.
+      # ... we do nothing and parse on a subsequent pass.
       end
     end
   end
