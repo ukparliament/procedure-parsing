@@ -9,7 +9,7 @@ If the route is current...
     if route.current
 ... we update the route current attribute to TRUE.
 
-      update_route_hash( route, 'TRUE', nil, nil, nil, nil, nil, nil, nil )
+      update_route_hash( route, 'TRUE', nil, nil, nil )
 Otherwise, if the route is not current ...
 
     else
@@ -19,7 +19,7 @@ Setting the route status to UNTRAVERSABLE records that the route is not currentl
 
 We also record this route as parsed because we don't want to visit it and attempt to parse again.
 
-      update_route_hash( route, 'FALSE', 'UNTRAVERSABLE', true, nil, nil, nil, nil, nil )
+      update_route_hash( route, 'FALSE', 'UNTRAVERSABLE', true, nil )
     end
   end
 end
