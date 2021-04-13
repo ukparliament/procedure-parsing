@@ -24,19 +24,19 @@ Unless this route has been parsed ...
       parse_pass_count = @routes[route][:parse_pass_count] + 1
 ... update the route hash with that count ...
 
-      update_route_hash( route, nil, nil, nil, parse_pass_count, nil, nil, nil, nil )
+      update_route_hash( route, nil, nil, nil, parse_pass_count )
 ... and increment the total parse pass count.
 
       @parse_pass_count += 1
 ... the route and its attributes are logged.
 
-      @parse_log << "Parsing route from #{@routes[route][:source_step_name]} (#{@routes[route][:source_step_type]}) to #{@routes[route][:target_step_name]} (#{@routes[route][:target_step_type]}) [#{@parse_pass_count}/#{@route_count}]."
+      @parse_log << "Parsing route from <strong>#{@routes[route][:route].source_step_name} (#{@routes[route][:route].source_step_type})</strong> to <strong>#{@routes[route][:route].target_step_name} (#{@routes[route][:route].target_step_type})</strong> [#{@parse_pass_count}/#{@route_count}]."
 ... we get the inbound routes to the source step of the route we're parsing in this procedure.
 
       inbound_routes = source_step.inbound_routes_in_procedure( procedure )
 ### We check the type of the source step of the route we're parsing and parse the route accordingly.
 
-      case @routes[route][:source_step_type]
+      case @routes[route][:route].source_step_type
       when "Business step"
         parse_route_from_business_step( route, source_step, procedure, inbound_routes )
       when "Decision"
