@@ -17,7 +17,7 @@ module PARSE_DECISION_STEP
       if @routes[inbound_routes[0]][:parsed] == true
     
         # ... we update the route parsed attribute to true.
-        update_route_hash( route, nil, nil, true, nil, nil, nil, nil, nil )
+        update_route_hash( route, nil, nil, true, nil )
         
         # ... we refer to the [decision step truth table](https://ukparliament.github.io/ontologies/procedure/flowcharts/meta/design-notes/#truth-table-decision) ...
         
@@ -25,13 +25,13 @@ module PARSE_DECISION_STEP
         if @routes[inbound_routes[0]][:status] == 'TRUE'
         
           # ... we set the status of this route to 'ALLOWS'.
-  				update_route_hash( route, nil, 'ALLOWS', nil, nil, nil, nil, nil, nil )
+  				update_route_hash( route, nil, 'ALLOWS', nil, nil )
           
         # ... otherwise, if the status of the inbound route to the source step is NULL, FALSE or UNTRAVERSABLE ...
         else
           
           # ... we set the status of this route to the status of the inbound route.
-          update_route_hash( route, nil, @routes[inbound_routes[0]][:status], nil, nil, nil, nil, nil, nil )
+          update_route_hash( route, nil, @routes[inbound_routes[0]][:status], nil, nil )
         end
         
       # ...otherwise, if the inbound route has not been parsed ...
