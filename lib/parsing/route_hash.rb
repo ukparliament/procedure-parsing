@@ -35,19 +35,13 @@ module PARSE_ROUTE_HASH
           'UNPARSED', # We pass in the status attribute of the route. This is 'UNPARSED' until the route is parsed.
           false, # We pass in the parsed attribute of the route. This is false until the route is successfully parsed.
           0, # We pass in the parse pass count attribute of this route. This is 0 until parsed.
-          route.source_step_name, # We pass in the name of the source step.
-          route.source_step_type, # We pass in the name of the type of the source step.
-          route.target_step_name, # We pass in the name of the target step.
-          route.target_step_type # We pass in the name of the type of the target step.
         )
       end
     end
   end
   
-  
-
   # ## Method to create a hash of attributes for a given route and add it to the containing route hash.
-  def create_route_hash( route, current, status, parsed, parse_pass_count, source_step_name, source_step_type, target_step_name, target_step_type )
+  def create_route_hash( route, current, status, parsed, parse_pass_count )
   
     # We create a hash of route attributes.
     route_hash = {
@@ -55,18 +49,15 @@ module PARSE_ROUTE_HASH
       :status => status,
       :parsed => parsed,
       :parse_pass_count => parse_pass_count,
-      :source_step_name => source_step_name,
-      :source_step_type => source_step_type,
-      :target_step_name => target_step_name,
-      :target_step_type => target_step_type
+      :route => route
     }
-  
+    
     # We add the hash to the routes hash, keyed off the route.
     @routes[route] = route_hash
   end
 
   # ## Method to update a hash of attributes for a given route and replace it in the containing route hash.
-  def update_route_hash( route, current, status, parsed, parse_pass_count, source_step_name, source_step_type, target_step_name, target_step_type )
+  def update_route_hash( route, current, status, parsed, parse_pass_count )
     
     # We check if this method has been passed a value for an attribute.
     # Where the method has been passed nil as an attribute value, we use the attribute value as it exists in the hash.
@@ -74,10 +65,6 @@ module PARSE_ROUTE_HASH
     status = status || @routes[route][:status]
     parsed = parsed || @routes[route][:parsed]
     parse_pass_count = parse_pass_count || @routes[route][:parse_pass_count]
-    source_step_name = source_step_name || @routes[route][:source_step_name]
-    source_step_type = source_step_type || @routes[route][:source_step_type]
-    target_step_name = target_step_name || @routes[route][:target_step_name]
-    target_step_type = target_step_type || @routes[route][:target_step_type]
     
     # We create a hash of attributes for the route with any revised values.
     route_hash = {
@@ -85,10 +72,7 @@ module PARSE_ROUTE_HASH
       :status => status,
       :parsed => parsed,
       :parse_pass_count => parse_pass_count,
-      :source_step_name => source_step_name,
-      :source_step_type => source_step_type,
-      :target_step_name => target_step_name,
-      :target_step_type => target_step_type
+      :route => @routes[route][:route]
     }
     
     # We push this back into the hash of routes, keyed off the route.
