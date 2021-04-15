@@ -73,7 +73,7 @@ These are created as instance variables because we want to write to them and rep
 
     @caused_steps = []
     @allowed_steps = []
-    @disallowed_yet_steps = []
+    @disallowed_as_yet_steps = []
     @disallowed_now_steps = []
 We initialise a hash of additional route attributes: these are attributes used only during the parsing process.
 

@@ -66,7 +66,7 @@ class WorkPackageController < ApplicationController
     # These are created as instance variables because we want to write to them and report from them later.
     @caused_steps = []
     @allowed_steps = []
-    @disallowed_yet_steps = []
+    @disallowed_as_yet_steps = []
     @disallowed_now_steps = []
   
     # We initialise a hash of additional route attributes: these are attributes used only during the parsing process.
