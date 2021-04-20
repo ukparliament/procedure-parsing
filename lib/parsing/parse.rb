@@ -31,7 +31,7 @@ module PARSE
       # ### We check the type of the source step of the route we're parsing and parse the route accordingly.
       case @routes[route][:route].source_step_type
       when "Business step"
-        parse_route_from_business_step( route, source_step, procedure, inbound_routes )
+        parse_route_from_business_step( route, source_step, inbound_routes )
       when "Decision"
         parse_route_from_decision_step( route, source_step, procedure, inbound_routes )
       when "NOT"
