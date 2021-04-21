@@ -36,6 +36,8 @@ Unless this route has been parsed ...
       inbound_routes = source_step.inbound_routes_in_procedure( procedure )
 ### We check the type of the source step of the route we're parsing and parse the route accordingly.
 
+For each parse method we pass the route to be parsed, the source step of the route and the set of inbound routes. The parsed and status attributes of the inbound routes are used to determine if and how we should evaluate the step.
+
       case @routes[route][:route].source_step_type
       when "Business step"
         parse_route_from_business_step( route, source_step, inbound_routes )
