@@ -33,13 +33,13 @@ module PARSE
       when "Business step"
         parse_route_from_business_step( route, source_step, inbound_routes )
       when "Decision"
-        parse_route_from_decision_step( route, source_step, procedure, inbound_routes )
+        parse_route_from_decision_step( route, source_step, inbound_routes )
       when "NOT"
-        parse_route_from_not_step( route, source_step, procedure, inbound_routes )
+        parse_route_from_not_step( route, source_step, inbound_routes )
       when "AND"
-        parse_route_from_and_step( route, source_step, procedure, inbound_routes )
+        parse_route_from_and_step( route, source_step, inbound_routes )
       when "OR"
-        parse_route_from_or_step( route, source_step, procedure, inbound_routes )
+        parse_route_from_or_step( route, source_step, inbound_routes )
       end
       
       # ### We check the currency of the route.
