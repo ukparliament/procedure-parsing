@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <link rel="alternate" type="text/markdown" href="decision_step.rb.md">
+    <style>
+      body {
+        max-width: 40rem;
+        margin: auto;
+        padding: 2rem 1rem;
+        font-family: 'Helvetica Neue','Helvetica', system-ui;
+        color: black;
+        background-color: white;
+      }
+      p {line-height: 1.4;}
+      code {
+      line-height: 1.4;
+      color:gray;
+      }
+      code pre {white-space: pre-wrap; word-break: break-word;}
+      code:hover {color:black;}
+      h1, h2 {font-weight:normal;}
+      a {text-decoration:none;}
+      a.githubline {color:gray;font-weight:bold;}
+      @media (prefers-color-scheme: dark) {
+body {color:white;background-color:black;}
+a {text-decoration:underline;color:white;}
+}
+    </style>
+    <title>lib/parsing/decision_step.rb</title>
+  </head>
+  <body><p><a href="/procedures/meta/comments">/procedures/meta/comments</a></p><h1>Module to parse a route whose source step is a decision step.</h1>
+<code title='Line 2, lib/parsing/decision_step.rb'><pre><a name='2'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/decision_step.rb#L2'> 2</a> module PARSE_DECISION_STEP
+</pre></code><h2>Method to parse a route whose source step is a decision step.</h2>
+<code title='Line 5, lib/parsing/decision_step.rb'><pre><a name='5'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/decision_step.rb#L5'> 5</a>   def parse_route_from_decision_step( route, source_step, inbound_routes )
+</pre></code><p>Design note: The <a href="https://ukparliament.github.io/ontologies/procedure/flowcharts/meta/design-notes/#validating-inputs-and-outputs-to-steps">method used</a> for validating the number of input and output routes for each step type.</p>
+<p>If the decision step does not have one inbound route ...</p>
+<code title='Line 9, lib/parsing/decision_step.rb'><pre><a name='9'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/decision_step.rb#L9'> 9</a>     if inbound_routes.size != 1
+</pre></code><p>... log the step as has having an unexpected number of routes.</p>
+<code title='Line 12, lib/parsing/decision_step.rb'><pre><a name='12'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/decision_step.rb#L12'> 12</a>       logger.error "Decision step with ID #{source_step.id} has #{inbound_routes.size} inbound routes."
+</pre></code><p>Otherwise, if the decision step does have one inbound route ...</p>
+<code title='Line 15, lib/parsing/decision_step.rb'><pre><a name='15'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/decision_step.rb#L15'> 15</a>     else
+</pre></code><p>... if the inbound route to the source step has been parsed ....</p>
+<code title='Line 18, lib/parsing/decision_step.rb'><pre><a name='18'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/decision_step.rb#L18'> 18</a>       if @routes[inbound_routes[0]][:parsed] == true
+</pre></code><p>... we update the route parsed attribute to true.</p>
+<code title='Line 21, lib/parsing/decision_step.rb'><pre><a name='21'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/decision_step.rb#L21'> 21</a>         update_route_hash( route, nil, nil, true, nil )
+</pre></code><p>... we refer to the <a href="https://ukparliament.github.io/ontologies/procedure/flowcharts/meta/design-notes/#truth-table-decision">decision step truth table</a> ...</p>
+<p>... and if the status of the inbound route to the source step is &#39;TRUE&#39; ...</p>
+<code title='Line 26, lib/parsing/decision_step.rb'><pre><a name='26'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/decision_step.rb#L26'> 26</a>         if @routes[inbound_routes[0]][:status] == 'TRUE'
+</pre></code><p>... we set the status of this route to &#39;ALLOWS&#39;.</p>
+<code title='Line 29, lib/parsing/decision_step.rb'><pre><a name='29'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/decision_step.rb#L29'> 29</a>   				update_route_hash( route, nil, 'ALLOWS', nil, nil )
+</pre></code><p>... otherwise, if the status of the inbound route to the source step is not ‘TRUE’ ...</p>
+<code title='Line 32, lib/parsing/decision_step.rb'><pre><a name='32'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/decision_step.rb#L32'> 32</a>         else
+</pre></code><p>... we set the status of this route to the status of the inbound route.</p>
+<code title='Line 35, lib/parsing/decision_step.rb'><pre><a name='35'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/decision_step.rb#L35'> 35</a>           update_route_hash( route, nil, @routes[inbound_routes[0]][:status], nil, nil )
+</pre></code><code title='Line 36, lib/parsing/decision_step.rb'><pre><a name='36'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/decision_step.rb#L36'> 36</a>         end
+</pre></code><p>Otherwise, the inbound route is not parsed and will be parsed on a later pass.</p>
+<code title='Line 39, lib/parsing/decision_step.rb'><pre><a name='39'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/decision_step.rb#L39'> 39</a>       end
+</pre></code><code title='Line 40, lib/parsing/decision_step.rb'><pre><a name='40'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/decision_step.rb#L40'> 40</a>     end
+</pre></code><code title='Line 41, lib/parsing/decision_step.rb'><pre><a name='41'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/decision_step.rb#L41'> 41</a>   end
+</pre></code><code title='Line 42, lib/parsing/decision_step.rb'><pre><a name='42'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/decision_step.rb#L42'> 42</a> end</pre></code></body></html>
