@@ -73,17 +73,17 @@ a {text-decoration:underline;color:white;}
 </pre></code><p>... we set the status of this route to &#39;NULL&#39;.</p>
 <code title='Line 61, lib/parsing/and_step.rb'><pre><a name='61'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/and_step.rb#L61'> 61</a>           update_route_hash( route, nil, 'NULL', nil, nil )
 </pre></code><code title='Line 62, lib/parsing/and_step.rb'><pre><a name='62'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/and_step.rb#L62'> 62</a>         end
-</pre></code><p>... otherwise if the first inbound route has been parsed and the second inbound route has not been parsed ...</p>
+</pre></code><h3>Otherwise if the first inbound route has been parsed and the second inbound route has not been parsed ...</h3>
 <code title='Line 65, lib/parsing/and_step.rb'><pre><a name='65'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/and_step.rb#L65'> 65</a>       elsif @routes[inbound_routes[0]][:parsed] == true and @routes[inbound_routes[1]][:parsed] == false
 </pre></code><p>... we treat the second route status as being NULL, remembering that a NULL value entering a logic gate step renders that gate as &#39;transparent&#39; ...</p>
 <p>... and we set the status of this route to the status of the first inbound route.</p>
 <code title='Line 69, lib/parsing/and_step.rb'><pre><a name='69'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/and_step.rb#L69'> 69</a>         update_route_hash( route, nil, @routes[inbound_routes[0]][:status], nil, nil )
-</pre></code><p>... otherwise if the first inbound route has not been parsed and the second inbound route has been parsed ...</p>
+</pre></code><h3>Otherwise if the first inbound route has not been parsed and the second inbound route has been parsed ...</h3>
 <code title='Line 72, lib/parsing/and_step.rb'><pre><a name='72'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/and_step.rb#L72'> 72</a>       elsif @routes[inbound_routes[0]][:parsed] == false and @routes[inbound_routes[1]][:parsed] == true
 </pre></code><p>... we treat the first route status as being NULL, remembering that a NULL value entering a logic step renders that gate as &#39;transparent&#39; ...</p>
 <p>... and we set the status of this route to the status of the second inbound route.</p>
 <code title='Line 76, lib/parsing/and_step.rb'><pre><a name='76'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/and_step.rb#L76'> 76</a>         update_route_hash( route, nil, @routes[inbound_routes[1]][:status], nil, nil )
-</pre></code><p>Otherwise, neither inbound route has been parsed and this route will be parsed on a later pass.</p>
+</pre></code><h3>Otherwise, neither inbound route has been parsed and this route will be parsed on a later pass.</h3>
 <code title='Line 79, lib/parsing/and_step.rb'><pre><a name='79'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/and_step.rb#L79'> 79</a>       end
 </pre></code><code title='Line 80, lib/parsing/and_step.rb'><pre><a name='80'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/and_step.rb#L80'> 80</a>     end
 </pre></code><code title='Line 81, lib/parsing/and_step.rb'><pre><a name='81'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/and_step.rb#L81'> 81</a>   end

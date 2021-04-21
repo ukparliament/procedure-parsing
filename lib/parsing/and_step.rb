@@ -61,21 +61,21 @@ module PARSE_AND_STEP
           update_route_hash( route, nil, 'NULL', nil, nil )
         end
       
-      # ... otherwise if the first inbound route has been parsed and the second inbound route has not been parsed ...
+      # ### Otherwise if the first inbound route has been parsed and the second inbound route has not been parsed ...
       elsif @routes[inbound_routes[0]][:parsed] == true and @routes[inbound_routes[1]][:parsed] == false
         
         # ... we treat the second route status as being NULL, remembering that a NULL value entering a logic gate step renders that gate as 'transparent' ...
         # ... and we set the status of this route to the status of the first inbound route.
         update_route_hash( route, nil, @routes[inbound_routes[0]][:status], nil, nil )
       
-      # ... otherwise if the first inbound route has not been parsed and the second inbound route has been parsed ...
+      # ### Otherwise if the first inbound route has not been parsed and the second inbound route has been parsed ...
       elsif @routes[inbound_routes[0]][:parsed] == false and @routes[inbound_routes[1]][:parsed] == true
         
         # ... we treat the first route status as being NULL, remembering that a NULL value entering a logic step renders that gate as 'transparent' ...
         # ... and we set the status of this route to the status of the second inbound route.
         update_route_hash( route, nil, @routes[inbound_routes[1]][:status], nil, nil )
         
-      # Otherwise, neither inbound route has been parsed and this route will be parsed on a later pass.
+      # ### Otherwise, neither inbound route has been parsed and this route will be parsed on a later pass.
       end
     end
   end
