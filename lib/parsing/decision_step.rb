@@ -8,7 +8,7 @@ module PARSE_DECISION_STEP
     # If the decision step does not have one inbound route ...
     if inbound_routes.size != 1
   
-      # ... log the step as has having an unexpected number of routes.
+      # ... log the step as has having an unexpected number of inbound routes.
       logger.error "Decision step with ID #{source_step.id} has #{inbound_routes.size} inbound routes."
   
     # Otherwise, if the decision step does have one inbound route ...

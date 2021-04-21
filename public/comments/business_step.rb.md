@@ -9,7 +9,7 @@ Design note: The [method used](https://ukparliament.github.io/ontologies/procedu
 If the business step does not have one inbound route ...
 
     if inbound_routes.size != 1
-... log the step as has having an unexpected number of routes.
+... log the step as has having an unexpected number of inbound routes.
 
       logger.error "Business step with ID #{source_step.id} has #{inbound_routes.size} inbound routes."
 Otherwise, if the business step does have one inbound route ...

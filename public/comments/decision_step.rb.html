@@ -37,7 +37,7 @@ a {text-decoration:underline;color:white;}
 </pre></code><p>Design note: The <a href="https://ukparliament.github.io/ontologies/procedure/flowcharts/meta/design-notes/#validating-inputs-and-outputs-to-steps">method used</a> for validating the number of input and output routes for each step type.</p>
 <p>If the decision step does not have one inbound route ...</p>
 <code title='Line 9, lib/parsing/decision_step.rb'><pre><a name='9'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/decision_step.rb#L9'> 9</a>     if inbound_routes.size != 1
-</pre></code><p>... log the step as has having an unexpected number of routes.</p>
+</pre></code><p>... log the step as has having an unexpected number of inbound routes.</p>
 <code title='Line 12, lib/parsing/decision_step.rb'><pre><a name='12'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/decision_step.rb#L12'> 12</a>       logger.error "Decision step with ID #{source_step.id} has #{inbound_routes.size} inbound routes."
 </pre></code><p>Otherwise, if the decision step does have one inbound route ...</p>
 <code title='Line 15, lib/parsing/decision_step.rb'><pre><a name='15'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/decision_step.rb#L15'> 15</a>     else
