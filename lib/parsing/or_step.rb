@@ -1,8 +1,9 @@
 module PARSE_OR_STEP
   
   # # Method to parse a route whose source step is an OR step.
-  def parse_route_from_or_step( route, source_step, procedure, inbound_routes )
+  def parse_route_from_or_step( route, source_step, inbound_routes )
   
+    # Design note: The [method used](https://ukparliament.github.io/ontologies/procedure/flowcharts/meta/design-notes/#validating-inputs-and-outputs-to-steps) for validating the number of input and output route for each step type.
     # If the OR step does not have exactly two inbound routes ...
     if inbound_routes.size != 2
   
