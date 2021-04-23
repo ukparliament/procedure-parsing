@@ -1,4 +1,4 @@
-# # Module containing the main parsing code: creation, initialisation and updating a hash for each route.
+# # Module containing the main parsing code.
 # Design notes for the [parsing of a procedure map with logic gates are here](https://ukparliament.github.io/ontologies/procedure/flowcharts/meta/design-notes/#procedure-maps-with-logic-gates).
 module PARSE
   
