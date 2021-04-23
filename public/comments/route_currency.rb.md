@@ -1,4 +1,4 @@
-# A module to determine whether a route is current.
+# Module to determine whether a route is current.
 
 module PARSE_ROUTE_CURRENCY
 ## Method to determine whether a route is current.
