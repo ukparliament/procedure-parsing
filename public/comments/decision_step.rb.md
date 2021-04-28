@@ -17,7 +17,7 @@ Otherwise, if the decision step does have one inbound route ...
     else
 ... if the inbound route to the source step has been parsed ....
 
-      if @routes[inbound_routes[0]][:parsed] == true
+      if @routes[inbound_routes[0].id][:parsed] == true
 ... we update the route parsed attribute to true.
 
         update_route_hash( route, nil, nil, true, nil )
@@ -25,7 +25,7 @@ Otherwise, if the decision step does have one inbound route ...
 
 ... and if the status of the inbound route to the source step is 'TRUE' ...
 
-        if @routes[inbound_routes[0]][:status] == 'TRUE'
+        if @routes[inbound_routes[0].id][:status] == 'TRUE'
 ... we set the status of this route to 'ALLOWS'.
 
   				update_route_hash( route, nil, 'ALLOWS', nil, nil )
@@ -34,7 +34,7 @@ Otherwise, if the decision step does have one inbound route ...
         else
 ... we set the status of this route to the status of the inbound route.
 
-          update_route_hash( route, nil, @routes[inbound_routes[0]][:status], nil, nil )
+          update_route_hash( route, nil, @routes[inbound_routes[0].id][:status], nil, nil )
         end
 Otherwise, the inbound route is not parsed and will be parsed on a later pass.
 

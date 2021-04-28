@@ -42,18 +42,18 @@ a {text-decoration:underline;color:white;}
 </pre></code><p>Otherwise, if the decision step does have one inbound route ...</p>
 <code title='Line 15, lib/parsing/decision_step.rb'><pre><a name='15'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/decision_step.rb#L15'> 15</a>     else
 </pre></code><p>... if the inbound route to the source step has been parsed ....</p>
-<code title='Line 18, lib/parsing/decision_step.rb'><pre><a name='18'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/decision_step.rb#L18'> 18</a>       if @routes[inbound_routes[0]][:parsed] == true
+<code title='Line 18, lib/parsing/decision_step.rb'><pre><a name='18'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/decision_step.rb#L18'> 18</a>       if @routes[inbound_routes[0].id][:parsed] == true
 </pre></code><p>... we update the route parsed attribute to true.</p>
 <code title='Line 21, lib/parsing/decision_step.rb'><pre><a name='21'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/decision_step.rb#L21'> 21</a>         update_route_hash( route, nil, nil, true, nil )
 </pre></code><p>... we refer to the <a href="https://ukparliament.github.io/ontologies/procedure/flowcharts/meta/design-notes/#truth-table-decision">decision step truth table</a> ...</p>
 <p>... and if the status of the inbound route to the source step is &#39;TRUE&#39; ...</p>
-<code title='Line 26, lib/parsing/decision_step.rb'><pre><a name='26'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/decision_step.rb#L26'> 26</a>         if @routes[inbound_routes[0]][:status] == 'TRUE'
+<code title='Line 26, lib/parsing/decision_step.rb'><pre><a name='26'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/decision_step.rb#L26'> 26</a>         if @routes[inbound_routes[0].id][:status] == 'TRUE'
 </pre></code><p>... we set the status of this route to &#39;ALLOWS&#39;.</p>
 <code title='Line 29, lib/parsing/decision_step.rb'><pre><a name='29'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/decision_step.rb#L29'> 29</a>   				update_route_hash( route, nil, 'ALLOWS', nil, nil )
 </pre></code><p>... otherwise, if the status of the inbound route to the source step is not ‘TRUE’ ...</p>
 <code title='Line 32, lib/parsing/decision_step.rb'><pre><a name='32'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/decision_step.rb#L32'> 32</a>         else
 </pre></code><p>... we set the status of this route to the status of the inbound route.</p>
-<code title='Line 35, lib/parsing/decision_step.rb'><pre><a name='35'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/decision_step.rb#L35'> 35</a>           update_route_hash( route, nil, @routes[inbound_routes[0]][:status], nil, nil )
+<code title='Line 35, lib/parsing/decision_step.rb'><pre><a name='35'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/decision_step.rb#L35'> 35</a>           update_route_hash( route, nil, @routes[inbound_routes[0].id][:status], nil, nil )
 </pre></code><code title='Line 36, lib/parsing/decision_step.rb'><pre><a name='36'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/decision_step.rb#L36'> 36</a>         end
 </pre></code><p>Otherwise, the inbound route is not parsed and will be parsed on a later pass.</p>
 <code title='Line 39, lib/parsing/decision_step.rb'><pre><a name='39'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/decision_step.rb#L39'> 39</a>       end
