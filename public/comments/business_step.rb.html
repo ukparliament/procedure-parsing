@@ -42,7 +42,7 @@ a {text-decoration:underline;color:white;}
 </pre></code><p>Otherwise, if the business step does have one inbound route ...</p>
 <code title='Line 15, lib/parsing/business_step.rb'><pre><a name='15'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/business_step.rb#L15'> 15</a>     else
 </pre></code><p>... if the inbound route to the source step has a status of &#39;UNTRAVERSABLE&#39; ...</p>
-<code title='Line 18, lib/parsing/business_step.rb'><pre><a name='18'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/business_step.rb#L18'> 18</a>       if @routes[inbound_routes[0]][:status] == 'UNTRAVERSABLE'
+<code title='Line 18, lib/parsing/business_step.rb'><pre><a name='18'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/business_step.rb#L18'> 18</a>       if @routes[inbound_routes[0].id][:status] == 'UNTRAVERSABLE'
 </pre></code><p>... then “the bridge is closed” and we set the “roads off the bridge” as closed ...</p>
 <p>... by setting the status of this route to also be &#39;UNTRAVERSABLE&#39; and the parsed attribute to true.</p>
 <code title='Line 22, lib/parsing/business_step.rb'><pre><a name='22'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/business_step.rb#L22'> 22</a>         update_route_hash( route, nil, 'UNTRAVERSABLE', true, nil )

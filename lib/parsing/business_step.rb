@@ -15,7 +15,7 @@ module PARSE_BUSINESS_STEP
     else
       
       # ... if the inbound route to the source step has a status of 'UNTRAVERSABLE' ...
-      if @routes[inbound_routes[0]][:status] == 'UNTRAVERSABLE'
+      if @routes[inbound_routes[0].id][:status] == 'UNTRAVERSABLE'
           
         # ... then “the bridge is closed” and we set the “roads off the bridge” as closed ...
         # ... by setting the status of this route to also be 'UNTRAVERSABLE' and the parsed attribute to true.
