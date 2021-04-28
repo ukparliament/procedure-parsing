@@ -42,12 +42,12 @@ a {text-decoration:underline;color:white;}
 </pre></code><p>Otherwise, if the NOT step does have one inbound route ...</p>
 <code title='Line 15, lib/parsing/not_step.rb'><pre><a name='15'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/not_step.rb#L15'> 15</a>     else
 </pre></code><p>... if the inbound route to the source step has been parsed ....</p>
-<code title='Line 18, lib/parsing/not_step.rb'><pre><a name='18'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/not_step.rb#L18'> 18</a>       if @routes[inbound_routes[0]][:parsed] == true
+<code title='Line 18, lib/parsing/not_step.rb'><pre><a name='18'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/not_step.rb#L18'> 18</a>       if @routes[inbound_routes[0].id][:parsed] == true
 </pre></code><p>... we update the route parsed attribute to true.</p>
 <code title='Line 21, lib/parsing/not_step.rb'><pre><a name='21'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/not_step.rb#L21'> 21</a>         update_route_hash( route, nil, nil, true, nil )
 </pre></code><p>... we refer to the <a href="https://ukparliament.github.io/ontologies/procedure/flowcharts/meta/design-notes/#truth-table-not">NOT step truth table</a> ...</p>
 <p>... we check the status of the inbound route to the source step.</p>
-<code title='Line 26, lib/parsing/not_step.rb'><pre><a name='26'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/not_step.rb#L26'> 26</a>         case @routes[inbound_routes[0]][:status]
+<code title='Line 26, lib/parsing/not_step.rb'><pre><a name='26'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/not_step.rb#L26'> 26</a>         case @routes[inbound_routes[0].id][:status]
 </pre></code><p>When the status of the inbound route to the source step is &#39;TRUE&#39; ...</p>
 <code title='Line 29, lib/parsing/not_step.rb'><pre><a name='29'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/not_step.rb#L29'> 29</a>         when 'TRUE'
 </pre></code><p>... we set the status of this route to &#39;FALSE&#39;.</p>
@@ -59,7 +59,7 @@ a {text-decoration:underline;color:white;}
 </pre></code><p>Otherwise, when the status of the inbound route is neither ‘TRUE’ nor ‘FALSE’ ...</p>
 <code title='Line 41, lib/parsing/not_step.rb'><pre><a name='41'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/not_step.rb#L41'> 41</a>         else
 </pre></code><p>... we set the status of this route to the status of the inbound route.</p>
-<code title='Line 44, lib/parsing/not_step.rb'><pre><a name='44'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/not_step.rb#L44'> 44</a>           update_route_hash( route, nil, @routes[inbound_routes[0]][:status], nil, nil )
+<code title='Line 44, lib/parsing/not_step.rb'><pre><a name='44'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/not_step.rb#L44'> 44</a>           update_route_hash( route, nil, @routes[inbound_routes[0].id][:status], nil, nil )
 </pre></code><code title='Line 45, lib/parsing/not_step.rb'><pre><a name='45'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/not_step.rb#L45'> 45</a>         end
 </pre></code><p>Otherwise, the inbound route is not parsed and will be parsed on a later pass.</p>
 <code title='Line 48, lib/parsing/not_step.rb'><pre><a name='48'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/not_step.rb#L48'> 48</a>       end
