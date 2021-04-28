@@ -18,10 +18,10 @@ We only wish to parse a route if it has not already been parsed.
 
 Unless this route has been parsed ...
 
-    unless @routes[route][:parsed] == true
+    unless @routes[route.id][:parsed] == true
 ... we increment the parse pass count for this route, ...
 
-      parse_pass_count = @routes[route][:parse_pass_count] + 1
+      parse_pass_count = @routes[route.id][:parse_pass_count] + 1
 ... update the route hash with that count ...
 
       update_route_hash( route, nil, nil, nil, parse_pass_count )
@@ -30,7 +30,7 @@ Unless this route has been parsed ...
       @parse_pass_count += 1
 ... the route and its attributes are logged.
 
-      @parse_log << "Parsing route from <strong>#{@routes[route][:route].source_step_name} (#{@routes[route][:route].source_step_type})</strong> to <strong>#{@routes[route][:route].target_step_name} (#{@routes[route][:route].target_step_type})</strong> [#{@parse_pass_count}/#{@route_count}]."
+      @parse_log << "Parsing route from <strong>#{@routes[route.id][:route].source_step_name} (#{@routes[route.id][:route].source_step_type})</strong> to <strong>#{@routes[route.id][:route].target_step_name} (#{@routes[route.id][:route].target_step_type})</strong> [#{@parse_pass_count}/#{@route_count}]."
 ... we get the inbound routes to the source step of the route we're parsing in this procedure.
 
       inbound_routes = source_step.inbound_routes_in_procedure( procedure )
@@ -38,7 +38,7 @@ Unless this route has been parsed ...
 
 For each parse method we pass the route to be parsed, the source step of the route and the set of inbound routes. The parsed and status attributes of the inbound routes are used to determine if and how we should evaluate the step.
 
-      case @routes[route][:route].source_step_type
+      case @routes[route.id][:route].source_step_type
       when "Business step"
         parse_route_from_business_step( route, source_step, inbound_routes )
       when "Decision"
@@ -70,7 +70,7 @@ For each outbound route, in the same procedure, from the target step of the rout
       target_step.outbound_routes_in_procedure( procedure ).each do |outbound_route|
 ... unless that route has already been parsed ...
 
-        unless @routes[outbound_route][:parsed] == true
+        unless @routes[outbound_route.id][:parsed] == true
 ... we parse the route.
 
           parse_route( outbound_route, target_step, procedure )
