@@ -72,6 +72,13 @@ class WorkPackageController < ApplicationController
     # We initialise a hash of additional route attributes: these are attributes used only during the parsing process.
     initialise_route_hash( @work_package )
     
+    ### ==========
+  
+    # We initialise a hash of steps keyed off the step ID together with a hashes of routes from a step and routes to a step key also keyed off the step ID.
+    initialise_step_hash( procedure )
+    
+    ### ==========
+    
     # We get an array of the start steps in the procedure.
     # The array is created as an instance variable because we want to check it when parsing business steps.
     @start_steps = procedure.start_steps
@@ -88,3 +95,26 @@ class WorkPackageController < ApplicationController
     end
   end
 end
+
+### =========
+
+def initialise_step_hash( procedure )
+  @steps = {}
+  @routes_from_steps = {}
+  @routes_to_steps = {}
+  steps = procedure.steps
+  steps.each do |step|
+    puts step.id
+    from_route_array = []
+    to_route_array = []
+  	@routes.each do |route|
+      from_route_array << route[1][:route].id if route[1][:route].from_step_id == step.id
+  		to_route_array << route[1][:route].id if route[1][:route].to_step_id == step.id
+  	end
+    @routes_from_steps[step.id] = from_route_array
+    @routes_to_steps[step.id] = to_route_array
+    @steps[step.id] = step
+  end
+end
+
+### ==========
