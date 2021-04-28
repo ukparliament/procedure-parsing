@@ -30,9 +30,9 @@ a {text-decoration:underline;color:white;}
     </style>
     <title>lib/parsing/route_hash.rb</title>
   </head>
-  <body><p><a href="/procedures/meta/comments">/procedures/meta/comments</a></p><h1>Module to initialise, create and update a hash of a hash of route attributes keyed off a route.</h1>
+  <body><p><a href="/procedures/meta/comments">/procedures/meta/comments</a></p><h1>Module to initialise, create and update a hash of a hash of route attributes keyed off the ID of a route.</h1>
 <code title='Line 2, lib/parsing/route_hash.rb'><pre><a name='2'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/route_hash.rb#L2'> 2</a> module PARSE_ROUTE_HASH
-</pre></code><h2>Method to initialise a hash of a hash of route attributes keyed off a route.</h2>
+</pre></code><h2>Method to initialise a hash of a hash of route attributes keyed off the ID of a route.</h2>
 <p>We use this to store values that are generated from parsing and are not on the route model.</p>
 <code title='Line 6, lib/parsing/route_hash.rb'><pre><a name='6'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/route_hash.rb#L6'> 6</a>   def initialise_route_hash( work_package )
 </pre></code><p>We get all routes which appear in the procedure the work package is subject to, together with the name and type of the source step of each route and the name and type of the target step of each route.</p>
@@ -71,26 +71,26 @@ a {text-decoration:underline;color:white;}
 </pre></code><code title='Line 50, lib/parsing/route_hash.rb'><pre><a name='50'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/route_hash.rb#L50'> 50</a>       :parse_pass_count => parse_pass_count,
 </pre></code><code title='Line 51, lib/parsing/route_hash.rb'><pre><a name='51'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/route_hash.rb#L51'> 51</a>       :route => route
 </pre></code><code title='Line 52, lib/parsing/route_hash.rb'><pre><a name='52'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/route_hash.rb#L52'> 52</a>     }
-</pre></code><p>We add the hash to the routes hash, keyed off the route.</p>
-<code title='Line 55, lib/parsing/route_hash.rb'><pre><a name='55'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/route_hash.rb#L55'> 55</a>     @routes[route] = route_hash
+</pre></code><p>We add the hash to the routes hash, keyed off the ID of the route.</p>
+<code title='Line 55, lib/parsing/route_hash.rb'><pre><a name='55'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/route_hash.rb#L55'> 55</a>     @routes[route.id] = route_hash
 </pre></code><code title='Line 56, lib/parsing/route_hash.rb'><pre><a name='56'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/route_hash.rb#L56'> 56</a>   end
 </pre></code><h2>Method to update the hash of attributes for a route within the containing route hash.</h2>
 <code title='Line 59, lib/parsing/route_hash.rb'><pre><a name='59'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/route_hash.rb#L59'> 59</a>   def update_route_hash( route, current, status, parsed, parse_pass_count )
 </pre></code><p>We check if this method has been passed a value for an attribute.</p>
 <p>Where the method has been passed nil as an attribute value, we use the attribute value as it exists in the hash.</p>
-<code title='Line 63, lib/parsing/route_hash.rb'><pre><a name='63'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/route_hash.rb#L63'> 63</a>     current = current || @routes[route][:current]
-</pre></code><code title='Line 64, lib/parsing/route_hash.rb'><pre><a name='64'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/route_hash.rb#L64'> 64</a>     status = status || @routes[route][:status]
-</pre></code><code title='Line 65, lib/parsing/route_hash.rb'><pre><a name='65'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/route_hash.rb#L65'> 65</a>     parsed = parsed || @routes[route][:parsed]
-</pre></code><code title='Line 66, lib/parsing/route_hash.rb'><pre><a name='66'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/route_hash.rb#L66'> 66</a>     parse_pass_count = parse_pass_count || @routes[route][:parse_pass_count]
+<code title='Line 63, lib/parsing/route_hash.rb'><pre><a name='63'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/route_hash.rb#L63'> 63</a>     current = current || @routes[route.id][:current]
+</pre></code><code title='Line 64, lib/parsing/route_hash.rb'><pre><a name='64'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/route_hash.rb#L64'> 64</a>     status = status || @routes[route.id][:status]
+</pre></code><code title='Line 65, lib/parsing/route_hash.rb'><pre><a name='65'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/route_hash.rb#L65'> 65</a>     parsed = parsed || @routes[route.id][:parsed]
+</pre></code><code title='Line 66, lib/parsing/route_hash.rb'><pre><a name='66'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/route_hash.rb#L66'> 66</a>     parse_pass_count = parse_pass_count || @routes[route.id][:parse_pass_count]
 </pre></code><p>We create a hash of attributes for the route with any revised values.</p>
 <code title='Line 69, lib/parsing/route_hash.rb'><pre><a name='69'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/route_hash.rb#L69'> 69</a>     route_hash = {
 </pre></code><code title='Line 70, lib/parsing/route_hash.rb'><pre><a name='70'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/route_hash.rb#L70'> 70</a>       :current => current,
 </pre></code><code title='Line 71, lib/parsing/route_hash.rb'><pre><a name='71'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/route_hash.rb#L71'> 71</a>       :status => status,
 </pre></code><code title='Line 72, lib/parsing/route_hash.rb'><pre><a name='72'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/route_hash.rb#L72'> 72</a>       :parsed => parsed,
 </pre></code><code title='Line 73, lib/parsing/route_hash.rb'><pre><a name='73'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/route_hash.rb#L73'> 73</a>       :parse_pass_count => parse_pass_count,
-</pre></code><code title='Line 74, lib/parsing/route_hash.rb'><pre><a name='74'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/route_hash.rb#L74'> 74</a>       :route => @routes[route][:route]
+</pre></code><code title='Line 74, lib/parsing/route_hash.rb'><pre><a name='74'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/route_hash.rb#L74'> 74</a>       :route => @routes[route.id][:route]
 </pre></code><code title='Line 75, lib/parsing/route_hash.rb'><pre><a name='75'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/route_hash.rb#L75'> 75</a>     }
-</pre></code><p>We push this back into the hash of routes, keyed off the route.</p>
-<code title='Line 78, lib/parsing/route_hash.rb'><pre><a name='78'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/route_hash.rb#L78'> 78</a>     @routes[route] = route_hash
+</pre></code><p>We push this back into the hash of routes, keyed off the ID of the route.</p>
+<code title='Line 78, lib/parsing/route_hash.rb'><pre><a name='78'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/route_hash.rb#L78'> 78</a>     @routes[route.id] = route_hash
 </pre></code><code title='Line 79, lib/parsing/route_hash.rb'><pre><a name='79'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/route_hash.rb#L79'> 79</a>   end
 </pre></code><code title='Line 80, lib/parsing/route_hash.rb'><pre><a name='80'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/route_hash.rb#L80'> 80</a> end</pre></code></body></html>

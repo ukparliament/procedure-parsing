@@ -1,7 +1,7 @@
-# Module to initialise, create and update a hash of a hash of route attributes keyed off a route.
+# Module to initialise, create and update a hash of a hash of route attributes keyed off the ID of a route.
 
 module PARSE_ROUTE_HASH
-## Method to initialise a hash of a hash of route attributes keyed off a route.
+## Method to initialise a hash of a hash of route attributes keyed off the ID of a route.
 
 We use this to store values that are generated from parsing and are not on the route model.
 
@@ -53,9 +53,9 @@ We create a hash of route attributes.
       :parse_pass_count => parse_pass_count,
       :route => route
     }
-We add the hash to the routes hash, keyed off the route.
+We add the hash to the routes hash, keyed off the ID of the route.
 
-    @routes[route] = route_hash
+    @routes[route.id] = route_hash
   end
 ## Method to update the hash of attributes for a route within the containing route hash.
 
@@ -64,10 +64,10 @@ We check if this method has been passed a value for an attribute.
 
 Where the method has been passed nil as an attribute value, we use the attribute value as it exists in the hash.
 
-    current = current || @routes[route][:current]
-    status = status || @routes[route][:status]
-    parsed = parsed || @routes[route][:parsed]
-    parse_pass_count = parse_pass_count || @routes[route][:parse_pass_count]
+    current = current || @routes[route.id][:current]
+    status = status || @routes[route.id][:status]
+    parsed = parsed || @routes[route.id][:parsed]
+    parse_pass_count = parse_pass_count || @routes[route.id][:parse_pass_count]
 We create a hash of attributes for the route with any revised values.
 
     route_hash = {
@@ -75,10 +75,10 @@ We create a hash of attributes for the route with any revised values.
       :status => status,
       :parsed => parsed,
       :parse_pass_count => parse_pass_count,
-      :route => @routes[route][:route]
+      :route => @routes[route.id][:route]
     }
-We push this back into the hash of routes, keyed off the route.
+We push this back into the hash of routes, keyed off the ID of the route.
 
-    @routes[route] = route_hash
+    @routes[route.id] = route_hash
   end
 end
