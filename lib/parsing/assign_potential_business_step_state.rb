@@ -5,16 +5,16 @@ module PARSE_ASSIGN_POTENTIAL_BUSINESS_STEP_STATE
   def assign_potential_business_step_state( route )
     
     # If the route we're attempting to parse has been successfully parsed ...
-    if @routes[route][:parsed] == true
+    if @routes[route.id][:parsed] == true
       
       # ... we write to the parse log, reporting the route's parsed status.
-      @parse_log << "Successfully parsed as <strong>#{@routes[route][:status]}</strong>."
+      @parse_log << "Successfully parsed as <strong>#{@routes[route.id][:status]}</strong>."
       
       # ... if the target step of the route we've parsed is a business step ...
       if route.target_step.step_type_name == 'Business step'
         
         # ### We check the status of the route we've parsed.
-        case @routes[route][:status]
+        case @routes[route.id][:status]
           
         # When the status of the route we've parsed is 'TRUE' ...
         when "TRUE"
@@ -44,7 +44,7 @@ module PARSE_ASSIGN_POTENTIAL_BUSINESS_STEP_STATE
         else
           
           # ... we write to the parse log, reporting that the successfully parsed route has an unexpected status.
-          @parse_log << "Unexpected status of <strong>#{@routes[route][:status]}</strong>."
+          @parse_log << "Unexpected status of <strong>#{@routes[route.id][:status]}</strong>."
         end
       end
     end
