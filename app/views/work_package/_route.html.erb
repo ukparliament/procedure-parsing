@@ -1,21 +1,21 @@
 <tr>
-	<%= content_tag( 'td', route[0].id ) %>
+	<%= content_tag( 'td', route[0] ) %>
 	<%= content_tag( 'td', route[1][:parsed] ) %>
 	<%= content_tag( 'td', route[1][:parse_pass_count] ) %>
 	<%= content_tag( 'td', route[1][:status] ) %>
 	<%= content_tag( 'td', route[1][:current] ) %>
 	<td>
-		<% if route[0].source_step_type == 'Business step' %>
-			<%= route[0].source_step_name %>
+		<% if route[1][:route].source_step_type == 'Business step' %>
+			<%= route[1][:route].source_step_name %>
 		<% else -%>
-			<%= route[0].source_step_name %> <%= route[0].source_step_type %>
+			<%= route[1][:route].source_step_name %> <%= route[1][:route].source_step_type %>
 		<% end -%>
 	</td>
 	<td>
-		<% if route[0].target_step_type == 'Business step' %>
-			<%= route[0].target_step_name %>
+		<% if route[1][:route].target_step_type == 'Business step' %>
+			<%= route[1][:route].target_step_name %>
 		<% else -%>
-			<%= route[0].target_step_name %> <%= route[0].target_step_type %>
+			<%= route[1][:route].target_step_name %> <%= route[1][:route].target_step_type %>
 		<% end -%>
 	</td>
 </tr>
