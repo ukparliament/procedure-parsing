@@ -21,7 +21,7 @@
 
 <h2>Things that have happened</h2>
 <details>
-	<summary>Steps actualised by with business items having a date in the past, or today: <%= @work_package.business_items_that_have_happened_number %></summary>
+	<summary>Steps actualised with business items having a date in the past, or today: <%= @work_package.business_items_that_have_happened_number %></summary>
 	<section>
 		<%= render :partial => 'business_item/business_item', :collection => @work_package.business_items_that_have_happened %>
 	</section>
