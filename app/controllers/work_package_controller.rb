@@ -74,8 +74,8 @@ class WorkPackageController < ApplicationController
     
     ### ==========
   
-    # We initialise a hash of steps keyed off the step ID together with a hashes of routes from a step and routes to a step key also keyed off the step ID.
-    initialise_step_hash( procedure )
+    # We initialise a hash of steps keyed off the step ID together with a hash of outbound routes from a step and inbound routes to a step, also keyed off the step ID.
+    initialise_step_hashes( procedure )
     
     ### ==========
     
@@ -85,12 +85,14 @@ class WorkPackageController < ApplicationController
   
     # We loop through the start steps in the procedure ...
     @start_steps.each do |step|
-    
+      
       # ... then loop through the outbound routes of each start step ...
-      step.outbound_routes_in_procedure( procedure ).each do |route|
+      step.outbound_route_ids( @routes_from_steps ).each do |route_id|
     
-        # ... and parse each of those routes.
-        parse_route( route, step, procedure )
+        ### ==========
+        # ... and parse each of those routes, passing in the ID of the route .
+        parse_route_with_id( route_id )
+        ### ==========
       end
     end
   end
@@ -98,13 +100,12 @@ end
 
 ### =========
 
-def initialise_step_hash( procedure )
+def initialise_step_hashes( procedure )
   @steps = {}
   @routes_from_steps = {}
   @routes_to_steps = {}
   steps = procedure.steps
   steps.each do |step|
-    puts step.id
     from_route_array = []
     to_route_array = []
   	@routes.each do |route|
@@ -115,6 +116,28 @@ def initialise_step_hash( procedure )
     @routes_to_steps[step.id] = to_route_array
     @steps[step.id] = step
   end
+end
+
+def is_route_untraversable?( route_id )
+  untraversable = false
+  untraversable = true if @routes[route_id][:status] == 'UNTRAVERSABLE'
+  untraversable
+end
+
+def step_has_been_actualised_has_happened?( step_id )
+  actualised_has_happened = false
+  actualised_has_happened = true if @steps[step_id].actualisation_has_happened_count > 0
+  actualised_has_happened
+end
+
+def target_step_of_route_with_id( route_id )
+  @steps[@routes[route_id][:route].to_step_id]
+  #Step.all.select( 's.*').joins( 'as s, routes as r' ).where( 's.id = r.to_step_id' ).where( "r.id = ?", route_id ).order( 's.id').first
+end
+
+def house_label_for_step_id( step_id )
+  step = Step.find( step_id )
+  step.house_label
 end
 
 ### ==========
