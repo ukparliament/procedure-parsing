@@ -1,21 +1,21 @@
 require 'csv'
 
 task :import_staging => [
-  :import_step_types,
-  :import_steps,
-  :import_houses,
-  :import_routes,
-  :import_parliamentary_procedures,
-  :import_procedure_routes,
-  :import_work_packages,
-  :import_house_steps,
-  :import_business_items,
-  :import_actualisations,
-  :import_step_collection_types,
-  :import_step_collections] do
+  :import_staging_step_types,
+  :import_staging_steps,
+  :import_staging_houses,
+  :import_staging_routes,
+  :import_staging_parliamentary_procedures,
+  :import_staging_procedure_routes,
+  :import_staging_work_packages,
+  :import_staging_house_steps,
+  :import_staging_business_items,
+  :import_staging_actualisations,
+  :import_staging_step_collection_types,
+  :import_staging_step_collections] do
 end
 
-task :import_step_types => :environment do
+task :import_staging_step_types => :environment do
   puts "importing step types"
   CSV.foreach( 'db/data/staging/step-types.tsv', { :col_sep => "\t" } ) do |row|
     step_type = StepType.new
@@ -26,7 +26,7 @@ task :import_step_types => :environment do
     step_type.save
   end
 end
-task :import_steps => :environment do
+task :import_staging_steps => :environment do
   puts "importing steps"
   CSV.foreach( 'db/data/staging/steps.tsv', { :col_sep => "\t" } ) do |row|
     step = Step.new
@@ -38,7 +38,7 @@ task :import_steps => :environment do
     step.save
   end
 end
-task :import_houses => :environment do
+task :import_staging_houses => :environment do
   puts "importing houses"
   CSV.foreach( 'db/data/staging/houses.tsv', { :col_sep => "\t" } ) do |row|
     house = House.new
@@ -48,7 +48,7 @@ task :import_houses => :environment do
     house.save
   end
 end
-task :import_routes => :environment do
+task :import_staging_routes => :environment do
   puts "importing routes"
   CSV.foreach( 'db/data/staging/routes.tsv', { :col_sep => "\t" } ) do |row|
     route = Route.new
@@ -61,7 +61,7 @@ task :import_routes => :environment do
     route.save
   end
 end
-task :import_parliamentary_procedures => :environment do
+task :import_staging_parliamentary_procedures => :environment do
   puts "importing parliamentary procedures"
   CSV.foreach( 'db/data/staging/procedures.tsv', { :col_sep => "\t" } ) do |row|
     parliamentary_procedure = ParliamentaryProcedure.new
@@ -72,7 +72,7 @@ task :import_parliamentary_procedures => :environment do
     parliamentary_procedure.save
   end
 end
-task :import_procedure_routes => :environment do
+task :import_staging_procedure_routes => :environment do
   puts "importing procedure routes"
   CSV.foreach( 'db/data/staging/procedure_routes.tsv', { :col_sep => "\t" } ) do |row|
     procedure_route = ProcedureRoute.new
@@ -82,7 +82,7 @@ task :import_procedure_routes => :environment do
     procedure_route.save
   end
 end
-task :import_work_packages => :environment do
+task :import_staging_work_packages => :environment do
   puts "importing work packages"
   CSV.foreach( 'db/data/staging/work_packages.tsv', { :col_sep => "\t" } ) do |row|
     work_package = WorkPackage.new
@@ -94,7 +94,7 @@ task :import_work_packages => :environment do
     work_package.save
   end
 end
-task :import_house_steps => :environment do
+task :import_staging_house_steps => :environment do
   puts "importing house steps"
   CSV.foreach( 'db/data/staging/house_steps.tsv', { :col_sep => "\t" } ) do |row|
     house_step = HouseStep.new
@@ -104,7 +104,7 @@ task :import_house_steps => :environment do
     house_step.save
   end
 end
-task :import_business_items => :environment do
+task :import_staging_business_items => :environment do
   puts "importing business items"
   CSV.foreach( 'db/data/staging/business_items.tsv', { :col_sep => "\t" } ) do |row|
     business_item = BusinessItem.new
@@ -116,7 +116,7 @@ task :import_business_items => :environment do
     business_item.save
   end
 end
-task :import_actualisations => :environment do
+task :import_staging_actualisations => :environment do
   puts "importing actualisations"
   CSV.foreach( 'db/data/staging/actualisations.tsv', { :col_sep => "\t" } ) do |row|
     actualisation = Actualisation.new
@@ -126,7 +126,7 @@ task :import_actualisations => :environment do
     actualisation.save
   end
 end
-task :import_step_collection_types => :environment do
+task :import_staging_step_collection_types => :environment do
   puts "importing step collection types"
   CSV.foreach( 'db/data/staging/step_collection_types.tsv', { :col_sep => "\t" } ) do |row|
     step_collection_type = StepCollectionType.new
@@ -134,7 +134,7 @@ task :import_step_collection_types => :environment do
     step_collection_type.save
   end
 end
-task :import_step_collections => :environment do
+task :import_staging_step_collections => :environment do
   puts "importing step collections"
   CSV.foreach( 'db/data/staging/step_collections.tsv', { :col_sep => "\t" } ) do |row|
     step_collection = StepCollection.new
