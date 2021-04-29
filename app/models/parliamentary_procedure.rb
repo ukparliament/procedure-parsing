@@ -24,23 +24,21 @@ class ParliamentaryProcedure < ActiveRecord::Base
   
   # =========================
   def steps
-    Step.find_by_sql( 'select s.*, count(business_items.id) as actualisation_has_happened_count
-      from steps s
-      inner join routes r
-      on (s.id = r.from_step_id)
-      inner join procedure_routes pr
-      on (r.id=pr.route_id and pr.parliamentary_procedure_id = 1)
-      left join actualisations
-      on s.id = actualisations.step_id
-      left join business_items
-      on actualisations.business_item_id = business_items.id
-        and business_items.date <= CURRENT_DATE
-      group by business_items.id, s.id;' )
+    Step.find_by_sql( "select distinct(s.*), count(business_items.id) as actualisation_has_happened_count
+ from steps s
+ inner join routes r
+ on (s.id = r.from_step_id)
+ inner join procedure_routes pr
+ on (r.id=pr.route_id and pr.parliamentary_procedure_id = #{self.id})
+ left join actualisations on s.id = actualisations.step_id
+ left join business_items on actualisations.business_item_id = business_items.id 
+ and business_items.date <= CURRENT_DATE
+ group by s.id;" )
   end
   # =========================
 
   # ## A method to add ellipses to a description of a procedure, if the description is longer than 255 characters.
-    def description_massaged
-      description.length < 256 ? description : description + " ..."
-    end
+  def description_massaged
+    description.length < 256 ? description : description + " ..."
+  end
 end
