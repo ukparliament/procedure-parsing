@@ -56,14 +56,14 @@ module PARSE_ROUTE_HASH
   end
 
   # ## Method to update the hash of attributes for a route within the containing route hash.
-  def update_route_hash( route, current, status, parsed, parse_pass_count )
+  def update_route_hash( route_id, current, status, parsed, parse_pass_count )
     
     # We check if this method has been passed a value for an attribute.
     # Where the method has been passed nil as an attribute value, we use the attribute value as it exists in the hash.
-    current = current || @routes[route.id][:current]
-    status = status || @routes[route.id][:status]
-    parsed = parsed || @routes[route.id][:parsed]
-    parse_pass_count = parse_pass_count || @routes[route.id][:parse_pass_count]
+    current = current || @routes[route_id][:current]
+    status = status || @routes[route_id][:status]
+    parsed = parsed || @routes[route_id][:parsed]
+    parse_pass_count = parse_pass_count || @routes[route_id][:parse_pass_count]
     
     # We create a hash of attributes for the route with any revised values.
     route_hash = {
@@ -71,10 +71,10 @@ module PARSE_ROUTE_HASH
       :status => status,
       :parsed => parsed,
       :parse_pass_count => parse_pass_count,
-      :route => @routes[route.id][:route]
+      :route => @routes[route_id][:route]
     }
     
     # We push this back into the hash of routes, keyed off the ID of the route.
-    @routes[route.id] = route_hash
+    @routes[route_id] = route_hash
   end
 end
