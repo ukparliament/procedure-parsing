@@ -1,12 +1,21 @@
-# # Module to initialise a hash of steps keyed off the step ID together with a hash of outbound routes from a step and inbound routes to a step, also keyed off the step ID.
+# # Module to initialise a hash of steps keyed off the step ID together with a hash of IDs of outbound routes from a step and a hash of IDs of inbound routes to a step, also keyed off the step ID.
 module PARSE_STEP_HASH
   
-  # ## Method to initialise initialise a hash of steps keyed off the step ID together wit hash of outbound routes from a step and inbound routes to a step, also keyed off the step ID.
+  # ## Method to initialise a hash of steps keyed off the step ID together with a hash of IDs of outbound routes from a step and a hash of IDs of inbound routes to a step, also keyed off the step ID.
   def initialise_step_hashes( procedure )
+    
+    # We create three hashes: a hash to store all steps objects in a procedure, keyed off the step ID ...
     @steps = {}
+    
+    # ... a hash of IDs of outbound routes from each individual step, keyed off the step ID
     @routes_from_steps = {}
+    
+    # ... and a hash of IDs of inbound routes to each individual step, keyed off the step ID.
     @routes_to_steps = {}
-    steps = procedure.steps
+    
+    
+    
+    steps = procedure.steps_with_actualisations_in_work_package( @work_package )
     steps.each do |step|
       from_route_array = []
       to_route_array = []
