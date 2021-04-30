@@ -23,7 +23,7 @@ class ParliamentaryProcedure < ActiveRecord::Base
   end
   
   # =========================
-  def steps
+  def steps_with_actualisations_in_work_package( work_package )
     Step.find_by_sql( "select distinct(s.*), count(business_items.id) as actualisation_has_happened_count
  from steps s
  inner join routes r
@@ -33,6 +33,7 @@ class ParliamentaryProcedure < ActiveRecord::Base
  left join actualisations on s.id = actualisations.step_id
  left join business_items on actualisations.business_item_id = business_items.id 
  and business_items.date <= CURRENT_DATE
+  and business_items.work_package_id = #{work_package.id}
  group by s.id;" )
   end
   # =========================
