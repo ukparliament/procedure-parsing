@@ -59,15 +59,15 @@ We add the hash to the routes hash, keyed off the ID of the route.
   end
 ## Method to update the hash of attributes for a route within the containing route hash.
 
-  def update_route_hash( route, current, status, parsed, parse_pass_count )
+  def update_route_hash( route_id, current, status, parsed, parse_pass_count )
 We check if this method has been passed a value for an attribute.
 
 Where the method has been passed nil as an attribute value, we use the attribute value as it exists in the hash.
 
-    current = current || @routes[route.id][:current]
-    status = status || @routes[route.id][:status]
-    parsed = parsed || @routes[route.id][:parsed]
-    parse_pass_count = parse_pass_count || @routes[route.id][:parse_pass_count]
+    current = current || @routes[route_id][:current]
+    status = status || @routes[route_id][:status]
+    parsed = parsed || @routes[route_id][:parsed]
+    parse_pass_count = parse_pass_count || @routes[route_id][:parse_pass_count]
 We create a hash of attributes for the route with any revised values.
 
     route_hash = {
@@ -75,10 +75,34 @@ We create a hash of attributes for the route with any revised values.
       :status => status,
       :parsed => parsed,
       :parse_pass_count => parse_pass_count,
-      :route => @routes[route.id][:route]
+      :route => @routes[route_id][:route]
     }
 We push this back into the hash of routes, keyed off the ID of the route.
 
-    @routes[route.id] = route_hash
+    @routes[route_id] = route_hash
+  end
+## Method to check if a route is traversable.
+
+We call the method with the ID of the route.
+
+  def is_route_untraversable?( route_id )
+We assume the route is traversable.
+
+    untraversable = false
+We set the value of untraversable to true if the routes hash has a status of ‘UNTRAVERSABLE’ for the route with this ID.
+
+    untraversable = true if @routes[route_id][:status] == 'UNTRAVERSABLE'
+We return the boolean.
+
+    untraversable
+  end
+## Method to get the ID of the target step of a route.
+
+We call the method with the ID of the route.
+
+  def target_step_of_route_with_id( route_id )
+We get the to_step_id of the route in the routes hash with this ID.
+
+    @steps[@routes[route_id][:route].to_step_id]
   end
 end

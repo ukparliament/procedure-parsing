@@ -77,4 +77,26 @@ module PARSE_ROUTE_HASH
     # We push this back into the hash of routes, keyed off the ID of the route.
     @routes[route_id] = route_hash
   end
+  
+  # ## Method to check if a route is traversable.
+  # We call the method with the ID of the route.
+  def is_route_untraversable?( route_id )
+    
+    # We assume the route is traversable.
+    untraversable = false
+    
+    # We set the value of untraversable to true if the routes hash has a status of ‘UNTRAVERSABLE’ for the route with this ID.
+    untraversable = true if @routes[route_id][:status] == 'UNTRAVERSABLE'
+    
+    # We return the boolean.
+    untraversable
+  end
+  
+  # ## Method to get the ID of the target step of a route.
+  # We call the method with the ID of the route.
+  def target_step_of_route_with_id( route_id )
+    
+    # We get the to_step_id of the route in the routes hash with this ID.
+    @steps[@routes[route_id][:route].to_step_id]
+  end
 end
