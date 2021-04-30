@@ -73,10 +73,8 @@ class WorkPackageController < ApplicationController
   
     # We initialise a hash of additional route attributes: these are attributes used only during the parsing process.
     initialise_route_hash( @work_package )
-    
-    ### ==========
   
-    # We initialise a hash of steps keyed off the step ID together with a hash of outbound routes from a step and inbound routes to a step, also keyed off the step ID.
+    # We initialise a hash of steps keyed off the step ID together with a hash of IDs of outbound routes from a step and a hash of IDs of inbound routes to a step, also keyed off the step ID.
     initialise_step_hashes( procedure )
     
     ### ==========
