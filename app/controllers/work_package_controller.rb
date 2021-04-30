@@ -77,22 +77,17 @@ class WorkPackageController < ApplicationController
     # We initialise a hash of steps keyed off the step ID together with a hash of IDs of outbound routes from a step and a hash of IDs of inbound routes to a step, also keyed off the step ID.
     initialise_step_hashes( procedure )
     
-    ### ==========
-    
     # We get an array of the start steps in the procedure.
-    # The array is created as an instance variable because we want to check it when parsing business steps.
-    @start_steps = procedure.start_steps
+    start_steps = procedure.start_steps
   
     # We loop through the start steps in the procedure ...
-    @start_steps.each do |step|
+    start_steps.each do |step|
       
       # ... then loop through the outbound routes of each start step ...
       step.outbound_route_ids( @routes_from_steps ).each do |route_id|
-    
-        ### ==========
+        
         # ... and parse each of those routes, passing in the ID of the route .
         parse_route_with_id( route_id )
-        ### ==========
       end
     end
   end
