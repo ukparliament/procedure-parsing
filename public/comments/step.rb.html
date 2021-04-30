@@ -37,53 +37,60 @@ a {text-decoration:underline;color:white;}
 <p>Within a procedure, the <a href="https://ukparliament.github.io/ontologies/procedure/flowcharts/meta/design-notes/#validating-inputs-and-outputs-to-steps">expected numbers of inbound and outbound routes depend on the type of the step</a>.</p>
 <p>A step belongs to one House, both Houses or neither.</p>
 <code title='Line 7, app/models/step.rb'><pre><a name='7'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/app/models/step.rb#L7'> 7</a> class Step < ActiveRecord::Base
-</pre></code><h2>A method to select all outbound routes from a step in a given procedure.</h2>
-<p>An outbound route is a route with a from_step_id attribute of this step&#39;s ID.</p>
-<code title='Line 11, app/models/step.rb'><pre><a name='11'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/app/models/step.rb#L11'> 11</a>   def outbound_routes_in_procedure( procedure )
-</pre></code><code title='Line 12, app/models/step.rb'><pre><a name='12'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/app/models/step.rb#L12'> 12</a>     Route.all.select( 'r.*' ).joins( 'as r, procedure_routes as pr' ).where( 'r.from_step_id = ?', self ).where( 'r.id = pr.route_id' ).where( 'pr.parliamentary_procedure_id = ?', procedure )
-</pre></code><code title='Line 13, app/models/step.rb'><pre><a name='13'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/app/models/step.rb#L13'> 13</a>   end
-</pre></code><h2>A method to select all inbound routes from a step in a given procedure.</h2>
-<p>An inbound route is a route with a to_step_id attribute of this step&#39;s ID.</p>
-<code title='Line 17, app/models/step.rb'><pre><a name='17'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/app/models/step.rb#L17'> 17</a>   def inbound_routes_in_procedure( procedure )
-</pre></code><code title='Line 18, app/models/step.rb'><pre><a name='18'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/app/models/step.rb#L18'> 18</a>     Route.all.select( 'r.*' ).joins( 'as r, procedure_routes as pr' ).where( 'r.to_step_id = ?', self ).where( 'r.id = pr.route_id' ).where( 'pr.parliamentary_procedure_id = ?', procedure )
-</pre></code><code title='Line 19, app/models/step.rb'><pre><a name='19'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/app/models/step.rb#L19'> 19</a>   end
-</pre></code><h2>A method to check whether a step has been actualised by a business item in a given work package, the business item having happened.</h2>
-<p>A business item is described as having happened if its date is today or before today.</p>
-<p>This method evaluates as true for a given step, if that step has been actualised with one or more business items having happened.</p>
-<code title='Line 24, app/models/step.rb'><pre><a name='24'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/app/models/step.rb#L24'> 24</a>   def actualised_has_happened_in_work_package?( work_package )
-</pre></code><code title='Line 25, app/models/step.rb'><pre><a name='25'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/app/models/step.rb#L25'> 25</a>     BusinessItem.all.select( 'bi.*' ).joins( 'as bi, actualisations as a' ).where( 'a.step_id = ?', self ).where( 'a.business_item_id = bi.id' ).where( 'bi.work_package_id = ?', work_package ).where( 'bi.date <= ?', Date.today ).order( 'bi.id' ).first
-</pre></code><code title='Line 26, app/models/step.rb'><pre><a name='26'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/app/models/step.rb#L26'> 26</a>   end
+</pre></code><h2>Method to return an array of IDs of routes from a step.</h2>
+<p>We call the method passing the hash of outbound routes from a step.</p>
+<code title='Line 11, app/models/step.rb'><pre><a name='11'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/app/models/step.rb#L11'> 11</a>   def outbound_route_ids( routes_from_steps )
+</pre></code><p>We get an array of IDs of routes from the step with this ID.</p>
+<code title='Line 14, app/models/step.rb'><pre><a name='14'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/app/models/step.rb#L14'> 14</a>     routes_from_steps[self.id]
+</pre></code><code title='Line 15, app/models/step.rb'><pre><a name='15'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/app/models/step.rb#L15'> 15</a>   end
 </pre></code><h2>A method to select house steps - the join between steps and Houses - for a step taking place in the House of Commons.</h2>
 <p>This method evaluates as true if this step takes place in the House of Commons.</p>
-<code title='Line 30, app/models/step.rb'><pre><a name='30'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/app/models/step.rb#L30'> 30</a>   def in_commons?
-</pre></code><code title='Line 31, app/models/step.rb'><pre><a name='31'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/app/models/step.rb#L31'> 31</a>     HouseStep.all.select( 'hs.*' ).joins( 'as hs, houses as h' ).where( 'hs.step_id = ?', self ).where( 'hs.house_id = h.id').where( 'h.name =?', 'House of Commons' ).order( 'hs.id' ).first
-</pre></code><code title='Line 32, app/models/step.rb'><pre><a name='32'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/app/models/step.rb#L32'> 32</a>   end
+<code title='Line 19, app/models/step.rb'><pre><a name='19'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/app/models/step.rb#L19'> 19</a>   def in_commons?
+</pre></code><code title='Line 20, app/models/step.rb'><pre><a name='20'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/app/models/step.rb#L20'> 20</a>     HouseStep.all.select( 'hs.*' ).joins( 'as hs, houses as h' ).where( 'hs.step_id = ?', self ).where( 'hs.house_id = h.id').where( 'h.name =?', 'House of Commons' ).order( 'hs.id' ).first
+</pre></code><code title='Line 21, app/models/step.rb'><pre><a name='21'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/app/models/step.rb#L21'> 21</a>   end
 </pre></code><h2>A method to select house steps - the join between steps and Houses - for a step taking place in the House of Lords.</h2>
 <p>This method evaluates as true if this step takes place in the House of Lords.</p>
-<code title='Line 36, app/models/step.rb'><pre><a name='36'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/app/models/step.rb#L36'> 36</a>   def in_lords?
-</pre></code><code title='Line 37, app/models/step.rb'><pre><a name='37'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/app/models/step.rb#L37'> 37</a>     HouseStep.all.select( 'hs.*' ).joins( 'as hs, houses as h' ).where( 'hs.step_id = ?', self ).where( 'hs.house_id = h.id').where( 'h.name =?', 'House of Lords' ).order( 'hs.id' ).first
-</pre></code><code title='Line 38, app/models/step.rb'><pre><a name='38'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/app/models/step.rb#L38'> 38</a>   end
+<code title='Line 25, app/models/step.rb'><pre><a name='25'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/app/models/step.rb#L25'> 25</a>   def in_lords?
+</pre></code><code title='Line 26, app/models/step.rb'><pre><a name='26'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/app/models/step.rb#L26'> 26</a>     HouseStep.all.select( 'hs.*' ).joins( 'as hs, houses as h' ).where( 'hs.step_id = ?', self ).where( 'hs.house_id = h.id').where( 'h.name =?', 'House of Lords' ).order( 'hs.id' ).first
+</pre></code><code title='Line 27, app/models/step.rb'><pre><a name='27'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/app/models/step.rb#L27'> 27</a>   end
 </pre></code><h2>A method to construct a House label for a step.</h2>
-<code title='Line 41, app/models/step.rb'><pre><a name='41'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/app/models/step.rb#L41'> 41</a>   def house_label
-</pre></code><code title='Line 42, app/models/step.rb'><pre><a name='42'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/app/models/step.rb#L42'> 42</a>     house_label = ''
+<code title='Line 30, app/models/step.rb'><pre><a name='30'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/app/models/step.rb#L30'> 30</a>   def house_label
+</pre></code><code title='Line 31, app/models/step.rb'><pre><a name='31'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/app/models/step.rb#L31'> 31</a>     house_label = ''
 </pre></code><p>If the step takes place in both Houses ...</p>
-<code title='Line 45, app/models/step.rb'><pre><a name='45'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/app/models/step.rb#L45'> 45</a>     if self.in_commons? and self.in_lords?
+<code title='Line 34, app/models/step.rb'><pre><a name='34'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/app/models/step.rb#L34'> 34</a>     if self.in_commons? and self.in_lords?
 </pre></code><p>... we set the label to say both Houses. </p>
-<code title='Line 48, app/models/step.rb'><pre><a name='48'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/app/models/step.rb#L48'> 48</a>       house_label = 'House of Commons and House of Lords'
+<code title='Line 37, app/models/step.rb'><pre><a name='37'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/app/models/step.rb#L37'> 37</a>       house_label = 'House of Commons and House of Lords'
 </pre></code><p>Otherwise, if the step only takes place in the House of Commons ...</p>
-<code title='Line 51, app/models/step.rb'><pre><a name='51'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/app/models/step.rb#L51'> 51</a>     elsif self.in_commons?
+<code title='Line 40, app/models/step.rb'><pre><a name='40'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/app/models/step.rb#L40'> 40</a>     elsif self.in_commons?
 </pre></code><p>... we set the label to say House of Commons.</p>
-<code title='Line 54, app/models/step.rb'><pre><a name='54'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/app/models/step.rb#L54'> 54</a>       house_label = 'House of Commons'
+<code title='Line 43, app/models/step.rb'><pre><a name='43'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/app/models/step.rb#L43'> 43</a>       house_label = 'House of Commons'
 </pre></code><p>Otherwise, if the step only takes place in the House of Lords ...</p>
-<code title='Line 57, app/models/step.rb'><pre><a name='57'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/app/models/step.rb#L57'> 57</a>     elsif self.in_lords?
+<code title='Line 46, app/models/step.rb'><pre><a name='46'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/app/models/step.rb#L46'> 46</a>     elsif self.in_lords?
 </pre></code><p>... we set the label to say House of Lords.</p>
-<code title='Line 60, app/models/step.rb'><pre><a name='60'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/app/models/step.rb#L60'> 60</a>       house_label = 'House of Lords'
+<code title='Line 49, app/models/step.rb'><pre><a name='49'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/app/models/step.rb#L49'> 49</a>       house_label = 'House of Lords'
 </pre></code><p>Otherwise, the step must take place in neither House ...</p>
-<code title='Line 63, app/models/step.rb'><pre><a name='63'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/app/models/step.rb#L63'> 63</a>     else
+<code title='Line 52, app/models/step.rb'><pre><a name='52'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/app/models/step.rb#L52'> 52</a>     else
 </pre></code><p>... so we set the label appropriately.</p>
-<code title='Line 66, app/models/step.rb'><pre><a name='66'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/app/models/step.rb#L66'> 66</a>       house_label = 'Neither House'
-</pre></code><code title='Line 67, app/models/step.rb'><pre><a name='67'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/app/models/step.rb#L67'> 67</a>     end
+<code title='Line 55, app/models/step.rb'><pre><a name='55'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/app/models/step.rb#L55'> 55</a>       house_label = 'Neither House'
+</pre></code><code title='Line 56, app/models/step.rb'><pre><a name='56'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/app/models/step.rb#L56'> 56</a>     end
 </pre></code><p>We return the house label.</p>
-<code title='Line 70, app/models/step.rb'><pre><a name='70'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/app/models/step.rb#L70'> 70</a>     house_label
-</pre></code><code title='Line 71, app/models/step.rb'><pre><a name='71'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/app/models/step.rb#L71'> 71</a>   end
-</pre></code><code title='Line 72, app/models/step.rb'><pre><a name='72'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/app/models/step.rb#L72'> 72</a> end</pre></code></body></html>
+<code title='Line 59, app/models/step.rb'><pre><a name='59'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/app/models/step.rb#L59'> 59</a>     house_label
+</pre></code><code title='Line 60, app/models/step.rb'><pre><a name='60'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/app/models/step.rb#L60'> 60</a>   end
+</pre></code><h2>======================</h2>
+<h2>A method to select all outbound routes from a step in a given procedure.</h2>
+<p>An outbound route is a route with a from_step_id attribute of this step&#39;s ID.</p>
+<p>def outbound_routes_in_procedure( procedure )</p>
+<p>Route.all.select( &#39;r.*&#39; ).joins( &#39;as r, procedure_routes as pr&#39; ).where( &#39;r.from_step_id = ?&#39;, self ).where( &#39;r.id = pr.route_id&#39; ).where( &#39;pr.parliamentary_procedure_id = ?&#39;, procedure )</p>
+<p>end</p>
+<h2>A method to select all inbound routes from a step in a given procedure.</h2>
+<p>An inbound route is a route with a to_step_id attribute of this step&#39;s ID.</p>
+<p>def inbound_routes_in_procedure( procedure )</p>
+<p>Route.all.select( &#39;r.*&#39; ).joins( &#39;as r, procedure_routes as pr&#39; ).where( &#39;r.to_step_id = ?&#39;, self ).where( &#39;r.id = pr.route_id&#39; ).where( &#39;pr.parliamentary_procedure_id = ?&#39;, procedure )</p>
+<p>end</p>
+<h2>A method to check whether a step has been actualised by a business item in a given work package, the business item having happened.</h2>
+<p>A business item is described as having happened if its date is today or before today.</p>
+<p>This method evaluates as true for a given step, if that step has been actualised with one or more business items having happened.</p>
+<p>def actualised_has_happened_in_work_package?( work_package )</p>
+<p>BusinessItem.all.select( &#39;bi.*&#39; ).joins( &#39;as bi, actualisations as a&#39; ).where( &#39;a.step_id = ?&#39;, self ).where( &#39;a.business_item_id = bi.id&#39; ).where( &#39;bi.work_package_id = ?&#39;, work_package ).where( &#39;bi.date &lt;= ?&#39;, Date.today ).order( &#39;bi.id&#39; ).first</p>
+<p>end</p>
+<code title='Line 83, app/models/step.rb'><pre><a name='83'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/app/models/step.rb#L83'> 83</a> end</pre></code></body></html>
