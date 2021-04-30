@@ -46,4 +46,17 @@ module PARSE_STEP_HASH
       @steps[step.id] = step
     end
   end
+  
+  def step_has_been_actualised_has_happened?( step_id )
+    actualised_has_happened = false
+    actualised_has_happened = true if @steps[step_id].actualisation_has_happened_count > 0
+    actualised_has_happened
+  end
+
+
+
+  def house_label_for_step_id( step_id )
+    step = Step.find( step_id )
+    step.house_label
+  end
 end

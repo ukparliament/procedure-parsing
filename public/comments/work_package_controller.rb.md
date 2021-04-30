@@ -13,6 +13,7 @@ require "#{Rails.root}/lib/parsing/or_step"
 ... and the code for storing route attributes, determining route currency and assigning potential step states.
 
 require "#{Rails.root}/lib/parsing/route_hash"
+require "#{Rails.root}/lib/parsing/step_hash"
 require "#{Rails.root}/lib/parsing/route_currency"
 require "#{Rails.root}/lib/parsing/assign_potential_business_step_state"
 # Work package controller
@@ -31,6 +32,7 @@ We include code for the main parsing rules ...
 ... and the code for storing route attributes, determining route currency and assigning potential step states.
 
   include PARSE_ROUTE_HASH
+  include PARSE_STEP_HASH
   include PARSE_ROUTE_CURRENCY
   include PARSE_ASSIGN_POTENTIAL_BUSINESS_STEP_STATE
   def show
@@ -54,7 +56,7 @@ We set the parse pass count to zero.
 
 The parse pass count will be incremented every time we attempt to parse a route.
 
-The parse pass count is created as an instance variable because we want to increment on each parse and report from it later.
+The parse pass count is created as an instance variable because we want to increment on each parse pass and report from it later.
 
     @parse_pass_count = 0
 We create an array to log the parsing.
@@ -65,7 +67,7 @@ The log is created as an instance variable because we want to write to it and re
 We write to the log, explaining what we're attempting to do.
 
     @parse_log << "Attempting to parse work package #{@work_package.id}, subject to the #{procedure.name.downcase} procedure."
-Having successfully parsed a route to a business step, we can determine the potential state of that business step. The potential state of a business state may be caused to be actualised, allowed to be actualised, not yet actualisable or not now actualisable.
+Having successfully parsed a route to a business step, we can determine the [potential state](https://ukparliament.github.io/ontologies/procedure/flowcharts/meta/design-notes/#potential-states-of-a-business-step) of that business step. The potential state of a business state may be caused to be actualised, allowed to be actualised, not yet actualisable or not now actualisable.
 
 We create a set of arrays to store the target business steps of the routes we successfully parse - each array being named according to the potential state of the target step.
 
@@ -78,20 +80,21 @@ These are created as instance variables because we want to write to them and rep
 We initialise a hash of additional route attributes: these are attributes used only during the parsing process.
 
     initialise_route_hash( @work_package )
+We initialise a hash of steps keyed off the step ID together with a hash of IDs of outbound routes from a step and a hash of IDs of inbound routes to a step, also keyed off the step ID.
+
+    initialise_step_hashes( procedure )
 We get an array of the start steps in the procedure.
 
-The array is created as an instance variable because we want to check it when parsing business steps.
-
-    @start_steps = procedure.start_steps
+    start_steps = procedure.start_steps
 We loop through the start steps in the procedure ...
 
-    @start_steps.each do |step|
+    start_steps.each do |step|
 ... then loop through the outbound routes of each start step ...
 
-      step.outbound_routes_in_procedure( procedure ).each do |route|
-... and parse each of those routes.
+      step.outbound_route_ids( @routes_from_steps ).each do |route_id|
+... and parse each of those routes, passing in the ID of the route .
 
-        parse_route( route, step, procedure )
+        parse_route_with_id( route_id )
       end
     end
   end

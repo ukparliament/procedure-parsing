@@ -92,31 +92,3 @@ class WorkPackageController < ApplicationController
     end
   end
 end
-
-### =========
-
-
-
-def is_route_untraversable?( route_id )
-  untraversable = false
-  untraversable = true if @routes[route_id][:status] == 'UNTRAVERSABLE'
-  untraversable
-end
-
-def step_has_been_actualised_has_happened?( step_id )
-  actualised_has_happened = false
-  actualised_has_happened = true if @steps[step_id].actualisation_has_happened_count > 0
-  actualised_has_happened
-end
-
-def target_step_of_route_with_id( route_id )
-  @steps[@routes[route_id][:route].to_step_id]
-  #Step.all.select( 's.*').joins( 'as s, routes as r' ).where( 's.id = r.to_step_id' ).where( "r.id = ?", route_id ).order( 's.id').first
-end
-
-def house_label_for_step_id( step_id )
-  step = Step.find( step_id )
-  step.house_label
-end
-
-### ==========
