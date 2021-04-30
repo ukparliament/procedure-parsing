@@ -32,9 +32,10 @@ module PARSE_STEP_HASH
         # ... we add the ID of the route to the array of outbound IDs, if the route is outbound from this step ...
         from_route_array << route[1][:route].id if route[1][:route].from_step_id == step.id
         
-        # ... we add the ID of the route to the array of inbound IDs, if the route is inbound to this step
+        # ... we add the ID of the route to the array of inbound IDs, if the route is inbound to this step ...
     		to_route_array << route[1][:route].id if route[1][:route].to_step_id == step.id
     	end
+      
       # ... we add the array of outbound route IDs to the hash of outbound routes, keyed off the step ID ...
       @routes_from_steps[step.id] = from_route_array
       
