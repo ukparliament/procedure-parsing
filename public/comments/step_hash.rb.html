@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <link rel="alternate" type="text/markdown" href="step_hash.rb.md">
+    <style>
+      body {
+        max-width: 40rem;
+        margin: auto;
+        padding: 2rem 1rem;
+        font-family: 'Helvetica Neue','Helvetica', system-ui;
+        color: black;
+        background-color: white;
+      }
+      p {line-height: 1.4;}
+      code {
+      line-height: 1.4;
+      color:gray;
+      }
+      code pre {white-space: pre-wrap; word-break: break-word;}
+      code:hover {color:black;}
+      h1, h2 {font-weight:normal;}
+      a {text-decoration:none;}
+      a.githubline {color:gray;font-weight:bold;}
+      @media (prefers-color-scheme: dark) {
+body {color:white;background-color:black;}
+a {text-decoration:underline;color:white;}
+}
+    </style>
+    <title>lib/parsing/step_hash.rb</title>
+  </head>
+  <body><p><a href="/procedures/meta/comments">/procedures/meta/comments</a></p><h1>Module to initialise a hash of steps keyed off the step ID together with a hash of IDs of outbound routes from a step and a hash of IDs of inbound routes to a step, also keyed off the step ID.</h1>
+<code title='Line 2, lib/parsing/step_hash.rb'><pre><a name='2'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/step_hash.rb#L2'> 2</a> module PARSE_STEP_HASH
+</pre></code><h2>Method to initialise a hash of steps keyed off the step ID together with a hash of IDs of outbound routes from a step and a hash of IDs of inbound routes to a step, also keyed off the step ID.</h2>
+<code title='Line 5, lib/parsing/step_hash.rb'><pre><a name='5'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/step_hash.rb#L5'> 5</a>   def initialise_step_hashes( procedure )
+</pre></code><p>We create three hashes: a hash to store all steps objects in a procedure, keyed off the step ID ...</p>
+<code title='Line 8, lib/parsing/step_hash.rb'><pre><a name='8'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/step_hash.rb#L8'> 8</a>     @steps = {}
+</pre></code><p>... a hash of IDs of outbound routes from each individual step, keyed off the step ID</p>
+<code title='Line 11, lib/parsing/step_hash.rb'><pre><a name='11'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/step_hash.rb#L11'> 11</a>     @routes_from_steps = {}
+</pre></code><p>... and a hash of IDs of inbound routes to each individual step, keyed off the step ID.</p>
+<code title='Line 14, lib/parsing/step_hash.rb'><pre><a name='14'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/step_hash.rb#L14'> 14</a>     @routes_to_steps = {}
+</pre></code><p>We get all steps attached to routes in the procedure.</p>
+<p>We include a count of actualisations of business items in the work package having happened in the past or today.</p>
+<code title='Line 18, lib/parsing/step_hash.rb'><pre><a name='18'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/step_hash.rb#L18'> 18</a>     steps = procedure.steps_with_actualisations_in_work_package( @work_package )
+</pre></code><p>For each step in the procedure ...</p>
+<code title='Line 21, lib/parsing/step_hash.rb'><pre><a name='21'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/step_hash.rb#L21'> 21</a>     steps.each do |step|
+</pre></code><p>... we create an array to store the IDs of routes outbound from this step</p>
+<code title='Line 24, lib/parsing/step_hash.rb'><pre><a name='24'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/step_hash.rb#L24'> 24</a>       from_route_array = []
+</pre></code><p>... and an array to store the IDs of routes inbound to this step.</p>
+<code title='Line 27, lib/parsing/step_hash.rb'><pre><a name='27'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/step_hash.rb#L27'> 27</a>       to_route_array = []
+</pre></code><p>For each route in the procedure ...</p>
+<code title='Line 30, lib/parsing/step_hash.rb'><pre><a name='30'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/step_hash.rb#L30'> 30</a>     	@routes.each do |route|
+</pre></code><p>... we add the ID of the route to the array of outbound IDs, if the route is outbound from this step ...</p>
+<code title='Line 33, lib/parsing/step_hash.rb'><pre><a name='33'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/step_hash.rb#L33'> 33</a>         from_route_array << route[1][:route].id if route[1][:route].from_step_id == step.id
+</pre></code><p>... we add the ID of the route to the array of inbound IDs, if the route is inbound to this step ...</p>
+<code title='Line 36, lib/parsing/step_hash.rb'><pre><a name='36'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/step_hash.rb#L36'> 36</a>     		to_route_array << route[1][:route].id if route[1][:route].to_step_id == step.id
+</pre></code><code title='Line 37, lib/parsing/step_hash.rb'><pre><a name='37'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/step_hash.rb#L37'> 37</a>     	end
+</pre></code><p>... we add the array of outbound route IDs to the hash of outbound routes, keyed off the step ID ...</p>
+<code title='Line 40, lib/parsing/step_hash.rb'><pre><a name='40'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/step_hash.rb#L40'> 40</a>       @routes_from_steps[step.id] = from_route_array
+</pre></code><p>... we add the array of inbound route IDs to the hash of inbound routes, keyed off the step ID ...</p>
+<code title='Line 43, lib/parsing/step_hash.rb'><pre><a name='43'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/step_hash.rb#L43'> 43</a>       @routes_to_steps[step.id] = to_route_array
+</pre></code><p>... and we add the step object to the hash of steps, keyed off the step ID.</p>
+<code title='Line 46, lib/parsing/step_hash.rb'><pre><a name='46'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/step_hash.rb#L46'> 46</a>       @steps[step.id] = step
+</pre></code><code title='Line 47, lib/parsing/step_hash.rb'><pre><a name='47'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/step_hash.rb#L47'> 47</a>     end
+</pre></code><code title='Line 48, lib/parsing/step_hash.rb'><pre><a name='48'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/step_hash.rb#L48'> 48</a>   end
+</pre></code><h2>A method to check if a step has been actualised with a business item having a date in the past or of today.</h2>
+<p>We call the method with the ID of the step.</p>
+<code title='Line 52, lib/parsing/step_hash.rb'><pre><a name='52'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/step_hash.rb#L52'> 52</a>   def step_has_been_actualised_has_happened?( step_id )
+</pre></code><p>We assume the step has not been with a business item having a date in the past or of today.</p>
+<code title='Line 55, lib/parsing/step_hash.rb'><pre><a name='55'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/step_hash.rb#L55'> 55</a>     actualised_has_happened = false
+</pre></code><p>We set the actualised_has_happened boolean to true if the step has been actualised in this work package, by at least one business item having a date in the past or of today.</p>
+<code title='Line 58, lib/parsing/step_hash.rb'><pre><a name='58'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/step_hash.rb#L58'> 58</a>     actualised_has_happened = true if @steps[step_id].actualisation_has_happened_count > 0
+</pre></code><p>We return the boolean.</p>
+<code title='Line 61, lib/parsing/step_hash.rb'><pre><a name='61'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/step_hash.rb#L61'> 61</a>     actualised_has_happened
+</pre></code><code title='Line 62, lib/parsing/step_hash.rb'><pre><a name='62'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/step_hash.rb#L62'> 62</a>   end
+</pre></code><h2>Method to return the house label for a step.</h2>
+<p>We call the method with the ID of the step.</p>
+<code title='Line 66, lib/parsing/step_hash.rb'><pre><a name='66'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/step_hash.rb#L66'> 66</a>   def house_label_for_step_id( step_id )
+</pre></code><p>We find the step object ...</p>
+<code title='Line 69, lib/parsing/step_hash.rb'><pre><a name='69'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/step_hash.rb#L69'> 69</a>     step = Step.find( step_id )
+</pre></code><p>... and call the house_label method.</p>
+<code title='Line 72, lib/parsing/step_hash.rb'><pre><a name='72'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/step_hash.rb#L72'> 72</a>     step.house_label
+</pre></code><code title='Line 73, lib/parsing/step_hash.rb'><pre><a name='73'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/step_hash.rb#L73'> 73</a>   end
+</pre></code><code title='Line 74, lib/parsing/step_hash.rb'><pre><a name='74'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/step_hash.rb#L74'> 74</a> end</pre></code></body></html>
