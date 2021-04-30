@@ -47,9 +47,17 @@ module PARSE_STEP_HASH
     end
   end
   
+  # ## A method to check if a step has been actualised with a business item having a date in the past or of today.
+  # We call the method with the ID of the step.
   def step_has_been_actualised_has_happened?( step_id )
+    
+    # We assume the step has not been with a business item having a date in the past or of today.
     actualised_has_happened = false
+    
+    # We set the actualised_has_happened boolean to true if the step has been actualised in this work package, by at least one business item having a date in the past or of today.
     actualised_has_happened = true if @steps[step_id].actualisation_has_happened_count > 0
+    
+    # We return the boolean.
     actualised_has_happened
   end
 
