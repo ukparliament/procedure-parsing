@@ -34,55 +34,52 @@ a {text-decoration:underline;color:white;}
 <p>Design notes for the <a href="https://ukparliament.github.io/ontologies/procedure/flowcharts/meta/design-notes/#procedure-maps-with-logic-gates">parsing of a procedure map with logic gates are here</a>.</p>
 <code title='Line 3, lib/parsing/parse.rb'><pre><a name='3'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/parse.rb#L3'> 3</a> module PARSE
 </pre></code><h2>Method to parse a route.</h2>
-<p>We pass in the route to be parsed, the source step of that route and the procedure the route is in.</p>
-<p>The procedure is passed in to ensure that we only parse routes in that particular procedure.</p>
-<p>This is necessary because we may encounter steps that are attached to routes in other procedures.</p>
-<code title='Line 9, lib/parsing/parse.rb'><pre><a name='9'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/parse.rb#L9'> 9</a>    def parse_route( route, source_step, procedure )
+<p>We pass in the ID of the route to be parsed.</p>
+<code title='Line 7, lib/parsing/parse.rb'><pre><a name='7'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/parse.rb#L7'> 7</a>   def parse_route_with_id( route_id )
 </pre></code><p>A route being parsed as part of the set of routes originating from a start step may have already been parsed, because a route subsequent to one of the routes from the start step may have that start step as its target.</p>
 <p>We only wish to parse a route if it has not already been parsed.</p>
 <p>Unless this route has been parsed ...</p>
-<code title='Line 14, lib/parsing/parse.rb'><pre><a name='14'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/parse.rb#L14'> 14</a>     unless @routes[route.id][:parsed] == true
+<code title='Line 12, lib/parsing/parse.rb'><pre><a name='12'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/parse.rb#L12'> 12</a>     unless route_parsed_attribute( route_id ) == true
 </pre></code><p>... we increment the parse pass count for this route, ...</p>
-<code title='Line 17, lib/parsing/parse.rb'><pre><a name='17'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/parse.rb#L17'> 17</a>       parse_pass_count = @routes[route.id][:parse_pass_count] + 1
-</pre></code><p>... update the route hash with that count ...</p>
-<code title='Line 20, lib/parsing/parse.rb'><pre><a name='20'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/parse.rb#L20'> 20</a>       update_route_hash( route, nil, nil, nil, parse_pass_count )
+<code title='Line 15, lib/parsing/parse.rb'><pre><a name='15'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/parse.rb#L15'> 15</a>       parse_pass_count = route_parse_pass_count_attribute( route_id ) + 1
+</pre></code><p>... we update the route hash with that count ...</p>
+<code title='Line 18, lib/parsing/parse.rb'><pre><a name='18'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/parse.rb#L18'> 18</a>       update_route_hash( route_id, nil, nil, nil, parse_pass_count )
 </pre></code><p>... and increment the total parse pass count.</p>
-<code title='Line 23, lib/parsing/parse.rb'><pre><a name='23'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/parse.rb#L23'> 23</a>       @parse_pass_count += 1
-</pre></code><p>... the route and its attributes are logged.</p>
-<code title='Line 26, lib/parsing/parse.rb'><pre><a name='26'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/parse.rb#L26'> 26</a>       @parse_log << "Parsing route from <strong>#{@routes[route.id][:route].source_step_name} (#{@routes[route.id][:route].source_step_type})</strong> to <strong>#{@routes[route.id][:route].target_step_name} (#{@routes[route.id][:route].target_step_type})</strong> [#{@parse_pass_count}/#{@route_count}]."
-</pre></code><p>... we get the inbound routes to the source step of the route we&#39;re parsing in this procedure.</p>
-<code title='Line 29, lib/parsing/parse.rb'><pre><a name='29'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/parse.rb#L29'> 29</a>       inbound_routes = source_step.inbound_routes_in_procedure( procedure )
+<code title='Line 21, lib/parsing/parse.rb'><pre><a name='21'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/parse.rb#L21'> 21</a>       @parse_pass_count += 1
+</pre></code><p>The route and its attributes are logged.</p>
+<code title='Line 24, lib/parsing/parse.rb'><pre><a name='24'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/parse.rb#L24'> 24</a>       @parse_log << "Parsing route from <strong>#{route_source_step_name( route_id )} (#{route_source_step_type( route_id )})</strong> to <strong>#{route_target_step_name( route_id )} (#{route_target_step_type( route_id )})</strong> [#{@parse_pass_count}/#{@route_count}]."
 </pre></code><h3>We check the type of the source step of the route we&#39;re parsing and parse the route accordingly.</h3>
-<p>For each parse method we pass the route to be parsed, the source step of the route and the set of inbound routes. The parsed and status attributes of the inbound routes are used to determine if and how we should evaluate the step.</p>
-<code title='Line 33, lib/parsing/parse.rb'><pre><a name='33'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/parse.rb#L33'> 33</a>       case @routes[route.id][:route].source_step_type
-</pre></code><code title='Line 34, lib/parsing/parse.rb'><pre><a name='34'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/parse.rb#L34'> 34</a>       when "Business step"
-</pre></code><code title='Line 35, lib/parsing/parse.rb'><pre><a name='35'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/parse.rb#L35'> 35</a>         parse_route_from_business_step( route, source_step, inbound_routes )
-</pre></code><code title='Line 36, lib/parsing/parse.rb'><pre><a name='36'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/parse.rb#L36'> 36</a>       when "Decision"
-</pre></code><code title='Line 37, lib/parsing/parse.rb'><pre><a name='37'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/parse.rb#L37'> 37</a>         parse_route_from_decision_step( route, source_step, inbound_routes )
-</pre></code><code title='Line 38, lib/parsing/parse.rb'><pre><a name='38'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/parse.rb#L38'> 38</a>       when "NOT"
-</pre></code><code title='Line 39, lib/parsing/parse.rb'><pre><a name='39'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/parse.rb#L39'> 39</a>         parse_route_from_not_step( route, source_step, inbound_routes )
-</pre></code><code title='Line 40, lib/parsing/parse.rb'><pre><a name='40'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/parse.rb#L40'> 40</a>       when "AND"
-</pre></code><code title='Line 41, lib/parsing/parse.rb'><pre><a name='41'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/parse.rb#L41'> 41</a>         parse_route_from_and_step( route, source_step, inbound_routes )
-</pre></code><code title='Line 42, lib/parsing/parse.rb'><pre><a name='42'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/parse.rb#L42'> 42</a>       when "OR"
-</pre></code><code title='Line 43, lib/parsing/parse.rb'><pre><a name='43'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/parse.rb#L43'> 43</a>         parse_route_from_or_step( route, source_step, inbound_routes )
-</pre></code><code title='Line 44, lib/parsing/parse.rb'><pre><a name='44'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/parse.rb#L44'> 44</a>       end
+<p>For each parse method we pass the ID of the route to be parsed.</p>
+<code title='Line 28, lib/parsing/parse.rb'><pre><a name='28'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/parse.rb#L28'> 28</a>       case route_source_step_type( route_id )
+</pre></code><code title='Line 29, lib/parsing/parse.rb'><pre><a name='29'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/parse.rb#L29'> 29</a>       when "Business step"
+</pre></code><code title='Line 30, lib/parsing/parse.rb'><pre><a name='30'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/parse.rb#L30'> 30</a>         parse_route_from_business_step( route_id )
+</pre></code><code title='Line 31, lib/parsing/parse.rb'><pre><a name='31'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/parse.rb#L31'> 31</a>       when "Decision"
+</pre></code><code title='Line 32, lib/parsing/parse.rb'><pre><a name='32'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/parse.rb#L32'> 32</a>         parse_route_from_decision_step( route_id )
+</pre></code><code title='Line 33, lib/parsing/parse.rb'><pre><a name='33'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/parse.rb#L33'> 33</a>       when "NOT"
+</pre></code><code title='Line 34, lib/parsing/parse.rb'><pre><a name='34'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/parse.rb#L34'> 34</a>         parse_route_from_not_step( route_id )
+</pre></code><code title='Line 35, lib/parsing/parse.rb'><pre><a name='35'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/parse.rb#L35'> 35</a>       when "AND"
+</pre></code><code title='Line 36, lib/parsing/parse.rb'><pre><a name='36'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/parse.rb#L36'> 36</a>         parse_route_from_and_step( route_id )
+</pre></code><code title='Line 37, lib/parsing/parse.rb'><pre><a name='37'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/parse.rb#L37'> 37</a>       when "OR"
+</pre></code><code title='Line 38, lib/parsing/parse.rb'><pre><a name='38'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/parse.rb#L38'> 38</a>         parse_route_from_or_step( route_id )
+</pre></code><code title='Line 39, lib/parsing/parse.rb'><pre><a name='39'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/parse.rb#L39'> 39</a>       end
 </pre></code><h3>We check the currency of the route.</h3>
 <p>Regardless of the type of the source step of the route we know that some routes are not current.</p>
-<code title='Line 48, lib/parsing/parse.rb'><pre><a name='48'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/parse.rb#L48'> 48</a>       parse_route_currency( route )
+<code title='Line 43, lib/parsing/parse.rb'><pre><a name='43'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/parse.rb#L43'> 43</a>       parse_route_currency( route_id )
 </pre></code><h3>We assign the potential state of any target business step.</h3>
-<code title='Line 51, lib/parsing/parse.rb'><pre><a name='51'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/parse.rb#L51'> 51</a>       assign_potential_business_step_state( route)
+<code title='Line 46, lib/parsing/parse.rb'><pre><a name='46'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/parse.rb#L46'> 46</a>       assign_potential_business_step_state( route_id )
 </pre></code><h3>We continue to traverse the graph by following outbound routes from the target step of this route.</h3>
 <p>This forces a depth first traversal of the procedure.</p>
-<p>We get the target step of the route we&#39;re parsing.</p>
-<code title='Line 57, lib/parsing/parse.rb'><pre><a name='57'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/parse.rb#L57'> 57</a>       target_step = route.target_step
-</pre></code><p>For each outbound route, in the same procedure, from the target step of the route ...</p>
-<code title='Line 60, lib/parsing/parse.rb'><pre><a name='60'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/parse.rb#L60'> 60</a>       target_step.outbound_routes_in_procedure( procedure ).each do |outbound_route|
+<p>If the target step of the route we&#39;re parsing has outbound routes ...</p>
+<code title='Line 51, lib/parsing/parse.rb'><pre><a name='51'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/parse.rb#L51'> 51</a>       if step_outbound_routes( route_target_step_id( route_id ) )
+</pre></code><p>... for each outbound route from the target step of the route ...</p>
+<code title='Line 54, lib/parsing/parse.rb'><pre><a name='54'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/parse.rb#L54'> 54</a>         step_outbound_routes( route_target_step_id( route_id ) ).each do |outbound_route_id|
 </pre></code><p>... unless that route has already been parsed ...</p>
-<code title='Line 63, lib/parsing/parse.rb'><pre><a name='63'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/parse.rb#L63'> 63</a>         unless @routes[outbound_route.id][:parsed] == true
+<code title='Line 57, lib/parsing/parse.rb'><pre><a name='57'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/parse.rb#L57'> 57</a>           unless route_parsed_attribute( outbound_route_id ) == true
 </pre></code><p>... we parse the route.</p>
-<code title='Line 66, lib/parsing/parse.rb'><pre><a name='66'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/parse.rb#L66'> 66</a>           parse_route( outbound_route, target_step, procedure )
-</pre></code><code title='Line 67, lib/parsing/parse.rb'><pre><a name='67'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/parse.rb#L67'> 67</a>         end
-</pre></code><code title='Line 68, lib/parsing/parse.rb'><pre><a name='68'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/parse.rb#L68'> 68</a>       end
-</pre></code><code title='Line 69, lib/parsing/parse.rb'><pre><a name='69'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/parse.rb#L69'> 69</a>     end
-</pre></code><code title='Line 70, lib/parsing/parse.rb'><pre><a name='70'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/parse.rb#L70'> 70</a>   end
-</pre></code><code title='Line 71, lib/parsing/parse.rb'><pre><a name='71'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/parse.rb#L71'> 71</a> end</pre></code></body></html>
+<code title='Line 60, lib/parsing/parse.rb'><pre><a name='60'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/parse.rb#L60'> 60</a>             parse_route_with_id( outbound_route_id )
+</pre></code><code title='Line 61, lib/parsing/parse.rb'><pre><a name='61'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/parse.rb#L61'> 61</a>           end
+</pre></code><code title='Line 62, lib/parsing/parse.rb'><pre><a name='62'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/parse.rb#L62'> 62</a>         end
+</pre></code><code title='Line 63, lib/parsing/parse.rb'><pre><a name='63'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/parse.rb#L63'> 63</a>       end
+</pre></code><code title='Line 64, lib/parsing/parse.rb'><pre><a name='64'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/parse.rb#L64'> 64</a>     end
+</pre></code><code title='Line 65, lib/parsing/parse.rb'><pre><a name='65'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/parse.rb#L65'> 65</a>   end
+</pre></code><code title='Line 66, lib/parsing/parse.rb'><pre><a name='66'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/parse.rb#L66'> 66</a> end</pre></code></body></html>
