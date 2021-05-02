@@ -35,8 +35,6 @@ class WorkPackageController < ApplicationController
   include PARSE_ASSIGN_POTENTIAL_BUSINESS_STEP_STATE
   
   def show
-    work_package = params[:work_package]
-    @work_package = WorkPackage.find( work_package )
     parse
   end
   
