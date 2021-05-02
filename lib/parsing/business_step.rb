@@ -6,16 +6,16 @@ module PARSE_BUSINESS_STEP
   
     # Design note: The [method used](https://ukparliament.github.io/ontologies/procedure/flowcharts/meta/design-notes/#validating-inputs-and-outputs-to-steps) for validating the number of input and output routes for each step type.
     # If the business step does not have one inbound route ...
-    if @routes_to_steps[@routes[route_id][:route].from_step_id].size != 1
+    if step_inbound_routes( route_source_step_id( route_id ) ).size != 1
       
       # ... log the step as has having an unexpected number of inbound routes.
-      logger.error "Business step with name #{@routes[route_id][:route].source_step_name} has #{@routes_to_steps[@routes[route_id][:route].from_step_id].size} inbound routes."
+      logger.error "Business step with name #{route_source_step_name( route_id )} has #{step_inbound_routes( route_source_step_id( route_id ) ).size} inbound routes."
   
     # Otherwise, if the business step does have one inbound route ...
     else
       
       # ... we get the ID of the inbound route.
-      inbound_route_id = @routes_to_steps[@routes[route_id][:route].from_step_id][0]
+      inbound_route_id = step_first_inbound_route( route_source_step_id( route_id ) )
       
       # ... if the inbound route to the source step has a status of 'UNTRAVERSABLE' ...
       if route_is_untraversable?( inbound_route_id )
@@ -28,7 +28,7 @@ module PARSE_BUSINESS_STEP
       else
         
         # ... if the source step has been actualised by a business item with a date in the past or a date of today ...
-        if step_has_been_actualised_has_happened?( @routes[route_id][:route].from_step_id )
+        if step_has_been_actualised_has_happened?( route_source_step_id( route_id ) )
           
           # ... we set the route status to 'TRUE' and the parsed attribute to true.
           update_route_hash( route_id, nil, 'TRUE', true, nil )
