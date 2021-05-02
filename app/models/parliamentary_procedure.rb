@@ -25,6 +25,7 @@ class ParliamentaryProcedure < ActiveRecord::Base
   ###================
   
   # ## Method to return all steps connected to routes in a procedure, together with a count of the number of business items having a date in the past or of today actualising each step.
+  # Todo: query needs work. actualisation_has_happened_count looks incorrect. Suspect it needs to group before left joining but don't know how to do that.
   def steps_with_actualisations_in_work_package( work_package )
     Step.find_by_sql( "select distinct(s.*), count(business_items.id) as actualisation_has_happened_count
       from steps s
