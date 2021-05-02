@@ -20,25 +20,25 @@ module PARSE_ASSIGN_POTENTIAL_BUSINESS_STEP_STATE
         when "TRUE"
           
           # ... we add the target step to the array of caused steps.
-          @caused_steps << target_step_of_route_with_id( route_id )
+          @caused_steps << route_target_step( route_id )
           
         # When the status of the route we've parsed is 'ALLOWS' ...
         when "ALLOWS"
           
           # ... we add the target step to the array of allowed steps.
-          @allowed_steps << target_step_of_route_with_id( route_id )
+          @allowed_steps << route_target_step( route_id )
           
         # When the status of the route we've parsed is either 'FALSE' or 'NULL' ...
         when "NULL", "FALSE"
           
           # ... we add the target step to the array of disallowed as yet steps.
-          @disallowed_as_yet_steps << target_step_of_route_with_id( route_id )
+          @disallowed_as_yet_steps << route_target_step( route_id )
       
         # When the status of the route we've parsed is 'UNTRAVERSABLE' ...
         when "UNTRAVERSABLE"
           
           # ... we add the target step to the array of disallowed now steps.
-          @disallowed_now_steps << target_step_of_route_with_id( route_id )
+          @disallowed_now_steps << route_target_step( route_id )
           
         # Otherwise, if the status of the route we've parsed is neither 'TRUE', 'ALLOWS', 'FALSE', 'NULL' or 'UNTRAVERSABLE' ...
         else
