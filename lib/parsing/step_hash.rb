@@ -47,8 +47,27 @@ module PARSE_STEP_HASH
     end
   end
   
-  # ## A method to check if a step has been actualised with a business item having a date in the past or of today.
-  # We call the method with the ID of the step.
+  ### =====
+  
+  # ## A set of methods to get attributes of the steps hash.
+  # We call all methods with the ID of the step.
+  
+  # ### Method to get the step object from the steps hash.
+  def step_object( step_id )
+    @steps[step_id]
+  end
+  
+  # ### Method to get the name of a step from the steps hash.
+  def step_name( step_id )
+    step_object( step_id )[:name]
+  end
+  
+  # ### Method to get the name of type of a step from the steps hash.
+  def step_type_name( step_id )
+    step_object( step_id )[:name]
+  end
+  
+  # ### Method to check if a step has been actualised with a business item having a date in the past or of today.
   def step_has_been_actualised_has_happened?( step_id )
     
     # We assume the step has not been with a business item having a date in the past or of today.
@@ -59,5 +78,25 @@ module PARSE_STEP_HASH
     
     # We return the boolean.
     actualised_has_happened
+  end
+  
+  # ### Method to get inbound routes to a step.
+  def step_inbound_routes( step_id )
+    @routes_to_steps[step_id]
+  end
+  
+  # ### Method to get the first inbound route to a step.
+  def step_first_inbound_route( step_id )
+    step_inbound_routes( step_id )[0]
+  end
+  
+  # ### Method to get the second inbound route to a step.
+  def step_second_inbound_route( step_id )
+    step_inbound_routes( step_id )[1]
+  end
+  
+  # ### Method to get outbound routes from a step.
+  def step_outbound_routes( step_id )
+    @routes_from_steps[step_id]
   end
 end
