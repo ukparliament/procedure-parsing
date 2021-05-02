@@ -81,28 +81,141 @@ We push this back into the hash of routes, keyed off the ID of the route.
 
     @routes[route_id] = route_hash
   end
-## Method to check if a route is traversable.
+## =====
 
-We call the method with the ID of the route.
+## A set of methods to get attributes of a route.
 
-  def is_route_untraversable?( route_id )
+We call all methods with the ID of the route.
+
+### Method to get the hash of route attributes from the routes hash.
+
+  def route_hash( route_id )
+    @routes[route_id]
+  end
+### Method to get the current attribute of the route hash.
+
+  def route_current_attribute( route_id )
+    route_hash( route_id )[:current]
+  end
+### Method to get the status attribute of the route hash.
+
+  def route_status_attribute( route_id )
+    route_hash( route_id )[:status]
+  end
+### Method to check if a route is traversable.
+
+  def route_is_untraversable?( route_id )
 We assume the route is traversable.
 
     untraversable = false
 We set the value of untraversable to true if the routes hash has a status of ‘UNTRAVERSABLE’ for the route with this ID.
 
-    untraversable = true if @routes[route_id][:status] == 'UNTRAVERSABLE'
+    untraversable = true if route_status_attribute( route_id ) == 'UNTRAVERSABLE'
 We return the boolean.
 
     untraversable
   end
-## Method to get the ID of the target step of a route.
+### Method to get the parsed attribute of the route hash.
 
-We call the method with the ID of the route.
+  def route_parsed_attribute( route_id )
+    route_hash( route_id )[:parsed]
+  end
+### Method to get the parse pass count attribute of the route hash.
 
-  def target_step_of_route_with_id( route_id )
+  def route_parse_pass_count_attribute( route_id )
+    route_hash( route_id )[:parse_pass_count]
+  end
+### Method to get the route object from the routes hash.
+
+  def route_object( route_id )
+    route_hash( route_id )[:route]
+  end
+### Method to check if a route is current.
+
+  def route_is_current?( route_id )
+A route may have start and end dates.
+
+We get the start and end dates from the route object.
+
+    start_date = route_object( route_id ).start_date
+    end_date = route_object( route_id ).end_date
+If the route has a start date and the start date is in the future, being today or after today ...
+
+    if start_date and start_date > Date.today
+.. we set current to false.
+
+      current = false
+Otherwise, if the route has an end date and the end date is in the past, being earlier than today ...
+
+    elsif end_date and end_date < Date.today
+... we set current to false.
+
+      current = false
+Otherwise, if the route has no start date or a start date in the past or no end date or an end date in the future ...
+
+    else
+... we set current to true.
+
+      current = true
+    end
+We return the value we've set for the route's currency.
+
+    current
+  end
+### Method to get the ID of the source step of a route.
+
+  def route_source_step_id( route_id )
+We get the from_step_id of the route in the routes hash with this ID.
+
+    route_object( route_id ).from_step_id
+  end
+### Method to get the name of the source step of a route.
+
+  def route_source_step_name( route_id )
+We get the name of the source step of the route in the routes hash with this ID.
+
+    route_object( route_id ).source_step_name
+  end
+### Method to get the name of the type of the source step of a route.
+
+  def route_source_step_type( route_id )
+We get the name of the source step of the route in the routes hash with this ID.
+
+    route_object( route_id ).source_step_type
+  end
+### Method to get the source step object of a route.
+
+  def route_source_step( route_id )
+We get the step object with the ID of the source step of the route.
+
+    @steps[route_source_step_id( route_id )]
+  end
+### Method to get the ID of the target step of a route.
+
+  def route_target_step_id( route_id )
 We get the to_step_id of the route in the routes hash with this ID.
 
-    @steps[@routes[route_id][:route].to_step_id]
+    route_object( route_id ).to_step_id
+  end
+### Method to get the name of the target step of a route.
+
+  def route_target_step_name( route_id )
+We get the name of the target step of the route in the routes hash with this ID.
+
+    route_object( route_id ).target_step_name
+  end
+### Method to get the name of the type of the target step of a route.
+
+  def route_target_step_type( route_id )
+We get the name of the target step of the route in the routes hash with this ID.
+
+    route_object( route_id ).target_step_type
+  end
+### Method to get the target step object of a route.
+
+  def route_target_step( route_id )
+We get the step object with the ID of the target step of the route.
+
+    @steps[route_target_step_id( route_id )]
   end
 end

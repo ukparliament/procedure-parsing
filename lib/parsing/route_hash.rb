@@ -112,12 +112,12 @@ module PARSE_ROUTE_HASH
   end
   
   # ### Method to get the parsed attribute of the route hash.
-  def route_status_attribute( route_id )
+  def route_parsed_attribute( route_id )
     route_hash( route_id )[:parsed]
   end
   
   # ### Method to get the parse pass count attribute of the route hash.
-  def route_status_attribute( route_id )
+  def route_parse_pass_count_attribute( route_id )
     route_hash( route_id )[:parse_pass_count]
   end
   

@@ -93,20 +93,102 @@ a {text-decoration:underline;color:white;}
 </pre></code><p>We push this back into the hash of routes, keyed off the ID of the route.</p>
 <code title='Line 78, lib/parsing/route_hash.rb'><pre><a name='78'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/route_hash.rb#L78'> 78</a>     @routes[route_id] = route_hash
 </pre></code><code title='Line 79, lib/parsing/route_hash.rb'><pre><a name='79'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/route_hash.rb#L79'> 79</a>   end
-</pre></code><h2>Method to check if a route is traversable.</h2>
-<p>We call the method with the ID of the route.</p>
-<code title='Line 83, lib/parsing/route_hash.rb'><pre><a name='83'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/route_hash.rb#L83'> 83</a>   def is_route_untraversable?( route_id )
+</pre></code><h2>=====</h2>
+<h2>A set of methods to get attributes of a route.</h2>
+<p>We call all methods with the ID of the route.</p>
+<h3>Method to get the hash of route attributes from the routes hash.</h3>
+<code title='Line 87, lib/parsing/route_hash.rb'><pre><a name='87'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/route_hash.rb#L87'> 87</a>   def route_hash( route_id )
+</pre></code><code title='Line 88, lib/parsing/route_hash.rb'><pre><a name='88'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/route_hash.rb#L88'> 88</a>     @routes[route_id]
+</pre></code><code title='Line 89, lib/parsing/route_hash.rb'><pre><a name='89'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/route_hash.rb#L89'> 89</a>   end
+</pre></code><h3>Method to get the current attribute of the route hash.</h3>
+<code title='Line 92, lib/parsing/route_hash.rb'><pre><a name='92'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/route_hash.rb#L92'> 92</a>   def route_current_attribute( route_id )
+</pre></code><code title='Line 93, lib/parsing/route_hash.rb'><pre><a name='93'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/route_hash.rb#L93'> 93</a>     route_hash( route_id )[:current]
+</pre></code><code title='Line 94, lib/parsing/route_hash.rb'><pre><a name='94'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/route_hash.rb#L94'> 94</a>   end
+</pre></code><h3>Method to get the status attribute of the route hash.</h3>
+<code title='Line 97, lib/parsing/route_hash.rb'><pre><a name='97'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/route_hash.rb#L97'> 97</a>   def route_status_attribute( route_id )
+</pre></code><code title='Line 98, lib/parsing/route_hash.rb'><pre><a name='98'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/route_hash.rb#L98'> 98</a>     route_hash( route_id )[:status]
+</pre></code><code title='Line 99, lib/parsing/route_hash.rb'><pre><a name='99'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/route_hash.rb#L99'> 99</a>   end
+</pre></code><h3>Method to check if a route is traversable.</h3>
+<code title='Line 102, lib/parsing/route_hash.rb'><pre><a name='102'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/route_hash.rb#L102'> 102</a>   def route_is_untraversable?( route_id )
 </pre></code><p>We assume the route is traversable.</p>
-<code title='Line 86, lib/parsing/route_hash.rb'><pre><a name='86'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/route_hash.rb#L86'> 86</a>     untraversable = false
+<code title='Line 105, lib/parsing/route_hash.rb'><pre><a name='105'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/route_hash.rb#L105'> 105</a>     untraversable = false
 </pre></code><p>We set the value of untraversable to true if the routes hash has a status of ‘UNTRAVERSABLE’ for the route with this ID.</p>
-<code title='Line 89, lib/parsing/route_hash.rb'><pre><a name='89'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/route_hash.rb#L89'> 89</a>     untraversable = true if @routes[route_id][:status] == 'UNTRAVERSABLE'
+<code title='Line 108, lib/parsing/route_hash.rb'><pre><a name='108'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/route_hash.rb#L108'> 108</a>     untraversable = true if route_status_attribute( route_id ) == 'UNTRAVERSABLE'
 </pre></code><p>We return the boolean.</p>
-<code title='Line 92, lib/parsing/route_hash.rb'><pre><a name='92'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/route_hash.rb#L92'> 92</a>     untraversable
-</pre></code><code title='Line 93, lib/parsing/route_hash.rb'><pre><a name='93'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/route_hash.rb#L93'> 93</a>   end
-</pre></code><h2>Method to get the ID of the target step of a route.</h2>
-<p>We call the method with the ID of the route.</p>
-<code title='Line 97, lib/parsing/route_hash.rb'><pre><a name='97'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/route_hash.rb#L97'> 97</a>   def target_step_of_route_with_id( route_id )
+<code title='Line 111, lib/parsing/route_hash.rb'><pre><a name='111'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/route_hash.rb#L111'> 111</a>     untraversable
+</pre></code><code title='Line 112, lib/parsing/route_hash.rb'><pre><a name='112'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/route_hash.rb#L112'> 112</a>   end
+</pre></code><h3>Method to get the parsed attribute of the route hash.</h3>
+<code title='Line 115, lib/parsing/route_hash.rb'><pre><a name='115'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/route_hash.rb#L115'> 115</a>   def route_parsed_attribute( route_id )
+</pre></code><code title='Line 116, lib/parsing/route_hash.rb'><pre><a name='116'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/route_hash.rb#L116'> 116</a>     route_hash( route_id )[:parsed]
+</pre></code><code title='Line 117, lib/parsing/route_hash.rb'><pre><a name='117'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/route_hash.rb#L117'> 117</a>   end
+</pre></code><h3>Method to get the parse pass count attribute of the route hash.</h3>
+<code title='Line 120, lib/parsing/route_hash.rb'><pre><a name='120'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/route_hash.rb#L120'> 120</a>   def route_parse_pass_count_attribute( route_id )
+</pre></code><code title='Line 121, lib/parsing/route_hash.rb'><pre><a name='121'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/route_hash.rb#L121'> 121</a>     route_hash( route_id )[:parse_pass_count]
+</pre></code><code title='Line 122, lib/parsing/route_hash.rb'><pre><a name='122'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/route_hash.rb#L122'> 122</a>   end
+</pre></code><h3>Method to get the route object from the routes hash.</h3>
+<code title='Line 125, lib/parsing/route_hash.rb'><pre><a name='125'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/route_hash.rb#L125'> 125</a>   def route_object( route_id )
+</pre></code><code title='Line 126, lib/parsing/route_hash.rb'><pre><a name='126'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/route_hash.rb#L126'> 126</a>     route_hash( route_id )[:route]
+</pre></code><code title='Line 127, lib/parsing/route_hash.rb'><pre><a name='127'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/route_hash.rb#L127'> 127</a>   end
+</pre></code><h3>Method to check if a route is current.</h3>
+<code title='Line 130, lib/parsing/route_hash.rb'><pre><a name='130'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/route_hash.rb#L130'> 130</a>   def route_is_current?( route_id )
+</pre></code><p>A route may have start and end dates.</p>
+<p>We get the start and end dates from the route object.</p>
+<code title='Line 134, lib/parsing/route_hash.rb'><pre><a name='134'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/route_hash.rb#L134'> 134</a>     start_date = route_object( route_id ).start_date
+</pre></code><code title='Line 135, lib/parsing/route_hash.rb'><pre><a name='135'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/route_hash.rb#L135'> 135</a>     end_date = route_object( route_id ).end_date
+</pre></code><p>If the route has a start date and the start date is in the future, being today or after today ...</p>
+<code title='Line 138, lib/parsing/route_hash.rb'><pre><a name='138'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/route_hash.rb#L138'> 138</a>     if start_date and start_date > Date.today
+</pre></code><p>.. we set current to false.</p>
+<code title='Line 141, lib/parsing/route_hash.rb'><pre><a name='141'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/route_hash.rb#L141'> 141</a>       current = false
+</pre></code><p>Otherwise, if the route has an end date and the end date is in the past, being earlier than today ...</p>
+<code title='Line 144, lib/parsing/route_hash.rb'><pre><a name='144'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/route_hash.rb#L144'> 144</a>     elsif end_date and end_date < Date.today
+</pre></code><p>... we set current to false.</p>
+<code title='Line 147, lib/parsing/route_hash.rb'><pre><a name='147'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/route_hash.rb#L147'> 147</a>       current = false
+</pre></code><p>Otherwise, if the route has no start date or a start date in the past or no end date or an end date in the future ...</p>
+<code title='Line 150, lib/parsing/route_hash.rb'><pre><a name='150'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/route_hash.rb#L150'> 150</a>     else
+</pre></code><p>... we set current to true.</p>
+<code title='Line 153, lib/parsing/route_hash.rb'><pre><a name='153'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/route_hash.rb#L153'> 153</a>       current = true
+</pre></code><code title='Line 154, lib/parsing/route_hash.rb'><pre><a name='154'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/route_hash.rb#L154'> 154</a>     end
+</pre></code><p>We return the value we&#39;ve set for the route&#39;s currency.</p>
+<code title='Line 157, lib/parsing/route_hash.rb'><pre><a name='157'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/route_hash.rb#L157'> 157</a>     current
+</pre></code><code title='Line 158, lib/parsing/route_hash.rb'><pre><a name='158'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/route_hash.rb#L158'> 158</a>   end
+</pre></code><h3>Method to get the ID of the source step of a route.</h3>
+<code title='Line 161, lib/parsing/route_hash.rb'><pre><a name='161'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/route_hash.rb#L161'> 161</a>   def route_source_step_id( route_id )
+</pre></code><p>We get the from_step_id of the route in the routes hash with this ID.</p>
+<code title='Line 164, lib/parsing/route_hash.rb'><pre><a name='164'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/route_hash.rb#L164'> 164</a>     route_object( route_id ).from_step_id
+</pre></code><code title='Line 165, lib/parsing/route_hash.rb'><pre><a name='165'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/route_hash.rb#L165'> 165</a>   end
+</pre></code><h3>Method to get the name of the source step of a route.</h3>
+<code title='Line 168, lib/parsing/route_hash.rb'><pre><a name='168'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/route_hash.rb#L168'> 168</a>   def route_source_step_name( route_id )
+</pre></code><p>We get the name of the source step of the route in the routes hash with this ID.</p>
+<code title='Line 171, lib/parsing/route_hash.rb'><pre><a name='171'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/route_hash.rb#L171'> 171</a>     route_object( route_id ).source_step_name
+</pre></code><code title='Line 172, lib/parsing/route_hash.rb'><pre><a name='172'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/route_hash.rb#L172'> 172</a>   end
+</pre></code><h3>Method to get the name of the type of the source step of a route.</h3>
+<code title='Line 175, lib/parsing/route_hash.rb'><pre><a name='175'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/route_hash.rb#L175'> 175</a>   def route_source_step_type( route_id )
+</pre></code><p>We get the name of the source step of the route in the routes hash with this ID.</p>
+<code title='Line 178, lib/parsing/route_hash.rb'><pre><a name='178'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/route_hash.rb#L178'> 178</a>     route_object( route_id ).source_step_type
+</pre></code><code title='Line 179, lib/parsing/route_hash.rb'><pre><a name='179'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/route_hash.rb#L179'> 179</a>   end
+</pre></code><h3>Method to get the source step object of a route.</h3>
+<code title='Line 182, lib/parsing/route_hash.rb'><pre><a name='182'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/route_hash.rb#L182'> 182</a>   def route_source_step( route_id )
+</pre></code><p>We get the step object with the ID of the source step of the route.</p>
+<code title='Line 185, lib/parsing/route_hash.rb'><pre><a name='185'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/route_hash.rb#L185'> 185</a>     @steps[route_source_step_id( route_id )]
+</pre></code><code title='Line 186, lib/parsing/route_hash.rb'><pre><a name='186'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/route_hash.rb#L186'> 186</a>   end
+</pre></code><h3>Method to get the ID of the target step of a route.</h3>
+<code title='Line 189, lib/parsing/route_hash.rb'><pre><a name='189'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/route_hash.rb#L189'> 189</a>   def route_target_step_id( route_id )
 </pre></code><p>We get the to_step_id of the route in the routes hash with this ID.</p>
-<code title='Line 100, lib/parsing/route_hash.rb'><pre><a name='100'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/route_hash.rb#L100'> 100</a>     @steps[@routes[route_id][:route].to_step_id]
-</pre></code><code title='Line 101, lib/parsing/route_hash.rb'><pre><a name='101'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/route_hash.rb#L101'> 101</a>   end
-</pre></code><code title='Line 102, lib/parsing/route_hash.rb'><pre><a name='102'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/route_hash.rb#L102'> 102</a> end</pre></code></body></html>
+<code title='Line 192, lib/parsing/route_hash.rb'><pre><a name='192'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/route_hash.rb#L192'> 192</a>     route_object( route_id ).to_step_id
+</pre></code><code title='Line 193, lib/parsing/route_hash.rb'><pre><a name='193'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/route_hash.rb#L193'> 193</a>   end
+</pre></code><h3>Method to get the name of the target step of a route.</h3>
+<code title='Line 196, lib/parsing/route_hash.rb'><pre><a name='196'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/route_hash.rb#L196'> 196</a>   def route_target_step_name( route_id )
+</pre></code><p>We get the name of the target step of the route in the routes hash with this ID.</p>
+<code title='Line 199, lib/parsing/route_hash.rb'><pre><a name='199'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/route_hash.rb#L199'> 199</a>     route_object( route_id ).target_step_name
+</pre></code><code title='Line 200, lib/parsing/route_hash.rb'><pre><a name='200'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/route_hash.rb#L200'> 200</a>   end
+</pre></code><h3>Method to get the name of the type of the target step of a route.</h3>
+<code title='Line 203, lib/parsing/route_hash.rb'><pre><a name='203'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/route_hash.rb#L203'> 203</a>   def route_target_step_type( route_id )
+</pre></code><p>We get the name of the target step of the route in the routes hash with this ID.</p>
+<code title='Line 206, lib/parsing/route_hash.rb'><pre><a name='206'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/route_hash.rb#L206'> 206</a>     route_object( route_id ).target_step_type
+</pre></code><code title='Line 207, lib/parsing/route_hash.rb'><pre><a name='207'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/route_hash.rb#L207'> 207</a>   end
+</pre></code><h3>Method to get the target step object of a route.</h3>
+<code title='Line 210, lib/parsing/route_hash.rb'><pre><a name='210'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/route_hash.rb#L210'> 210</a>   def route_target_step( route_id )
+</pre></code><p>We get the step object with the ID of the target step of the route.</p>
+<code title='Line 213, lib/parsing/route_hash.rb'><pre><a name='213'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/route_hash.rb#L213'> 213</a>     @steps[route_target_step_id( route_id )]
+</pre></code><code title='Line 214, lib/parsing/route_hash.rb'><pre><a name='214'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/route_hash.rb#L214'> 214</a>   end
+</pre></code><code title='Line 215, lib/parsing/route_hash.rb'><pre><a name='215'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/route_hash.rb#L215'> 215</a> end</pre></code></body></html>
