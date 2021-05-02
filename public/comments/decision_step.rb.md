@@ -11,7 +11,7 @@ If the decision step does not have one inbound route ...
     if step_inbound_routes( route_source_step_id( route_id ) ).size != 1
 ... log the step as has having an unexpected number of inbound routes.
 
-      logger.error "Business step with name #{route_source_step_name( route_id )} has #{step_inbound_routes( route_source_step_id( route_id ) ).size} inbound routes."
+      logger.error "Decision step with name #{route_source_step_name( route_id )} has #{step_inbound_routes( route_source_step_id( route_id ) ).size} inbound routes."
 Otherwise, if the decision step does have one inbound route ...
 
     else
