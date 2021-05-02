@@ -6,14 +6,6 @@
 # A step belongs to one House, both Houses or neither.
 class Step < ActiveRecord::Base
   
-  # ## Method to return an array of IDs of routes from a step.
-  # We call the method passing the hash of outbound routes from a step.
-  def outbound_route_ids( routes_from_steps )
-    
-    # We get an array of IDs of routes from the step with this ID.
-    routes_from_steps[self.id]
-  end
-  
   # ## A method to select house steps - the join between steps and Houses - for a step taking place in the House of Commons.
   # This method evaluates as true if this step takes place in the House of Commons.
   def in_commons?
