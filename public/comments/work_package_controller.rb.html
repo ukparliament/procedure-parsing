@@ -97,7 +97,7 @@ a {text-decoration:underline;color:white;}
 </pre></code><p>We loop through the start steps in the procedure ...</p>
 <code title='Line 84, app/controllers/work_package_controller.rb'><pre><a name='84'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/app/controllers/work_package_controller.rb#L84'> 84</a>     start_steps.each do |step|
 </pre></code><p>... then loop through the outbound routes of each start step ...</p>
-<code title='Line 87, app/controllers/work_package_controller.rb'><pre><a name='87'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/app/controllers/work_package_controller.rb#L87'> 87</a>       step.outbound_route_ids( @routes_from_steps ).each do |route_id|
+<code title='Line 87, app/controllers/work_package_controller.rb'><pre><a name='87'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/app/controllers/work_package_controller.rb#L87'> 87</a>       step_outbound_routes( step.id ).each do |route_id|
 </pre></code><p>... and parse each of those routes, passing in the ID of the route .</p>
 <code title='Line 90, app/controllers/work_package_controller.rb'><pre><a name='90'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/app/controllers/work_package_controller.rb#L90'> 90</a>         parse_route_with_id( route_id )
 </pre></code><code title='Line 91, app/controllers/work_package_controller.rb'><pre><a name='91'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/app/controllers/work_package_controller.rb#L91'> 91</a>       end
