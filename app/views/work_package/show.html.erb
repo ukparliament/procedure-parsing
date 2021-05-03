@@ -1,6 +1,6 @@
-<h1>Work Package: <%= @work_package.triple_store_id %></h1>
+<h1>Work package: <%= @work_package.triple_store_id %></h1>
 
-<p>An instrument subject to the <%= link_to( @procedure.name, procedure_show_url( :procedure => @procedure ) ).html_safe %> procedure.<br><small><a href="<%= @work_package.web_link %>" title="<%= @work_package.web_link %>"><%= @work_package.web_link %></a></small></p>
+<%= render :partial => 'work_package' %>
 
 <%= render :partial => 'view_switch' %>
 
