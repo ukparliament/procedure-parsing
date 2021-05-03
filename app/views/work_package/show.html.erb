@@ -1,9 +1,8 @@
-
 <h1>Work Package: <%= @work_package.triple_store_id %></h1>
 
 <p>An instrument subject to the <%= link_to( @procedure.name, procedure_show_url( :procedure => @procedure ) ).html_safe %> procedure.<br><small><a href="<%= @work_package.web_link %>" title="<%= @work_package.web_link %>"><%= @work_package.web_link %></a></small></p>
 
-<p><%= link_to( 'Work package', work_package_show_url ) %> &#183; <%= link_to( 'Parsed routes', work_package_parse_url ) %> &#183; <%= link_to( 'Parse log', work_package_log_url ) %></p>
+<%= render :partial => 'view_switch' %>
 
 <h2>Things that have happened</h2>
 <details>
