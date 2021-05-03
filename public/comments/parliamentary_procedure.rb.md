@@ -33,7 +33,7 @@ This method returns an array of start steps and the name of each step’s type, 
 Todo: query needs work. actualisation_has_happened_count looks incorrect. Suspect it needs to group before left joining but don't know how to do that.
 
   def steps_with_actualisations_in_work_package( work_package )
-    Step.find_by_sql( "select distinct(s.*), count(business_items.id) as actualisation_has_happened_count
+    Step.find_by_sql( "select distinct(s.*), count(business_items.id) as actualisation_has_happened_count, count( hs1.id ) as commons_count, count( hs2.id ) as lords_count
       from steps s
       inner join routes r
         on (s.id = r.from_step_id)
@@ -46,6 +46,12 @@ Todo: query needs work. actualisation_has_happened_count looks incorrect. Suspec
         on actualisations.business_item_id = business_items.id
         and business_items.date <= CURRENT_DATE
         and business_items.work_package_id = #{work_package.id}
+      left join house_steps hs1
+        on s.id = hs1.step_id
+        and hs1.house_id = 1
+      left join house_steps hs2
+        on s.id = hs2.step_id
+        and hs2.house_id = 2
       group by s.id;" 
     )
   end
