@@ -1,38 +1,28 @@
 
 <h1>Work Package: <%= @work_package.triple_store_id %></h1>
 
-<p>An instrument subject to the <%= link_to( @work_package.parliamentary_procedure.name, procedure_show_url( :procedure => @work_package.parliamentary_procedure ) ).html_safe %> procedure.<br><small><a href="<%= @work_package.web_link %>" title="<%= @work_package.web_link %>"><%= @work_package.web_link %></a></small></p>
+<p>An instrument subject to the <%= link_to( @procedure.name, procedure_show_url( :procedure => @procedure ) ).html_safe %> procedure.<br><small><a href="<%= @work_package.web_link %>" title="<%= @work_package.web_link %>"><%= @work_package.web_link %></a></small></p>
 
 <p><%= link_to( 'Parse log', work_package_parse_url ) %></p>
 
-<details>
-	<summary>meta tags</summary>
-	<% @work_package.web_link_meta_tags.each do |web_link_meta_tag| %>
-		<p><b><%= web_link_meta_tag['name'] %></b> <%= web_link_meta_tag['scheme'] %> / <%= web_link_meta_tag['content'] %></p>
-	<% end %>
-</details>
-
-<details>
-	<summary>link tags</summary>
-	<% @work_package.web_link_links.each do |web_link_link| %>
-		<p><b><%= web_link_link['rel'] %></b> <%= web_link_link['type'] %> / <%= web_link_link['href'] %></p>
-	<% end %>
-</details>
-
 <h2>Things that have happened</h2>
 <details>
-	<summary>Steps actualised with business items having a date in the past, or today: <%= @work_package.business_items_that_have_happened_number %></summary>
-	<section>
-		<%= render :partial => 'business_item/business_item', :collection => @work_package.business_items_that_have_happened %>
-	</section>
+	<summary>Steps actualised with business items having a date in the past, or today: <%= @business_items_that_have_happened_number %></summary>
+	<%- if @business_items_that_have_happened.length > 0 %>
+		<section>
+			<%= render :partial => 'business_item/business_item', :collection => @business_items_that_have_happened %>
+		</section>
+	<% else -%>
+		<em>There are no steps actualised with business items having a date in the past, or today.</em>
+	<% end -%>
 </details>
 
 <h2>Things that are scheduled to happen</h2>
 <details>
-	<summary>Steps actualised with business items having a date in the future: <%= @work_package.business_items_that_are_scheduled_to_happen_number %></summary>
-	<%- if @work_package.business_items_that_are_scheduled_to_happen.length > 0 %>
+	<summary>Steps actualised with business items having a date in the future: <%= @business_items_that_are_scheduled_to_happen_number %></summary>
+	<%- if @business_items_that_are_scheduled_to_happen.length > 0 %>
 		<section>
-			<%= render :partial => 'business_item/business_item', :collection => @work_package.business_items_that_are_scheduled_to_happen %>
+			<%= render :partial => 'business_item/business_item', :collection => @business_items_that_are_scheduled_to_happen %>
 		</section>
 	<% else %>
 		<em>There are no steps actualised with business items having a date in the future.</em>
@@ -41,15 +31,24 @@
 
 <h2>Things that may have happened or may be scheduled to happen</h2>
 <details>
-	<summary>Steps actualised with business items having no date: <%= @work_package.business_items_unknown_number %></summary>
-	<%- if @work_package.business_items_unknown.length > 0 %>
+	<summary>Steps actualised with business items having no date: <%= @business_items_unknown_number %></summary>
+	<%- if @business_items_unknown.length > 0 %>
 		<section>
-			<%= render :partial => 'business_item/business_item', :collection => @work_package.business_items_unknown %>
+			<%= render :partial => 'business_item/business_item', :collection => @business_items_unknown %>
 		</section>
 	<% else %>
 		<em>There are no steps actualised with business items having no date.</em>
 	<% end %>
 </details>
+
+
+
+
+
+
+
+
+
 
 <h2>Things that should happen</h2>
 <details open>
