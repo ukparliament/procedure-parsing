@@ -9,13 +9,17 @@ class Step < ActiveRecord::Base
   # ## A method to select house steps - the join between steps and Houses - for a step taking place in the House of Commons.
   # This method evaluates as true if this step takes place in the House of Commons.
   def in_commons?
-    HouseStep.all.select( 'hs.*' ).joins( 'as hs, houses as h' ).where( 'hs.step_id = ?', self ).where( 'hs.house_id = h.id').where( 'h.name =?', 'House of Commons' ).order( 'hs.id' ).first
+    in_commons = false
+    in_commons = true  if self.commons_count != 0
+    in_commons
   end
   
   # ## A method to select house steps - the join between steps and Houses - for a step taking place in the House of Lords.
   # This method evaluates as true if this step takes place in the House of Lords.
   def in_lords?
-    HouseStep.all.select( 'hs.*' ).joins( 'as hs, houses as h' ).where( 'hs.step_id = ?', self ).where( 'hs.house_id = h.id').where( 'h.name =?', 'House of Lords' ).order( 'hs.id' ).first
+    in_lords = false
+    in_lords = true  if self.lords_count != 0
+    in_lords
   end
   
   # ## A method to construct a House label for a step.
