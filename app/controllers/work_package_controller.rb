@@ -42,6 +42,10 @@ class WorkPackageController < ApplicationController
     @business_items_unknown = @work_package.business_items_unknown
   end
   
+  def log
+    parse
+  end
+  
   # ## This method attempts to parse a work package subject to a procedure.
   # By taking actualised and non-actualised business steps and parsing the logical procedure map, we aim to determine business steps that may happen, should happen or should not happen in the future.
   def parse

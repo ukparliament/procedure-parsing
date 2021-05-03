@@ -41,6 +41,9 @@ We include code for the main parsing rules ...
     @business_items_that_are_scheduled_to_happen = @work_package.business_items_that_are_scheduled_to_happen
     @business_items_unknown = @work_package.business_items_unknown
   end
+  def log
+    parse
+  end
 ## This method attempts to parse a work package subject to a procedure.
 
 By taking actualised and non-actualised business steps and parsing the logical procedure map, we aim to determine business steps that may happen, should happen or should not happen in the future.
