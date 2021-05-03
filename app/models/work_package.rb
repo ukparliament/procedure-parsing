@@ -21,6 +21,14 @@ class WorkPackage < ActiveRecord::Base
     BusinessItem.all.where( 'work_package_id = ?', self).where( 'date <= ?', Date.today ).order( 'date' )
   end
 
+  def business_items_that_are_scheduled_to_happen
+    BusinessItem.all.where( 'work_package_id = ?', self).where( 'date > ?', Date.today ).order( 'date' )
+  end
+  
+  def business_items_unknown
+    BusinessItem.all.where( 'work_package_id = ?', self).where( 'date is null' ).order( 'date' )
+  end
+
   def business_items_that_have_happened_number
     case business_items_that_have_happened.length
     when 0
@@ -47,11 +55,6 @@ class WorkPackage < ActiveRecord::Base
       business_items_that_have_happened.to_s
     end
   end
-
-  def business_items_that_are_scheduled_to_happen
-    BusinessItem.all.where( 'work_package_id = ?', self).where( 'date > ?', Date.today ).order( 'date' )
-  end
-
 
   def business_items_that_are_scheduled_to_happen_number
     case business_items_that_are_scheduled_to_happen.length
@@ -80,10 +83,6 @@ class WorkPackage < ActiveRecord::Base
     end
   end
   
-  def business_items_unknown
-    BusinessItem.all.where( 'work_package_id = ?', self).where( 'date is null' ).order( 'date' )
-  end
-
   def business_items_unknown_number
     case business_items_unknown.length
     when 0
