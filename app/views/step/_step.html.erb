@@ -1,4 +1,6 @@
 <% if step %>
-<p>&mdash; <%= step.name %><br>
-  <small><%= house_label_for_step_id( step.id ) %></small></p>
+	<p>
+		&mdash; <%= step.name %><br>
+		<small><%= step.house_label %></small>
+	</p>
  <% end %>
