@@ -1,24 +1,17 @@
-<div id="routes">
-	<%= content_tag( 'h2', 'Routes' ) %>
-	<table>
-		<thead>
-			<tr>
-				<%= content_tag( 'td', 'ID' ) %>
-				<%= content_tag( 'td', 'Source step' ) %>
-				<%= content_tag( 'td', 'Target step' ) %>
-				<%= content_tag( 'td', 'Current' ) %>
-				<%= content_tag( 'td', 'Parse pass count' ) %>
-				<%= content_tag( 'td', 'Parsed' ) %>
-				<%= content_tag( 'td', 'Status' ) %>
-			</tr>
-		</thead>
-		<tbody>
-			<%= render :partial => 'route', :collection => @routes %>
-		</tbody>
-	</table>
-</div>
-
-<div id="log">
-	<%= content_tag( 'h2', 'Parse log' ) %>
-	<%= render :partial => 'log', :collection => @parse_log %>
-</div>
+<%= content_tag( 'h1', 'Parsed routes' ) %>
+<table>
+	<thead>
+		<tr>
+			<%= content_tag( 'td', 'ID' ) %>
+			<%= content_tag( 'td', 'Source step' ) %>
+			<%= content_tag( 'td', 'Target step' ) %>
+			<%= content_tag( 'td', 'Current' ) %>
+			<%= content_tag( 'td', 'Parse pass count' ) %>
+			<%= content_tag( 'td', 'Parsed' ) %>
+			<%= content_tag( 'td', 'Status' ) %>
+		</tr>
+	</thead>
+	<tbody>
+		<%= render :partial => 'route', :collection => @routes %>
+	</tbody>
+</table>
