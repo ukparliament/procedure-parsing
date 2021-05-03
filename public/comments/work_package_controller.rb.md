@@ -37,6 +37,9 @@ We include code for the main parsing rules ...
   include PARSE_ASSIGN_POTENTIAL_BUSINESS_STEP_STATE
   def show
     parse
+    @business_items_that_have_happened = @work_package.business_items_that_have_happened
+    @business_items_that_are_scheduled_to_happen = @work_package.business_items_that_are_scheduled_to_happen
+    @business_items_unknown = @work_package.business_items_unknown
   end
 ## This method attempts to parse a work package subject to a procedure.
 
@@ -49,7 +52,9 @@ We get the work package we're attempting to parse.
     @work_package = WorkPackage.find( work_package )
 We get the procedure the work package is subject to.
 
-    procedure = @work_package.parliamentary_procedure
+The procedure is stored as an instance variable because we want to report from it later.
+
+    @procedure = @work_package.parliamentary_procedure
 We set the parse pass count to zero.
 
 The parse pass count will be incremented every time we attempt to parse a route.
@@ -64,7 +69,7 @@ The log is created as an instance variable because we want to write to it and re
     @parse_log = []
 We write to the log, explaining what we're attempting to do.
 
-    @parse_log << "Attempting to parse work package #{@work_package.id}, subject to the #{procedure.name.downcase} procedure."
+    @parse_log << "Attempting to parse work package #{@work_package.id}, subject to the #{@procedure.name.downcase} procedure."
 Having successfully parsed a route to a business step, we can determine the [potential state](https://ukparliament.github.io/ontologies/procedure/flowcharts/meta/design-notes/#potential-states-of-a-business-step) of that business step. The potential state of a business state may be caused to be actualised, allowed to be actualised, not yet actualisable or not now actualisable.
 
 We create a set of arrays to store the target business steps of the routes we successfully parse - each array being named according to the potential state of the target step.
@@ -80,10 +85,10 @@ We initialise a hash of additional route attributes: these are attributes used o
     initialise_route_hash( @work_package )
 We initialise a hash of steps keyed off the step ID together with a hash of IDs of outbound routes from a step and a hash of IDs of inbound routes to a step, also keyed off the step ID.
 
-    initialise_step_hashes( procedure )
+    initialise_step_hashes( @procedure )
 We get an array of the start steps in the procedure.
 
-    start_steps = procedure.start_steps
+    start_steps = @procedure.start_steps
 We loop through the start steps in the procedure ...
 
     start_steps.each do |step|
