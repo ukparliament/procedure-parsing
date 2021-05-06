@@ -78,8 +78,6 @@ module PARSE_ROUTE_HASH
     @routes[route_id] = route_hash
   end
   
-  ### =====
-  
   # ## A set of methods to get attributes of a route.
   # We call all methods with the ID of the route.
   
@@ -98,7 +96,7 @@ module PARSE_ROUTE_HASH
     route_hash( route_id )[:status]
   end
   
-  # ### Method to check if a route is traversable.
+  # ### Method to check if the untraversable attribute of the route is set to untraversable.
   def route_is_untraversable?( route_id )
     
     # We assume the route is traversable.
@@ -134,22 +132,22 @@ module PARSE_ROUTE_HASH
     start_date = route_object( route_id ).start_date
     end_date = route_object( route_id ).end_date
   
-    # If the route has a start date and the start date is in the future, being today or after today ...
+    # If the route has a start date and the start date is in the future, being after today ...
     if start_date and start_date > Date.today
     
-      # .. we set current to false.
+      # .. we set current to false because the road is not yet open.
       current = false
     
     # Otherwise, if the route has an end date and the end date is in the past, being earlier than today ...
     elsif end_date and end_date < Date.today
     
-      # ... we set current to false.
+      # ... we set current to false because the road closed in the past.
       current = false
     
     # Otherwise, if the route has no start date or a start date in the past or no end date or an end date in the future ...
     else
     
-      # ... we set current to true.
+      # ... we set current to true because the road is open.
       current = true
     end
   
