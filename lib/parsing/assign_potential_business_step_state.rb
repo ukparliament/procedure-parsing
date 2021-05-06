@@ -29,7 +29,7 @@ module PARSE_ASSIGN_POTENTIAL_BUSINESS_STEP_STATE
           @allowed_steps << route_target_step( route_id )
           
         # When the status of the route we've parsed is either 'FALSE' or 'NULL' ...
-        when "NULL", "FALSE"
+        when "FALSE", "NULL"
           
           # ... we add the target step to the array of disallowed as yet steps.
           @disallowed_as_yet_steps << route_target_step( route_id )
