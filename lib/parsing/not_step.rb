@@ -17,15 +17,15 @@ module PARSE_NOT_STEP
       # ... we get the ID of the inbound route.
       inbound_route_id = step_first_inbound_route( route_source_step_id( route_id ) )
   
-      # ... if the inbound route to the source step has been parsed ....
+      # If the inbound route to the source step has been parsed ...
       if route_parsed_attribute( inbound_route_id ) == true
     
         # ... we update the route parsed attribute to true.
         update_route_hash( route_id, nil, nil, true, nil )
         
-        # ... we refer to the [NOT step truth table](https://ukparliament.github.io/ontologies/procedure/flowcharts/meta/design-notes/#truth-table-not) ...
+        # We refer to the [NOT step truth table](https://ukparliament.github.io/ontologies/procedure/flowcharts/meta/design-notes/#truth-table-not) ...
         
-        # ... we check the status of the inbound route to the source step.
+        # ... and we check the status of the inbound route to the source step.
         case route_status_attribute( inbound_route_id )
         
         # When the status of the inbound route to the source step is 'TRUE' ...
@@ -40,7 +40,7 @@ module PARSE_NOT_STEP
           # ... we set the status of this route to 'TRUE'.
           update_route_hash( route_id, nil, 'TRUE', nil, nil )
           
-        # Otherwise, when the status of the inbound route is neither ‘TRUE’ nor ‘FALSE’ ...
+        # Otherwise, the status of the inbound route being neither ‘TRUE’ nor ‘FALSE’ ...
         else
           
           # ... we set the status of this route to the status of the inbound route.
