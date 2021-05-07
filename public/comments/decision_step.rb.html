@@ -50,7 +50,7 @@ a {text-decoration:underline;color:white;}
 </pre></code><p>We refer to the <a href="https://ukparliament.github.io/ontologies/procedure/flowcharts/meta/design-notes/#truth-table-decision">decision step truth table</a> ...</p>
 <p>... and if the status of the inbound route to the source step is &#39;TRUE&#39; ...</p>
 <code title='Line 29, lib/parsing/decision_step.rb'><pre><a name='29'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/decision_step.rb#L29'> 29</a>         if route_status_attribute( inbound_route_id ) == 'TRUE'
-</pre></code><p>... we set the status of this route to &#39;ALLOWS&#39;.</p>
+</pre></code><p>... we set the status of this route to &#39;ALLOWS&#39; ...</p>
 <code title='Line 32, lib/parsing/decision_step.rb'><pre><a name='32'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/decision_step.rb#L32'> 32</a>   				update_route_hash( route_id, nil, 'ALLOWS', nil, nil )
 </pre></code><p>... otherwise, the status of the inbound route to the source step not being ‘TRUE’ ...</p>
 <code title='Line 35, lib/parsing/decision_step.rb'><pre><a name='35'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/decision_step.rb#L35'> 35</a>         else
