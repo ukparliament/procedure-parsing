@@ -6,8 +6,7 @@ module PARSE
   # We pass in the ID of the route to be parsed.
   def parse_route_with_id( route_id )
     
-    # A route being parsed as part of the set of routes originating from a start step may have already been parsed, because a route subsequent to one of the routes from the start step may have that start step as its target.
-    # We only wish to parse a route if it has not already been parsed.
+    # A route being parsed as one of the set of routes originating from a start step may have already been parsed, because a route subsequent to one of the routes from that start step may have that start step as its target. We want to parse a route only if it has not already been parsed.
     # Unless this route has been parsed ...
     unless route_parsed_attribute( route_id ) == true
       
@@ -23,7 +22,7 @@ module PARSE
       # The route and its attributes are logged.
       @parse_log << "Parsing route from <strong>#{route_source_step_name( route_id )} (#{route_source_step_type( route_id )})</strong> to <strong>#{route_target_step_name( route_id )} (#{route_target_step_type( route_id )})</strong> [#{@parse_pass_count}/#{@route_count}]."
       
-      # ### We check the type of the source step of the route we're parsing and parse the route accordingly.
+      # ### We parse the route according to the type of the source step.
       # For each parse method we pass the ID of the route to be parsed.
       case route_source_step_type( route_id )
       when "Business step"
