@@ -21,7 +21,7 @@ module PARSE_BUSINESS_STEP
       if route_is_untraversable?( inbound_route_id )
           
         # ... then “the bridge is closed” and we set the “roads off the bridge” as closed ...
-        # ... by setting the status of this route to also be 'UNTRAVERSABLE' and the parsed attribute to true.
+        # ... by setting the status of this route to be 'UNTRAVERSABLE' and the parsed attribute to true.
         update_route_hash( route_id, nil, 'UNTRAVERSABLE', true, nil )
           
       # ... otherwise, the inbound route to the source step not having a status of 'UNTRAVERSABLE' ...
@@ -33,7 +33,7 @@ module PARSE_BUSINESS_STEP
           # ... we set the route status to 'TRUE' and the parsed attribute to true.
           update_route_hash( route_id, nil, 'TRUE', true, nil )
             
-        # ... otherwise, the source step has not been actualised or has only been actualised by business items with dates in the past ....
+        # ... otherwise, the source step has not been actualised or has only been actualised by business items with dates in the future ....
         else
             
           # ... and we set the route status to 'NULL' and the parsed attribute to true.
