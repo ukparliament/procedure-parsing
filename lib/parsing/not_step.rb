@@ -14,7 +14,7 @@ module PARSE_NOT_STEP
     # Otherwise, if the NOT step does have one inbound route ...
     else
       
-      # ... we get the ID of the inbound route.
+      # ... we get the ID of the first - and in this case only - inbound route.
       inbound_route_id = step_first_inbound_route( route_source_step_id( route_id ) )
   
       # If the inbound route to the source step has been parsed ...
