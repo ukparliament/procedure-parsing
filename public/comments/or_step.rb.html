@@ -30,7 +30,7 @@ a {text-decoration:underline;color:white;}
     </style>
     <title>lib/parsing/or_step.rb</title>
   </head>
-  <body><p><a href="/procedures/meta/comments">/procedures/meta/comments</a></p><h2>Module to parse a route whose source step is an OR step.</h2>
+  <body><p><a href="/procedures/meta/comments">/procedures/meta/comments</a></p><h1>Module to parse a route whose source step is an OR step.</h1>
 <code title='Line 2, lib/parsing/or_step.rb'><pre><a name='2'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/or_step.rb#L2'> 2</a> module PARSE_OR_STEP
 </pre></code><h2>Method to parse a route whose source step is an OR step.</h2>
 <code title='Line 5, lib/parsing/or_step.rb'><pre><a name='5'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/or_step.rb#L5'> 5</a>   def parse_route_from_or_step( route_id )
@@ -39,32 +39,32 @@ a {text-decoration:underline;color:white;}
 <code title='Line 9, lib/parsing/or_step.rb'><pre><a name='9'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/or_step.rb#L9'> 9</a>     if step_inbound_routes( route_source_step_id( route_id ) ).size != 2
 </pre></code><p>... log the step as has having an unexpected number of inbound routes.</p>
 <code title='Line 12, lib/parsing/or_step.rb'><pre><a name='12'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/or_step.rb#L12'> 12</a>       logger.error "OR step with name #{route_source_step_name( route_id )} has #{step_inbound_routes( route_source_step_id( route_id ) ).size} inbound routes."
-</pre></code><p>Otherwise, if the OR step does have two inbound routes ...</p>
-<p>The appearance of inbound routes in first or second place has no meaning beyond the order they are delivered from the data store.</p>
+</pre></code><p>The appearance of inbound routes in first or second place has no meaning beyond the order they are delivered from the data store.</p>
+<p>Otherwise, the OR step does have two inbound routes.</p>
 <code title='Line 16, lib/parsing/or_step.rb'><pre><a name='16'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/or_step.rb#L16'> 16</a>     else
-</pre></code><p>... we get the ID of the first inbound route.</p>
+</pre></code><p>We get the ID of the first inbound route ...</p>
 <code title='Line 19, lib/parsing/or_step.rb'><pre><a name='19'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/or_step.rb#L19'> 19</a>       first_inbound_route_id =  step_first_inbound_route( route_source_step_id( route_id ) )
 </pre></code><p>... we get the ID of the second inbound route.</p>
 <code title='Line 22, lib/parsing/or_step.rb'><pre><a name='22'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/or_step.rb#L22'> 22</a>       second_inbound_route_id = step_second_inbound_route( route_source_step_id( route_id ) )
-</pre></code><h3>... if both inbound routes to the source step have been parsed ....</h3>
+</pre></code><h3>If both inbound routes to the source step have been parsed ....</h3>
 <code title='Line 25, lib/parsing/or_step.rb'><pre><a name='25'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/or_step.rb#L25'> 25</a>       if route_parsed_attribute( first_inbound_route_id ) == true and route_parsed_attribute( second_inbound_route_id ) == true
 </pre></code><p>... we update the route parsed attribute to true.</p>
 <code title='Line 28, lib/parsing/or_step.rb'><pre><a name='28'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/or_step.rb#L28'> 28</a>         update_route_hash( route_id, nil, nil, true, nil )
-</pre></code><p>... we refer to the <a href="https://ukparliament.github.io/ontologies/procedure/flowcharts/meta/design-notes/#truth-table-or">OR step truth table</a> ...</p>
+</pre></code><p>We refer to the <a href="https://ukparliament.github.io/ontologies/procedure/flowcharts/meta/design-notes/#truth-table-or">OR step truth table</a> ...</p>
 <p>... and if either inbound route to the source step has a status of &#39;TRUE&#39; ...</p>
 <code title='Line 32, lib/parsing/or_step.rb'><pre><a name='32'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/or_step.rb#L32'> 32</a>         if route_status_attribute( first_inbound_route_id ) == 'TRUE' or route_status_attribute( second_inbound_route_id ) == 'TRUE'
 </pre></code><p>... we set the status of this route to &#39;TRUE&#39;.</p>
 <code title='Line 35, lib/parsing/or_step.rb'><pre><a name='35'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/or_step.rb#L35'> 35</a>           update_route_hash( route_id, nil, 'TRUE', nil, nil )
-</pre></code><p>... otherwise, if either inbound route to the source step has a status of &#39;UNTRAVERSABLE&#39; ...</p>
+</pre></code><p>Otherwise, if either inbound route to the source step has a status of &#39;UNTRAVERSABLE&#39; ...</p>
 <code title='Line 38, lib/parsing/or_step.rb'><pre><a name='38'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/or_step.rb#L38'> 38</a>         elsif route_is_untraversable?( first_inbound_route_id ) or route_is_untraversable?( second_inbound_route_id )
 </pre></code><p>... we set the status of this route to &#39;UNTRAVERSABLE&#39; ...</p>
 <p>... tainting the roads off the bridge as closed if the bridge is closed.</p>
 <code title='Line 42, lib/parsing/or_step.rb'><pre><a name='42'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/or_step.rb#L42'> 42</a>           update_route_hash( route_id, nil, 'UNTRAVERSABLE', nil, nil )
-</pre></code><p>... otherwise, if either inbound route has a status of &#39;FALSE&#39; ...</p>
+</pre></code><p>Otherwise, if either inbound route has a status of &#39;FALSE&#39; ...</p>
 <code title='Line 45, lib/parsing/or_step.rb'><pre><a name='45'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/or_step.rb#L45'> 45</a>         elsif route_status_attribute( first_inbound_route_id ) == 'FALSE' or route_status_attribute( second_inbound_route_id ) == 'FALSE'
 </pre></code><p>... we set the status of this route to &#39;FALSE&#39;.</p>
 <code title='Line 48, lib/parsing/or_step.rb'><pre><a name='48'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/or_step.rb#L48'> 48</a>           update_route_hash( route, nil, 'FALSE', nil, nil )
-</pre></code><p>... otherwise, if both inbound routes have a status of &#39;NULL&#39; ...</p>
+</pre></code><p>Otherwise, if both inbound routes have a status of &#39;NULL&#39; ...</p>
 <code title='Line 51, lib/parsing/or_step.rb'><pre><a name='51'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/or_step.rb#L51'> 51</a>         elsif route_status_attribute( first_inbound_route_id ) == 'NULL' and route_status_attribute( second_inbound_route_id ) == 'NULL'
 </pre></code><p>... set the status of this route to &#39;NULL&#39;.</p>
 <code title='Line 54, lib/parsing/or_step.rb'><pre><a name='54'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/or_step.rb#L54'> 54</a>           update_route_hash( route_id, nil, 'NULL', nil, nil )

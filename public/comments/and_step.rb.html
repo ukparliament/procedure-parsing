@@ -40,9 +40,9 @@ a {text-decoration:underline;color:white;}
 </pre></code><p>... log the step as has having an unexpected number of inbound routes.</p>
 <code title='Line 12, lib/parsing/and_step.rb'><pre><a name='12'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/and_step.rb#L12'> 12</a>       logger.error "AND step with name #{route_source_step_name( route_id )} has #{step_inbound_routes( route_source_step_id( route_id ) ).size} inbound routes."
 </pre></code><p>The appearance of inbound routes in first or second place has no meaning beyond the order they are delivered from the data store.</p>
-<p>Otherwise, the AND step does have two inbound routes ...</p>
+<p>Otherwise, the AND step does have two inbound routes.</p>
 <code title='Line 16, lib/parsing/and_step.rb'><pre><a name='16'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/and_step.rb#L16'> 16</a>     else
-</pre></code><p>... we get the ID of the first inbound route ...</p>
+</pre></code><p>We get the ID of the first inbound route ...</p>
 <code title='Line 19, lib/parsing/and_step.rb'><pre><a name='19'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/and_step.rb#L19'> 19</a>       first_inbound_route_id = step_first_inbound_route( route_source_step_id( route_id ) )
 </pre></code><p>... and we get the ID of the second inbound route.</p>
 <code title='Line 22, lib/parsing/and_step.rb'><pre><a name='22'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/and_step.rb#L22'> 22</a>       second_inbound_route_id = step_second_inbound_route( route_source_step_id( route_id ) )

@@ -12,10 +12,10 @@ module PARSE_AND_STEP
       logger.error "AND step with name #{route_source_step_name( route_id )} has #{step_inbound_routes( route_source_step_id( route_id ) ).size} inbound routes."
   
     # The appearance of inbound routes in first or second place has no meaning beyond the order they are delivered from the data store.
-    # Otherwise, the AND step does have two inbound routes ...
+    # Otherwise, the AND step does have two inbound routes.
     else
       
-      # ... we get the ID of the first inbound route ...
+      # We get the ID of the first inbound route ...
       first_inbound_route_id = step_first_inbound_route( route_source_step_id( route_id ) )
       
       # ... and we get the ID of the second inbound route.
