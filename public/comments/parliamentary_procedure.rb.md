@@ -39,7 +39,7 @@ Todo: query needs work. actualisation_has_happened_count looks incorrect. Suspec
       inner join routes r
         on (s.id = r.from_step_id)
       inner join procedure_routes pr
-        on (r.id=pr.route_id)
+        on (r.id=pr.route_id
         and pr.parliamentary_procedure_id = #{self.id})
       left join actualisations
         on s.id = actualisations.step_id
