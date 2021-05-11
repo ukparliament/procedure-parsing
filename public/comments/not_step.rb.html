@@ -39,7 +39,7 @@ a {text-decoration:underline;color:white;}
 <code title='Line 9, lib/parsing/not_step.rb'><pre><a name='9'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/not_step.rb#L9'> 9</a>     if step_inbound_routes( route_source_step_id( route_id ) ).size != 1
 </pre></code><p>... log the step as has having an unexpected number of inbound routes.</p>
 <code title='Line 12, lib/parsing/not_step.rb'><pre><a name='12'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/not_step.rb#L12'> 12</a>       logger.error "NOT step with name #{route_source_step_name( route_id )} has #{step_inbound_routes( route_source_step_id( route_id ) ).size} inbound routes."
-</pre></code><p>Otherwise, if the NOT step does have one inbound route ...</p>
+</pre></code><p>Otherwise, the NOT step does have one inbound route ...</p>
 <code title='Line 15, lib/parsing/not_step.rb'><pre><a name='15'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/not_step.rb#L15'> 15</a>     else
 </pre></code><p>... we get the ID of the first - and in this case only - inbound route.</p>
 <code title='Line 18, lib/parsing/not_step.rb'><pre><a name='18'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/not_step.rb#L18'> 18</a>       inbound_route_id = step_first_inbound_route( route_source_step_id( route_id ) )
