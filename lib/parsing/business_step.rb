@@ -11,7 +11,7 @@ module PARSE_BUSINESS_STEP
       # ... log the step as has having an unexpected number of inbound routes.
       logger.error "Business step with name #{route_source_step_name( route_id )} has #{step_inbound_routes( route_source_step_id( route_id ) ).size} inbound routes."
   
-    # Otherwise, if the business step does have one inbound route ...
+    # Otherwise, the business step does have one inbound route ...
     else
       
       # ... we get the ID of the inbound route.
