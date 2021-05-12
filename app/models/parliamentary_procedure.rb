@@ -28,36 +28,61 @@ class ParliamentaryProcedure < ActiveRecord::Base
   def steps_with_actualisations_in_work_package( work_package )
     Step.find_by_sql(
       "
+        /* We return the step object, a flag to say whether the step is in the Commons, a flag to say whether the step is in the Lords and a flag to say whether the step has been actualised in this work package with one or more business items having a date in the past. */
+        
         SELECT s.*, SUM(commons_step.is_commons) AS is_in_commons, SUM(lords_step.is_lords) AS is_in_lords, SUM(actualisations.is_actualised_has_happened) AS is_actualised_has_happened
         FROM steps s
+        
+        /* We know that steps appear in a procedure by virtue of being attached to routes in that procedure so we join to the routes table ... */
         INNER JOIN routes r
+        
+          /* We know that all steps in a procedure have an inbound route and that some don't have outbound routes so we only bind the step to the to_step_id of a route. */
         	ON r.to_step_id = s.id
+          
+        /* ... and from the route table to the procedure_routes table ... */
         INNER JOIN procedure_routes pr
         	ON pr.route_id = r.id
+          
+          /* ... ensuring we only get routes in this procedure. */
         	AND pr.parliamentary_procedure_id = #{self.id}
+          
+        /* We know that a step might be in one or both Houses, or none, via the house_steps table so we left join to that table twice. */
+        /* The left join ensures that the outer step query returns records for steps that are not in the House we're querying for. */
+        /* Once to check if the step is in the Commons. */
         LEFT JOIN
           (
             SELECT 1 as is_commons, hs.step_id
             FROM house_steps hs
-            WHERE hs.house_id = 1
+            WHERE hs.house_id = 1 /* 1 being the ID of the Commons */
           ) commons_step
           ON s.id = commons_step.step_id
+
+        /* Once to check if the step is in the Lords. */
         LEFT JOIN
           (
             SELECT 1 as is_lords, hs.step_id
             FROM house_steps hs
-            WHERE hs.house_id = 2
+            WHERE hs.house_id = 2 /* 2 being the ID of the Lords */
           ) lords_step
           ON s.id = lords_step.step_id
+          
+        /* We know that a step might be actualised in a work package by one or more business items having a date in the past or of today, or none. */
+        /* The left join ensures that the outer step query returns records for steps that have not been actualised with a business item with a date in the past or of today. */
         LEFT JOIN
           (
             SELECT 1 as is_actualised_has_happened, a.step_id
             FROM business_items bi, actualisations a
             WHERE bi.id = a.business_item_id
+            
+            /* We restrict the query to only include of business items with a date in the past or of today. */
             AND bi.date <= CURRENT_DATE
+            
+            /* We restrict the query to only include business items in the specified work package. */
             AND bi.work_package_id = #{work_package.id}
           ) actualisations
           ON s.id = actualisations.step_id
+          
+          /* We group by the step ID because the same step may be the target step of many routes and we only want to include each step once. */
           GROUP BY s.id;
       "
     )
