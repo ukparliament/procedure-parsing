@@ -62,6 +62,8 @@ We call all methods with the ID of the step.
   def step_name( step_id )
     step_object( step_id )[:name]
   end
+========
+
 ### Method to check if a step has been actualised with a business item having a date in the past or of today.
 
   def step_has_been_actualised_has_happened?( step_id )
@@ -70,11 +72,13 @@ We assume the step has not been actualised with a business item having a date in
     actualised_has_happened = false
 We set the actualised_has_happened boolean to true if the step has been actualised in this work package, by at least one business item having a date in the past or of today.
 
-    actualised_has_happened = true if step_object( step_id ).actualisation_has_happened_count > 0
+    actualised_has_happened = true if step_object( step_id ).is_actualised_has_happened
 We return the boolean.
 
     actualised_has_happened
   end
+======
+
 ### Method to get an array of IDs of inbound routes to a step.
 
   def step_inbound_routes( step_id )
