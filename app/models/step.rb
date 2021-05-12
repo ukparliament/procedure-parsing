@@ -10,7 +10,7 @@ class Step < ActiveRecord::Base
   # This method evaluates as true if this step takes place in the House of Commons.
   def in_commons?
     in_commons = false
-    in_commons = true  if self.commons_count != 0
+    in_commons = true  if self.is_in_commons
     in_commons
   end
   
@@ -18,7 +18,7 @@ class Step < ActiveRecord::Base
   # This method evaluates as true if this step takes place in the House of Lords.
   def in_lords?
     in_lords = false
-    in_lords = true  if self.lords_count != 0
+    in_lords = true  if self.is_in_lords
     in_lords
   end
   
