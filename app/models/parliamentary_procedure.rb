@@ -26,9 +26,10 @@ class ParliamentaryProcedure < ActiveRecord::Base
   
   # ## Method to return all steps connected to routes in a procedure, together with a count of the number of business items having a date in the past or of today actualising each step.
   def steps_with_actualisations_in_work_package( work_package )
+    # https://twitter.com/colinhoad/status/1392217675728883713
     Step.find_by_sql(
       "
-        SELECT s.*, COUNT(commons_step.step_id) AS commons_count, COUNT(lords_step.step_id) AS lords_count, COUNT(actualisations.id) AS actualisation_has_happened_count
+        SELECT s.*, SUM(commons_step.is_commons) AS is_commons, SUM(lords_step.is_lords) AS is_lords, SUM(actualisations.is_actualised_has_happened) AS is_actualised_has_happened
         FROM steps s
         INNER JOIN routes r
         	ON r.to_step_id = s.id
@@ -37,21 +38,21 @@ class ParliamentaryProcedure < ActiveRecord::Base
         	AND pr.parliamentary_procedure_id = #{self.id}
         LEFT JOIN
           (
-            SELECT hs.step_id
+            SELECT 1 as is_commons, hs.step_id
             FROM house_steps hs
             WHERE hs.house_id = 1
           ) commons_step
           ON s.id = commons_step.step_id
         LEFT JOIN
           (
-            SELECT hs.step_id
+            SELECT 1 as is_lords, hs.step_id
             FROM house_steps hs
             WHERE hs.house_id = 2
           ) lords_step
           ON s.id = lords_step.step_id
         LEFT JOIN
           (
-            SELECT bi.id, a.step_id
+            SELECT 1 as is_actualised_has_happened, a.step_id
             FROM business_items bi, actualisations a
             WHERE bi.id = a.business_item_id
             AND bi.date <= CURRENT_DATE
