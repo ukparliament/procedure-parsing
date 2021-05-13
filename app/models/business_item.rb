@@ -16,6 +16,7 @@ class BusinessItem < ActiveRecord::Base
             SELECT 1 as is_commons, hs.step_id
             FROM house_steps hs
             WHERE hs.house_id = 1
+            GROUP BY hs.id
           ) commons_step
           ON s.id = commons_step.step_id
         LEFT JOIN
@@ -23,6 +24,7 @@ class BusinessItem < ActiveRecord::Base
             SELECT 1 as is_lords, hs.step_id
             FROM house_steps hs
             WHERE hs.house_id = 2
+            GROUP BY hs.id
           ) lords_step
           ON s.id = lords_step.step_id
         GROUP BY s.id;
