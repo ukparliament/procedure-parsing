@@ -74,13 +74,14 @@ class ParliamentaryProcedure < ActiveRecord::Base
             SELECT 1 as is_actualised_has_happened, a.step_id
             FROM business_items bi, actualisations a
             WHERE bi.id = a.business_item_id
-            
-             /* We select business items with a date in the past or of today. */
+              
+            /* We select business items with a date in the past or of today. */
+            /* Commented out to change the definition of a business step emitting true to any business step being actualised. */
             /*AND bi.date <= CURRENT_DATE */
-            
+              
             /* We select business items within the specified work package. */
             AND bi.work_package_id = #{work_package.id}
-            
+              
             /* We group by the ID of the actualisation. */
             GROUP BY a.id
             
