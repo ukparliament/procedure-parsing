@@ -76,7 +76,7 @@ class ParliamentaryProcedure < ActiveRecord::Base
             WHERE bi.id = a.business_item_id
             
              /* We select business items with a date in the past or of today. */
-            AND bi.date <= CURRENT_DATE
+            /*AND bi.date <= CURRENT_DATE */
             
             /* We select business items within the specified work package. */
             AND bi.work_package_id = #{work_package.id}
