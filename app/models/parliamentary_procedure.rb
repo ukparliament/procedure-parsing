@@ -53,6 +53,7 @@ class ParliamentaryProcedure < ActiveRecord::Base
             SELECT 1 as is_commons, hs.step_id
             FROM house_steps hs
             WHERE hs.house_id = 1 -- 1 being the ID of the Commons.
+            GROUP BY hs.id
           ) commons_step
           ON s.id = commons_step.step_id
 
@@ -62,6 +63,7 @@ class ParliamentaryProcedure < ActiveRecord::Base
             SELECT 1 as is_lords, hs.step_id
             FROM house_steps hs
             WHERE hs.house_id = 2 -- 2 being the ID of the Lords.
+            GROUP BY hs.id
           ) lords_step
           ON s.id = lords_step.step_id
           
@@ -78,6 +80,10 @@ class ParliamentaryProcedure < ActiveRecord::Base
             
             /* We select business items within the specified work package. */
             AND bi.work_package_id = #{work_package.id}
+            
+            /* We group by the ID of the actualisation. */
+            GROUP BY a.id
+            
           ) actualisations
           ON s.id = actualisations.step_id
           
