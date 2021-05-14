@@ -44,7 +44,7 @@ a {text-decoration:underline;color:white;}
 <code title='Line 17, lib/parsing/assign_potential_business_step_state.rb'><pre><a name='17'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/assign_potential_business_step_state.rb#L17'> 17</a>         case route_status_attribute( route_id )
 </pre></code><p>When the status of the route we&#39;ve parsed is &#39;TRUE&#39; ...</p>
 <code title='Line 20, lib/parsing/assign_potential_business_step_state.rb'><pre><a name='20'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/assign_potential_business_step_state.rb#L20'> 20</a>         when "TRUE"
-</pre></code><p>... we don&#39;t want steps that are scheduled to happen to be listed as steps that are caused to happen, so ...</p>
+</pre></code><p>... we don&#39;t want steps that are scheduled to happen to be also listed as steps that are caused to happen, so ...</p>
 <p>... unless the target step of the route has been actualised by at least one business item, regardless of the date of those business items ...</p>
 <code title='Line 24, lib/parsing/assign_potential_business_step_state.rb'><pre><a name='24'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/assign_potential_business_step_state.rb#L24'> 24</a>           unless route_target_step_is_actualised?( route_id )
 </pre></code><p>... we add the target step to the array of caused steps.</p>
