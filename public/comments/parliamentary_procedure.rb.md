@@ -33,7 +33,7 @@ This method returns an array of start steps and the name of the type of each ste
   def steps_with_actualisations_in_work_package( work_package )
     Step.find_by_sql(
       "
-        SELECT s.*, SUM(commons_step.is_commons) AS is_in_commons, SUM(lords_step.is_lords) AS is_in_lords, SUM(actualisations.is_actualised_has_happened) AS is_actualised_has_happened
+        SELECT s.*, SUM(commons_step.is_commons) AS is_in_commons, SUM(lords_step.is_lords) AS is_in_lords, SUM(actualisations_has_happened.is_actualised_has_happened) AS is_actualised_has_happened, SUM(actualisations.is_actualised) AS is_actualised
         FROM steps s
         /* We know that steps appear in a procedure by virtue of being attached to routes in that procedure, so we join to the routes table ... */
         INNER JOIN routes r
@@ -52,6 +52,7 @@ This method returns an array of start steps and the name of the type of each ste
             SELECT 1 as is_commons, hs.step_id
             FROM house_steps hs
             WHERE hs.house_id = 1 -- 1 being the ID of the Commons.
+            GROUP BY hs.id
           ) commons_step
           ON s.id = commons_step.step_id
         /* ... and once to check if the step is in the Lords. */
@@ -60,6 +61,7 @@ This method returns an array of start steps and the name of the type of each ste
             SELECT 1 as is_lords, hs.step_id
             FROM house_steps hs
             WHERE hs.house_id = 2 -- 2 being the ID of the Lords.
+            GROUP BY hs.id
           ) lords_step
           ON s.id = lords_step.step_id
           /* We know that a step may be actualised in a work package by one or more business items having a date in the past, or of today, or having no date. A step may be within a work package, but not actualised. */
@@ -69,10 +71,24 @@ This method returns an array of start steps and the name of the type of each ste
             SELECT 1 as is_actualised_has_happened, a.step_id
             FROM business_items bi, actualisations a
             WHERE bi.id = a.business_item_id
-             /* We select business items with a date in the past or of today. */
+            /* We select business items with a date in the past or of today. */
             AND bi.date <= CURRENT_DATE
             /* We select business items within the specified work package. */
             AND bi.work_package_id = #{work_package.id}
+            /* We group by the ID of the actualisation. */
+            GROUP BY a.id
+          ) actualisations_has_happened
+          ON s.id = actualisations_has_happened.step_id
+        /* The left join ensures that the outer step query returns records for steps that have not been actualised with a business item, regardless of date. */
+        LEFT JOIN
+          (
+            SELECT 1 as is_actualised, a.step_id
+            FROM business_items bi, actualisations a
+            WHERE bi.id = a.business_item_id
+            /* We select business items within the specified work package. */
+            AND bi.work_package_id = #{work_package.id}
+            /* We group by the ID of the actualisation. */
+            GROUP BY a.id
           ) actualisations
           ON s.id = actualisations.step_id
           /* We group by the step ID because the same step may be the target step of many routes and we only want to include each step once. */
