@@ -19,9 +19,15 @@ If the route we're attempting to parse has been successfully parsed ...
 When the status of the route we've parsed is 'TRUE' ...
 
         when "TRUE"
+... we don't want steps that are scheduled to happen to be listed as steps that are caused to happen, so ...
+
+... unless the target step of the route has been actualised by at least one business item, regardless of the date of those business items ...
+
+          unless route_target_step_is_actualised?( route_id )
 ... we add the target step to the array of caused steps.
 
-          @caused_steps << route_target_step( route_id )
+            @caused_steps << route_target_step( route_id )
+          end
 When the status of the route we've parsed is 'ALLOWS' ...
 
         when "ALLOWS"

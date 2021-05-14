@@ -15,34 +15,39 @@ module PARSE_ASSIGN_POTENTIAL_BUSINESS_STEP_STATE
         
         # ### We check the status of the route we've parsed.
         case route_status_attribute( route_id )
-          
+        
         # When the status of the route we've parsed is 'TRUE' ...
         when "TRUE"
           
-          # ... we add the target step to the array of caused steps.
-          @caused_steps << route_target_step( route_id )
-          
+          # ... we don't want steps that are scheduled to happen to be listed as steps that are caused to happen, so ...
+          # ... unless the target step of the route has been actualised by at least one business item, regardless of the date of those business items ...
+          unless route_target_step_is_actualised?( route_id )
+        
+            # ... we add the target step to the array of caused steps.
+            @caused_steps << route_target_step( route_id )
+          end
+        
         # When the status of the route we've parsed is 'ALLOWS' ...
         when "ALLOWS"
-          
+        
           # ... we add the target step to the array of allowed steps.
           @allowed_steps << route_target_step( route_id )
-          
+        
         # When the status of the route we've parsed is either 'FALSE' or 'NULL' ...
         when "FALSE", "NULL"
-          
+        
           # ... we add the target step to the array of disallowed as yet steps.
           @disallowed_as_yet_steps << route_target_step( route_id )
-      
+    
         # When the status of the route we've parsed is 'UNTRAVERSABLE' ...
         when "UNTRAVERSABLE"
-          
+        
           # ... we add the target step to the array of disallowed now steps.
           @disallowed_now_steps << route_target_step( route_id )
-          
+        
         # Otherwise, if the status of the route we've parsed is neither 'TRUE', 'ALLOWS', 'FALSE', 'NULL' or 'UNTRAVERSABLE' ...
         else
-          
+        
           # ... we write to the parse log, reporting that the successfully parsed route has an unexpected status.
           @parse_log << "Unexpected status of <strong>#{route_status_attribute( route_id )}</strong>."
         end
