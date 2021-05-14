@@ -28,7 +28,15 @@ This method returns an array of start steps and the name of the type of each ste
   def routes_with_steps
     Route.all.select( 'r.*, ss.name as source_step_name, ts.name as target_step_name, sst.name as source_step_type, tst.name as target_step_type' ).joins( 'as r, procedure_routes as pr, steps as ss, steps as ts, step_types as sst, step_types as tst' ).where( 'r.id = pr.route_id' ).where( 'pr.parliamentary_procedure_id = ?', self ).where( 'r.from_step_id = ss.id' ).where( 'r.to_step_id = ts.id' ).where( 'ss.step_type_id = sst.id' ).where( 'ts.step_type_id = tst.id' )
   end
-## Method to return all steps connected to routes in a procedure, each step having a flag to say whether the step is in the Commons, a flag to say whether the step is in the Lords and a flag to say whether the step has been actualised in this work package by one or more business items having a date in the past.
+## Method to return all steps connected to routes in a procedure, each step having:
+
+* a flag to say whether the step is in the Commons
+
+* a flag to say whether the step is in the Lords
+
+* a flag to say whether the step has been actualised in this work package by one or more business items having a date in the past
+
+* a flag to say whether the step has been actualised in this work package by one or more business items, regardless of the date of those business items
 
   def steps_with_actualisations_in_work_package( work_package )
     Step.find_by_sql(
@@ -79,7 +87,7 @@ This method returns an array of start steps and the name of the type of each ste
             GROUP BY a.id
           ) actualisations_has_happened
           ON s.id = actualisations_has_happened.step_id
-        /* The left join ensures that the outer step query returns records for steps that have not been actualised with a business item, regardless of date. */
+        /* The left join ensures that the outer step query returns records for steps that have not been actualised with a business item, regardless of the date of that business item. */
         LEFT JOIN
           (
             SELECT 1 as is_actualised, a.step_id
