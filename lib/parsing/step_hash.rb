@@ -60,8 +60,6 @@ module PARSE_STEP_HASH
     step_object( step_id )[:name]
   end
   
-  # ========
-  
   # ### Method to check if a step has been actualised with a business item having a date in the past or of today.
   def step_has_been_actualised_has_happened?( step_id )
     
@@ -75,7 +73,18 @@ module PARSE_STEP_HASH
     actualised_has_happened
   end
   
-  # ======
+  # ### Method to check if a step has been actualised with a business item, regardless of the date of that business item.
+  def step_has_been_actualised?( step )
+    
+    # We assume the step has not been actualised with a business item.
+    actualised = false
+    
+    # We set the actualised boolean to true if the step has been actualised in this work package, by at least one business item.
+    actualised = true if step.is_actualised?
+    
+    # We return the boolean.
+    actualised
+  end
   
   # ### Method to get an array of IDs of inbound routes to a step.
   def step_inbound_routes( step_id )
