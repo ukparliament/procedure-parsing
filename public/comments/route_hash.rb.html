@@ -190,4 +190,9 @@ a {text-decoration:underline;color:white;}
 </pre></code><p>We get the step object with the ID of the target step of the route.</p>
 <code title='Line 211, lib/parsing/route_hash.rb'><pre><a name='211'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/route_hash.rb#L211'> 211</a>     @steps[route_target_step_id( route_id )]
 </pre></code><code title='Line 212, lib/parsing/route_hash.rb'><pre><a name='212'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/route_hash.rb#L212'> 212</a>   end
-</pre></code><code title='Line 213, lib/parsing/route_hash.rb'><pre><a name='213'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/route_hash.rb#L213'> 213</a> end</pre></code></body></html>
+</pre></code><h3>Method to check if the target step of a route is actualised by a business item, regardless of date of that business item.</h3>
+<code title='Line 215, lib/parsing/route_hash.rb'><pre><a name='215'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/route_hash.rb#L215'> 215</a>   def route_target_step_is_actualised?( route_id )
+</pre></code><p>We check if the target step of the route has been actualised.</p>
+<code title='Line 218, lib/parsing/route_hash.rb'><pre><a name='218'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/route_hash.rb#L218'> 218</a>     step_has_been_actualised?( route_target_step( route_id ) )
+</pre></code><code title='Line 219, lib/parsing/route_hash.rb'><pre><a name='219'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/route_hash.rb#L219'> 219</a>   end
+</pre></code><code title='Line 220, lib/parsing/route_hash.rb'><pre><a name='220'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/route_hash.rb#L220'> 220</a> end</pre></code></body></html>

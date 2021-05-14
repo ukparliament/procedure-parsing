@@ -216,4 +216,11 @@ We get the step object with the ID of the target step of the route.
 
     @steps[route_target_step_id( route_id )]
   end
+### Method to check if the target step of a route is actualised by a business item, regardless of date of that business item.
+
+  def route_target_step_is_actualised?( route_id )
+We check if the target step of the route has been actualised.
+
+    step_has_been_actualised?( route_target_step( route_id ) )
+  end
 end
