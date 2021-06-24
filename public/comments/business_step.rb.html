@@ -47,17 +47,17 @@ a {text-decoration:underline;color:white;}
 <code title='Line 21, lib/parsing/business_step.rb'><pre><a name='21'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/business_step.rb#L21'> 21</a>       if route_is_untraversable?( inbound_route_id )
 </pre></code><p>... then “the bridge is closed” and we set the “roads off the bridge” as closed ...</p>
 <p>... by setting the status of this route to be &#39;UNTRAVERSABLE&#39; and the parsed attribute to true.</p>
-<code title='Line 25, lib/parsing/business_step.rb'><pre><a name='25'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/business_step.rb#L25'> 25</a>         update_route_hash( route_id, nil, 'UNTRAVERSABLE', true, nil )
+<code title='Line 25, lib/parsing/business_step.rb'><pre><a name='25'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/business_step.rb#L25'> 25</a>         update_route_hash( route_id, nil, 'UNTRAVERSABLE', true, nil, nil )
 </pre></code><p>... otherwise, the inbound route to the source step not having a status of &#39;UNTRAVERSABLE&#39; ...</p>
 <code title='Line 28, lib/parsing/business_step.rb'><pre><a name='28'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/business_step.rb#L28'> 28</a>       else
 </pre></code><p>... if the source step has been actualised by a business item with a date in the past or a date of today ...</p>
 <code title='Line 31, lib/parsing/business_step.rb'><pre><a name='31'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/business_step.rb#L31'> 31</a>         if step_has_been_actualised_has_happened?( route_source_step_id( route_id ) )
-</pre></code><p>... we set the route status to &#39;TRUE&#39; and the parsed attribute to true.</p>
-<code title='Line 34, lib/parsing/business_step.rb'><pre><a name='34'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/business_step.rb#L34'> 34</a>           update_route_hash( route_id, nil, 'TRUE', true, nil )
+</pre></code><p>... we set the route status to &#39;TRUE&#39;, the actualisation count to the actualisations has happened count of the business step and the parsed attribute to true.</p>
+<code title='Line 34, lib/parsing/business_step.rb'><pre><a name='34'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/business_step.rb#L34'> 34</a>           update_route_hash( route_id, nil, 'TRUE', true, route_source_step_actualised_has_happened_count( route_id ), nil )
 </pre></code><p>... otherwise, the source step has not been actualised or has only been actualised by business items with dates in the future ....</p>
 <code title='Line 37, lib/parsing/business_step.rb'><pre><a name='37'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/business_step.rb#L37'> 37</a>         else
-</pre></code><p>... and we set the route status to &#39;NULL&#39; and the parsed attribute to true.</p>
-<code title='Line 40, lib/parsing/business_step.rb'><pre><a name='40'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/business_step.rb#L40'> 40</a>           update_route_hash( route_id, nil, 'NULL', true, nil )
+</pre></code><p>... and we set the route status to &#39;NULL&#39;, the actualisation count to 0 and the parsed attribute to true.</p>
+<code title='Line 40, lib/parsing/business_step.rb'><pre><a name='40'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/business_step.rb#L40'> 40</a>           update_route_hash( route_id, nil, 'NULL', true, 0, nil )
 </pre></code><code title='Line 41, lib/parsing/business_step.rb'><pre><a name='41'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/business_step.rb#L41'> 41</a>         end
 </pre></code><code title='Line 42, lib/parsing/business_step.rb'><pre><a name='42'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/business_step.rb#L42'> 42</a>       end
 </pre></code><code title='Line 43, lib/parsing/business_step.rb'><pre><a name='43'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/business_step.rb#L43'> 43</a>     end

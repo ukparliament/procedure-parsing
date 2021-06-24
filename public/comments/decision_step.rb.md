@@ -23,7 +23,7 @@ If the inbound route to the source step has been parsed ....
       if route_parsed_attribute( inbound_route_id ) == true
 ... we update the route parsed attribute to true.
 
-        update_route_hash( route_id, nil, nil, true, nil )
+        update_route_hash( route_id, nil, nil, true, nil, nil )
 We refer to the [decision step truth table](https://ukparliament.github.io/ontologies/procedure/flowcharts/meta/design-notes/#truth-table-decision) ...
 
 ... and if the status of the inbound route to the source step is 'TRUE' ...
@@ -31,13 +31,13 @@ We refer to the [decision step truth table](https://ukparliament.github.io/ontol
         if route_status_attribute( inbound_route_id ) == 'TRUE'
 ... we set the status of this route to 'ALLOWS' ...
 
-  				update_route_hash( route_id, nil, 'ALLOWS', nil, nil )
+  				update_route_hash( route_id, nil, 'ALLOWS', nil, nil, nil )
 ... otherwise, the status of the inbound route to the source step not being ‘TRUE’ ...
 
         else
 ... we set the status of this route to the status of the inbound route.
 
-          update_route_hash( route_id, nil, route_status_attribute( inbound_route_id ), nil, nil )
+          update_route_hash( route_id, nil, route_status_attribute( inbound_route_id ), nil, nil, nil )
         end
 Otherwise, the inbound route is not parsed and will be parsed on a later pass.
 

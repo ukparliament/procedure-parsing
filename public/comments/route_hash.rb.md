@@ -36,6 +36,7 @@ This is created as an instance variable because we want to write to it as we par
           'NULL', # We pass in the current attribute to capture if the route is currently active. This is 'NULL' until the route is parsed.
           'UNPARSED', # We pass in the status attribute of the route. This is 'UNPARSED' until the route is parsed.
           false, # We pass in the parsed attribute of the route. This is false until the route is successfully parsed. A route may have many parse passes before being successfully parsed.
+          0, # We pass in the actualised has happened count of the route. This is 0 until we parse a route whose source is a business step, at which point we set it to the count of actualisations of that step having business items with dates in the past or of today. This count may be processed by arithmetic steps being the target steps of subsequent routes.
           0, # We pass in the parse pass count attribute of this route. This is 0 until parsed.
         )
       end
@@ -43,13 +44,14 @@ This is created as an instance variable because we want to write to it as we par
   end
 ## Method to create a hash of attributes for a route and to add the attributes hash to the containing routes hash.
 
-  def create_and_add_route_hash( route, current, status, parsed, parse_pass_count )
+  def create_and_add_route_hash( route, current, status, parsed, actualisation_count, parse_pass_count )
 We create a hash of route attributes.
 
     route_hash = {
       :current => current,
       :status => status,
       :parsed => parsed,
+      :actualisation_count => actualisation_count,
       :parse_pass_count => parse_pass_count,
       :route => route
     }
@@ -59,7 +61,7 @@ We add the hash to the routes hash, keyed off the ID of the route.
   end
 ## Method to update the hash of attributes for a route within the containing route hash.
 
-  def update_route_hash( route_id, current, status, parsed, parse_pass_count )
+  def update_route_hash( route_id, current, status, parsed, actualisation_count, parse_pass_count )
 We check if this method has been passed a value for an attribute.
 
 Where the method has been passed nil as an attribute value, we use the attribute value as it exists in the hash.
@@ -67,6 +69,7 @@ Where the method has been passed nil as an attribute value, we use the attribute
     current = current || @routes[route_id][:current]
     status = status || @routes[route_id][:status]
     parsed = parsed || @routes[route_id][:parsed]
+    actualisation_count = actualisation_count || @routes[route_id][:actualisation_count]
     parse_pass_count = parse_pass_count || @routes[route_id][:parse_pass_count]
 We create a hash of attributes for the route with any revised values.
 
@@ -74,6 +77,7 @@ We create a hash of attributes for the route with any revised values.
       :current => current,
       :status => status,
       :parsed => parsed,
+      :actualisation_count => actualisation_count,
       :parse_pass_count => parse_pass_count,
       :route => @routes[route_id][:route]
     }
@@ -222,5 +226,19 @@ We get the step object with the ID of the target step of the route.
 We check if the target step of the route has been actualised.
 
     step_has_been_actualised?( route_target_step( route_id ) )
+  end
+### Method to get the actualised as happened_count from the source step of a route.
+
+  def route_source_step_actualised_has_happened_count( route_id )
+We get the actualised as happened count from the source step.
+
+    step_actualised_as_happened_count( route_source_step_id( route_id ) )
+  end
+### Method to get the actualisation count of a route.
+
+  def route_actualisation_count( route_id )
+We get the actualisation count of the route in the routes hash with this ID.
+
+    route_object( route_id ).actualisation_count
   end
 end

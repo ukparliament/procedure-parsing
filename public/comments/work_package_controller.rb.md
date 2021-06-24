@@ -10,6 +10,8 @@ require "#{Rails.root}/lib/parsing/business_step"
 require "#{Rails.root}/lib/parsing/decision_step"
 require "#{Rails.root}/lib/parsing/not_step"
 require "#{Rails.root}/lib/parsing/or_step"
+require "#{Rails.root}/lib/parsing/plus_step"
+require "#{Rails.root}/lib/parsing/equals_step"
 ... and the code for storing route attributes, determining route currency and assigning potential step states.
 
 require "#{Rails.root}/lib/parsing/route_hash"
@@ -29,6 +31,8 @@ We include code for the main parsing rules ...
   include PARSE_NOT_STEP
   include PARSE_AND_STEP
   include PARSE_OR_STEP
+  include PARSE_PLUS_STEP
+  include PARSE_EQUALS_STEP
 ... and the code for storing route attributes, determining route currency and assigning potential step states.
 
   include PARSE_ROUTE_HASH
@@ -98,7 +102,7 @@ We loop through the start steps in the procedure ...
 ... then loop through the outbound routes of each start step ...
 
       step_outbound_routes( step.id ).each do |route_id|
-... and parse each of those routes, passing in the ID of the route .
+... and parse each of those routes, passing in the ID of the route.
 
         parse_route_with_id( route_id )
       end

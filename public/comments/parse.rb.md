@@ -18,7 +18,7 @@ Unless this route has been parsed ...
       parse_pass_count = route_parse_pass_count_attribute( route_id ) + 1
 ... we update the route hash with that count ...
 
-      update_route_hash( route_id, nil, nil, nil, parse_pass_count )
+      update_route_hash( route_id, nil, nil, nil, nil, parse_pass_count )
 ... and increment the total parse pass count.
 
       @parse_pass_count += 1
@@ -40,6 +40,10 @@ For each parse method we pass the ID of the route to be parsed.
         parse_route_from_and_step( route_id )
       when "OR"
         parse_route_from_or_step( route_id )
+      when "PLUS"
+        parse_route_from_plus_step( route_id )
+      when "EQUALS"
+        parse_route_from_equals_step( route_id )
       end
 ### We check the currency of the route.
 

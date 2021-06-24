@@ -28,7 +28,7 @@ We get the ID of the first inbound route ...
       if route_parsed_attribute( first_inbound_route_id ) == true and route_parsed_attribute( second_inbound_route_id ) == true
 ... we update the route parsed attribute to true.
 
-        update_route_hash( route_id, nil, nil, true, nil )
+        update_route_hash( route_id, nil, nil, true, nil, nil )
 We refer to the [OR step truth table](https://ukparliament.github.io/ontologies/procedure/flowcharts/meta/design-notes/#truth-table-or) ...
 
 ... and if either inbound route to the source step has a status of 'TRUE' ...
@@ -36,7 +36,7 @@ We refer to the [OR step truth table](https://ukparliament.github.io/ontologies/
         if route_status_attribute( first_inbound_route_id ) == 'TRUE' or route_status_attribute( second_inbound_route_id ) == 'TRUE'
 ... we set the status of this route to 'TRUE'.
 
-          update_route_hash( route_id, nil, 'TRUE', nil, nil )
+          update_route_hash( route_id, nil, 'TRUE', nil, nil, nil )
 Otherwise, if either inbound route to the source step has a status of 'UNTRAVERSABLE' ...
 
         elsif route_is_untraversable?( first_inbound_route_id ) or route_is_untraversable?( second_inbound_route_id )
@@ -44,19 +44,19 @@ Otherwise, if either inbound route to the source step has a status of 'UNTRAVERS
 
 ... tainting the roads off the bridge as closed if the bridge is closed.
 
-          update_route_hash( route_id, nil, 'UNTRAVERSABLE', nil, nil )
+          update_route_hash( route_id, nil, 'UNTRAVERSABLE', nil, nil, nil )
 Otherwise, if either inbound route has a status of 'FALSE' ...
 
         elsif route_status_attribute( first_inbound_route_id ) == 'FALSE' or route_status_attribute( second_inbound_route_id ) == 'FALSE'
 ... we set the status of this route to 'FALSE'.
 
-          update_route_hash( route, nil, 'FALSE', nil, nil )
+          update_route_hash( route, nil, 'FALSE', nil, nil, nil )
 Otherwise, if both inbound routes have a status of 'NULL' ...
 
         elsif route_status_attribute( first_inbound_route_id ) == 'NULL' and route_status_attribute( second_inbound_route_id ) == 'NULL'
 ... set the status of this route to 'NULL'.
 
-          update_route_hash( route_id, nil, 'NULL', nil, nil )
+          update_route_hash( route_id, nil, 'NULL', nil, nil, nil )
         end
 ### Otherwise if the first inbound route has been parsed and the second inbound route has not been parsed ....
 
@@ -65,7 +65,7 @@ Otherwise, if both inbound routes have a status of 'NULL' ...
 
 ... and we set the status of this route to the status of the first inbound route.
 
-        update_route_hash( route_id, nil, route_status_attribute( first_inbound_route_id ), nil, nil )
+        update_route_hash( route_id, nil, route_status_attribute( first_inbound_route_id ), nil, nil, nil )
 ### Otherwise if the first inbound route has not been parsed and the second inbound route has been parsed ....
 
       elsif route_parsed_attribute( first_inbound_route_id ) == false and route_parsed_attribute( second_inbound_route_id ) == true
@@ -73,7 +73,7 @@ Otherwise, if both inbound routes have a status of 'NULL' ...
 
 ... and we set the status of this route to the status of the second inbound route.
 
-        update_route_hash( route_id, nil, route_status_attribute( second_inbound_route_id ), nil, nil )
+        update_route_hash( route_id, nil, route_status_attribute( second_inbound_route_id ), nil, nil, nil )
 ### Otherwise, neither inbound route has been parsed and this route will be parsed on a later pass.
 
       end

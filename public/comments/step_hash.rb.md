@@ -112,4 +112,9 @@ The appearance of inbound routes in first or second place has no meaning beyond 
   def step_outbound_routes( step_id )
     @routes_from_steps[step_id]
   end
+### Method to get the actualised has happened count for a step.
+
+  def step_actualised_as_happened_count( step_id )
+    step_object( step_id ).actualised_as_happened_count
+  end
 end

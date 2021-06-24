@@ -25,22 +25,22 @@ Otherwise, the business step does have one inbound route ...
 
 ... by setting the status of this route to be 'UNTRAVERSABLE' and the parsed attribute to true.
 
-        update_route_hash( route_id, nil, 'UNTRAVERSABLE', true, nil )
+        update_route_hash( route_id, nil, 'UNTRAVERSABLE', true, nil, nil )
 ... otherwise, the inbound route to the source step not having a status of 'UNTRAVERSABLE' ...
 
       else
 ... if the source step has been actualised by a business item with a date in the past or a date of today ...
 
         if step_has_been_actualised_has_happened?( route_source_step_id( route_id ) )
-... we set the route status to 'TRUE' and the parsed attribute to true.
+... we set the route status to 'TRUE', the actualisation count to the actualisations has happened count of the business step and the parsed attribute to true.
 
-          update_route_hash( route_id, nil, 'TRUE', true, nil )
+          update_route_hash( route_id, nil, 'TRUE', true, route_source_step_actualised_has_happened_count( route_id ), nil )
 ... otherwise, the source step has not been actualised or has only been actualised by business items with dates in the future ....
 
         else
-... and we set the route status to 'NULL' and the parsed attribute to true.
+... and we set the route status to 'NULL', the actualisation count to 0 and the parsed attribute to true.
 
-          update_route_hash( route_id, nil, 'NULL', true, nil )
+          update_route_hash( route_id, nil, 'NULL', true, 0, nil )
         end
       end
     end
