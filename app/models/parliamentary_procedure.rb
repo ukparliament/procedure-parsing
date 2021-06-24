@@ -32,7 +32,13 @@ class ParliamentaryProcedure < ActiveRecord::Base
   def steps_with_actualisations_in_work_package( work_package )
     Step.find_by_sql(
       "
-        SELECT s.*, SUM(commons_step.is_commons) AS is_in_commons, SUM(lords_step.is_lords) AS is_in_lords, SUM(actualisations_has_happened.is_actualised_has_happened) AS is_actualised_has_happened, SUM(actualisations.is_actualised) AS is_actualised
+        SELECT
+          s.*,
+          SUM(commons_step.is_commons) AS is_in_commons, 
+          SUM(lords_step.is_lords) AS is_in_lords,
+          SUM(actualisations_has_happened.is_actualised_has_happened) AS is_actualised_has_happened,
+          COUNT(actualisations_has_happened.actualised_as_happened_count) as actualised_as_happened_count,
+          SUM(actualisations.is_actualised) AS is_actualised
         FROM steps s
         
         /* We know that steps appear in a procedure by virtue of being attached to routes in that procedure, so we join to the routes table ... */
@@ -75,7 +81,7 @@ class ParliamentaryProcedure < ActiveRecord::Base
         /* The left join ensures that the outer step query returns records for steps that have not been actualised with a business item with a date in the past, or of today. */
         LEFT JOIN
           (
-            SELECT 1 as is_actualised_has_happened, a.step_id
+            SELECT 1 as is_actualised_has_happened, COUNT(a.id) as actualised_as_happened_count, a.step_id
             FROM business_items bi, actualisations a
             WHERE bi.id = a.business_item_id
               
@@ -85,8 +91,8 @@ class ParliamentaryProcedure < ActiveRecord::Base
             /* We select business items within the specified work package. */
             AND bi.work_package_id = #{work_package.id}
               
-            /* We group by the ID of the actualisation. */
-            GROUP BY a.id
+            /* We group by the ID of the step being actualised. */
+            GROUP BY a.step_id
             
           ) actualisations_has_happened
           ON s.id = actualisations_has_happened.step_id
