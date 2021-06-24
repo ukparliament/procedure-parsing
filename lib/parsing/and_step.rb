@@ -25,7 +25,7 @@ module PARSE_AND_STEP
       if route_parsed_attribute( first_inbound_route_id ) == true and route_parsed_attribute( second_inbound_route_id ) == true
         
         # ... we update the route parsed attribute to true.
-        update_route_hash( route_id, nil, nil, true, nil )
+        update_route_hash( route_id, nil, nil, true, nil, nil )
         
         # Referring to the [AND step truth table](https://ukparliament.github.io/ontologies/procedure/flowcharts/meta/design-notes/#truth-table-and) ...
         
@@ -34,37 +34,37 @@ module PARSE_AND_STEP
         
           # ... we set the status of this route to 'UNTRAVERSABLE' ...
           # ... tainting the roads off the bridge as closed if the bridge is closed.
-          update_route_hash( route_id, nil, 'UNTRAVERSABLE', nil, nil )
+          update_route_hash( route_id, nil, 'UNTRAVERSABLE', nil, nil, nil )
         
         # Otherwise, if either inbound input route to the source step has a status of 'FALSE' ...
       elsif route_status_attribute( first_inbound_route_id ) == 'FALSE' or route_status_attribute( second_inbound_route_id ) == 'FALSE'
         
         # ... we set the status of this route to 'FALSE'.
-          update_route_hash( route_id, nil, 'FALSE', nil, nil )
+          update_route_hash( route_id, nil, 'FALSE', nil, nil, nil )
           
         # Otherwise, if the first inbound route has a status of 'TRUE' and the second inbound route has a status of 'NULL' ...
         elsif route_status_attribute( first_inbound_route_id ) == 'TRUE' and route_status_attribute( second_inbound_route_id ) == 'NULL'
           
           # ... we set the status of this route to 'TRUE'.
-          update_route_hash( route_id, nil, 'TRUE', nil, nil )
+          update_route_hash( route_id, nil, 'TRUE', nil, nil, nil )
           
         # Otherwise, if the first inbound route has a status of 'NULL' and the second inbound route has a status of 'TRUE' ...
         elsif route_status_attribute( first_inbound_route_id ) == 'NULL' and route_status_attribute( second_inbound_route_id ) == 'TRUE'
           
           # ... we set the status of this route to 'TRUE'.
-          update_route_hash( route_id, nil, 'TRUE', nil, nil )
+          update_route_hash( route_id, nil, 'TRUE', nil, nil, nil )
           
         # Otherwise, if both inbound routes have a status of 'TRUE' ...
         elsif route_status_attribute( first_inbound_route_id ) == 'TRUE' and route_status_attribute( second_inbound_route_id ) == 'TRUE'
           
           # ... we set the status of this route to 'TRUE'.
-          update_route_hash( route_id, nil, 'TRUE', nil, nil )
+          update_route_hash( route_id, nil, 'TRUE', nil, nil, nil )
           
         # Otherwise, if both inbound routes have a status of 'NULL' ...
         elsif route_status_attribute( first_inbound_route_id ) == 'NULL' and route_status_attribute( second_inbound_route_id ) == 'NULL'
           
           # ... we set the status of this route to 'NULL'.
-          update_route_hash( route_id, nil, 'NULL', nil, nil )
+          update_route_hash( route_id, nil, 'NULL', nil, nil, nil )
         end
         
         # ### Otherwise if the first inbound route has been parsed and the second inbound route has not been parsed ...
@@ -72,14 +72,14 @@ module PARSE_AND_STEP
         
         # ... we treat the second route status as being NULL, remembering that a NULL value entering a logic gate step renders that gate as 'transparent' ...
         # ... and we set the status of this route to the status of the first inbound route.
-        update_route_hash( route_id, nil, route_status_attribute( first_inbound_route_id ), nil, nil )
+        update_route_hash( route_id, nil, route_status_attribute( first_inbound_route_id ), nil, nil, nil )
         
       # ### Otherwise if the first inbound route has not been parsed and the second inbound route has been parsed ...
       elsif route_parsed_attribute( first_inbound_route_id ) == false and route_parsed_attribute( second_inbound_route_id ) == true
         
         # ... we treat the first route status as being NULL, remembering that a NULL value entering a logic step renders that gate as 'transparent' ...
         # ... and we set the status of this route to the status of the second inbound route.
-        update_route_hash( route_id, nil, route_status_attribute( second_inbound_route_id ), nil, nil )
+        update_route_hash( route_id, nil, route_status_attribute( second_inbound_route_id ), nil, nil, nil )
         
       # ### Otherwise, neither inbound route has been parsed and this route will be parsed on a later pass.
       end
