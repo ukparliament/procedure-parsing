@@ -93,7 +93,7 @@ class WorkPackageController < ApplicationController
       # ... then loop through the outbound routes of each start step ...
       step_outbound_routes( step.id ).each do |route_id|
         
-        # ... and parse each of those routes, passing in the ID of the route .
+        # ... and parse each of those routes, passing in the ID of the route.
         parse_route_with_id( route_id )
       end
     end
