@@ -1,18 +1,18 @@
-# # Module to parse a route whose source step is a PLUS step.
-module PARSE_PLUS_STEP
+# # Module to parse a route whose source step is a SUM step.
+module PARSE_SUM_STEP
   
-  # ## Method to parse a route whose source step is a PLUS step.
-  def parse_route_from_plus_step( route_id )
+  # ## Method to parse a route whose source step is a SUM step.
+  def parse_route_from_sum_step( route_id )
     
     # Design note: The [method used](https://ukparliament.github.io/ontologies/procedure/flowcharts/meta/design-notes/#validating-inputs-and-outputs-to-steps) for validating the number of input and output routes for each step type.
-    # If the PLUS step does not have two inbound routes ...
+    # If the SUM step does not have two inbound routes ...
     if step_inbound_routes( route_source_step_id( route_id ) ).size != 2
       
       # ... log the step as has having an unexpected number of inbound routes.
-      logger.error "PLUS step with name #{route_source_step_name( route_id )} has #{step_inbound_routes( route_source_step_id( route_id ) ).size} inbound routes."
+      logger.error "SUM step with name #{route_source_step_name( route_id )} has #{step_inbound_routes( route_source_step_id( route_id ) ).size} inbound routes."
   
     # The appearance of inbound routes in first or second place has no meaning beyond the order they are delivered from the data store.
-    # Otherwise, the PLUS step does have two inbound routes.
+    # Otherwise, the SUM step does have two inbound routes.
     else
       
       # We get the ID of the first inbound route ...
