@@ -8,7 +8,7 @@ require "#{Rails.root}/lib/parsing/business_step"
 require "#{Rails.root}/lib/parsing/decision_step"
 require "#{Rails.root}/lib/parsing/not_step"
 require "#{Rails.root}/lib/parsing/or_step"
-require "#{Rails.root}/lib/parsing/plus_step"
+require "#{Rails.root}/lib/parsing/sum_step"
 require "#{Rails.root}/lib/parsing/equals_step"
 
 # ... and the code for storing route attributes, determining route currency and assigning potential step states.
@@ -29,7 +29,7 @@ class WorkPackageController < ApplicationController
   include PARSE_NOT_STEP
   include PARSE_AND_STEP
   include PARSE_OR_STEP
-  include PARSE_PLUS_STEP
+  include PARSE_SUM_STEP
   include PARSE_EQUALS_STEP
   
   # ... and the code for storing route attributes, determining route currency and assigning potential step states.
