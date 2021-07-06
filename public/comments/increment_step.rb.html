@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <link rel="alternate" type="text/markdown" href="increment_step.rb.md">
+    <style>
+      body {
+        max-width: 40rem;
+        margin: auto;
+        padding: 2rem 1rem;
+        font-family: 'Helvetica Neue','Helvetica', system-ui;
+        color: black;
+        background-color: white;
+      }
+      p {line-height: 1.4;}
+      code {
+      line-height: 1.4;
+      color:gray;
+      }
+      code pre {white-space: pre-wrap; word-break: break-word;}
+      code:hover {color:black;}
+      h1, h2 {font-weight:normal;}
+      a {text-decoration:none;}
+      a.githubline {color:gray;font-weight:bold;}
+      @media (prefers-color-scheme: dark) {
+body {color:white;background-color:black;}
+a {text-decoration:underline;color:white;}
+}
+    </style>
+    <title>lib/parsing/increment_step.rb</title>
+  </head>
+  <body><p><a href="/procedures/meta/comments">/procedures/meta/comments</a></p><h1>Module to parse a route whose source step is an INCREMENT step.</h1>
+<code title='Line 2, lib/parsing/increment_step.rb'><pre><a name='2'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/increment_step.rb#L2'> 2</a> module PARSE_INCREMENT_STEP
+</pre></code><h2>Method to parse a route whose source step is an INCREMENT step.</h2>
+<code title='Line 5, lib/parsing/increment_step.rb'><pre><a name='5'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/increment_step.rb#L5'> 5</a>   def parse_route_from_increment_step( route_id )
+</pre></code><p>Design note: The <a href="https://ukparliament.github.io/ontologies/procedure/flowcharts/meta/design-notes/#validating-inputs-and-outputs-to-steps">method used</a> for validating the number of input and output routes for each step type.</p>
+<p>If the INCREMENT step does not have one inbound route ...</p>
+<code title='Line 9, lib/parsing/increment_step.rb'><pre><a name='9'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/increment_step.rb#L9'> 9</a>     if step_inbound_routes( route_source_step_id( route_id ) ).size != 1
+</pre></code><p>... log the step as has having an unexpected number of inbound routes.</p>
+<code title='Line 12, lib/parsing/increment_step.rb'><pre><a name='12'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/increment_step.rb#L12'> 12</a>       logger.error "INCREMENT step with name #{route_source_step_name( route_id )} has #{step_inbound_routes( route_source_step_id( route_id ) ).size} inbound routes."
+</pre></code><p>Otherwise, the INCREMENT step does have one inbound route ...</p>
+<code title='Line 15, lib/parsing/increment_step.rb'><pre><a name='15'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/increment_step.rb#L15'> 15</a>     else
+</pre></code><p>... we get the ID of the first - and in this case only - inbound route.</p>
+<code title='Line 18, lib/parsing/increment_step.rb'><pre><a name='18'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/increment_step.rb#L18'> 18</a>       inbound_route_id = step_first_inbound_route( route_source_step_id( route_id ) )
+</pre></code><p>If the inbound route to the source step has been parsed ...</p>
+<code title='Line 21, lib/parsing/increment_step.rb'><pre><a name='21'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/increment_step.rb#L21'> 21</a>       if route_parsed_attribute( inbound_route_id ) == true
+</pre></code><p>... we update the route parsed attribute to true.</p>
+<code title='Line 24, lib/parsing/increment_step.rb'><pre><a name='24'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/increment_step.rb#L24'> 24</a>         update_route_hash( route_id, nil, nil, true, nil, nil )
+</pre></code><p>... we get the actualisation count of the inbound route, ...</p>
+<code title='Line 27, lib/parsing/increment_step.rb'><pre><a name='27'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/increment_step.rb#L27'> 27</a>         actualisation_count = route_actualisation_count( inbound_route_id )
+</pre></code><p>... increment it by 1 ...</p>
+<code title='Line 30, lib/parsing/increment_step.rb'><pre><a name='30'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/increment_step.rb#L30'> 30</a>         increment = actualisation_count + 1
+</pre></code><p>... and set the actualisation count of this route to the incremented value.</p>
+<code title='Line 33, lib/parsing/increment_step.rb'><pre><a name='33'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/increment_step.rb#L33'> 33</a>         update_route_hash( route_id, nil, nil, nil, increment, nil )
+</pre></code><p>Otherwise, the inbound route is not parsed and will be parsed on a later pass.</p>
+<code title='Line 36, lib/parsing/increment_step.rb'><pre><a name='36'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/increment_step.rb#L36'> 36</a>       end
+</pre></code><code title='Line 37, lib/parsing/increment_step.rb'><pre><a name='37'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/increment_step.rb#L37'> 37</a>     end
+</pre></code><code title='Line 38, lib/parsing/increment_step.rb'><pre><a name='38'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/increment_step.rb#L38'> 38</a>   end
+</pre></code><code title='Line 39, lib/parsing/increment_step.rb'><pre><a name='39'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/increment_step.rb#L39'> 39</a> end</pre></code></body></html>

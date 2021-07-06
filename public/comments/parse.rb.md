@@ -42,6 +42,8 @@ For each parse method we pass the ID of the route to be parsed.
         parse_route_from_or_step( route_id )
       when "SUM"
         parse_route_from_sum_step( route_id )
+      when "INCREMENT"
+        parse_route_from_increment_step( route_id )
       when "EQUALS"
         parse_route_from_equals_step( route_id )
       end

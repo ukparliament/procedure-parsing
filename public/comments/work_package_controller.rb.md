@@ -11,6 +11,7 @@ require "#{Rails.root}/lib/parsing/decision_step"
 require "#{Rails.root}/lib/parsing/not_step"
 require "#{Rails.root}/lib/parsing/or_step"
 require "#{Rails.root}/lib/parsing/sum_step"
+require "#{Rails.root}/lib/parsing/increment_step"
 require "#{Rails.root}/lib/parsing/equals_step"
 ... and the code for storing route attributes, determining route currency and assigning potential step states.
 
@@ -32,6 +33,7 @@ We include code for the main parsing rules ...
   include PARSE_AND_STEP
   include PARSE_OR_STEP
   include PARSE_SUM_STEP
+  include PARSE_INCREMENT_STEP
   include PARSE_EQUALS_STEP
 ... and the code for storing route attributes, determining route currency and assigning potential step states.
 
