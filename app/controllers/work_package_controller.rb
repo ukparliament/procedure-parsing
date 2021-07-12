@@ -11,6 +11,7 @@ require "#{Rails.root}/lib/parsing/or_step"
 require "#{Rails.root}/lib/parsing/sum_step"
 require "#{Rails.root}/lib/parsing/increment_step"
 require "#{Rails.root}/lib/parsing/equals_step"
+require "#{Rails.root}/lib/parsing/signpost_step"
 
 # ... and the code for storing route attributes, determining route currency and assigning potential step states.
 require "#{Rails.root}/lib/parsing/route_hash"
@@ -33,6 +34,7 @@ class WorkPackageController < ApplicationController
   include PARSE_SUM_STEP
   include PARSE_INCREMENT_STEP
   include PARSE_EQUALS_STEP
+  include PARSE_SIGNPOST_STEP
   
   # ... and the code for storing route attributes, determining route currency and assigning potential step states.
   include PARSE_ROUTE_HASH
