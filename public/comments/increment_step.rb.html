@@ -47,14 +47,23 @@ a {text-decoration:underline;color:white;}
 <code title='Line 21, lib/parsing/increment_step.rb'><pre><a name='21'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/increment_step.rb#L21'> 21</a>       if route_parsed_attribute( inbound_route_id ) == true
 </pre></code><p>... we update the route parsed attribute to true.</p>
 <code title='Line 24, lib/parsing/increment_step.rb'><pre><a name='24'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/increment_step.rb#L24'> 24</a>         update_route_hash( route_id, nil, nil, true, nil, nil )
+</pre></code><p>Referring to the <a href="https://ukparliament.github.io/ontologies/procedure/flowcharts/meta/design-notes/with-step-types/#arithmetic-steps">design notes for artithmetic steps</a> ...</p>
+<p>... if the inbound route to the source step has a status of &#39;UNTRAVERSABLE&#39; ...</p>
+<code title='Line 29, lib/parsing/increment_step.rb'><pre><a name='29'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/increment_step.rb#L29'> 29</a>         if route_is_untraversable?( inbound_route_id )
+</pre></code><p>... we set the status of this route to &#39;UNTRAVERSABLE&#39; ...</p>
+<p>... tainting the roads off the bridge as closed if the bridge is closed.</p>
+<code title='Line 33, lib/parsing/increment_step.rb'><pre><a name='33'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/increment_step.rb#L33'> 33</a>           update_route_hash( route_id, nil, 'UNTRAVERSABLE', nil, nil, nil )
+</pre></code><p>Otherwise, if the inbound route to the source step does not have a status of &#39;UNTRAVERSABLE&#39; ...</p>
+<code title='Line 36, lib/parsing/increment_step.rb'><pre><a name='36'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/increment_step.rb#L36'> 36</a>         else
 </pre></code><p>... we get the actualisation count of the inbound route, ...</p>
-<code title='Line 27, lib/parsing/increment_step.rb'><pre><a name='27'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/increment_step.rb#L27'> 27</a>         actualisation_count = route_actualisation_count( inbound_route_id )
+<code title='Line 39, lib/parsing/increment_step.rb'><pre><a name='39'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/increment_step.rb#L39'> 39</a>           actualisation_count = route_actualisation_count( inbound_route_id )
 </pre></code><p>... increment it by 1 ...</p>
-<code title='Line 30, lib/parsing/increment_step.rb'><pre><a name='30'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/increment_step.rb#L30'> 30</a>         increment = actualisation_count + 1
+<code title='Line 42, lib/parsing/increment_step.rb'><pre><a name='42'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/increment_step.rb#L42'> 42</a>           increment = actualisation_count + 1
 </pre></code><p>... and set the actualisation count of this route to the incremented value.</p>
-<code title='Line 33, lib/parsing/increment_step.rb'><pre><a name='33'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/increment_step.rb#L33'> 33</a>         update_route_hash( route_id, nil, nil, nil, increment, nil )
+<code title='Line 45, lib/parsing/increment_step.rb'><pre><a name='45'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/increment_step.rb#L45'> 45</a>           update_route_hash( route_id, nil, nil, nil, increment, nil )
+</pre></code><code title='Line 46, lib/parsing/increment_step.rb'><pre><a name='46'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/increment_step.rb#L46'> 46</a>         end
 </pre></code><p>Otherwise, the inbound route is not parsed and will be parsed on a later pass.</p>
-<code title='Line 36, lib/parsing/increment_step.rb'><pre><a name='36'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/increment_step.rb#L36'> 36</a>       end
-</pre></code><code title='Line 37, lib/parsing/increment_step.rb'><pre><a name='37'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/increment_step.rb#L37'> 37</a>     end
-</pre></code><code title='Line 38, lib/parsing/increment_step.rb'><pre><a name='38'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/increment_step.rb#L38'> 38</a>   end
-</pre></code><code title='Line 39, lib/parsing/increment_step.rb'><pre><a name='39'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/increment_step.rb#L39'> 39</a> end</pre></code></body></html>
+<code title='Line 49, lib/parsing/increment_step.rb'><pre><a name='49'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/increment_step.rb#L49'> 49</a>       end
+</pre></code><code title='Line 50, lib/parsing/increment_step.rb'><pre><a name='50'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/increment_step.rb#L50'> 50</a>     end
+</pre></code><code title='Line 51, lib/parsing/increment_step.rb'><pre><a name='51'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/increment_step.rb#L51'> 51</a>   end
+</pre></code><code title='Line 52, lib/parsing/increment_step.rb'><pre><a name='52'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/increment_step.rb#L52'> 52</a> end</pre></code></body></html>

@@ -24,15 +24,29 @@ If the inbound route to the source step has been parsed ...
 ... we update the route parsed attribute to true.
 
         update_route_hash( route_id, nil, nil, true, nil, nil )
+Referring to the [design notes for artithmetic steps](https://ukparliament.github.io/ontologies/procedure/flowcharts/meta/design-notes/with-step-types/#arithmetic-steps) ...
+
+... if the inbound route to the source step has a status of 'UNTRAVERSABLE' ...
+
+        if route_is_untraversable?( inbound_route_id )
+... we set the status of this route to 'UNTRAVERSABLE' ...
+
+... tainting the roads off the bridge as closed if the bridge is closed.
+
+          update_route_hash( route_id, nil, 'UNTRAVERSABLE', nil, nil, nil )
+Otherwise, if the inbound route to the source step does not have a status of 'UNTRAVERSABLE' ...
+
+        else
 ... we get the actualisation count of the inbound route, ...
 
-        actualisation_count = route_actualisation_count( inbound_route_id )
+          actualisation_count = route_actualisation_count( inbound_route_id )
 ... increment it by 1 ...
 
-        increment = actualisation_count + 1
+          increment = actualisation_count + 1
 ... and set the actualisation count of this route to the incremented value.
 
-        update_route_hash( route_id, nil, nil, nil, increment, nil )
+          update_route_hash( route_id, nil, nil, nil, increment, nil )
+        end
 Otherwise, the inbound route is not parsed and will be parsed on a later pass.
 
       end
