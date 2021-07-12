@@ -17,7 +17,7 @@ module PARSE_SIGNPOST_STEP
       # ... we get the ID of the first - and in this case only - inbound route.
       inbound_route_id = step_first_inbound_route( route_source_step_id( route_id ) )
   
-      # If the inbound route to the source step has been parsed ...
+      # ### If the inbound route to the source step has been parsed ...
       if route_parsed_attribute( inbound_route_id ) == true
         
         # ... we update the route parsed attribute to true.
@@ -45,7 +45,7 @@ module PARSE_SIGNPOST_STEP
           update_route_hash( route_id, current, status, parsed, actualisation_count, nil )
         end
         
-      # Otherwise, the inbound route is not parsed and will be parsed on a later pass.
+      # ### Otherwise, the inbound route is not parsed and will be parsed on a later pass.
       end
     end
   end

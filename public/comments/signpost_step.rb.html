@@ -43,7 +43,7 @@ a {text-decoration:underline;color:white;}
 <code title='Line 15, lib/parsing/signpost_step.rb'><pre><a name='15'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/signpost_step.rb#L15'> 15</a>     else
 </pre></code><p>... we get the ID of the first - and in this case only - inbound route.</p>
 <code title='Line 18, lib/parsing/signpost_step.rb'><pre><a name='18'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/signpost_step.rb#L18'> 18</a>       inbound_route_id = step_first_inbound_route( route_source_step_id( route_id ) )
-</pre></code><p>If the inbound route to the source step has been parsed ...</p>
+</pre></code><h3>If the inbound route to the source step has been parsed ...</h3>
 <code title='Line 21, lib/parsing/signpost_step.rb'><pre><a name='21'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/signpost_step.rb#L21'> 21</a>       if route_parsed_attribute( inbound_route_id ) == true
 </pre></code><p>... we update the route parsed attribute to true.</p>
 <code title='Line 24, lib/parsing/signpost_step.rb'><pre><a name='24'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/signpost_step.rb#L24'> 24</a>         update_route_hash( route_id, nil, nil, true, nil, nil )
@@ -63,7 +63,7 @@ a {text-decoration:underline;color:white;}
 </pre></code><p>... and set the attribute of this route to echo those of the inbound route.</p>
 <code title='Line 45, lib/parsing/signpost_step.rb'><pre><a name='45'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/signpost_step.rb#L45'> 45</a>           update_route_hash( route_id, current, status, parsed, actualisation_count, nil )
 </pre></code><code title='Line 46, lib/parsing/signpost_step.rb'><pre><a name='46'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/signpost_step.rb#L46'> 46</a>         end
-</pre></code><p>Otherwise, the inbound route is not parsed and will be parsed on a later pass.</p>
+</pre></code><h3>Otherwise, the inbound route is not parsed and will be parsed on a later pass.</h3>
 <code title='Line 49, lib/parsing/signpost_step.rb'><pre><a name='49'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/signpost_step.rb#L49'> 49</a>       end
 </pre></code><code title='Line 50, lib/parsing/signpost_step.rb'><pre><a name='50'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/signpost_step.rb#L50'> 50</a>     end
 </pre></code><code title='Line 51, lib/parsing/signpost_step.rb'><pre><a name='51'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/signpost_step.rb#L51'> 51</a>   end
