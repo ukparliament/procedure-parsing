@@ -58,7 +58,7 @@ a {text-decoration:underline;color:white;}
 <code title='Line 37, lib/parsing/equals_step.rb'><pre><a name='37'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/equals_step.rb#L37'> 37</a>           update_route_hash( route_id, nil, 'UNTRAVERSABLE', nil, nil, nil )
 </pre></code><p>Otherwise, if neither inbound route to the source step has a status of &#39;UNTRAVERSABLE&#39; ...</p>
 <code title='Line 40, lib/parsing/equals_step.rb'><pre><a name='40'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/equals_step.rb#L40'> 40</a>         else
-</pre></code><p>If the actualisation count of the first inbound route is equal to the actualisation count of the second inbound route ...</p>
+</pre></code><p>... if the actualisation count of the first inbound route is equal to the actualisation count of the second inbound route ...</p>
 <code title='Line 43, lib/parsing/equals_step.rb'><pre><a name='43'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/equals_step.rb#L43'> 43</a>           if route_actualisation_count( first_inbound_route_id ) == route_actualisation_count( second_inbound_route_id )
 </pre></code><p>... we set the status of this route to &#39;TRUE&#39;.</p>
 <code title='Line 46, lib/parsing/equals_step.rb'><pre><a name='46'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/equals_step.rb#L46'> 46</a>             update_route_hash( route_id, nil, 'TRUE', nil, nil, nil )
