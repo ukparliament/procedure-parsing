@@ -1,0 +1,5 @@
+ <% unless log[0, 19] == "Successfully parsed" # Ignore any sucessfully parsed lines. -%>
+	<% unless log[0, 32] == "Attempting to parse work package" # Ignore the initial line saying which work package is being parsed. -%>
+"<%= log.split( '</strong>' ).first.split( '<strong>' ).last %>" -> "<%= log.split( '<strong>' ).last.split( '</strong>' ).first %>"
+	<% end -%>
+<% end -%>
