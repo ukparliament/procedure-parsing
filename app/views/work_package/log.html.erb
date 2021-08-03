@@ -4,4 +4,6 @@
 
 <%= render :partial => 'view_switch' %>
 
+<%= content_tag( 'p', link_to( 'Get the parse log as .dot file', :format => :dot ) ) %>
+
 <%= render :partial => 'log', :collection => @parse_log %>
