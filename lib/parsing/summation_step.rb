@@ -1,5 +1,5 @@
 # # Module to parse a route whose source step is a SIGNPOST step.
-module PARSE_SIGNPOST_STEP
+module PARSE_SUMMATION_STEP
   
   # ## Method to parse a route whose source step is an INCREMENT step.
   def parse_route_from_signpost_step( route_id )

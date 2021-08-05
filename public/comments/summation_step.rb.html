@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <link rel="alternate" type="text/markdown" href="summation_step.rb.md">
+    <style>
+      body {
+        max-width: 40rem;
+        margin: auto;
+        padding: 2rem 1rem;
+        font-family: 'Helvetica Neue','Helvetica', system-ui;
+        color: black;
+        background-color: white;
+      }
+      p {line-height: 1.4;}
+      code {
+      line-height: 1.4;
+      color:gray;
+      }
+      code pre {white-space: pre-wrap; word-break: break-word;}
+      code:hover {color:black;}
+      h1, h2 {font-weight:normal;}
+      a {text-decoration:none;}
+      a.githubline {color:gray;font-weight:bold;}
+      @media (prefers-color-scheme: dark) {
+body {color:white;background-color:black;}
+a {text-decoration:underline;color:white;}
+}
+    </style>
+    <title>lib/parsing/summation_step.rb</title>
+  </head>
+  <body><p><a href="/procedures/meta/comments">/procedures/meta/comments</a></p><h1>Module to parse a route whose source step is a SIGNPOST step.</h1>
+<code title='Line 2, lib/parsing/summation_step.rb'><pre><a name='2'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/summation_step.rb#L2'> 2</a> module PARSE_SUMMATION_STEP
+</pre></code><h2>Method to parse a route whose source step is an INCREMENT step.</h2>
+<code title='Line 5, lib/parsing/summation_step.rb'><pre><a name='5'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/summation_step.rb#L5'> 5</a>   def parse_route_from_signpost_step( route_id )
+</pre></code><p>Design note: The <a href="https://ukparliament.github.io/ontologies/procedure/flowcharts/meta/design-notes/#validating-inputs-and-outputs-to-steps">method used</a> for validating the number of input and output routes for each step type.</p>
+<p>If the SIGNPOST step does not have one inbound route ...</p>
+<code title='Line 9, lib/parsing/summation_step.rb'><pre><a name='9'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/summation_step.rb#L9'> 9</a>     if step_inbound_routes( route_source_step_id( route_id ) ).size != 1
+</pre></code><p>... log the step as has having an unexpected number of inbound routes.</p>
+<code title='Line 12, lib/parsing/summation_step.rb'><pre><a name='12'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/summation_step.rb#L12'> 12</a>       logger.error "SIGNPOST step with name #{route_source_step_name( route_id )} has #{step_inbound_routes( route_source_step_id( route_id ) ).size} inbound routes."
+</pre></code><p>Otherwise, the SIGNPOST step does have one inbound route ...</p>
+<code title='Line 15, lib/parsing/summation_step.rb'><pre><a name='15'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/summation_step.rb#L15'> 15</a>     else
+</pre></code><p>... we get the ID of the first - and in this case only - inbound route.</p>
+<code title='Line 18, lib/parsing/summation_step.rb'><pre><a name='18'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/summation_step.rb#L18'> 18</a>       inbound_route_id = step_first_inbound_route( route_source_step_id( route_id ) )
+</pre></code><h3>If the inbound route to the source step has been parsed ...</h3>
+<code title='Line 21, lib/parsing/summation_step.rb'><pre><a name='21'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/summation_step.rb#L21'> 21</a>       if route_parsed_attribute( inbound_route_id ) == true
+</pre></code><p>... we update the route parsed attribute to true.</p>
+<code title='Line 24, lib/parsing/summation_step.rb'><pre><a name='24'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/summation_step.rb#L24'> 24</a>         update_route_hash( route_id, nil, nil, true, nil, nil )
+</pre></code><p>Referring to the <a href="https://ukparliament.github.io/ontologies/procedure/flowcharts/meta/design-notes/with-step-types/#signpost-steps">design notes for SIGNPOST steps</a> ...</p>
+<p>... if the inbound route to the source step has a status of &#39;UNTRAVERSABLE&#39; ...</p>
+<code title='Line 29, lib/parsing/summation_step.rb'><pre><a name='29'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/summation_step.rb#L29'> 29</a>         if route_is_untraversable?( inbound_route_id )
+</pre></code><p>... we set the status of this route to &#39;UNTRAVERSABLE&#39; ...</p>
+<p>... tainting the roads off the bridge as closed if the bridge is closed.</p>
+<code title='Line 33, lib/parsing/summation_step.rb'><pre><a name='33'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/summation_step.rb#L33'> 33</a>           update_route_hash( route_id, nil, 'UNTRAVERSABLE', nil, nil, nil )
+</pre></code><p>Otherwise, if the inbound route to the source step does not have a status of &#39;UNTRAVERSABLE&#39; ...</p>
+<code title='Line 36, lib/parsing/summation_step.rb'><pre><a name='36'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/summation_step.rb#L36'> 36</a>         else
+</pre></code><p>... we get the ‘current’, ‘status’, ‘parsed’ and ‘actualisation count’ attributes of the inbound route ...</p>
+<code title='Line 39, lib/parsing/summation_step.rb'><pre><a name='39'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/summation_step.rb#L39'> 39</a>           current = route_current_attribute( inbound_route_id )
+</pre></code><code title='Line 40, lib/parsing/summation_step.rb'><pre><a name='40'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/summation_step.rb#L40'> 40</a>           status = route_status_attribute( inbound_route_id )
+</pre></code><code title='Line 41, lib/parsing/summation_step.rb'><pre><a name='41'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/summation_step.rb#L41'> 41</a>           parsed = route_parsed_attribute( inbound_route_id )
+</pre></code><code title='Line 42, lib/parsing/summation_step.rb'><pre><a name='42'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/summation_step.rb#L42'> 42</a>           actualisation_count = route_actualisation_count( inbound_route_id )
+</pre></code><p>... and set the attribute of this route to echo those of the inbound route.</p>
+<code title='Line 45, lib/parsing/summation_step.rb'><pre><a name='45'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/summation_step.rb#L45'> 45</a>           update_route_hash( route_id, current, status, parsed, actualisation_count, nil )
+</pre></code><code title='Line 46, lib/parsing/summation_step.rb'><pre><a name='46'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/summation_step.rb#L46'> 46</a>         end
+</pre></code><h3>Otherwise, the inbound route is not parsed and will be parsed on a later pass.</h3>
+<code title='Line 49, lib/parsing/summation_step.rb'><pre><a name='49'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/summation_step.rb#L49'> 49</a>       end
+</pre></code><code title='Line 50, lib/parsing/summation_step.rb'><pre><a name='50'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/summation_step.rb#L50'> 50</a>     end
+</pre></code><code title='Line 51, lib/parsing/summation_step.rb'><pre><a name='51'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/summation_step.rb#L51'> 51</a>   end
+</pre></code><code title='Line 52, lib/parsing/summation_step.rb'><pre><a name='52'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/summation_step.rb#L52'> 52</a> end</pre></code></body></html>
