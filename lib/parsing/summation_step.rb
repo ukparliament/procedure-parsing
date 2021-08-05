@@ -1,17 +1,17 @@
-# # Module to parse a route whose source step is a SIGNPOST step.
+# # Module to parse a route whose source step is a SUMMATION step.
 module PARSE_SUMMATION_STEP
   
-  # ## Method to parse a route whose source step is an INCREMENT step.
-  def parse_route_from_signpost_step( route_id )
+  # ## Method to parse a route whose source step is an SUMMATION step.
+  def parse_route_from_summation_step( route_id )
     
     # Design note: The [method used](https://ukparliament.github.io/ontologies/procedure/flowcharts/meta/design-notes/#validating-inputs-and-outputs-to-steps) for validating the number of input and output routes for each step type.
-    # If the SIGNPOST step does not have one inbound route ...
+    # If the SUMMATION step does not have one inbound route ...
     if step_inbound_routes( route_source_step_id( route_id ) ).size != 1
   
       # ... log the step as has having an unexpected number of inbound routes.
-      logger.error "SIGNPOST step with name #{route_source_step_name( route_id )} has #{step_inbound_routes( route_source_step_id( route_id ) ).size} inbound routes."
+      logger.error "SUMMATION step with name #{route_source_step_name( route_id )} has #{step_inbound_routes( route_source_step_id( route_id ) ).size} inbound routes."
   
-    # Otherwise, the SIGNPOST step does have one inbound route ...
+    # Otherwise, the SUMMATION step does have one inbound route ...
     else
       
       # ... we get the ID of the first - and in this case only - inbound route.
@@ -23,7 +23,7 @@ module PARSE_SUMMATION_STEP
         # ... we update the route parsed attribute to true.
         update_route_hash( route_id, nil, nil, true, nil, nil )
         
-        # Referring to the [design notes for SIGNPOST steps](https://ukparliament.github.io/ontologies/procedure/flowcharts/meta/design-notes/with-step-types/#signpost-steps) ...
+        # Referring to the [design notes for SUMMATION steps](https://ukparliament.github.io/ontologies/procedure/flowcharts/meta/design-notes/with-step-types/#summation-steps) ...
         
         # ... if the inbound route to the source step has a status of 'UNTRAVERSABLE' ...
         if route_is_untraversable?( inbound_route_id )
