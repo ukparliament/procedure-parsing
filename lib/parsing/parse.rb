@@ -41,6 +41,8 @@ module PARSE
         parse_route_from_increment_step( route_id )
       when "EQUALS"
         parse_route_from_equals_step( route_id )
+      when "SUMMATION"
+        parse_route_from_summation_step( route_id )
       end
       
       # ### We check the currency of the route.
