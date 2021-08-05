@@ -30,16 +30,16 @@ a {text-decoration:underline;color:white;}
     </style>
     <title>lib/parsing/summation_step.rb</title>
   </head>
-  <body><p><a href="/procedures/meta/comments">/procedures/meta/comments</a></p><h1>Module to parse a route whose source step is a SUMMATION step.</h1>
+  <body><p><a href="/procedures/meta/comments">/procedures/meta/comments</a></p><h1>Module to parse a route whose source step is a summation step.</h1>
 <code title='Line 2, lib/parsing/summation_step.rb'><pre><a name='2'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/summation_step.rb#L2'> 2</a> module PARSE_SUMMATION_STEP
-</pre></code><h2>Method to parse a route whose source step is an SUMMATION step.</h2>
+</pre></code><h2>Method to parse a route whose source step is an summation step.</h2>
 <code title='Line 5, lib/parsing/summation_step.rb'><pre><a name='5'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/summation_step.rb#L5'> 5</a>   def parse_route_from_summation_step( route_id )
 </pre></code><p>Design note: The <a href="https://ukparliament.github.io/ontologies/procedure/flowcharts/meta/design-notes/#validating-inputs-and-outputs-to-steps">method used</a> for validating the number of input and output routes for each step type.</p>
-<p>If the SUMMATION step does not have one inbound route ...</p>
+<p>If the summation step does not have one inbound route ...</p>
 <code title='Line 9, lib/parsing/summation_step.rb'><pre><a name='9'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/summation_step.rb#L9'> 9</a>     if step_inbound_routes( route_source_step_id( route_id ) ).size != 1
 </pre></code><p>... log the step as has having an unexpected number of inbound routes.</p>
-<code title='Line 12, lib/parsing/summation_step.rb'><pre><a name='12'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/summation_step.rb#L12'> 12</a>       logger.error "SUMMATION step with name #{route_source_step_name( route_id )} has #{step_inbound_routes( route_source_step_id( route_id ) ).size} inbound routes."
-</pre></code><p>Otherwise, the SUMMATION step does have one inbound route ...</p>
+<code title='Line 12, lib/parsing/summation_step.rb'><pre><a name='12'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/summation_step.rb#L12'> 12</a>       logger.error "Summation step with name #{route_source_step_name( route_id )} has #{step_inbound_routes( route_source_step_id( route_id ) ).size} inbound routes."
+</pre></code><p>Otherwise, the summation step does have one inbound route ...</p>
 <code title='Line 15, lib/parsing/summation_step.rb'><pre><a name='15'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/summation_step.rb#L15'> 15</a>     else
 </pre></code><p>... we get the ID of the first - and in this case only - inbound route.</p>
 <code title='Line 18, lib/parsing/summation_step.rb'><pre><a name='18'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/summation_step.rb#L18'> 18</a>       inbound_route_id = step_first_inbound_route( route_source_step_id( route_id ) )
@@ -47,7 +47,7 @@ a {text-decoration:underline;color:white;}
 <code title='Line 21, lib/parsing/summation_step.rb'><pre><a name='21'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/summation_step.rb#L21'> 21</a>       if route_parsed_attribute( inbound_route_id ) == true
 </pre></code><p>... we update the route parsed attribute to true.</p>
 <code title='Line 24, lib/parsing/summation_step.rb'><pre><a name='24'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/summation_step.rb#L24'> 24</a>         update_route_hash( route_id, nil, nil, true, nil, nil )
-</pre></code><p>Referring to the <a href="https://ukparliament.github.io/ontologies/procedure/flowcharts/meta/design-notes/with-step-types/#summation-steps">design notes for SUMMATION steps</a> ...</p>
+</pre></code><p>Referring to the <a href="https://ukparliament.github.io/ontologies/procedure/flowcharts/meta/design-notes/with-step-types/#summation-steps">design notes for summation steps</a> ...</p>
 <p>... if the inbound route to the source step has a status of &#39;UNTRAVERSABLE&#39; ...</p>
 <code title='Line 29, lib/parsing/summation_step.rb'><pre><a name='29'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/summation_step.rb#L29'> 29</a>         if route_is_untraversable?( inbound_route_id )
 </pre></code><p>... we set the status of this route to &#39;UNTRAVERSABLE&#39; ...</p>
