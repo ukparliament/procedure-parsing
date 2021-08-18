@@ -34,7 +34,7 @@ a {text-decoration:underline;color:white;}
 <code title='Line 2, lib/parsing/increment_step.rb'><pre><a name='2'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/increment_step.rb#L2'> 2</a> module PARSE_INCREMENT_STEP
 </pre></code><h2>Method to parse a route whose source step is an INCREMENT step.</h2>
 <code title='Line 5, lib/parsing/increment_step.rb'><pre><a name='5'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/increment_step.rb#L5'> 5</a>   def parse_route_from_increment_step( route_id )
-</pre></code><p>Design note: The <a href="https://ukparliament.github.io/ontologies/procedure/flowcharts/meta/design-notes/#validating-inputs-and-outputs-to-steps">method used</a> for validating the number of input and output routes for each step type.</p>
+</pre></code><p>Design note: The <a href="https://ukparliament.github.io/ontologies/procedure/flowcharts/meta/design-notes/with-step-types/#validating-inputs-and-outputs-to-steps">method used</a> for validating the number of input and output routes for each step type.</p>
 <p>If the INCREMENT step does not have one inbound route ...</p>
 <code title='Line 9, lib/parsing/increment_step.rb'><pre><a name='9'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/increment_step.rb#L9'> 9</a>     if step_inbound_routes( route_source_step_id( route_id ) ).size != 1
 </pre></code><p>... log the step as has having an unexpected number of inbound routes.</p>
@@ -53,9 +53,9 @@ a {text-decoration:underline;color:white;}
 </pre></code><p>... we set the status of this route to &#39;UNTRAVERSABLE&#39; ...</p>
 <p>... tainting the roads off the bridge as closed if the bridge is closed.</p>
 <code title='Line 33, lib/parsing/increment_step.rb'><pre><a name='33'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/increment_step.rb#L33'> 33</a>           update_route_hash( route_id, nil, 'UNTRAVERSABLE', nil, nil, nil )
-</pre></code><p>Otherwise, if the inbound route to the source step does not have a status of &#39;UNTRAVERSABLE&#39; ...</p>
+</pre></code><p>Otherwise, the inbound route to the source step does not have a status of &#39;UNTRAVERSABLE&#39; ...</p>
 <code title='Line 36, lib/parsing/increment_step.rb'><pre><a name='36'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/increment_step.rb#L36'> 36</a>         else
-</pre></code><p>... we get the actualisation count of the inbound route, ...</p>
+</pre></code><p>... and we get the actualisation count of the inbound route, ...</p>
 <code title='Line 39, lib/parsing/increment_step.rb'><pre><a name='39'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/increment_step.rb#L39'> 39</a>           actualisation_count = route_actualisation_count( inbound_route_id )
 </pre></code><p>... increment it by 1 ...</p>
 <code title='Line 42, lib/parsing/increment_step.rb'><pre><a name='42'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/increment_step.rb#L42'> 42</a>           increment = actualisation_count + 1
