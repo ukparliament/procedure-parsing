@@ -34,7 +34,7 @@ a {text-decoration:underline;color:white;}
 <code title='Line 2, lib/parsing/decision_step.rb'><pre><a name='2'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/decision_step.rb#L2'> 2</a> module PARSE_DECISION_STEP
 </pre></code><h2>Method to parse a route whose source step is a decision step.</h2>
 <code title='Line 5, lib/parsing/decision_step.rb'><pre><a name='5'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/decision_step.rb#L5'> 5</a>   def parse_route_from_decision_step( route_id )
-</pre></code><p>Design note: The <a href="https://ukparliament.github.io/ontologies/procedure/flowcharts/meta/design-notes/#validating-inputs-and-outputs-to-steps">method used</a> for validating the number of input and output routes for each step type.</p>
+</pre></code><p>Design note: The <a href="https://ukparliament.github.io/ontologies/procedure/flowcharts/meta/design-notes/with-step-types/#validating-inputs-and-outputs-to-steps">method used</a> for validating the number of input and output routes for each step type.</p>
 <p>If the decision step does not have one inbound route ...</p>
 <code title='Line 9, lib/parsing/decision_step.rb'><pre><a name='9'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/decision_step.rb#L9'> 9</a>     if step_inbound_routes( route_source_step_id( route_id ) ).size != 1
 </pre></code><p>... log the step as has having an unexpected number of inbound routes.</p>

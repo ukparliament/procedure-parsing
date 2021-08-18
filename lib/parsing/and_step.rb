@@ -4,7 +4,7 @@ module PARSE_AND_STEP
   # ## Method to parse a route whose source step is an AND step.
   def parse_route_from_and_step( route_id )
   
-    # Design note: The [method used](https://ukparliament.github.io/ontologies/procedure/flowcharts/meta/design-notes/#validating-inputs-and-outputs-to-steps) for validating the number of input and output routes for each step type.
+    # Design note: The [method used](https://ukparliament.github.io/ontologies/procedure/flowcharts/meta/design-notes/with-step-types/#validating-inputs-and-outputs-to-steps) for validating the number of input and output routes for each step type.
     # If the AND step does not have two inbound routes ...
     if step_inbound_routes( route_source_step_id( route_id ) ).size != 2
       

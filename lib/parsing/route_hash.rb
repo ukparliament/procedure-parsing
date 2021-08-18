@@ -33,7 +33,9 @@ module PARSE_ROUTE_HASH
           'NULL', # We pass in the current attribute to capture if the route is currently active. This is 'NULL' until the route is parsed.
           'UNPARSED', # We pass in the status attribute of the route. This is 'UNPARSED' until the route is parsed.
           false, # We pass in the parsed attribute of the route. This is false until the route is successfully parsed. A route may have many parse passes before being successfully parsed.
-          0, # We pass in the actualised has happened count of the route. This is 0 until we parse a route whose source is a business step, at which point we set it to the count of actualisations of that step having business items with dates in the past or of today. This count may be processed by arithmetic steps being the target steps of subsequent routes.
+          0, # We pass in the actualised has happened count of the route. This is 0 until we parse either ...
+            # ... a route whose source is a business step, then we set this to the count of business items, with dates in the past or of today, actualising that step ...
+            # ... or a route whose source is a SUM step or an INCREMENT step, then we set this to the value output by the step.
           0, # We pass in the parse pass count attribute of this route. This is 0 until parsed.
         )
       end

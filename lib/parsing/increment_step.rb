@@ -4,7 +4,7 @@ module PARSE_INCREMENT_STEP
   # ## Method to parse a route whose source step is an INCREMENT step.
   def parse_route_from_increment_step( route_id )
     
-    # Design note: The [method used](https://ukparliament.github.io/ontologies/procedure/flowcharts/meta/design-notes/#validating-inputs-and-outputs-to-steps) for validating the number of input and output routes for each step type.
+    # Design note: The [method used](https://ukparliament.github.io/ontologies/procedure/flowcharts/meta/design-notes/with-step-types/#validating-inputs-and-outputs-to-steps) for validating the number of input and output routes for each step type.
     # If the INCREMENT step does not have one inbound route ...
     if step_inbound_routes( route_source_step_id( route_id ) ).size != 1
   
@@ -32,10 +32,10 @@ module PARSE_INCREMENT_STEP
           # ... tainting the roads off the bridge as closed if the bridge is closed.
           update_route_hash( route_id, nil, 'UNTRAVERSABLE', nil, nil, nil )
           
-        # Otherwise, if the inbound route to the source step does not have a status of 'UNTRAVERSABLE' ...
+        # Otherwise, the inbound route to the source step does not have a status of 'UNTRAVERSABLE' ...
         else
           
-          # ... we get the actualisation count of the inbound route, ...
+          # ... and we get the actualisation count of the inbound route, ...
           actualisation_count = route_actualisation_count( inbound_route_id )
         
           # ... increment it by 1 ...
