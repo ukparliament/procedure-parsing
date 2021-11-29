@@ -50,7 +50,7 @@ Otherwise, if either inbound route has a status of 'FALSE' ...
         elsif route_status_attribute( first_inbound_route_id ) == 'FALSE' or route_status_attribute( second_inbound_route_id ) == 'FALSE'
 ... we set the status of this route to 'FALSE'.
 
-          update_route_hash( route, nil, 'FALSE', nil, nil, nil )
+          update_route_hash( route_id, nil, 'FALSE', nil, nil, nil )
 Otherwise, if both inbound routes have a status of 'NULL' ...
 
         elsif route_status_attribute( first_inbound_route_id ) == 'NULL' and route_status_attribute( second_inbound_route_id ) == 'NULL'

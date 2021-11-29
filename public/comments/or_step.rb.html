@@ -63,7 +63,7 @@ a {text-decoration:underline;color:white;}
 </pre></code><p>Otherwise, if either inbound route has a status of &#39;FALSE&#39; ...</p>
 <code title='Line 45, lib/parsing/or_step.rb'><pre><a name='45'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/or_step.rb#L45'> 45</a>         elsif route_status_attribute( first_inbound_route_id ) == 'FALSE' or route_status_attribute( second_inbound_route_id ) == 'FALSE'
 </pre></code><p>... we set the status of this route to &#39;FALSE&#39;.</p>
-<code title='Line 48, lib/parsing/or_step.rb'><pre><a name='48'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/or_step.rb#L48'> 48</a>           update_route_hash( route, nil, 'FALSE', nil, nil, nil )
+<code title='Line 48, lib/parsing/or_step.rb'><pre><a name='48'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/or_step.rb#L48'> 48</a>           update_route_hash( route_id, nil, 'FALSE', nil, nil, nil )
 </pre></code><p>Otherwise, if both inbound routes have a status of &#39;NULL&#39; ...</p>
 <code title='Line 51, lib/parsing/or_step.rb'><pre><a name='51'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/or_step.rb#L51'> 51</a>         elsif route_status_attribute( first_inbound_route_id ) == 'NULL' and route_status_attribute( second_inbound_route_id ) == 'NULL'
 </pre></code><p>... set the status of this route to &#39;NULL&#39;.</p>
