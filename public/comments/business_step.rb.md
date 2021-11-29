@@ -38,9 +38,9 @@ Otherwise, the business step does have one inbound route ...
 ... otherwise, the source step has not been actualised or has only been actualised by business items with dates in the future ....
 
         else
-... and we set the route status to 'NULL', the actualisation count to 0 and the parsed attribute to true.
+... and we set the route status to 'FALSE', the actualisation count to 0 and the parsed attribute to true.
 
-          update_route_hash( route_id, nil, 'NULL', true, 0, nil )
+          update_route_hash( route_id, nil, 'FALSE', true, 0, nil )
         end
       end
     end
