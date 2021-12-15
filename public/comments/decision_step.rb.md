@@ -4,7 +4,7 @@ module PARSE_DECISION_STEP
 ## Method to parse a route whose source step is a decision step.
 
   def parse_route_from_decision_step( route_id )
-Design note: The [method used](https://ukparliament.github.io/ontologies/procedure/flowcharts/meta/design-notes/with-step-types/#validating-inputs-and-outputs-to-steps) for validating the number of input and output routes for each step type.
+Design note: The [method used](https://ukparliament.github.io/ontologies/procedure/maps/meta/design-notes/#validating-inputs-and-outputs-to-steps) for validating the number of input and output routes for each step type.
 
 If the decision step does not have one inbound route ...
 
@@ -24,7 +24,7 @@ If the inbound route to the source step has been parsed ....
 ... we update the route parsed attribute to true.
 
         update_route_hash( route_id, nil, nil, true, nil, nil )
-We refer to the [decision step truth table](https://ukparliament.github.io/ontologies/procedure/flowcharts/meta/design-notes/#truth-table-decision) ...
+We refer to the [decision step truth table](https://ukparliament.github.io/ontologies/procedure/maps/meta/design-notes/#decision-steps) ...
 
 ... and if the status of the inbound route to the source step is 'TRUE' ...
 
