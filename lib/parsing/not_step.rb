@@ -4,7 +4,7 @@ module PARSE_NOT_STEP
   # ## Method to parse a route whose source step is a NOT step.
   def parse_route_from_not_step( route_id )
     
-    # Design note: The [method used](https://ukparliament.github.io/ontologies/procedure/flowcharts/meta/design-notes/with-step-types/#validating-inputs-and-outputs-to-steps) for validating the number of input and output routes for each step type.
+    # Design note: The [method used](https://ukparliament.github.io/ontologies/procedure/maps/meta/design-notes/#validating-inputs-and-outputs-to-steps) for validating the number of input and output routes for each step type.
     # If the NOT step does not have one inbound route ...
     if step_inbound_routes( route_source_step_id( route_id ) ).size != 1
   
@@ -23,7 +23,7 @@ module PARSE_NOT_STEP
         # ... we update the route parsed attribute to true.
         update_route_hash( route_id, nil, nil, true, nil, nil )
         
-        # We refer to the [NOT step truth table](https://ukparliament.github.io/ontologies/procedure/flowcharts/meta/design-notes/#truth-table-not) ...
+        # We refer to the [NOT step truth table](https://ukparliament.github.io/ontologies/procedure/maps/meta/design-notes/#not-steps) ...
         
         # ... and we check the status of the inbound route to the source step.
         case route_status_attribute( inbound_route_id )
