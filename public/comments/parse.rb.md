@@ -1,6 +1,6 @@
 # Module containing the main parsing code.
 
-Design notes for the [parsing of a procedure map with logic gates are here](https://ukparliament.github.io/ontologies/procedure/flowcharts/meta/design-notes/#procedure-maps-with-logic-gates).
+Design notes for the [parsing of a work package in the context of a procedure are here](https://ukparliament.github.io/ontologies/procedure/maps/meta/design-notes/#parsing-procedure-maps).
 
 module PARSE
 ## Method to parse a route.
