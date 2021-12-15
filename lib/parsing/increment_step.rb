@@ -4,7 +4,7 @@ module PARSE_INCREMENT_STEP
   # ## Method to parse a route whose source step is an INCREMENT step.
   def parse_route_from_increment_step( route_id )
     
-    # Design note: The [method used](https://ukparliament.github.io/ontologies/procedure/flowcharts/meta/design-notes/with-step-types/#validating-inputs-and-outputs-to-steps) for validating the number of input and output routes for each step type.
+    # Design note: The [method used](https://ukparliament.github.io/ontologies/procedure/maps/meta/design-notes/#validating-inputs-and-outputs-to-steps) for validating the number of input and output routes for each step type.
     # If the INCREMENT step does not have one inbound route ...
     if step_inbound_routes( route_source_step_id( route_id ) ).size != 1
   
@@ -23,7 +23,7 @@ module PARSE_INCREMENT_STEP
         # ... we update the route parsed attribute to true.
         update_route_hash( route_id, nil, nil, true, nil, nil )
         
-        # Referring to the [design notes for artithmetic steps](https://ukparliament.github.io/ontologies/procedure/flowcharts/meta/design-notes/with-step-types/#arithmetic-steps) ...
+        # Referring to the [design notes for artithmetic steps](https://ukparliament.github.io/ontologies/procedure/maps/meta/design-notes/#arithmetic-steps) ...
         
         # ... if the inbound route to the source step has a status of 'UNTRAVERSABLE' ...
         if route_is_untraversable?( inbound_route_id )
