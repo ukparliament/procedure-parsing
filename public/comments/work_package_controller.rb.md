@@ -81,7 +81,7 @@ The log is created as an instance variable because we want to write to it and re
 We write to the log, explaining what we're attempting to do.
 
     @parse_log << "Attempting to parse work package #{@work_package.id}, subject to the #{@procedure.name.downcase} procedure."
-Having successfully parsed a route to a business step, we can determine the [potential state](https://ukparliament.github.io/ontologies/procedure/flowcharts/meta/design-notes/#potential-states-of-a-business-step) of that business step. The potential state of a business state may be caused to be actualised, allowed to be actualised, not yet actualisable or not now actualisable.
+Having successfully parsed a route to a business step, we can determine the [potential state](https://ukparliament.github.io/ontologies/procedure/maps/meta/design-notes/#potential-states-of-a-business-step) of that business step. The potential state of a business state may be caused to be actualised, allowed to be actualised, not yet actualisable or not now actualisable.
 
 We create a set of arrays to store the target business steps of the routes we successfully parse - each array being named according to the potential state of the target step.
 
@@ -91,7 +91,7 @@ These are created as instance variables because we want to write to them and rep
     @allowed_steps = []
     @disallowed_as_yet_steps = []
     @disallowed_now_steps = []
-We initialise a hash of additional route attributes: these are attributes used only during the parsing process.
+We initialise a hash of additional route attributes: these are attributes are used only during the parsing process.
 
     initialise_route_hash( @work_package )
 We initialise a hash of steps keyed off the step ID together with a hash of IDs of outbound routes from a step and a hash of IDs of inbound routes to a step, also keyed off the step ID.
