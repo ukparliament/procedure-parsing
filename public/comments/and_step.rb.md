@@ -55,13 +55,17 @@ Otherwise, if both inbound routes have a status of 'TRUE' ...
 ### Otherwise if the first inbound route has been parsed and the second inbound route has not been parsed ...
 
       elsif route_parsed_attribute( first_inbound_route_id ) == true and route_parsed_attribute( second_inbound_route_id ) == false
-... we set the status of this route to the status of the first inbound route.
+... we do not update the parsed attribute to true, meaning this route will be parsed again on a subsequent pass ...
+
+... and we set the status of this route to the status of the first inbound route.
 
         update_route_hash( route_id, nil, route_status_attribute( first_inbound_route_id ), nil, nil, nil )
 ### Otherwise if the first inbound route has not been parsed and the second inbound route has been parsed ...
 
       elsif route_parsed_attribute( first_inbound_route_id ) == false and route_parsed_attribute( second_inbound_route_id ) == true
-... we set the status of this route to the status of the second inbound route.
+... we do not update the parsed attribute to true, meaning this route will be parsed again on a subsequent pass ...
+
+... and we set the status of this route to the status of the second inbound route.
 
         update_route_hash( route_id, nil, route_status_attribute( second_inbound_route_id ), nil, nil, nil )
 ### Otherwise, neither inbound route has been parsed and this route will be parsed on a later pass.

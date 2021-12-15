@@ -67,14 +67,16 @@ a {text-decoration:underline;color:white;}
 </pre></code><code title='Line 50, lib/parsing/and_step.rb'><pre><a name='50'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/and_step.rb#L50'> 50</a>         end
 </pre></code><h3>Otherwise if the first inbound route has been parsed and the second inbound route has not been parsed ...</h3>
 <code title='Line 53, lib/parsing/and_step.rb'><pre><a name='53'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/and_step.rb#L53'> 53</a>       elsif route_parsed_attribute( first_inbound_route_id ) == true and route_parsed_attribute( second_inbound_route_id ) == false
-</pre></code><p>... we set the status of this route to the status of the first inbound route.</p>
-<code title='Line 56, lib/parsing/and_step.rb'><pre><a name='56'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/and_step.rb#L56'> 56</a>         update_route_hash( route_id, nil, route_status_attribute( first_inbound_route_id ), nil, nil, nil )
+</pre></code><p>... we do not update the parsed attribute to true, meaning this route will be parsed again on a subsequent pass ...</p>
+<p>... and we set the status of this route to the status of the first inbound route.</p>
+<code title='Line 58, lib/parsing/and_step.rb'><pre><a name='58'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/and_step.rb#L58'> 58</a>         update_route_hash( route_id, nil, route_status_attribute( first_inbound_route_id ), nil, nil, nil )
 </pre></code><h3>Otherwise if the first inbound route has not been parsed and the second inbound route has been parsed ...</h3>
-<code title='Line 59, lib/parsing/and_step.rb'><pre><a name='59'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/and_step.rb#L59'> 59</a>       elsif route_parsed_attribute( first_inbound_route_id ) == false and route_parsed_attribute( second_inbound_route_id ) == true
-</pre></code><p>... we set the status of this route to the status of the second inbound route.</p>
-<code title='Line 62, lib/parsing/and_step.rb'><pre><a name='62'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/and_step.rb#L62'> 62</a>         update_route_hash( route_id, nil, route_status_attribute( second_inbound_route_id ), nil, nil, nil )
+<code title='Line 61, lib/parsing/and_step.rb'><pre><a name='61'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/and_step.rb#L61'> 61</a>       elsif route_parsed_attribute( first_inbound_route_id ) == false and route_parsed_attribute( second_inbound_route_id ) == true
+</pre></code><p>... we do not update the parsed attribute to true, meaning this route will be parsed again on a subsequent pass ...</p>
+<p>... and we set the status of this route to the status of the second inbound route.</p>
+<code title='Line 66, lib/parsing/and_step.rb'><pre><a name='66'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/and_step.rb#L66'> 66</a>         update_route_hash( route_id, nil, route_status_attribute( second_inbound_route_id ), nil, nil, nil )
 </pre></code><h3>Otherwise, neither inbound route has been parsed and this route will be parsed on a later pass.</h3>
-<code title='Line 65, lib/parsing/and_step.rb'><pre><a name='65'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/and_step.rb#L65'> 65</a>       end
-</pre></code><code title='Line 66, lib/parsing/and_step.rb'><pre><a name='66'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/and_step.rb#L66'> 66</a>     end
-</pre></code><code title='Line 67, lib/parsing/and_step.rb'><pre><a name='67'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/and_step.rb#L67'> 67</a>   end
-</pre></code><code title='Line 68, lib/parsing/and_step.rb'><pre><a name='68'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/and_step.rb#L68'> 68</a> end</pre></code></body></html>
+<code title='Line 69, lib/parsing/and_step.rb'><pre><a name='69'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/and_step.rb#L69'> 69</a>       end
+</pre></code><code title='Line 70, lib/parsing/and_step.rb'><pre><a name='70'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/and_step.rb#L70'> 70</a>     end
+</pre></code><code title='Line 71, lib/parsing/and_step.rb'><pre><a name='71'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/and_step.rb#L71'> 71</a>   end
+</pre></code><code title='Line 72, lib/parsing/and_step.rb'><pre><a name='72'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/and_step.rb#L72'> 72</a> end</pre></code></body></html>
