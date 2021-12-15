@@ -4,7 +4,7 @@ module PARSE_OR_STEP
   # ## Method to parse a route whose source step is an OR step.
   def parse_route_from_or_step( route_id )
   
-    # Design note: The [method used](https://ukparliament.github.io/ontologies/procedure/flowcharts/meta/design-notes/with-step-types/#validating-inputs-and-outputs-to-steps) for validating the number of input and output routes for each step type.
+    # Design note: The [method used](https://ukparliament.github.io/ontologies/procedure/maps/meta/design-notes/#validating-inputs-and-outputs-to-steps) for validating the number of input and output routes for each step type.
     # If the OR step does not have two inbound routes ...
     if step_inbound_routes( route_source_step_id( route_id ) ).size != 2
       
@@ -27,7 +27,7 @@ module PARSE_OR_STEP
         # ... we update the route parsed attribute to true.
         update_route_hash( route_id, nil, nil, true, nil, nil )
         
-        # We refer to the [OR step truth table](https://ukparliament.github.io/ontologies/procedure/flowcharts/meta/design-notes/#truth-table-or) ...
+        # We refer to the [OR step truth table](https://ukparliament.github.io/ontologies/procedure/maps/meta/design-notes/#or-steps) ...
         # ... and if either inbound route to the source step has a status of 'TRUE' ...
         if route_status_attribute( first_inbound_route_id ) == 'TRUE' or route_status_attribute( second_inbound_route_id ) == 'TRUE'
         
@@ -46,25 +46,21 @@ module PARSE_OR_STEP
         
           # ... we set the status of this route to 'FALSE'.
           update_route_hash( route_id, nil, 'FALSE', nil, nil, nil )
-        
-        # Otherwise, if both inbound routes have a status of 'NULL' ...
-        elsif route_status_attribute( first_inbound_route_id ) == 'NULL' and route_status_attribute( second_inbound_route_id ) == 'NULL'
-        
-          # ... set the status of this route to 'NULL'.
-          update_route_hash( route_id, nil, 'NULL', nil, nil, nil )
         end
       
       # ### Otherwise if the first inbound route has been parsed and the second inbound route has not been parsed ....
       elsif route_parsed_attribute( first_inbound_route_id ) == true and route_parsed_attribute( second_inbound_route_id ) == false
         
-        # ... we treat the second route status as being NULL, remembering that a NULL value entering a logic step renders that gate as 'transparent' ...
+        # ... we do not update the parsed attribute to true, meaning this route will be parsed again on a later pass ...
+        
         # ... and we set the status of this route to the status of the first inbound route.
         update_route_hash( route_id, nil, route_status_attribute( first_inbound_route_id ), nil, nil, nil )
       
       # ### Otherwise if the first inbound route has not been parsed and the second inbound route has been parsed ....
       elsif route_parsed_attribute( first_inbound_route_id ) == false and route_parsed_attribute( second_inbound_route_id ) == true
         
-        # ... we treat the first route status as being NULL, remembering that a NULL value entering a logic step renders that gate as 'transparent' ...
+        # ... we do not update the parsed attribute to true, meaning this route will be parsed again on a later pass ...
+        
         # ... and we set the status of this route to the status of the second inbound route.
         update_route_hash( route_id, nil, route_status_attribute( second_inbound_route_id ), nil, nil, nil )
         
