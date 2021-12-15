@@ -30,9 +30,9 @@ a {text-decoration:underline;color:white;}
     </style>
     <title>lib/parsing/route_currency.rb</title>
   </head>
-  <body><p><a href="/procedures/meta/comments">/procedures/meta/comments</a></p><h1>Module to determine whether a route is current.</h1>
+  <body><p><a href="/procedures/meta/comments">/procedures/meta/comments</a></p><h1>Module to check whether a route is current and set its current and status attributes appropriately.</h1>
 <code title='Line 2, lib/parsing/route_currency.rb'><pre><a name='2'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/route_currency.rb#L2'> 2</a> module PARSE_ROUTE_CURRENCY
-</pre></code><h2>Method to determine whether a route is current.</h2>
+</pre></code><h2>Method to check whether a route is current and set its current and status attributes appropriately.</h2>
 <code title='Line 5, lib/parsing/route_currency.rb'><pre><a name='5'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/route_currency.rb#L5'> 5</a>   def parse_route_currency( route_id )
 </pre></code><p>If the route is current...</p>
 <code title='Line 8, lib/parsing/route_currency.rb'><pre><a name='8'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/route_currency.rb#L8'> 8</a>     if route_is_current?( route_id )
@@ -41,7 +41,7 @@ a {text-decoration:underline;color:white;}
 </pre></code><p>Otherwise, if the route is not current ...</p>
 <code title='Line 14, lib/parsing/route_currency.rb'><pre><a name='14'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/route_currency.rb#L14'> 14</a>   else
 </pre></code><p>... we update the route current attribute to FALSE and the route status attribute to UNTRAVERSABLE.</p>
-<p>Setting the route status to UNTRAVERSABLE records that the route is not currently traversable - and is used to infer that routes which follow this route are also not currently traversable.</p>
+<p>Setting the route status to <a href="https://ukparliament.github.io/ontologies/procedure/maps/meta/design-notes/#route-currentness-and-untraversability">UNTRAVERSABLE records that the route is not currently traversable - and is used to infer that routes which follow this route are also not currently traversable</a>.</p>
 <p>We also record this route as parsed because we don&#39;t want to visit it and attempt to parse again.</p>
 <code title='Line 19, lib/parsing/route_currency.rb'><pre><a name='19'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/route_currency.rb#L19'> 19</a>       update_route_hash( route_id, 'FALSE', 'UNTRAVERSABLE', true, nil, nil )
 </pre></code><code title='Line 20, lib/parsing/route_currency.rb'><pre><a name='20'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/route_currency.rb#L20'> 20</a>     end
