@@ -34,7 +34,7 @@ a {text-decoration:underline;color:white;}
 <code title='Line 2, lib/parsing/equals_step.rb'><pre><a name='2'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/equals_step.rb#L2'> 2</a> module PARSE_EQUALS_STEP
 </pre></code><h2>Method to parse a route whose source step is an EQUALS step.</h2>
 <code title='Line 5, lib/parsing/equals_step.rb'><pre><a name='5'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/equals_step.rb#L5'> 5</a>   def parse_route_from_equals_step( route_id )
-</pre></code><p>Design note: The <a href="https://ukparliament.github.io/ontologies/procedure/flowcharts/meta/design-notes/with-step-types/#validating-inputs-and-outputs-to-steps">method used</a> for validating the number of input and output routes for each step type.</p>
+</pre></code><p>Design note: The <a href="https://ukparliament.github.io/ontologies/procedure/maps/meta/design-notes/#validating-inputs-and-outputs-to-steps">method used</a> for validating the number of input and output routes for each step type.</p>
 <p>If the EQUALS step does not have two inbound routes ...</p>
 <code title='Line 9, lib/parsing/equals_step.rb'><pre><a name='9'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/equals_step.rb#L9'> 9</a>     if step_inbound_routes( route_source_step_id( route_id ) ).size != 2
 </pre></code><p>... log the step as has having an unexpected number of inbound routes.</p>
@@ -50,7 +50,7 @@ a {text-decoration:underline;color:white;}
 <code title='Line 25, lib/parsing/equals_step.rb'><pre><a name='25'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/equals_step.rb#L25'> 25</a>       if route_parsed_attribute( first_inbound_route_id ) == true and route_parsed_attribute( second_inbound_route_id ) == true
 </pre></code><p>... we update the route parsed attribute to true.</p>
 <code title='Line 28, lib/parsing/equals_step.rb'><pre><a name='28'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/equals_step.rb#L28'> 28</a>         update_route_hash( route_id, nil, nil, true, nil, nil )
-</pre></code><p>Referring to the <a href="https://ukparliament.github.io/ontologies/procedure/flowcharts/meta/design-notes/with-step-types/#arithmetic-steps">design notes for arithmetic steps</a> ...</p>
+</pre></code><p>Referring to the <a href="https://ukparliament.github.io/ontologies/procedure/maps/meta/design-notes/#arithmetic-steps">design notes for arithmetic steps</a> ...</p>
 <p>... if either inbound route to the source step has a status of &#39;UNTRAVERSABLE&#39; ...</p>
 <code title='Line 33, lib/parsing/equals_step.rb'><pre><a name='33'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/equals_step.rb#L33'> 33</a>         if route_is_untraversable?( first_inbound_route_id ) or route_is_untraversable?( second_inbound_route_id )
 </pre></code><p>... we set the status of this route to &#39;UNTRAVERSABLE&#39; ...</p>
