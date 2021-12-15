@@ -32,7 +32,7 @@ a {text-decoration:underline;color:white;}
   </head>
   <body><p><a href="/procedures/meta/comments">/procedures/meta/comments</a></p><h1>Module to assign a potential state to a business step.</h1>
 <code title='Line 2, lib/parsing/assign_potential_business_step_state.rb'><pre><a name='2'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/assign_potential_business_step_state.rb#L2'> 2</a> module PARSE_ASSIGN_POTENTIAL_BUSINESS_STEP_STATE
-</pre></code><h2>Method to assign a <a href="https://ukparliament.github.io/ontologies/procedure/flowcharts/meta/design-notes/#potential-states-of-a-business-step">potential state</a> to a business step, being the target of a successfully parsed route.</h2>
+</pre></code><h2>Method to assign a <a href="https://ukparliament.github.io/ontologies/procedure/maps/meta/design-notes/#potential-states-of-a-business-step">potential state</a> to a business step, being the target of a successfully parsed route.</h2>
 <code title='Line 5, lib/parsing/assign_potential_business_step_state.rb'><pre><a name='5'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/assign_potential_business_step_state.rb#L5'> 5</a>   def assign_potential_business_step_state( route_id )
 </pre></code><p>If the route we&#39;re attempting to parse has been successfully parsed ...</p>
 <code title='Line 8, lib/parsing/assign_potential_business_step_state.rb'><pre><a name='8'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/assign_potential_business_step_state.rb#L8'> 8</a>     if route_parsed_attribute( route_id ) == true
@@ -54,15 +54,15 @@ a {text-decoration:underline;color:white;}
 <code title='Line 31, lib/parsing/assign_potential_business_step_state.rb'><pre><a name='31'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/assign_potential_business_step_state.rb#L31'> 31</a>         when "ALLOWS"
 </pre></code><p>... we add the target step to the array of allowed steps.</p>
 <code title='Line 34, lib/parsing/assign_potential_business_step_state.rb'><pre><a name='34'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/assign_potential_business_step_state.rb#L34'> 34</a>           @allowed_steps << route_target_step( route_id )
-</pre></code><p>When the status of the route we&#39;ve parsed is either &#39;FALSE&#39; or &#39;NULL&#39; ...</p>
-<code title='Line 37, lib/parsing/assign_potential_business_step_state.rb'><pre><a name='37'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/assign_potential_business_step_state.rb#L37'> 37</a>         when "FALSE", "NULL"
+</pre></code><p>When the status of the route we&#39;ve parsed is &#39;FALSE&#39; ...</p>
+<code title='Line 37, lib/parsing/assign_potential_business_step_state.rb'><pre><a name='37'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/assign_potential_business_step_state.rb#L37'> 37</a>         when "FALSE"
 </pre></code><p>... we add the target step to the array of disallowed as yet steps.</p>
 <code title='Line 40, lib/parsing/assign_potential_business_step_state.rb'><pre><a name='40'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/assign_potential_business_step_state.rb#L40'> 40</a>           @disallowed_as_yet_steps << route_target_step( route_id )
 </pre></code><p>When the status of the route we&#39;ve parsed is &#39;UNTRAVERSABLE&#39; ...</p>
 <code title='Line 43, lib/parsing/assign_potential_business_step_state.rb'><pre><a name='43'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/assign_potential_business_step_state.rb#L43'> 43</a>         when "UNTRAVERSABLE"
 </pre></code><p>... we add the target step to the array of disallowed now steps.</p>
 <code title='Line 46, lib/parsing/assign_potential_business_step_state.rb'><pre><a name='46'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/assign_potential_business_step_state.rb#L46'> 46</a>           @disallowed_now_steps << route_target_step( route_id )
-</pre></code><p>Otherwise, if the status of the route we&#39;ve parsed is neither &#39;TRUE&#39;, &#39;ALLOWS&#39;, &#39;FALSE&#39;, &#39;NULL&#39; or &#39;UNTRAVERSABLE&#39; ...</p>
+</pre></code><p>Otherwise, if the status of the route we&#39;ve parsed is neither &#39;TRUE&#39;, &#39;ALLOWS&#39;, &#39;FALSE&#39; or &#39;UNTRAVERSABLE&#39; ...</p>
 <code title='Line 49, lib/parsing/assign_potential_business_step_state.rb'><pre><a name='49'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/assign_potential_business_step_state.rb#L49'> 49</a>         else
 </pre></code><p>... we write to the parse log, reporting that the successfully parsed route has an unexpected status.</p>
 <code title='Line 52, lib/parsing/assign_potential_business_step_state.rb'><pre><a name='52'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/assign_potential_business_step_state.rb#L52'> 52</a>           @parse_log << "Unexpected status of <strong>#{route_status_attribute( route_id )}</strong>."
