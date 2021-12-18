@@ -15,6 +15,13 @@ class ProcedureController < ApplicationController
     @procedure = ParliamentaryProcedure.find( procedure )
   end
   
+  def step_index
+    procedure = params[:procedure]
+    @procedure = ParliamentaryProcedure.find( procedure )
+    @work_packages = @procedure.work_packages
+    @steps_with_work_pockage_count = @procedure.steps_with_work_package_count('1')
+  end
+  
   def work_package_index
     procedure = params[:procedure]
     @procedure = ParliamentaryProcedure.find( procedure )
