@@ -118,6 +118,100 @@ class ParliamentaryProcedure < ActiveRecord::Base
       "
     )
   end
+  
+  # ## Method to return all steps connected to routes in a procedure, each step having:
+  # * a flag to say whether the step is in the Commons
+  # * a flag to say whether the step is in the Lords
+  # * a count of the number of work packages the step has been actualised in
+  def steps_with_work_package_count( work_package )
+    Step.find_by_sql(
+      "
+        SELECT
+          s.*,
+          SUM(commons_step.is_commons) AS is_in_commons, 
+          SUM(lords_step.is_lords) AS is_in_lords,
+          SUM(work_package_count.work_package_count) AS work_package_count
+        FROM steps s
+      
+        /* We know that steps appear in a procedure by virtue of being attached to routes in that procedure, so we join to the routes table ... */
+        INNER JOIN routes r
+      
+        /* We know that all steps in a procedure have an inbound route and that some don't have an outbound route, so we only bind the step to the to_step_id of a route. */
+          ON r.to_step_id = s.id
+        
+        /* We join to the procedure_routes table, using the route_id ... */
+        INNER JOIN procedure_routes pr
+        	ON pr.route_id = r.id
+        
+          /* ... ensuring we only get routes in this procedure. */
+        	AND pr.parliamentary_procedure_id = #{self.id}
+        
+        /* We know that a step may be in one or both Houses - or none - via the house_steps table, so we left join to the house_steps table twice. */
+        /* The left join ensures that the outer step query returns records for steps that are not in the House we're querying for: ... */
+      
+        /* ... once to check if the step is in the Commons */
+        LEFT JOIN
+          (
+            SELECT 1 as is_commons, hs.step_id
+            FROM house_steps hs
+            WHERE hs.house_id = 1 -- 1 being the ID of the Commons.
+            GROUP BY hs.id
+          ) commons_step
+          ON s.id = commons_step.step_id
+
+        /* ... and once to check if the step is in the Lords. */
+        LEFT JOIN
+          (
+            SELECT 1 as is_lords, hs.step_id
+            FROM house_steps hs
+            WHERE hs.house_id = 2 -- 2 being the ID of the Lords.
+            GROUP BY hs.id
+          ) lords_step
+          ON s.id = lords_step.step_id
+
+        /* ... we want to get a count of the number of work packages which are subject to this procedure and where this step has been actualised. */
+        /* We left join because we want to include zero counts for work packages where this step has not been actualised. */
+        LEFT JOIN
+          (
+            SELECT COUNT(bi.work_package_id) as work_package_count, a.step_id
+            FROM business_items bi, actualisations a, work_packages wp
+            
+            /* We only want to include work packages not marked as procedure concluded ... */
+            /* ... so we inner join to work packages with business items actualising a step in the 'End step' step collection. */
+            INNER JOIN (
+              SELECT wp.*
+              FROM work_packages wp, business_items bi, actualisations a, steps s, step_collections sc, step_collection_types sct
+              WHERE bi.work_package_id = wp.id
+              AND bi.id = a.business_item_id
+              AND wp.parliamentary_procedure_id = #{self.id}
+              AND bi.id = a.business_item_id
+              AND a.step_id = s.id
+              AND s.id = sc.step_id
+              AND sc.parliamentary_procedure_id = #{self.id}
+              AND sc.step_collection_type_id = sct.id
+              AND sct.name = 'End steps'
+            
+            ) concluded_work_packages
+            ON concluded_work_packages.id = wp.id
+            WHERE bi.id = a.business_item_id
+            AND bi.work_package_id = wp.id
+            
+              
+            /* We group by the ID of the step being actualised. */
+            GROUP BY a.step_id
+            
+          ) work_package_count
+          ON s.id = work_package_count.step_id
+          
+          /* We only want to include business steps. */
+          WHERE s.step_type_id = 1
+        
+          /* We group by the step ID because the same step may be the target step of many routes and we only want to include each step once. */
+          GROUP BY s.id
+          ;
+      "
+    )
+  end
 
   # ## A method to add an ellipsis to a description of a procedure, if the description text is longer than 255 characters.
   def description_massaged
