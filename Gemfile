@@ -1,9 +1,13 @@
 source 'https://rubygems.org'
 
-ruby '3.0.3'
+gem 'rails', '6.1.4.1'
 
-gem 'rails', '5.0.7.2'
-gem 'pg'
+gem 'pg', '~> 1.1'
+
+
+
+
+gem "puma"
 gem 'sass-rails', '~> 5.0'
 gem 'jbuilder', '~> 2.0'
 gem 'uglifier'
