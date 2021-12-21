@@ -1,6 +1,6 @@
 require 'csv'
 
-task :import => [
+task :setup => [
   :import_step_types,
   :import_steps,
   :import_houses,
@@ -17,7 +17,7 @@ end
 
 task :import_step_types => :environment do
   puts "importing step types"
-  CSV.foreach( 'db/data/step-types.tsv', :col_sep => "\t" ) do |row|
+  CSV.foreach( 'db/data/step_types.tsv', :col_sep => "\t" ) do |row|
     step_type = StepType.new
     step_type.id = row[0]
     step_type.triple_store_id = row[0]
