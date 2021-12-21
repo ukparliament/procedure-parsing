@@ -5,9 +5,9 @@ gem 'rails', '6.1.4.1'
 gem 'pg', '~> 1.1'
 
 
+gem "webrick"
 
 
-gem "puma"
 gem 'sass-rails', '~> 5.0'
 gem 'jbuilder', '~> 2.0'
 gem 'uglifier'
