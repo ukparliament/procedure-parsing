@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   get 'procedures' => 'procedure#index', as: :procedure_list
   get 'procedures/:procedure' => 'procedure#show', as: :procedure_show
   get 'procedures/:procedure/work-packages' => 'procedure#work_package_index', as: :procedure_work_package_list
+  get 'procedures/:procedure/steps' => 'procedure#step_index', as: :procedure_step_list
   get 'procedures/:procedure/routes' => 'procedure#route_index', as: :procedure_route_list
   post 'procedures/:procedure/routes/create' => 'procedure#route_create', as: :procedure_route_create
   
