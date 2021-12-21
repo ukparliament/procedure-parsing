@@ -1,92 +1,89 @@
-2	vOCSRhjw	Chamber debate	sunleyJ@parliament.uk	2019-11-26 17:14:54 +00:00	NULL	Actualise this step when it is scheduled on the Parliamentary Calendar or Future Business so it appears in  Scheduled upcoming stages  on the workpackage page. The link will need to be updated once the debate has taken place. If it s rescheduled, change th	Lords Hansard debate URL	Date of debate 	320	1
-3	RnTwilWz	Motion (prayer) to stop the instrument becoming law tabled	sunleyJ@parliament.uk	2019-11-07 13:49:13 +00:00	NULL	Motion text will refer to  be not made  or  annul 	EDM page	Date tabled	257	1
-4	cspzmb6w	Laid before the House of Commons	sunleyJ@parliament.uk	2020-01-31 12:43:20 +00:00	NULL	All workpackages require this step. For instruments laid in recess the date laid will be the date laid and not the date of the Vote. Links to the Vote to be added retrospectively when the Vote is published on the return of the House. Check procedure flowch	V&P - anchor link	Date laid (this will not always be the same as the date of the Vote)	396	1
-5	iW9MbyrD	Non-fatal motion (prayer) to object to the instrument tabled	sunleyJ@parliament.uk	2020-01-31 14:07:40 +00:00	NULL	Motion text will refer to  revoke  or  withdraw . 	Lords business paper - under Motions related to delegated legislation	Date tabled - first appearance in the LBP -1	414	1
-6	5xTe6nwE	Motion (prayer) to stop the instrument being law tabled	sunleyJ@parliament.uk	2019-11-07 13:59:11 +00:00	NULL	Motion text will refer to  be not made  or  annul 	EDM	Date tabled	260	1
+2	vOCSRhjw	Chamber debate	sunleyJ@parliament.uk	2019-11-26 17:14:54 +00:00	NULL	Actualise this step when it is scheduled on the Parliamentary Calendar or Future Business so it appears in Scheduled upcoming stages on the workpackage page. The link will need to be updated once the debate has taken place. If its rescheduled, change th	Lords Hansard debate URL	Date of debate 	320	1
+3	RnTwilWz	Motion (prayer) to stop the instrument becoming law tabled	sunleyJ@parliament.uk	2019-11-07 13:49:13 +00:00	NULL	Motion text will refer to be not made or annul	EDM page	Date tabled	257	1
+4	cspzmb6w	Laid before the House of Commons	sunleyJ@parliament.uk	2021-03-09 15:28:38 +00:00	NULL	All workpackages require this step. For instruments laid in recess the date laid will be the date laid and not the date of the Vote. Links to the Vote to be added retrospectively when the Vote is published on the return of the House. Check procedure flowch	V&P - anchor link	Date laid (this will not always be the same as the date of the Vote)	531	1
+5	iW9MbyrD	Non-fatal motion (prayer) to object to the instrument tabled	sunleyJ@parliament.uk	2020-01-31 14:07:40 +00:00	NULL	Motion text will refer to revoke or withdraw. 	Lords business paper - under Motions related to delegated legislation	Date tabled - first appearance in the LBP -1	414	1
+6	5xTe6nwE	Motion (prayer) to stop the instrument being law tabled	sunleyJ@parliament.uk	2019-11-07 13:59:11 +00:00	NULL	Motion text will refer to be not made or annul	EDM	Date tabled	260	1
 7	zv4UnLbU	Non-fatal motion (prayer) to object to the instrument rejected	sunleyJ@parliament.uk	2020-01-31 14:05:27 +00:00	NULL	Will usually follow a Chamber debate or as a formal proceeding following a GC debate. It could be grouped with the approval motion question itself. 	Lords individual minute link	Date of the decision	412	1
 8	9ouoghbQ	Considered by the Joint Committee on Statutory Instruments (JCSI)	sunleyJ@parliament.uk	2021-01-28 15:33:11 +00:00	NULL	We will first see notice of the report in the Vote/LBP on a Thursday but the report will be published on a Friday so we actualise retrospectively. 	JCSI report - depends on the outcome for the SI	Date the JCSI met (usually a Wednesday). 	519	1
 9	OM5fjnQ3	Instrument comes into force as law	sunleyJ@parliament.uk	2020-09-29 11:29:40 +00:00	NULL	When this gets actualised is dependent on the procedure that the SI is laid under, please check flowcharts before actualising. September 2020 - a discussion took place between IDMS and Daniel Greenberg about made affirmatives laid under the Local Governmen	Statutory Instrument (intro page)	Equals CiF date, if there is one; if CiF is covered by note, no date should be added to the business item	485	1
 10	qGFQ35jt	Considered by the Select Committee on Statutory Instruments (SCSI)	sunleyJ@parliament.uk	2021-01-28 15:34:00 +00:00	NULL	We will first see notice of the report in the Vote/LBP on a Thursday but the report will be published on a Friday so we actualise retrospectively. 	SCSI report - depends on the outcome of the SI.	Date the SCSI met (usually a Wednesday).	520	1
-12	puVMaN7t	Laid before the House of Lords	sunleyJ@parliament.uk	2020-01-31 12:41:41 +00:00	NULL	All treaties and PNSIs require this step but not all Statutory Instruments. For items laid in recess the date laid will be the date laid and not the date of the Lords Business. Links to the LBP to be added retrospectively when the LBP is published on the r	LBP - Papers individual link	Date laid	395	1
+12	puVMaN7t	Laid before the House of Lords	sunleyJ@parliament.uk	2021-03-09 15:27:24 +00:00	NULL	All treaties and PNSIs require this step but not all Statutory Instruments. For items laid in recess the date laid will be the date laid and not the date of the Lords Business. Links to the LBP to be added retrospectively when the LBP is published on the r	LBP - Papers individual link	Date laid	530	1
 13	9qt10bIx	Motion (prayer) to stop the instrument being law approved	sunleyJ@parliament.uk	2020-05-21 14:33:17 +00:00	NULL	Will usually follow a Lords debate. 	LBP (individual link)	Date of decision	477	1
-14	wShvPQbP	Instrument created	sunleyJ@parliament.uk	2020-01-31 11:24:32 +00:00	NULL	All SIs need this step actualised - it starts off the procedure. 	Statutory instrument (intro page)	Date laid for draft SIs unless a business motion allowing approval motion before laying occurs at which point we d use the same date as the business motion, date made for made SIs if date made is earlier than date laid. 	386	1
-15	JqzvdWEL	Instrument made (signed into law)	sunleyJ@parliament.uk	2019-11-07 14:23:28 +00:00	NULL	For made SIs we actualise this at the start of procedure. For draft SIs we need to check and update these like we do indexing.	Statutory instrument (intro page)	Date made	269	1
+14	wShvPQbP	Instrument created	sunleyJ@parliament.uk	2021-03-09 15:28:58 +00:00	NULL	All SIs need this step actualised - it starts off the procedure. 	Statutory instrument (intro page)	Date laid for draft SIs unless a business motion allowing approval motion before laying occurs at which point wed use the same date as the business motion, date made for made SIs if date made is earlier than date laid. 	533	1
+15	JqzvdWEL	Instrument made (signed into law)	sunleyJ@parliament.uk	2021-03-09 15:28:47 +00:00	NULL	For made SIs we actualise this at the start of procedure. For draft SIs we need to check and update these like we do indexing.	Statutory instrument (intro page)	Date made	532	1
 16	5xU7eM47	Motion (prayer) to stop the instrument being law rejected	sunleyJ@parliament.uk	2020-01-31 09:17:13 +00:00	NULL	Will follow a Lords debate, could be grouped together with the actual approval motion. 	LBP individual link	Date of decision	337	1
 19	JcCYkCt7	Considered by the Secondary Legislation Scrutiny Committee (SLSC)	sunleyJ@parliament.uk	2021-01-28 15:35:06 +00:00	NULL	We will first see notice of the report in the Vote/LBP on a Wednesday but the report will be published on a Thursday so we actualise retrospectively. 	SLSC report - depends on the outcome of the instrument	Date the SLSC met (usually a Tuesday or Wednesday depending on which Sub-Comm).	521	1
-20	oFQDDdej	Non-fatal motion (prayer) to object to the instrument approved	sunleyJ@parliament.uk	2020-01-31 14:00:43 +00:00	NULL	Motion text will refer to  revoke  or  withdraw . Will follow a Lords debate and question being put, it could be grouped with the approval motion of the SI itself. 	LBP individual minute link	Date of the decision	411	1
-21	t6rhEBNk	Grand Committee debate	sunleyJ@parliament.uk	2019-11-26 17:15:11 +00:00	NULL	Actualise this step when it is scheduled on the Parliamentary Calendar or Future Business so it appears in  Scheduled upcoming stages  on the workpackage page. The link will need to be updated once the debate has taken place. If it s rescheduled, change th	Lords Hansard debate URL	Date of debate	321	1
+20	oFQDDdej	Non-fatal motion (prayer) to object to the instrument approved	sunleyJ@parliament.uk	2020-01-31 14:00:43 +00:00	NULL	Motion text will refer to revoke or withdraw. Will follow a Lords debate and question being put, it could be grouped with the approval motion of the SI itself. 	LBP individual minute link	Date of the decision	411	1
+21	t6rhEBNk	Grand Committee debate	sunleyJ@parliament.uk	2019-11-26 17:15:11 +00:00	NULL	Actualise this step when it is scheduled on the Parliamentary Calendar or Future Business so it appears in Scheduled upcoming stages on the workpackage page. The link will need to be updated once the debate has taken place. If its rescheduled, change th	Lords Hansard debate URL	Date of debate	321	1
 22	MR1lqNq3	Question on a motion (prayer) to stop the instrument being law put	sunleyJ@parliament.uk	2020-01-31 10:25:16 +00:00	NULL	Will follow a Commons debate and the decision could also be deferred. 	V&P anchor link	Date of question	364	1
-23	ADYK7qyp	Chamber debate	sunleyJ@parliament.uk	2019-11-26 17:15:30 +00:00	NULL	Actualise this step when it is scheduled on the Parliamentary Calendar or Future Business so it appears in  Scheduled upcoming stages  on the workpackage page. The link will need to be updated once the debate has taken place. If it s rescheduled, change th	Commons Hansard URL	Date of debate	322	1
+23	ADYK7qyp	Chamber debate	sunleyJ@parliament.uk	2019-11-26 17:15:30 +00:00	NULL	Actualise this step when it is scheduled on the Parliamentary Calendar or Future Business so it appears in Scheduled upcoming stages on the workpackage page. The link will need to be updated once the debate has taken place. If its rescheduled, change th	Commons Hansard URL	Date of debate	322	1
 24	UhzpJ3vY	Motion to refer to a Delegated Legislation Committee (DLC)	sunleyJ@parliament.uk	2019-11-07 14:38:15 +00:00	NULL	Will appear as a formal proceeding.	V&P anchor link	Date of the motion	278	1
 26	nveorPPO	Question on motion to approve the instrument put	sunleyJ@parliament.uk	2019-11-07 14:41:07 +00:00	NULL	A decision or a deferment could follow the question being asked. 	V&P	Date of question being asked - takes into account divisions	279	1
 28	7C9iFOw0	Motion to approve the instrument withdrawn by the Government	sunleyJ@parliament.uk	2019-11-07 14:41:25 +00:00	NULL	Need to keep an eye on the LBP SI list awaiting affirmative approval.	LBP	Date withdrawn	280	1
 29	MMFzqr50	Motion to approve the instrument withdrawn by the Government	sunleyJ@parliament.uk	2019-09-05 14:45:39 +00:00	NULL	This may be in the Commons Future Business by way of omission when it previously existed. 	No link?	Date withdrawn	161	1
-32	qELp3R9D	Non-fatal motion to object to the instrument tabled	sunleyJ@parliament.uk	2020-01-31 14:10:50 +00:00	NULL	Motion text will refer to  revoke  or  withdraw 	LBP	Date tabled. This is not the same as date of  notice (aka appearance in LBP).  Date tabled will be date of notice -1, Tuesday to Thursday. When date of notice falls on Monday, it will be the previous Friday irrespective of whether the previous Friday was n	417	1
+32	qELp3R9D	Non-fatal motion to object to the instrument tabled	sunleyJ@parliament.uk	2020-01-31 14:10:50 +00:00	NULL	Motion text will refer to revoke or withdraw	LBP	Date tabled. This is not the same as date of  notice (aka appearance in LBP).  Date tabled will be date of notice -1, Tuesday to Thursday. When date of notice falls on Monday, it will be the previous Friday irrespective of whether the previous Friday was n	417	1
 33	W4Sgl6Do	Motion to approve the instrument tabled by the Government	sunleyJ@parliament.uk	2019-09-05 14:37:56 +00:00	NULL	This step will only appear once. If you spot it again in the Commons FB then raise with the Journal Office.	Commons Future Business (anchor link)	Date tabled. This is not the same as date of  notice (aka appearance in Commons Future Business B).  Date tabled will be date of notice -1, Tuesday to Thursday. When date of notice falls on Monday, it will be the previous Friday irrespective of whether the	158	1
-34	O5QdnmSL	Considered for English votes for English laws (EVEL) certification	sunleyJ@parliament.uk	2020-01-31 11:04:40 +00:00	NULL	Note we may get notification of this before the Certificate appears in the Vote. We actualise and then update our data when it does appear, unless grouped with a Not Certified which we actualise as per JO instructions	Depends on the outcome - if not certified there will be no link. If certified then the Vote 	Date of consideration if  not certified  or date the certificate appears in the Vote 	382	1
+34	O5QdnmSL	Considered for English votes for English laws (EVEL) certification	sunleyJ@parliament.uk	2020-01-31 11:04:40 +00:00	NULL	Note we may get notification of this before the Certificate appears in the Vote. We actualise and then update our data when it does appear, unless grouped with a Not Certified which we actualise as per JO instructions	Depends on the outcome - if not certified there will be no link. If certified then the Vote 	Date of consideration if not certified or date the certificate appears in the Vote 	382	1
 35	qDKPhiTg	Motion (prayer) to stop the instrument being law approved	sunleyJ@parliament.uk	2020-05-21 14:35:47 +00:00	NULL	Will usually follow a Commons debate. 	V&P anchor link	Date of decision	478	1
 36	Te5alY3F	Non-fatal motion to object to the instrument withdrawn	sunleyJ@parliament.uk	2020-01-31 14:12:15 +00:00	NULL	Motions can be withdrawn at any point before debate or at the end of the debate if the Member does not wish for the question to be put. 	No link if withdrawn before debate or LBP minute if withdrawn at end of debate 	Date withdrawn	418	1
 37	rcvPN7gS	Motion (prayer) to stop the instrument being law rejected	sunleyJ@parliament.uk	2020-01-31 09:17:15 +00:00	NULL	Will usually follow a Commons debate, could be grouped together with the actual approval motion. 	V&P anchor link	Date of decision	338	1
-38	FLHAXypO	Delegated Legislation Committee (DLC) debate	sunleyJ@parliament.uk	2019-11-26 17:15:54 +00:00	NULL	Actualise this step when it is scheduled on the Parliamentary Calendar or Future Business so it appears in  Scheduled upcoming stages  on the workpackage page. The link will need to be updated once the debate has taken place. If it s rescheduled, change th	Start of debate in Commons Hansard	Date of debate	323	1
+38	FLHAXypO	Delegated Legislation Committee (DLC) debate	sunleyJ@parliament.uk	2019-11-26 17:15:54 +00:00	NULL	Actualise this step when it is scheduled on the Parliamentary Calendar or Future Business so it appears in Scheduled upcoming stages on the workpackage page. The link will need to be updated once the debate has taken place. If its rescheduled, change th	Start of debate in Commons Hansard	Date of debate	323	1
 39	nVheFQgh	Instrument approved	sunleyJ@parliament.uk	2020-01-29 13:58:55 +00:00	NULL	To be added when the House of Lords approves an instrument. If the Commons have already approved then please actualise the bicameral step too. Do not add the bicameral step if the Commons have not approved. 	Lords minute individual link	Date of decision	333	1
-40	dnWpdwUf	Instrument approved	sunleyJ@parliament.uk	2020-01-29 13:58:07 +00:00	NULL	To be added when the House of Commons approves an instrument. If the instrument is laid in HoC only then it must be actualised alongside the  Instrument approved by the House of Commons  step. If the instrument is also laid in the Lords and Lords have alre	V&P (anchor link)	Date of decision	332	1
+40	dnWpdwUf	Instrument approved	sunleyJ@parliament.uk	2020-01-29 13:58:07 +00:00	NULL	To be added when the House of Commons approves an instrument. If the instrument is laid in HoC only then it must be actualised alongside the Instrument approved by the House of Commons step. If the instrument is also laid in the Lords and Lords have alre	V&P (anchor link)	Date of decision	332	1
 41	cLEFLsGp	Non-fatal motion (prayer) to object to the instrument withdrawn	sunleyJ@parliament.uk	2020-01-31 14:08:45 +00:00	NULL	Motions can be withdrawn at any stage before debate or they will be withdrawn at the end of debate either singularly or grouped. 	No link if withdrawn before a debate takes place (motion will simply disappear) otherwise if it is withdrawn following a debate then the LBP minute link	Date withdrawn	415	1
 42	ORYEPBmc	Question on motion to approve the instrument put	sunleyJ@parliament.uk	2020-01-31 09:16:01 +00:00	NULL	A decision or a deferment could follow the question being asked. 	Lords minute - individual link	Date of decision	336	1
 43	Wn3APPzz	Question on a non-fatal motion to object to the instrument put	sunleyJ@parliament.uk	2020-01-31 09:26:40 +00:00	NULL	Will usually follow a debate in the Lords and will be accompanied by a decision step. 	Lords minute - individual link	Date of decision	342	1
 44	VQx4bcZV	Instrument stops being law	sunleyJ@parliament.uk	2019-11-18 12:49:41 +00:00	NULL	Actualised according to House decision (only one need say no). Acts as a Parliament instruction to take the instrument out of force. 	V&P or LBP	Date of decision	319	1
 45	f7v61U48	Motion (prayer) to stop the instrument becoming law rejected	sunleyJ@parliament.uk	2020-01-31 12:58:24 +00:00	NULL	Will usually follow a debate and the question being put/deferred 	LBP	Date of decision	399	1
 46	lYbqgD7u	Motion (prayer) to stop the instrument becoming law withdrawn	sunleyJ@parliament.uk	2019-09-05 12:47:37 +00:00	NULL	A motion can be withdrawn at any point after tabling but usually happens immediately after debate. If withdrawn before debate takes place then the motion will no longer appear in LBP or scheduled. 	LBP	Date withdrawn	148	1
-47	xAb8mi2D	Motion (prayer) to stop the instrument being law tabled	sunleyJ@parliament.uk	2020-01-31 13:11:02 +00:00	NULL	Motion text will refer to  be not made  or  Declines to approve 	LBP individual link or if not quick enough Lords PDF	Date tabled. This is not the same as date of notice (aka appearance in LBP).  Date tabled will be date of notice -1, Tuesday to Thursday. When date of notice falls on Monday, it will be the previous Friday irrespective of whether the previous Friday was no	402	1
+47	xAb8mi2D	Motion (prayer) to stop the instrument being law tabled	sunleyJ@parliament.uk	2020-01-31 13:11:02 +00:00	NULL	Motion text will refer to be not made or Declines to approve	LBP individual link or if not quick enough Lords PDF	Date tabled. This is not the same as date of notice (aka appearance in LBP).  Date tabled will be date of notice -1, Tuesday to Thursday. When date of notice falls on Monday, it will be the previous Friday irrespective of whether the previous Friday was no	402	1
 48	sD2Tu3S7	Question on a non-fatal motion (prayer) to object to the instrument put	sunleyJ@parliament.uk	2019-09-05 11:44:14 +00:00	NULL	Will usually follow debate or as a separate motion following a Grand Committee debate	Lords Minute individual link	Date of decision	140	1
-50	mHLm3KY7	Motion to approve the instrument tabled by the Government	sunleyJ@parliament.uk	2020-01-31 13:22:48 +00:00	NULL	This will appear on a Thursday in LBP under  Instruments awaiting affirmative approval . Any affirmative SIs considered by JCSI on a Wednesday will appear under this heading on a Thursday. This is the approval motions in the Lords. 	LBP individual link (will appear on a Thursday)	Date tabled. This is not the same as date of  notice (aka appearance in LBP).  Date tabled will be date of notice -1, Tuesday to Thursday. When date of notice falls on Monday, it will be the previous Friday irrespective of whether the previous Friday was n	405	1
+50	mHLm3KY7	Motion to approve the instrument tabled by the Government	sunleyJ@parliament.uk	2020-01-31 13:22:48 +00:00	NULL	This will appear on a Thursday in LBP under Instruments awaiting affirmative approval. Any affirmative SIs considered by JCSI on a Wednesday will appear under this heading on a Thursday. This is the approval motions in the Lords. 	LBP individual link (will appear on a Thursday)	Date tabled. This is not the same as date of  notice (aka appearance in LBP).  Date tabled will be date of notice -1, Tuesday to Thursday. When date of notice falls on Monday, it will be the previous Friday irrespective of whether the previous Friday was n	405	1
 51	FYeLHMEw	Instrument approved by the House of Commons and the House of Lords	sunleyJ@parliament.uk	2020-01-29 13:55:03 +00:00	NULL	This is to be added when the final House has approved the instrument and must be actualised alongside. Do not use for HoC only SIs, there is a separate step for those types. Concluding steps to be actualised separately. 	V&P or LBP	The date on which both Houses, or on which the last House to approve, approves.	330	1
 52	RTCec2SF	Question on a motion (prayer) to stop the instrument being law put	sunleyJ@parliament.uk	2019-09-24 14:19:30 +00:00	NULL	Will follow debate on the motion. 	Lords Minutes individual link	Date of question	219	1
-53	Ksnj7JJ8	Approval period ends	sunleyJ@parliament.uk	2020-03-23 11:37:35 +00:00	NULL	Please check with JO what the dates are as they can differ from the norm - normally 28/40 days but can be longer/shorter depending on what the SI states and in some cases these steps are not needed. 	No link	See scope note. 	NULL	1
+53	Ksnj7JJ8	Approval period ends	sunleyJ@parliament.uk	2021-03-09 15:38:16 +00:00	NULL	Please check with JO what the dates are as they can differ from the norm - normally 28/40 days but can be longer/shorter depending on what the SI states and in some cases these steps are not needed. 	No link	See scope note. 	NULL	1
 54	4RqyACGB	Motion (prayer) to stop the instrument becoming law approved	sunleyJ@parliament.uk	2020-01-31 12:47:58 +00:00	NULL	Will usually follow a debate and question/deferment. Will end the SI procedure. 	LBP	Date of decision	397	1
-55	No1qmqJ4	Approval period begins	sunleyJ@parliament.uk	2020-03-27 08:33:48 +00:00	NULL	Please check with JO what the dates are as they can differ from the norm - normally 28 days but can be longer/shorter depending on what the SI states and in some cases these steps are not needed.  This step does not self-preclude as there is the possibilit	No link	See Scope Note	NULL	1
 56	iYjXMbrn	Motion (prayer) to stop the instrument becoming law rejected	sunleyJ@parliament.uk	2020-01-31 12:58:50 +00:00	NULL	Will usually follow a debate and question being put/deferred. 	V&P anchor link	Date of decision	400	1
-57	to8fbBdA	Non-fatal motion (prayer) to object to the instrument tabled	sunleyJ@parliament.uk	2019-09-24 14:34:39 +00:00	NULL	Motion text will refer to  revoke  or  withdraw 	EDM page	Date tabled	224	1
+57	to8fbBdA	Non-fatal motion (prayer) to object to the instrument tabled	sunleyJ@parliament.uk	2019-09-24 14:34:39 +00:00	NULL	Motion text will refer to revoke or withdraw	EDM page	Date tabled	224	1
 58	omnvAX3Q	Motion (prayer) to stop the instrument becoming law withdrawn	sunleyJ@parliament.uk	2019-09-05 12:41:28 +00:00	NULL	A motion can be withdrawn at any point after tabling but usually happens immediately after debate. Note if the motion is withdrawn before debate it is difficult to keep track of this (keep checking EDM itself)	V&P/EDM depending on when it was withdrawn. 	Date withdrawn	147	1
-59	pp4QwM9d	Motion (prayer) to stop the instrument becoming law tabled	sunleyJ@parliament.uk	2020-01-31 13:01:42 +00:00	NULL	Will usually appear as the House  declines to approve the instrument  and will appear in the LBP after laying of an instrument or as an amendment to the approval motion upon scheduling on a debate. 	LBP - ideally the individual link but if missed then the Lords pdf for that day. 	Date tabled	401	1
+59	pp4QwM9d	Motion (prayer) to stop the instrument becoming law tabled	sunleyJ@parliament.uk	2020-01-31 13:01:42 +00:00	NULL	Will usually appear as the House declines to approve the instrument and will appear in the LBP after laying of an instrument or as an amendment to the approval motion upon scheduling on a debate. 	LBP - ideally the individual link but if missed then the Lords pdf for that day. 	Date tabled	401	1
 60	bJ6b7OGH	Non-fatal motion to object to the instrument approved	sunleyJ@parliament.uk	2019-09-24 14:45:29 +00:00	NULL	Will follow a debate on the Floor or GC debate	Lords Minute individual link	Date of the decision	228	1
 61	JskTnWCd	Non-fatal motion to object to the instrument rejected	sunleyJ@parliament.uk	2019-09-24 14:46:44 +00:00	NULL	Will usually follow a Chamber debate or GC debate	Lords Minute individual link	Date of decision	229	1
 63	4Uk15JA8	Question on a motion (prayer) to stop the instrument becoming law put	sunleyJ@parliament.uk	2020-01-31 10:27:53 +00:00	NULL	Usually follows a debate in the Chamber or will be a separate motion if debated in DLC. The decision could also be deferred. 	V&P anchor link	Date of decision	365	1
-64	g8B3R2Ou	Objection period ends	sunleyJ@parliament.uk	2020-01-31 14:22:56 +00:00	NULL	Subject to change depending on Parliamentary recesses/prorogation etc. but will be  40 days from laying  	No link	See the scrutiny table 	424	1
+64	g8B3R2Ou	Objection period ends	sunleyJ@parliament.uk	2020-01-31 14:22:56 +00:00	NULL	Subject to change depending on Parliamentary recesses/prorogation etc. but will be 40 days from laying 	No link	See the scrutiny table 	424	1
 65	Fk1bgvm4	The European Statutory Instruments Committee (ESIC) agreed that the instrument should follow the negative procedure	sunleyJ@parliament.uk	2020-03-30 14:07:56 +00:00	NULL	We will first see notice of the report in the Vote on a Wednesday but the report will be published on a Thursday so we actualise retrospectively. 	Specific page in the report 	Date ESIC met (usually a Tuesday)	455	1
 66	scSuvkup	The European Statutory Instruments Committee (ESIC) recommended that the instrument should follow the affirmative procedure	sunleyJ@parliament.uk	2020-03-30 14:07:44 +00:00	NULL	We will first see notice of the report in the Vote on a Wednesday but the report will be published on a Thursday so we actualise retrospectively. 	Affirmative list in report 	Date ESIC met (usually a Tuesday)	453	1
-67	oUjmJcf5	Objection period begins	sunleyJ@parliament.uk	2020-03-27 08:34:01 +00:00	NULL	Applies to all negative instruments.  This step does not self-preclude as there is the possibility that the clock could be actualised twice if laying in both Houses occurs on different days.	No link	Date laid	440	1
 68	DDN0Bdp5	Certified as England only under the English votes for English laws (EVEL) process	sunleyJ@parliament.uk	2020-01-31 11:06:44 +00:00	NULL	Note we may get notification of this before the Certificate appears in the Vote. We actualise and then update our data when it does appear. 	V&P anchor link	Date we receive notice which is then updated with the date of the Vote when it appears. 	383	1
-69	lwlTPsiJ	Instrument reported by the Select Committee on Statutory Instruments (SCSI)	sunleyJ@parliament.uk	2020-03-27 08:41:47 +00:00	NULL	Will appear under the heading  Instruments reported  in the actual report. We will first see notice of the report in the Vote/LBP on a Thursday but the report will be published on a Friday so we actualise retrospectively. Name of step changed from  Concern	SCSI report - anchor link to specific instrument	Date the SCSI met (usually a Wednesday).	445	1
-70	zBtshoXJ	Instrument not reported by the Select Committee on Statutory Instruments (SCSI)	sunleyJ@parliament.uk	2020-03-27 08:41:54 +00:00	NULL	Instruments will appear under the heading  Instruments not reported  in the actual report. We will first see notice of the report in the Vote on a Thursday but the report will be published on a Friday so we actualise retrospectively.  Name of step changed 	SCSI report -   instruments not reported  page	Date the SCSI met (usually a Wednesday).	446	1
-71	3TPVFlNJ	Committee sifting period ends	sunleyJ@parliament.uk	2020-01-31 10:45:17 +00:00	NULL	The end date will be 10 days (based on the scrutiny table) from the date of laying. 	No link	See the the scrutiny table for specific date	371	1
-72	2Etk3rF5	No concerns raised by the Secondary Legislation Scrutiny Committee (SLSC)	sunleyJ@parliament.uk	2020-04-09 13:54:35 +00:00	NULL	Will appear under the report heading  Instruments not drawn to the special attention of the House . We will first see notice of the report in the Vote/LBP on a Wednesday but the report will be published on a Thursday so we actualise retrospectively. If the	SLSC report - SIs not reported page	Date the SLSC met (usually a Tuesday or Wednesday depending on which Sub-Comm).	465	1
-73	0XYsDfhL	Instrument approved by the House of Commons	sunleyJ@parliament.uk	2020-01-29 13:56:33 +00:00	NULL	This is to be added when the House of Commons has approved the instrument and must be actualised alongside the specific Commons  Instrument approved  step. The step identifies that only the HoC can approve, it s a sort of a patch as it should be inferred b	V&P - link to the decision outcome anchor link. 	Same date as Commons  Instrument approved  for Commons only SIs	331	1
+69	lwlTPsiJ	Instrument reported by the Select Committee on Statutory Instruments (SCSI)	sunleyJ@parliament.uk	2020-03-27 08:41:47 +00:00	NULL	Will appear under the heading Instruments reported in the actual report. We will first see notice of the report in the Vote/LBP on a Thursday but the report will be published on a Friday so we actualise retrospectively. Name of step changed from Concern	SCSI report - anchor link to specific instrument	Date the SCSI met (usually a Wednesday).	445	1
+70	zBtshoXJ	Instrument not reported by the Select Committee on Statutory Instruments (SCSI)	sunleyJ@parliament.uk	2020-03-27 08:41:54 +00:00	NULL	Instruments will appear under the heading Instruments not reported in the actual report. We will first see notice of the report in the Vote on a Thursday but the report will be published on a Friday so we actualise retrospectively.  Name of step changed 	SCSI report -  instruments not reported page	Date the SCSI met (usually a Wednesday).	446	1
+71	3TPVFlNJ	Committee sifting period ends	sunleyJ@parliament.uk	2021-03-09 15:16:37 +00:00	NULL	The end date will be 10 days (based on the scrutiny table) from the date of laying. 	No link	See the the scrutiny table for specific date	525	1
+72	2Etk3rF5	No concerns raised by the Secondary Legislation Scrutiny Committee (SLSC)	sunleyJ@parliament.uk	2020-04-09 13:54:35 +00:00	NULL	Will appear under the report heading Instruments not drawn to the special attention of the House. We will first see notice of the report in the Vote/LBP on a Wednesday but the report will be published on a Thursday so we actualise retrospectively. If the	SLSC report - SIs not reported page	Date the SLSC met (usually a Tuesday or Wednesday depending on which Sub-Comm).	465	1
+73	0XYsDfhL	Instrument approved by the House of Commons	sunleyJ@parliament.uk	2020-01-29 13:56:33 +00:00	NULL	This is to be added when the House of Commons has approved the instrument and must be actualised alongside the specific Commons Instrument approved step. The step identifies that only the HoC can approve, its a sort of a patch as it should be inferred b	V&P - link to the decision outcome anchor link. 	Same date as Commons Instrument approved for Commons only SIs	331	1
 74	kBOXHIxX	Certified as England and Wales only under the English votes for English laws (EVEL) process	sunleyJ@parliament.uk	2020-01-31 10:51:38 +00:00	NULL	Note we may get notification of this before the Certificate appears in the Vote. We actualise and then update our data when it does appear. 	V&P anchor link	Date we receive notice which is then updated with the date of the Vote when it appears. 	373	1
 75	sE6lpbyD	Certified as England, Wales and Northern Ireland only under the English votes for English laws (EVEL) process	sunleyJ@parliament.uk	2020-01-31 10:37:44 +00:00	NULL	Note we may get notification of this before the Certificate appears in the Vote. We actualise and then update our data when it does appear. 	V&P anchor link	Date we receive notice which is then updated with the date of the Vote when it appears. 	369	1
 76	RcRo88p2	Motion (prayer) to stop the instrument being law withdrawn	sunleyJ@parliament.uk	2019-09-05 13:40:57 +00:00	NULL	Will occur either at the end of debate or at any point before debate (need to check EDM page itself)	EDM page 	Date withdrawn	155	1
 77	S652OOdl	Question on a non-fatal motion (prayer) to object to the instrument put	sunleyJ@parliament.uk	2020-01-31 10:28:09 +00:00	NULL	Will usually follow a debate or as a separate motion following a DLC debate. The decision could also be deferred. 	V&P anchor link	Date question put	366	1
 78	pX6JXPJ3	Instrument rejected	sunleyJ@parliament.uk	2020-05-21 14:39:03 +00:00	NULL	If actualised this will bring the SI procedure to an end. 	LBP - individual link	Date of decision	480	1
-79	j7oLnCke	Instrument not reported by the Joint Committee on Statutory Instruments (JCSI)	sunleyJ@parliament.uk	2020-04-07 14:10:04 +00:00	NULL	Will appear under the report heading  Instruments not reported . We will first see notice of the report in the Vote/LBP on a Thursday but the report will be published on a Friday so we actualise retrospectively. Name changed from  no concerns raised  in Ma	JCSI report - Not reported page	Date the JCSI met (usually a Wednesday).	462	1
-80	uQY6bCqe	Committee sifting period begins	sunleyJ@parliament.uk	2020-03-27 08:34:12 +00:00	NULL	Applies to all PNSIs and is 10 days. Please see the scrutiny table.  This step does not self-preclude as there is the possibility that the clock could be actualised twice if laying in both Houses occurs on different days.	No link	Laid date. 	441	1
+79	j7oLnCke	Instrument not reported by the Joint Committee on Statutory Instruments (JCSI)	sunleyJ@parliament.uk	2020-04-07 14:10:04 +00:00	NULL	Will appear under the report heading Instruments not reported. We will first see notice of the report in the Vote/LBP on a Thursday but the report will be published on a Friday so we actualise retrospectively. Name changed from no concerns raised in Ma	JCSI report - Not reported page	Date the JCSI met (usually a Wednesday).	462	1
 81	GAGqPaSf	The Secondary Legislation Scrutiny Committee (SLSC) recommended that the instrument should follow the affirmative procedure	sunleyJ@parliament.uk	2020-04-09 13:54:42 +00:00	NULL	We will first see notice of the report in the Vote/LBP on a Wednesday but the report will be published on a Thursday so we actualise retrospectively. 	SLSC report - specific PNSI page. 	Date the SLSC met (usually a Tuesday or Wednesday depending on which Sub-Comm).	466	1
 82	cr7IT3NN	Motion (prayer) to stop the instrument being law withdrawn	sunleyJ@parliament.uk	2019-09-05 13:44:25 +00:00	NULL	Will occur either at the end of debate or at any point before debate (need to check LBP regularly to keep track of the motion itself)	LBP	Date withdrawn 	156	1
 83	czgsGGiS	Non-fatal motion (prayer) to object to the instrument withdrawn	sunleyJ@parliament.uk	2020-01-31 14:09:47 +00:00	NULL	Motions can be withdrawn at any point before debate or they can be withdrawn at the end of the debate if the Member does not wish the question to be put. 	EDM page if withdrawn before debate otherwise the V&P anchor link. 	Date withdrawn	416	1
-84	Kn7FknDd	Concerns raised by the Secondary Legislation Scrutiny Committee (SLSC)	sunleyJ@parliament.uk	2020-04-09 13:54:48 +00:00	NULL	Will appear under the report heading  Instruments drawn to the special attention of the House . We will first see notice of the report in the Vote/LBP on a Wednesday but the report will be published on a Thursday so we actualise retrospectively. If the SLS	SLSC report - anchor link to specific instrument	Date the SLSC met (usually a Tuesday or Wednesday depending on which Sub-Comm).	467	1
+84	Kn7FknDd	Concerns raised by the Secondary Legislation Scrutiny Committee (SLSC)	sunleyJ@parliament.uk	2020-04-09 13:54:48 +00:00	NULL	Will appear under the report heading Instruments drawn to the special attention of the House. We will first see notice of the report in the Vote/LBP on a Wednesday but the report will be published on a Thursday so we actualise retrospectively. If the SLS	SLSC report - anchor link to specific instrument	Date the SLSC met (usually a Tuesday or Wednesday depending on which Sub-Comm).	467	1
 85	WYDc91tD	Instrument can be made (signed into law)	sunleyJ@parliament.uk	2019-11-11 14:46:49 +00:00	NULL	Applies to draft instruments that have completed their procedure but have not been signed by Govt minister. 	Statutory instrument (Draft intro page) 	Date clock ends or date procedure concluded in the House.	313	1
-86	xdLIQx0e	Instrument remains law	sunleyJ@parliament.uk	2019-09-05 12:00:11 +00:00	NULL	Previously  Instrument remains in effect as law , which was inaccurate for made negatives which come into force after the objection period ends. It is only accurate for made negatives which come into force during the objection period. 	Statutory instrument (intro page)	Date clock ends	142	1
+86	xdLIQx0e	Instrument remains law	sunleyJ@parliament.uk	2019-09-05 12:00:11 +00:00	NULL	Previously Instrument remains in effect as law, which was inaccurate for made negatives which come into force after the objection period ends. It is only accurate for made negatives which come into force during the objection period. 	Statutory instrument (intro page)	Date clock ends	142	1
 88	kne1hY9x	Question on a motion (prayer) to stop the instrument becoming law put	sunleyJ@parliament.uk	2020-01-31 14:24:59 +00:00	NULL	In the draft affirmative procedure, a decision on a motion to amend the approval motion. Usually follows a debate in the Chamber or will be a separate motion if debated in GC	Lords minutes - individual link	Date of decision	426	1
 89	W44csxGi	Motion (prayer) to stop the instrument becoming law approved	sunleyJ@parliament.uk	2020-01-31 12:48:19 +00:00	NULL	Will usually follow a debate and question/deferment. Will end the SI procedure. 	V&P anchor link	Date of decision	398	1
-90	rPPHhNSw	Non-fatal motion (prayer) to object to the instrument approved	sunleyJ@parliament.uk	2019-09-24 14:28:28 +00:00	NULL	Motion text will refer to  revoke  or  withdraw . Will usually follow a Chamber debate or as a formal proceeding following a DLC debate	Vote anchor link	Date of decision	221	1
+90	rPPHhNSw	Non-fatal motion (prayer) to object to the instrument approved	sunleyJ@parliament.uk	2019-09-24 14:28:28 +00:00	NULL	Motion text will refer to revoke or withdraw. Will usually follow a Chamber debate or as a formal proceeding following a DLC debate	Vote anchor link	Date of decision	221	1
 91	Z7EekLUl	Instrument cannot become law	sunleyJ@parliament.uk	2019-09-02 09:32:46 +00:00	NULL	Actualised according to House decision (only one need say no)	V&P or LBP. 	Date of decision	123	1
-92	VDT2CWL6	Instrument reported by the Joint Committee on Statutory Instruments (JCSI)	sunleyJ@parliament.uk	2020-04-07 14:10:18 +00:00	NULL	Will appear under the heading  Instruments reported  in the actual report. We will first see notice of the report in the Vote/LBP on a Thursday but the report will be published on a Friday so we actualise retrospectively. Name changed from  concerns raised	JCSI report - anchor link to the specific instrument	Date the JCSI met (usually a Wednesday).	463	1
+92	VDT2CWL6	Instrument reported by the Joint Committee on Statutory Instruments (JCSI)	sunleyJ@parliament.uk	2020-04-07 14:10:18 +00:00	NULL	Will appear under the heading Instruments reported in the actual report. We will first see notice of the report in the Vote/LBP on a Thursday but the report will be published on a Friday so we actualise retrospectively. Name changed from concerns raised	JCSI report - anchor link to the specific instrument	Date the JCSI met (usually a Wednesday).	463	1
 93	h3gt4BTJ	Considered by the European Statutory Instruments Committee (ESIC)	sunleyJ@parliament.uk	2021-01-28 15:35:23 +00:00	NULL	We will first see notice of the report in the Vote/LBP on a Wednesday but the report will be published on a Thursday so we actualise retrospectively. 	Depends on the outcome of the report for each instrument. 	Date ESIC met (usually a Tuesday)	522	1
-94	qtDMKvC4	Not certified under the English votes for English laws (EVEL) process	sunleyJ@parliament.uk	2020-01-31 14:16:06 +00:00	NULL	We receive this information via email from the Speaker s Office. Usually once a week but could be adhoc or more than once. 	No link	Date of the Speaker s consideration - will be on the letter we receive from the Speaker s Office	420	1
-95	azeuTQzC	Non-fatal motion (prayer) to object to the instrument rejected	sunleyJ@parliament.uk	2020-01-31 14:06:58 +00:00	NULL	Motion text will refer to  revoke  or  withdraw . Will usually follow a debate in the Chamber or as a formal proceeding following a DLC debate. 	Vote anchor link	Date of the decision	413	1
+94	qtDMKvC4	Not certified under the English votes for English laws (EVEL) process	sunleyJ@parliament.uk	2020-01-31 14:16:06 +00:00	NULL	We receive this information via email from the Speakers Office. Usually once a week but could be adhoc or more than once. 	No link	Date of the Speakers consideration - will be on the letter we receive from the Speakers Office	420	1
+95	azeuTQzC	Non-fatal motion (prayer) to object to the instrument rejected	sunleyJ@parliament.uk	2020-01-31 14:06:58 +00:00	NULL	Motion text will refer to revoke or withdraw. Will usually follow a debate in the Chamber or as a formal proceeding following a DLC debate. 	Vote anchor link	Date of the decision	413	1
 96	9irs4N6L	Instrument rejected	sunleyJ@parliament.uk	2020-05-21 14:37:45 +00:00	NULL	If actualised this will bring the SI procedure to an end. 	V&P anchor link	Date of decision	479	1
 98	t8ZjDv8Y	The Secondary Legislation Scrutiny Committee (SLSC) agreed that the instrument should follow the negative procedure	sunleyJ@parliament.uk	2020-04-09 13:54:54 +00:00	NULL	We will first see notice of the report in the Vote/LBP on a Wednesday but the report will be published on a Thursday so we actualise retrospectively. 	SLSC report - specific PNSI page	Date the SLSC met (usually a Tuesday or Wednesday depending on which Sub-Comm).	468	1
-99	u7VOBBH0	Proposed negative statutory instrument created	sunleyJ@parliament.uk	2019-08-28 14:08:21 +00:00	NULL	Individual step that begins the PNSI procedure	Specific PNSI page on gov.uk	Date laid	3	1
-100	2J36nNXG	Decision on motion to approve the instrument deferred	sunleyJ@parliament.uk	2020-01-31 11:55:48 +00:00	NULL	Will usually appear in the Vote along the lines of  The Deputy Speaker’s opinion as to the decision of the Question was challenged.   	V&P anchor link	Date the question was put	392	1
-105	n1z4oO2y	Scrutiny reserve for the Joint Committee on Statutory Instruments (JCSI) dispensed with	smethurstm@parliament.uk	2021-01-25 11:44:40 +00:00	NULL	 Refers to SO No 73 in the Lords. The SO reserves a period of scrutiny to the JCSI, during which approval motion cannot be tabled, until such time as the JCSI has reported on the instrument. Suspension of this SO removes the bar on tabling an approval moti	LBP Minutes	Date on which the SO is suspended	518	1
+99	u7VOBBH0	Proposed negative statutory instrument created	sunleyJ@parliament.uk	2021-03-09 15:17:43 +00:00	NULL	Individual step that begins the PNSI procedure	Specific PNSI page on gov.uk	Date laid	528	1
+100	2J36nNXG	Decision on motion to approve the instrument deferred	sunleyJ@parliament.uk	2020-01-31 11:55:48 +00:00	NULL	Will usually appear in the Vote along the lines of The Deputy Speaker’s opinion as to the decision of the Question was challenged.  	V&P anchor link	Date the question was put	392	1
+105	n1z4oO2y	Scrutiny reserve for the Joint Committee on Statutory Instruments (JCSI) dispensed with	smethurstm@parliament.uk	2021-01-25 11:44:40 +00:00	NULL	Refers to SO No 73 in the Lords. The SO reserves a period of scrutiny to the JCSI, during which approval motion cannot be tabled, until such time as the JCSI has reported on the instrument. Suspension of this SO removes the bar on tabling an approval moti	LBP Minutes	Date on which the SO is suspended	518	1
 106	CbO22SWg	Instrument withdrawn from the House of Lords	sunleyJ@parliament.uk	2020-01-31 09:28:14 +00:00	NULL	Instrument must be withdrawn from both Houses if bicameral and this will also result in the procedure concluding. 	LBP - individual link	Date withdrawn	344	1
 107	LkpqQD8q	Instrument withdrawn from the House of Commons	sunleyJ@parliament.uk	2020-01-31 09:27:57 +00:00	NULL	Instrument must be withdrawn from both Houses if bicameral and this will also result in the procedure concluding. 	V&P - anchor link	Date withdrawn	343	1
 108	glMwwx1F	Proposed negative statutory instrument withdrawn from the House of Lords	sunleyJ@parliament.uk	2020-01-31 09:29:08 +00:00	NULL	A PNSI being withdrawn will result in the procedure concluding in both Houses. 	Individual item in the Lords Papers	Date withdrawn	347	1
@@ -99,13 +96,11 @@
 117	kIzNUVyd	Question on a motion that the treaty should not be ratified put	sunleyJ@parliament.uk	2020-10-23 09:53:59 +00:00	NULL	Occurs straight after debate in the Chamber	Lords Minutes individual link	Date of Lords Minutes	508	1
 118	InQAzgXq	Government statement under Section 22 of the Constitutional Reform and Governance Act 2010: Section 20 does not apply	sunleyJ@parliament.uk	2020-07-28 14:14:22 +00:00	NULL	Should appear at the same time the treaty is laid. Will make the objection period redundant.	Written statement 	Date of statement	482	1
 119	8uPoNMi5	Government statement under Section 22 of the Constitutional Reform and Governance Act 2010: Section 20 does not apply	sunleyJ@parliament.uk	2020-07-28 14:14:16 +00:00	NULL	Should appear at the same time the treaty is laid. Will make the objection period redundant.	Written statement 	Date of statement	481	1
-120	2sXm5fVO	Government statement: treaty should nonetheless be ratified	sunleyJ@parliament.uk	2020-01-31 09:42:44 +00:00	NULL	Will likely follow the Commons rejection of a treaty (which does not stop the treaty dead like it does for statutory instruments)	Written statement	Date of the statement	352	1
+120	2sXm5fVO	Government statement: treaty should nonetheless be ratified	sunleyJ@parliament.uk	2021-03-10 12:22:06 +00:00	NULL	Will likely follow the Commons rejection of a treaty (which does not stop the treaty dead like it does for statutory instruments)	Written statement	Date of the statement	535	1
 121	rIdtq6te	Government statement: treaty should nonetheless be ratified	sunleyJ@parliament.uk	2020-01-31 09:43:09 +00:00	NULL	Will likely follow the Lords rejection of a treaty (which does not stop the treaty dead like it does for statutory instruments)	Written statement	Date of the statement	353	1
-122	1O5qs3hp	Government statement: objection period A extended	sunleyJ@parliament.uk	2019-08-30 07:12:26 +00:00	NULL	If this happens, the  period a ends  step is updated with the new date, and not actualised once more.	Written statement or if oral statement link to Hansard	Date of statement	55	1
-123	PN8BA0EV	Government statement: objection period A extended	sunleyJ@parliament.uk	2019-08-30 07:12:22 +00:00	NULL	If this happens, the  period a ends  step is updated with the new date, and not actualised once more.	Written statement or if oral statement link to Hansard	Date of statement	54	1
-124	NnizWAGU	Objection period A begins	sunleyJ@parliament.uk	2020-03-27 08:34:23 +00:00	NULL	Actualise the  end  step at this point too with a future date. This step does not self-preclude as there is the possibility that the clock could be actualised twice if laying in both Houses occurs on different days.	No link	Date treaty was laid	442	1
+122	1O5qs3hp	Government statement: objection period A extended	sunleyJ@parliament.uk	2019-08-30 07:12:26 +00:00	NULL	If this happens, the period a ends step is updated with the new date, and not actualised once more.	Written statement or if oral statement link to Hansard	Date of statement	55	1
+123	PN8BA0EV	Government statement: objection period A extended	sunleyJ@parliament.uk	2019-08-30 07:12:22 +00:00	NULL	If this happens, the period a ends step is updated with the new date, and not actualised once more.	Written statement or if oral statement link to Hansard	Date of statement	54	1
 125	y3MuaSK6	Objection period A ends	sunleyJ@parliament.uk	2020-01-31 14:18:55 +00:00	NULL	Usually 21 days after treaty laid (please see scrutiny tabled) but can be extended by Govt or by agreed motion in the Lords. 	No link	See the scrutiny table for date 	422	1
-126	fbw9uK2e	Objection period B begins	sunleyJ@parliament.uk	2020-03-27 08:34:44 +00:00	NULL	Dependent on outcome of a  motion that the treaty should not be ratified . This step does not self-preclude as there is the possibility that the clock could be actualised twice if laying in both Houses occurs on different days.	No link	Clock starts day after the last Government statement that the treaty should nonetheless be ratified	443	1
 127	iCQRUZuA	Objection period B ends	sunleyJ@parliament.uk	2020-01-31 14:19:19 +00:00	NULL	Actualise with a future date when clock starts. 	No link	See the scrutiny table 	423	1
 128	j7lc77KS	Motion that the treaty should not be ratified approved	sunleyJ@parliament.uk	2020-01-31 09:53:15 +00:00	NULL	This will usually follow a debate and the question being put. Note that this does not conclude the procedure like a similar motion in the statutory instrument procedures would, the likelihood is a following ministerial statement. 	Vote anchor link	Date of vote	354	1
 129	1RMR5lzd	Motion that the treaty should not be ratified approved	sunleyJ@parliament.uk	2020-01-31 09:53:17 +00:00	NULL	This will usually follow a debate and the question being put. Note that this does not conclude the procedure like a similar motion in the statutory instrument procedures would, the likelihood is a following ministerial statement.	Lords minute individual link	Date of Lords minutes	355	1
@@ -113,18 +108,18 @@
 131	StzWeGjF	Motion that the treaty should not be ratified rejected	sunleyJ@parliament.uk	2020-01-31 09:40:52 +00:00	NULL	Will follow a debate in the Lords and will be accompanied by the question step	Lords minute individual link	Lords Minute date	350	1
 132	443aMXaZ	Motion that the treaty should not be ratified tabled	sunleyJ@parliament.uk	2020-01-31 09:57:37 +00:00	NULL	These can be tabled at any time during objection periods A or B. Debates will usually be scheduled as a result of the tabling. 	EDM link	Date of the EDM	357	1
 133	3wIKRs06	Motion that the treaty should not be ratified tabled	sunleyJ@parliament.uk	2020-01-31 09:57:35 +00:00	NULL	These can be tabled at any time during objection period A. Debates will usually be scheduled as a result of the tabling. 	Lords prayer in the LBP (Individual link) or PDF if not quick enough	Date the prayer first appeared in the LBP	356	1
-134	KFlmTxbK	Motion that the treaty should not be ratified withdrawn	sunleyJ@parliament.uk	2020-01-31 13:20:31 +00:00	NULL	Motions can be withdrawn at anytime before they re debated but they can also be withdrawn at the end of the debate. It is worth keeping an eye on the EDM	Either the EDM itself if withdrawn before debate or V&P anchor if withdrawn post debate 	Date of the Vote/EDM. 	403	1
-135	k1lmUuuL	Motion that the treaty should not be ratified withdrawn	sunleyJ@parliament.uk	2020-01-31 13:21:49 +00:00	NULL	Motions can be withdrawn at anytime before they re debated but they can also be withdrawn at the end of the debate. It is worth keeping an eye on the LBP to make sure the motion hasn t disappeared	Link depends on the nature of withdrawal, if withdrawn before the debate there is no link, if withdrawn after the debate then the LBP minute. 	Date of Lords Minute/disappearance of motion from LBP	404	1
-136	H6GOB6yX	Treaty created	sunleyJ@parliament.uk	2019-11-11 14:07:37 +00:00	NULL	Starts off the treaty procedure	Treaty on Gov.uk	Date laid	300	1
+134	KFlmTxbK	Motion that the treaty should not be ratified withdrawn	sunleyJ@parliament.uk	2020-01-31 13:20:31 +00:00	NULL	Motions can be withdrawn at anytime before theyre debated but they can also be withdrawn at the end of the debate. It is worth keeping an eye on the EDM	Either the EDM itself if withdrawn before debate or V&P anchor if withdrawn post debate 	Date of the Vote/EDM. 	403	1
+135	k1lmUuuL	Motion that the treaty should not be ratified withdrawn	sunleyJ@parliament.uk	2020-01-31 13:21:49 +00:00	NULL	Motions can be withdrawn at anytime before theyre debated but they can also be withdrawn at the end of the debate. It is worth keeping an eye on the LBP to make sure the motion hasnt disappeared	Link depends on the nature of withdrawal, if withdrawn before the debate there is no link, if withdrawn after the debate then the LBP minute. 	Date of Lords Minute/disappearance of motion from LBP	404	1
+136	H6GOB6yX	Treaty created	sunleyJ@parliament.uk	2021-03-09 15:29:09 +00:00	NULL	Starts off the treaty procedure	Treaty on Gov.uk	Date laid	534	1
 138	2ezottpW	Treaty withdrawn from the House of Commons	sunleyJ@parliament.uk	2019-11-11 14:07:19 +00:00	NULL	This step concludes the procedure. 	V&P	Date of the V&P (or stated in the V&P)	299	1
 139	VJlr4CVZ	Treaty withdrawn from the House of Lords	sunleyJ@parliament.uk	2019-11-11 14:07:06 +00:00	NULL	This step concludes the procedure. 	LBP (Papers) - individual link	Date of the Lords Papers 	298	1
 141	ypryR1wZ	Parliamentary procedure concluded, Government cannot ratify treaty	sunleyJ@parliament.uk	2020-10-23 08:08:03 +00:00	NULL	Can only occur if the Government withdraws the treaty	No link	Date treaty has been withdrawn by Government 	495	1
 142	qkrlv9rh	Parliamentary procedure concluded, Government can ratify treaty	sunleyJ@parliament.uk	2020-10-23 08:08:23 +00:00	NULL	Follows the end of objection period A or B if no other business has occurred during that clock period. Or follows a motion tabled to stop the Government ratifying has been rejected.	No link	End of objection period A or B or when a motion has been rejected.	496	1
-143	Dxba45JM	Noted as an instrument of interest by the Secondary Legislation Scrutiny Committee (SLSC)	sunleyJ@parliament.uk	2020-04-09 13:55:00 +00:00	NULL	Instruments noted as of interest will appear under the report heading  Instruments of Interest  We will first see notice of the report in the Vote/LBP on a Wednesday but the report will be published on a Thursday so we actualise retrospectively. If the SLS	SLSC Report - anchor link to specific SI	Date the SLSC met (usually a Tuesday or Wednesday depending on which Sub-Comm).	469	1
+143	Dxba45JM	Noted as an instrument of interest by the Secondary Legislation Scrutiny Committee (SLSC)	sunleyJ@parliament.uk	2020-04-09 13:55:00 +00:00	NULL	Instruments noted as of interest will appear under the report heading Instruments of Interest We will first see notice of the report in the Vote/LBP on a Wednesday but the report will be published on a Thursday so we actualise retrospectively. If the SLS	SLSC Report - anchor link to specific SI	Date the SLSC met (usually a Tuesday or Wednesday depending on which Sub-Comm).	469	1
 144	xAY6uQCK	Considered by the International Trade Committee (ITC)	sunleyJ@parliament.uk	2021-01-28 15:36:16 +00:00	Most inquiries result in a report to the House, containing recommendations to the department, the wider Government, and sometimes other organisations such as arms-length agencies or regulators.	Treaties can be considered by multiple select committees with different interests 	Select Committee report contents page	Date the committee met rather than the date the committee published the report 	523	1
 145	PecK8a8g	International Trade Committee (ITC) recommended the treaty should not be ratified	sunleyJ@parliament.uk	2020-10-08 13:12:01 +00:00	NULL	Any Commons select committee can consider a treaty and make recommendations 	Select committee report html	Date select committee met, not date of report publishing	489	1
-146	HUKVUDie	International Trade Committee (ITC) recommended a general debate be scheduled	sunleyJ@parliament.uk	2020-10-08 13:12:33 +00:00	NULL	Suspect this will come from the report itself	Select committee report	Date select committee met, not date of report publishing	490	1
-148	CTPcJybs	General debate	sunleyJ@parliament.uk	2019-11-26 17:16:18 +00:00	NULL	Actualise this step when it is scheduled on the Parliamentary Calendar or Future Business so it appears in  Scheduled upcoming stages  on the workpackage page. The link will need to be updated once the debate has taken place. If it s rescheduled, change th	Hansard	Date of debate	324	1
+146	HUKVUDie	International Trade Committee (ITC) recommended a general debate	sunleyJ@parliament.uk	2021-05-19 08:18:40 +00:00	NULL	Suspect this will come from the report itself	Select committee report	Date select committee met, not date of report publishing	536	1
+148	CTPcJybs	General debate	sunleyJ@parliament.uk	2019-11-26 17:16:18 +00:00	NULL	Actualise this step when it is scheduled on the Parliamentary Calendar or Future Business so it appears in Scheduled upcoming stages on the workpackage page. The link will need to be updated once the debate has taken place. If its rescheduled, change th	Hansard	Date of debate	324	1
 150	5BnNJmeA	Motion calling on the Government to extend objection period A tabled	sunleyJ@parliament.uk	2020-10-23 08:10:15 +00:00	NULL	These motions can be tabled at any stage during objection period A and could lead to a debate and question. 	LBP (if not quick enough to get the html link then the PDF)	Date the motion was tabled 	497	1
 151	YbkCQlpA	Allocated to the EU Select Committee	sunleyJ@parliament.uk	2020-03-30 14:06:34 +00:00	NULL	Allocated to the EU Energy and Environment Sub-Committee EU Committee comprises the EU Select Committee and six topic focused sub-committees. The EU Select Committee oversees the work of the sub-committees. These seven committees may consider, however the 	EU Select Committee treaties page	Usually the day after the treaty is laid	NULL	1
 152	9jcgOmx6	Allocated to the EU Financial Affairs Sub-Committee	sunleyJ@parliament.uk	2020-04-17 10:41:09 +00:00	NULL	As of April 2020 this step is unlikely to be actualised. The new International Agreements sub-committee, or the whole committee, will deal exclusively with treaties subject to crag. EU Committee comprises the EU Select Committee and six topic focussed sub-	EU Select Committee treaties page	Usually the day after the treaty is laid	470	1
@@ -135,16 +130,16 @@
 157	VjfSURrA	Allocated to the EU Home Affairs Sub-Committee	sunleyJ@parliament.uk	2020-04-17 10:42:08 +00:00	NULL	As of April 2020 this step is unlikely to be actualised. The new International Agreements sub-committee, or the whole committee, will deal exclusively with treaties subject to crag. EU Committee comprises the EU Select Committee and six topic focussed sub-	EU Select Committee treaties page	Usually the day after the treaty is laid	475	1
 158	CE8pA1S6	Drawn to the special attention of the House by the European Union Committee	sunleyJ@parliament.uk	2020-03-27 12:57:36 +00:00	NULL	EU Committee comprises the EU Select Committee and six topic focussed sub-commitees. The EU Select Committee oversees the work of the sub-committees. These seven committees may consider, however the 6 sub-commitees do not have the power to report - reports	Link to approriate section of EU Committee report	Date of meeting, as published in the report	450	1
 159	fs7Bkr06	Reported for information by the European Union Committee	sunleyJ@parliament.uk	2020-03-27 12:57:31 +00:00	NULL	EU Committee comprises the EU Select Committee and six topic focussed sub-commitees. The EU Select Committee oversees the work of the sub-committees. These seven committees may consider, however the 6 sub-commitees do not have the power to report - reports	Link to approriate section of EU Committee report	Date of meeting, as published in the report	449	1
-161	b92RIOnb	Motion to take note of the treaty tabled	sunleyJ@parliament.uk	2020-01-31 10:12:28 +00:00	NULL	These motions can be tabled at any stage during objection period A. They will always be debated (unless withdrawn) but they won t impact the wider procedure.	LBP individual link (however if not in time please use Lords pdf)	Date the motion first appeared in LBP	359	1
+161	b92RIOnb	Motion to take note of the treaty tabled	sunleyJ@parliament.uk	2020-01-31 10:12:28 +00:00	NULL	These motions can be tabled at any stage during objection period A. They will always be debated (unless withdrawn) but they wont impact the wider procedure.	LBP individual link (however if not in time please use Lords pdf)	Date the motion first appeared in LBP	359	1
 162	cyJImIRf	Motion to take note of the treaty withdrawn	sunleyJ@parliament.uk	2020-01-31 13:46:11 +00:00	NULL	The motion can be withdrawn at any stage before debate or following debate. 	LBP minute or no link if withdrawn before debate	Date of LBP minutes or disappearance from LBP	407	1
-166	bKmLfK4r	Decision on a motion (prayer) to stop the instrument being law deferred	sunleyJ@parliament.uk	2019-09-05 11:36:18 +00:00	NULL	Will usually appear in the Vote with  The Deputy Speaker’s opinion as to the decision of the Question was challenged.  	V&P anchor link	Date the question was put	138	1
+166	bKmLfK4r	Decision on a motion (prayer) to stop the instrument being law deferred	sunleyJ@parliament.uk	2019-09-05 11:36:18 +00:00	NULL	Will usually appear in the Vote with The Deputy Speaker’s opinion as to the decision of the Question was challenged. 	V&P anchor link	Date the question was put	138	1
 167	nR2hK2JP	Motion calling on the Government to extend objection period A approved	sunleyJ@parliament.uk	2020-10-23 08:10:25 +00:00	NULL	Will usually follow a debate and the question being put. This step will also mean that the objection period A end step will need to change date depending on the specification in the motion or by Government	LBP individual link	Date question asked/debate	498	1
 168	mSAa3qLh	Motion calling on the Government to extend objection period A rejected	sunleyJ@parliament.uk	2020-10-23 08:10:34 +00:00	NULL	This will follow a debate and the question being put. Objection period A will not be affected. 	LBP individual note 	Date the question put/debate	499	1
 169	fnMRyzlQ	Motion calling on the Government to extend objection period A withdrawn	sunleyJ@parliament.uk	2020-10-23 08:10:47 +00:00	NULL	Will usually follow a debate, but not exclusively. 	LBP individual link	Date of debate	500	1
-171	CfQ2ir7J	Debate on a motion calling on the Government to extend objection period A	sunleyJ@parliament.uk	2020-10-23 08:11:05 +00:00	NULL	Will follow the motion tabled by the Lord. Actualise this step when it is scheduled on the Parliamentary Calendar or Future Business so it appears in  Scheduled upcoming stages  on the workpackage page. The link will need to be updated once the debate has 	Hansard	Date of debate	502	1
-173	ehXqIgP1	Non-fatal motion to object to the treaty tabled	sunleyJ@parliament.uk	2019-08-30 10:02:50 +00:00	NULL	Usually a  Motion to regret 	LBP individual link or pdf if not quick enough to catch the html link	Date motion first appeared in LBP	74	1
+171	CfQ2ir7J	Debate on a motion calling on the Government to extend objection period A	sunleyJ@parliament.uk	2020-10-23 08:11:05 +00:00	NULL	Will follow the motion tabled by the Lord. Actualise this step when it is scheduled on the Parliamentary Calendar or Future Business so it appears in Scheduled upcoming stages on the workpackage page. The link will need to be updated once the debate has 	Hansard	Date of debate	502	1
+173	ehXqIgP1	Non-fatal motion to object to the treaty tabled	sunleyJ@parliament.uk	2019-08-30 10:02:50 +00:00	NULL	Usually a Motion to regret	LBP individual link or pdf if not quick enough to catch the html link	Date motion first appeared in LBP	74	1
 174	aIv3tbQN	Question on a motion calling on the Government to extend objection period A put	sunleyJ@parliament.uk	2020-10-23 08:15:19 +00:00	NULL	Will occur at the end of a debate. The debate could include several motions so be careful to check the outcome in the minutes before actualising. 	LBP individual link	Date the question was asked/debate took place	503	1
-177	tQIWwjFc	Debate on a motion to take note of the treaty	sunleyJ@parliament.uk	2019-11-26 17:17:09 +00:00	NULL	No decision / approved / rejected steps follow this as the motion is neutral i.e. does not express the view of the House. Actualise this step when it is scheduled on the Parliamentary Calendar or Future Business so it appears in  Scheduled upcoming stages 	Hansard	Date of debate	326	1
+177	tQIWwjFc	Debate on a motion to take note of the treaty	sunleyJ@parliament.uk	2019-11-26 17:17:09 +00:00	NULL	No decision / approved / rejected steps follow this as the motion is neutral i.e. does not express the view of the House. Actualise this step when it is scheduled on the Parliamentary Calendar or Future Business so it appears in Scheduled upcoming stages	Hansard	Date of debate	326	1
 178	2zyB3vH9	Non-fatal motion to object to the treaty withdrawn	sunleyJ@parliament.uk	2020-01-31 14:15:19 +00:00	NULL	Motions can be withdrawn at any point before debate or at the end of a debate if the Member does not want to put the question to the Floor. 	No link if withdrawn before debate or LBP minute link if withdrawn at the end of a debate. 	Date withdrawn. 	419	1
 179	fJtQ5j7U	Question on a non-fatal motion to object to the treaty put	sunleyJ@parliament.uk	2019-09-24 14:08:26 +00:00	NULL	Will occur after debate in the Chamber 	Lords Minute individual link	Date of Lords Minutes	215	1
 180	Pzdsxz7j	Non-fatal motion to object to the treaty approved	sunleyJ@parliament.uk	2019-08-30 10:13:34 +00:00	NULL	Will usually follow a debate	Lords minute individual link	Lords minutes date	77	1
@@ -162,18 +157,18 @@
 192	dxsCpJ3x	Motion that the treaty should not be ratified not moved	sunleyJ@parliament.uk	2019-08-30 09:25:41 +00:00	NULL	Usually follows a debate that bundles several treaties in together	Hansard or LBP	Date of Hansard	62	1
 194	LII1y9vZ	Motion to take note of the instrument tabled	sunleyJ@parliament.uk	2019-09-24 16:25:13 +00:00	NULL	Note that motions to take note do not have outcome after debate	LBP - usually the pdf as the link does not remain active	Date of tabled - not the day it appears in the LBP, usually the previous sitting day to this.	250	1
 195	fiIbR9z4	Motion to take note of the instrument withdrawn	sunleyJ@parliament.uk	2020-01-31 13:29:52 +00:00	NULL	Motions can be withdrawn at any time after tabling but will usually occur when a number of SIs have been debated together. One SI will be decided while the others will not be moved.	LBP minute or no link if withdrawn before debate	Date of the minutes or date of disappearance. 	406	1
-198	1hF7kB56	Debate on a motion to take note of the instrument	sunleyJ@parliament.uk	2019-11-26 17:17:34 +00:00	NULL	Actualise this step when it is scheduled on the Parliamentary Calendar or Future Business so it appears in  Scheduled upcoming stages  on the workpackage page. The link will need to be updated once the debate has taken place. If it s rescheduled, change th	Lords Hansard link	Date of debate	327	1
-199	8vi1Ozd8	Decision on a motion (prayer) to stop the instrument becoming law deferred	sunleyJ@parliament.uk	2019-09-24 16:29:12 +00:00	NULL	Will usually appear in the Vote with  The Deputy Speaker’s opinion as to the decision of the Question was challenged.  	V&P anchor link	Date the question was put	253	1
+198	1hF7kB56	Debate on a motion to take note of the instrument	sunleyJ@parliament.uk	2019-11-26 17:17:34 +00:00	NULL	Actualise this step when it is scheduled on the Parliamentary Calendar or Future Business so it appears in Scheduled upcoming stages on the workpackage page. The link will need to be updated once the debate has taken place. If its rescheduled, change th	Lords Hansard link	Date of debate	327	1
+199	8vi1Ozd8	Decision on a motion (prayer) to stop the instrument becoming law deferred	sunleyJ@parliament.uk	2019-09-24 16:29:12 +00:00	NULL	Will usually appear in the Vote with The Deputy Speaker’s opinion as to the decision of the Question was challenged. 	V&P anchor link	Date the question was put	253	1
 200	BT6vLIzF	Communication declaring that the Instrument had come into operation before being laid before Parliament	sunleyJ@parliament.uk	2020-11-05 16:55:40 +00:00	NULL	It is important to keep an eye out for these types of instruments being laid as we would normally expect a communication to appear in the Vote anywhere between 1 day to 3 weeks later. 	Vote anchor link	Date of vote (or correction)	510	1
 201	6v24O5v3	Communication declaring that the Instrument had come into operation before being laid before Parliament	sunleyJ@parliament.uk	2020-11-05 16:56:04 +00:00	NULL	It is important to keep an eye out for these types of instruments being laid as we would normally expect a communication to appear in the LBP anywhere between 1 day to 3 weeks later. 	LBP Minutes - Specific paper link. 	LBP date	511	1
 202	MuMtmPYu	Considered by the European Union Committee	sunleyJ@parliament.uk	2021-01-28 15:37:03 +00:00	NULL	EU Committee comprises the EU Select Committee and six topic focussed sub-commitees. The EU Select Committee oversees the work of the sub-committees. These seven committees may consider, however the 6 sub-commitees do not have the power to report - reports	Link to appropriate section of EU Committee report	Date of meeting, as published in the report	524	1
-203	eoSLqvt0	Decision on a motion that the treaty should not be ratified deferred	sunleyJ@parliament.uk	2020-10-23 09:52:55 +00:00	NULL	Will usually appear in the Vote along the lines of  The Deputy Speaker’s opinion as to the decision of the Question was challenged 	V&P anchor link	Date the question was put	507	1
+203	eoSLqvt0	Decision on a motion that the treaty should not be ratified deferred	sunleyJ@parliament.uk	2020-10-23 09:52:55 +00:00	NULL	Will usually appear in the Vote along the lines of The Deputy Speaker’s opinion as to the decision of the Question was challenged	V&P anchor link	Date the question was put	507	1
 204	sCUSdgrV	Non-fatal motion (prayer) to object to the instrument lapsed at end of session	sunleyJ@parliament.uk	2020-01-31 14:02:42 +00:00	NULL	All motions lapse at the end of session. 	V&P or if Parliament is dissolved then the proclamation that appears in the Gazette. 	Prorogation/dissolution date	NULL	1
 205	hK7JpbgG	Motion (prayer) to stop the instrument becoming law lapsed at end of session	sunleyJ@parliament.uk	2020-01-31 14:02:44 +00:00	NULL	All motions lapse at the end of session.  If motion has been referred to DLC then the lapsing of the referral motion also needs to be actualised. 	V&P or if Parliament is dissolved then the proclamation that appears in the Gazette. 	Prorogation/dissolution date	NULL	1
 206	pXnqujzE	Motion to refer to a Delegated Legislation Committee (DLC) lapsed at end of session	sunleyJ@parliament.uk	2020-01-31 13:25:28 +00:00	NULL	All motions lapse at the end of session. 	V&P or if Parliament is dissolved then the proclamation that appears in the Gazette. 	Prorogation/dissolution date	NULL	1
 207	gDR8T1uu	Motion to take note of the instrument lapsed at end of session	sunleyJ@parliament.uk	2020-01-31 13:25:54 +00:00	NULL	All motions lapse at the end of session. 	LBP or if Parliament is dissolved then the proclamation that appears in the Gazette. 	Prorogation/dissolution date	NULL	1
 208	GLwKendj	Non-fatal motion (prayer) to object to the instrument lapsed at end of session	sunleyJ@parliament.uk	2020-01-31 14:03:42 +00:00	NULL	All motions lapse at the end of session. 	LBP or if Parliament is dissolved then the proclamation that appears in the Gazette. 	Prorogation/dissolution date	NULL	1
-209	pdi55hsE	Decision on a non-fatal motion (prayer) to object to the instrument deferred	sunleyJ@parliament.uk	2020-01-31 11:45:53 +00:00	NULL	Will usually appear in the Vote along the lines of  The Deputy Speaker’s opinion as to the decision of the Question was challenged.  	V&P (anchor link)	Date the question was put	NULL	1
+209	pdi55hsE	Decision on a non-fatal motion (prayer) to object to the instrument deferred	sunleyJ@parliament.uk	2020-01-31 11:45:53 +00:00	NULL	Will usually appear in the Vote along the lines of The Deputy Speaker’s opinion as to the decision of the Question was challenged. 	V&P (anchor link)	Date the question was put	NULL	1
 210	EGnWlqXj	Motion (prayer) to stop the instrument becoming law lapsed at end of session	sunleyJ@parliament.uk	2020-01-31 12:56:54 +00:00	NULL	All motions lapse at the end of session.	LBP or if Parliament is dissolved then the proclamation that appears in the Gazette. 	Prorogation/dissolution date	NULL	1
 211	hqFZAFej	Motion (prayer) to stop the instrument being law lapsed at end of session	sunleyJ@parliament.uk	2020-01-31 13:05:10 +00:00	NULL	All motions lapse at the end of session. 	V&P or if Parliament is dissolved then the proclamation that appears in the Gazette. 	Prorogation/dissolution date	NULL	1
 212	vxaJqxI0	Motion (prayer) to stop the instrument being law lapsed at end of session	sunleyJ@parliament.uk	2020-01-31 13:05:45 +00:00	NULL	All motions lapse at the end of session.	LBP or if Parliament is dissolved then the proclamation that appears in the Gazette. 	Prorogation/dissolution date	NULL	1
@@ -188,22 +183,20 @@
 222	fJnCCxG9	Business motion allowing a motion to approve the instrument to be tabled before laying	sunleyJ@parliament.uk	2020-01-31 11:35:22 +00:00	NULL	 This step only applies to draft affirmative instruments which need to be approved on the day it is laid, which would require a business motion to table an approval motion. And these tablings would need to happen before the SI was laid	Link to Order Paper where the business motion appears	Date of Order Paper 	NULL	1
 224	J2CIHOQv	Further information published by the Secondary Legislation Scrutiny Committee (SLSC)	sunleyJ@parliament.uk	2020-04-01 13:10:24 +00:00	NULL	It is possible that the SLSC may publish further information (correspondence or oral evidence) after they have made a decision on an instrument, if this happens please check with Jane White before actualising this step. 	SLSC anchor link	Date of meeting, not publishing.	NULL	1
 225	59ny2QiU	Allocated to the EU International Agreements Sub-Committee (IAC)	sunleyJ@parliament.uk	2020-04-17 10:31:24 +00:00	NULL	Introduced as a new step in April 2020 - from this point forward this sub-committee is responsible for considering all treaties (unless the overall EU Select committee decides to consider). This step does not have the power to report - reports are made in 	EU Select Committee treaties page	Usually the day after the treaty is laid	NULL	1
-226	1ns9qG7X	Information published by the EU International Agreements Sub-Committee (IAC)	sunleyJ@parliament.uk	2020-04-17 10:35:47 +00:00	NULL	It is possible for the IAC to publish evidence/correspondence before or after the overall committee reports. Indexers should check the sub-committee s homepage regularly for any such publishing, this will not appear in the Lords Minutes. 	HTML if possible but PDF if it s the only option available	Date of publishing 	NULL	1
-227	6dm6sEYy	Information published by the EU Select Committee	sunleyJ@parliament.uk	2020-04-17 10:36:37 +00:00	NULL	It is possible for the EU Select Committee to publish evidence/correspondence before or after a report on a treaty. Indexers should actively check the committee s publication page as the Lords Minutes will not publish such information. 	HTML if possible but PDF if it s the only option available	Date of publishing 	NULL	1
-228	jsgarXQN	Extended objection period A begins	sunleyJ@parliament.uk	2020-04-17 10:43:20 +00:00	NULL	This step should be actualised once the Government has laid a statement extending objection period A. This results in an entirely new clock. This can be actualised multiple times. 	No link	Date of statement. 	NULL	1
-229	DKsbZGwq	Extended objection period A ends	sunleyJ@parliament.uk	2020-04-17 10:44:28 +00:00	NULL	This step should be actualised at the same time as the new  Extended objection period A begins  step with a future date. This step can be actualised multiple times if the Government decides to lay multiple statements to extend	No link	Dependent on how many days the Govt stipulates. Please check with Jane White what the date should be. 	NULL	1
+226	1ns9qG7X	Information published by the EU International Agreements Sub-Committee (IAC)	sunleyJ@parliament.uk	2020-04-17 10:35:47 +00:00	NULL	It is possible for the IAC to publish evidence/correspondence before or after the overall committee reports. Indexers should check the sub-committees homepage regularly for any such publishing, this will not appear in the Lords Minutes. 	HTML if possible but PDF if its the only option available	Date of publishing 	NULL	1
+227	6dm6sEYy	Information published by the EU Select Committee	sunleyJ@parliament.uk	2020-04-17 10:36:37 +00:00	NULL	It is possible for the EU Select Committee to publish evidence/correspondence before or after a report on a treaty. Indexers should actively check the committees publication page as the Lords Minutes will not publish such information. 	HTML if possible but PDF if its the only option available	Date of publishing 	NULL	1
+229	DKsbZGwq	Extended objection period A ends	sunleyJ@parliament.uk	2020-04-17 10:44:28 +00:00	NULL	This step should be actualised at the same time as the new Extended objection period A begins step with a future date. This step can be actualised multiple times if the Government decides to lay multiple statements to extend	No link	Dependent on how many days the Govt stipulates. Please check with Jane White what the date should be. 	NULL	1
 230	6PTsDeBN	Instrument revoked by another instrument	sunleyJ@parliament.uk	2020-05-18 14:41:14 +00:00	NULL	This step applies to made instruments when the clock is still running (when the instrument is still before Parliament). 	Link to the revoking instrument	Made date of the revoking instrument	NULL	1
 231	HQxUYTjf	Instrument replaced by revoking instrument	sunleyJ@parliament.uk	2020-11-18 15:25:54 +00:00	NULL	This step is to be used if a revoked instrument has been replaced like for like by the revoking instrument. Usually easy to spot in the EM of the revoking instrument. It is a temporary work around until the legislation model can be amended to show connecti	Link to the SI Service page of the new instrument	Made date of the new instrument 	NULL	1
 232	XpVYGk4J	Instrument lapsed	sunleyJ@parliament.uk	2020-07-22 14:08:13 +00:00	NULL	This step is to be used only on made affirmatives when the clock has ended but the instrument has failed to be approved or rejected. We spot it when the clock ends and we notice nothing else has happened. Usually the Govt allow it to run out. This step has	Link to the SI itself	Date the clock ends	NULL	1
-233	j4iPxsxb	Instrument introducing one or more criminal offences under the EU Withdrawal Act 2018 created	sunleyJ@parliament.uk	2020-05-22 15:05:30 +00:00	NULL	This would be actualised when a statement has been deposited before the House of Commons or bicamerally. We would create a new workpackage with the information provided in the statement and then actualise this as the start step. Instruments with this start	No link initially (we replace this with the leg.gov SI when it’s laid – usually a couple of days later	Date of statement deposit. 	NULL	1
-234	1777yvuv	Statement deposited by the Government, declaring the introduction of one or more criminal offences	sunleyJ@parliament.uk	2020-10-23 08:46:00 +00:00	NULL	If this appears create a whole new workpackage using the information provided in the statement. 	The PDF/Word Document from data.parliament. Attached to the deposited paper from Parliamentary Search	Date of deposit. not date of commitment. 	NULL	1
-235	ywOdv1uc	Statement deposited by the Government, declaring the introduction of one or more criminal offences	sunleyJ@parliament.uk	2020-10-23 08:46:12 +00:00	NULL	If this appears create a whole new workpackage using the information provided in the statement. 	The PDF/Word Document from data.parliament. Attached to the deposited paper from Parliamentary Search	Date of deposit. not date of commitment. 	NULL	1
-236	NQaSIBmi	Instrument created under Section 55(3) in conjunction with Section 56(5) of the Sanctions Act	sunleyJ@parliament.uk	2020-06-29 16:00:36 +00:00	NULL	Only actualised for made affirmative instruments laid under the Sanctions and Anti-money Laundering Act 2018. It replaces the normal  Instrument created  step. These SIs are identified in an information paragraph at the top of the SI on leg.gov	SI on leg.gov	Made date	NULL	1
-237	GtOFghCI	Instrument under Section 55(3) in conjunction with Section 56(5) of the Sanctions Act made (signed into law)	sunleyJ@parliament.uk	2020-06-29 16:00:48 +00:00	NULL	Only actualised for made affirmative instruments laid under the Sanctions and Anti-money Laundering Act 2018. It replaces the normal  Instrument created  step. These SIs are identified in an information paragraph at the top of the SI on leg.gov	SI on leg.gov	Made date	NULL	1
-238	f4oB8NUj	Provision of the regulation comes into force	sunleyJ@parliament.uk	2020-06-29 16:02:15 +00:00	NULL	Only applies to made affirmative instruments laid under section 55(3) in conjunction with section 56(5) of the Sanctions and Anti-money Laundering Act 2018. When the FCO make a commencement order the provisions of the regulation come into force and the app	Commencement order	Specified in the commencement order for the individual instrument. 	NULL	1
+233	j4iPxsxb	Instrument introducing one or more criminal offences under Schedule 7 of the European Union (Withdrawal) Act 2018 created	sunleyJ@parliament.uk	2021-03-09 16:53:38 +00:00	NULL	This would be actualised when a statement has been deposited before the House of Commons or bicamerally. We would create a new workpackage with the information provided in the statement and then actualise this as the start step. Instruments with this start	No link initially (we replace this with the leg.gov SI when it’s laid – usually a couple of days later	Date of statement deposit. 	NULL	1
+234	1777yvuv	Statement deposited by the Government, declaring the introduction of one or more criminal offences under Schedule 7 of the European Union (Withdrawal) Act 2018	sunleyJ@parliament.uk	2021-03-09 16:56:00 +00:00	NULL	If this appears create a whole new workpackage using the information provided in the statement. 	The PDF/Word Document from data.parliament. Attached to the deposited paper from Parliamentary Search	Date of deposit. not date of commitment. 	NULL	1
+235	ywOdv1uc	Statement deposited by the Government, declaring the introduction of one or more criminal offences under Schedule 7 of the European Union (Withdrawal) Act 2018	sunleyJ@parliament.uk	2021-03-09 16:55:56 +00:00	NULL	If this appears create a whole new workpackage using the information provided in the statement. 	The PDF/Word Document from data.parliament. Attached to the deposited paper from Parliamentary Search	Date of deposit. not date of commitment. 	NULL	1
+236	NQaSIBmi	Instrument created under Section 55(3) in conjunction with Section 56(5) of the Sanctions and Anti-money Laundering Act 2018	sunleyJ@parliament.uk	2021-03-09 17:15:32 +00:00	NULL	Only actualised for made affirmative instruments laid under the Sanctions and Anti-money Laundering Act 2018. It replaces the normal Instrument created step. These SIs are identified in an information paragraph at the top of the SI on leg.gov	SI on leg.gov	Made date	NULL	1
+237	GtOFghCI	Instrument under Section 55(3) in conjunction with Section 56(5) of the Sanctions and Anti-money Laundering Act 2018 made (signed into law)	sunleyJ@parliament.uk	2021-03-09 17:15:26 +00:00	NULL	Only actualised for made affirmative instruments laid under the Sanctions and Anti-money Laundering Act 2018. It replaces the normal Instrument created step. These SIs are identified in an information paragraph at the top of the SI on leg.gov	SI on leg.gov	Made date	NULL	1
+238	f4oB8NUj	Commencement Order made (signed into law) triggering approval period	sunleyJ@parliament.uk	2021-06-22 11:14:10 +00:00	NULL	Only applies to made affirmative instruments laid under section 55(3) in conjunction with section 56(5) of the Sanctions and Anti-money Laundering Act 2018. When the FCO make a commencement order the provisions of the regulation come into force and the app	Commencement order	Specified in the commencement order for the individual instrument. 	NULL	1
 239	ZBVxW5Dz	Instrument created under paragraph 5(3) of Schedule 7 to the Local Government Finance Act 1988	sunleyJ@parliament.uk	2020-08-05 12:44:50 +00:00	NULL	Government must lay an order stating the non-domestic rates for the year. The procedure is slightly different to the normal made affirmative procedure, this step sets out the starting point. 	SI page on leg.gov	Made date	NULL	1
 240	EgeMH09z	Instrument under paragraph 5(3) of Schedule 7 to the Local Government Finance Act 1988 made (signed into law)	sunleyJ@parliament.uk	2020-07-28 13:44:06 +00:00	NULL	Government must lay an order stating the non-domestic rates for the year. The procedure is slightly different to the normal made affirmative procedure, this step sets out the making point. 	SI on leg.gov	Made date	NULL	1
-241	nFnJ2iSh	Approval period for instrument under paragraph 5(3) of Schedule 7 to the Local Government Finance Act 1988 begins	sunleyJ@parliament.uk	2020-07-28 13:48:02 +00:00	NULL	Government must lay an order stating the non-domestic rates for the year. The procedure is slightly different to the normal made affirmative procedure, this step sets out the start of the approval period. The clock period does not follow the usual 28/40 da	No link	Made date	NULL	1
 242	1C9khDyR	Approval period for instrument under paragraph 5(3) of Schedule 7 to the Local Government Finance Act 1988 ends	sunleyJ@parliament.uk	2020-10-01 16:00:21 +00:00	NULL	Government must lay an order stating the non-domestic rates for the year. The procedure is slightly different to the normal made affirmative procedure, this step sets out the end of the approval period. The clock period does not follow the usual 28/40 day 	No link	Actualise initially with 28/29 February. If the Local Govt Finance Report is approved before this date we would actualise retrospectively. 	NULL	1
 243	zsfp4gVP	Deadline for local authority budgets	sunleyJ@parliament.uk	2020-10-01 16:01:08 +00:00	NULL	Actualise when instrument is made (signed into law) Relevant step for instruments laid under paragraph 5(3) of Schedule 7 of the Local Government Finance Act 1988 - if the Local Government Finance (England) report has not been published by the 1st March th	No link	28/29 February	NULL	1
 244	Qy6ooAEY	Local Government Finance Report (England) approved	sunleyJ@parliament.uk	2020-07-30 14:07:00 +00:00	NULL	Government must lay an order stating the non-domestic rates for the year. The procedure is slightly different to the normal made affirmative procedure, this step sets out one of the two causes of approval period ending. The clock period does not follow the	Vote anchor link of the approval	Date of Vote	NULL	1
@@ -213,24 +206,24 @@
 249	2vxJUmCH	Joint Committee on Human Rights (JCHR) recommended that the treaty should not be ratified	sunleyJ@parliament.uk	2020-07-31 08:35:23 +00:00	NULL	JCHR will consider treaties if they are likely to impact human rights. 	Html version of report 	Date the committee met, not the date the report was published	NULL	1
 250	H1s2aTo1	Joint Committee on Human Rights (JCHR) recommended that the treaty should be ratified	sunleyJ@parliament.uk	2020-07-31 08:35:42 +00:00	NULL	JCHR will consider treaties if they are likely to impact human rights. 	Html version of report 	Date the committee met, not the date the report was published	NULL	1
 251	00twmvWI	Question on motion to approve the Local Government Finance Report (England) put	sunleyJ@parliament.uk	2020-07-30 14:06:10 +00:00	NULL	Made affirmative instruments laid under the Local Government Finance Act 1988 approval period is dependent on the Local Government Finance Report (England) being approved. The question and outcome should be actualised together	Vote anchor link	Date of vote	NULL	1
-252	45SeY85G	Local Government Finance Report (England) rejected	sunleyJ@parliament.uk	2020-07-30 14:05:23 +00:00	NULL	Made affirmative instruments laid under the Local Government Finance Act 1988 approval period is dependent on the Local Government Finance Report (England) being approved. If it s rejected we would actualise the  Instrument stops being law  and  Procedure 	Vote anchor link	Date of Vote	NULL	1
+252	45SeY85G	Local Government Finance Report (England) rejected	sunleyJ@parliament.uk	2020-07-30 14:05:23 +00:00	NULL	Made affirmative instruments laid under the Local Government Finance Act 1988 approval period is dependent on the Local Government Finance Report (England) being approved. If its rejected we would actualise the Instrument stops being law and Procedure 	Vote anchor link	Date of Vote	NULL	1
 253	CaWKXPlw	Joint Committee on Human Rights (JCHR) recommended that objection period A be extended	sunleyJ@parliament.uk	2020-10-15 14:11:35 +00:00	NULL	JCHR may make several recommendations on a treaty to the Houses but it is up to the Members/Lords to take up any of the recommendations. 	JCHR report html. 	Date committee met, not the date the report was published 	NULL	1
 254	I7uKiks7	International Trade Committee (ITC) recommended that objection period A be extended	sunleyJ@parliament.uk	2020-10-15 14:15:49 +00:00	NULL	 The International Trade Committee may make several recommendations on a treaty to the Houses but it is up to the Members to take up any of the recommendations. 	ITC report html	Date the committee met, not the date the report was published 	NULL	1
 255	WuSJsxlu	Motion calling on the Government to extend objection period A tabled	sunleyJ@parliament.uk	2020-10-23 08:21:02 +00:00	NULL	These motions can be tabled at any stage during objection period A and could lead to a debate and question. 	EDM page 	Date of tabling	NULL	1
 256	s81LDNIc	Motion calling on the Government to extend objection period A not moved	sunleyJ@parliament.uk	2020-10-23 08:22:16 +00:00	NULL	This usually occurs when several motions have been debated in one debate under the title of the first motion, usually the first motion is withdrawn so the others are not moved	Hansard 	Date of debate 	NULL	1
 257	alR4gkuj	Motion calling on the Government to extend objection period A lapsed at end of session	sunleyJ@parliament.uk	2020-10-23 08:24:47 +00:00	NULL	All active motions lapse at the end of a session	Vote or if Parliament is dissolved then the proclamation that appears in the Gazette. 	Prorogation/dissolution date	NULL	1
 258	870YJQqZ	Motion calling on the Government to extend objection period A withdrawn	sunleyJ@parliament.uk	2020-10-23 08:25:09 +00:00	NULL	Will usually follow a debate, but not exclusively as motions can be withdrawn at any point after tabling and before the question is put. 	Vote anchor link if following a debate. If withdrawn before debate then no link as the EDM page will disappear.	Withdrawn date	NULL	1
-259	dkrra8Hn	Debate on a motion calling on the Government to extend objection period A	sunleyJ@parliament.uk	2020-10-23 08:25:17 +00:00	NULL	 Actualise this step when it is scheduled on the Parliamentary Calendar or Future Business so it appears in  Scheduled upcoming stages  on the workpackage page. The link will need to be updated once the debate has taken place. If it s rescheduled, change t	Hansard	Date of debate	504	1
+259	dkrra8Hn	Debate on a motion calling on the Government to extend objection period A	sunleyJ@parliament.uk	2020-10-23 08:25:17 +00:00	NULL	 Actualise this step when it is scheduled on the Parliamentary Calendar or Future Business so it appears in Scheduled upcoming stages on the workpackage page. The link will need to be updated once the debate has taken place. If its rescheduled, change t	Hansard	Date of debate	504	1
 261	9EzVwjX3	Question on a motion calling on the Government to extend objection period A put	sunleyJ@parliament.uk	2020-10-23 08:28:40 +00:00	NULL	Will occur at the end of a debate. The debate could include several motions so be careful to check the outcome in the minutes before actualising. 	Vote anchor link	Date the question was asked/debate took place	NULL	1
 262	XJOrABrH	Motion calling on the Government to extend objection period A approved	sunleyJ@parliament.uk	2020-10-23 08:30:19 +00:00	NULL	Will usually follow a debate and the question being put. This step will also mean that the objection period A end step could change date depending on the specification in the motion or by Government	Vote anchor link	Date question asked/debate	NULL	1
 263	tEfdgDZU	Motion calling on the Government to extend objection period A rejected	sunleyJ@parliament.uk	2020-10-23 08:30:26 +00:00	NULL	This will follow a debate and the question being put. Objection period A will not be affected. 	Vote anchor link 	Date the question put/debate	NULL	1
-265	3g32tkT7	International Trade Committee (ITC) inquiry opened	sunleyJ@parliament.uk	2020-11-25 15:08:29 +00:00	Most select committees do most of their work through inquiries into topics within their remit. This could be an area of policy, a draft bill, or a response to an event. Suggestions for inquiry subjects come from many sources, including the chair and commit	An inquiry into a treaty could happen at any point after the instrument has been laid, and in some rare cases, before it s been laid if the committee has been given prior notice of a treaty from Government. Please check the committee inquiries page for new	Inquiry homepage 	Date will be found on the main committee website s inquiries page - https://committees.parliament.uk/inquiries/	NULL	1
-266	izCzdQn0	Environment, Food and Rural Affairs Committee (EFRA) inquiry opened	sunleyJ@parliament.uk	2020-11-25 15:08:31 +00:00	Most select committees do most of their work through inquiries into topics within their remit. This could be an area of policy, a draft bill, or a response to an event. Suggestions for inquiry subjects come from many sources, including the chair and commit	An inquiry into a treaty could happen at any point after the instrument has been laid, and in some rare cases, before it s been laid if the committee has been given prior notice of a treaty from Government. Please check the committee inquiries page for new	Inquiry homepage 	Date will be found on the main committee website s inquiries page - https://committees.parliament.uk/inquiries/	NULL	1
+265	3g32tkT7	International Trade Committee (ITC) inquiry opened	sunleyJ@parliament.uk	2020-11-25 15:08:29 +00:00	Most select committees do most of their work through inquiries into topics within their remit. This could be an area of policy, a draft bill, or a response to an event. Suggestions for inquiry subjects come from many sources, including the chair and commit	An inquiry into a treaty could happen at any point after the instrument has been laid, and in some rare cases, before its been laid if the committee has been given prior notice of a treaty from Government. Please check the committee inquiries page for new	Inquiry homepage 	Date will be found on the main committee websites inquiries page - https://committees.parliament.uk/inquiries/	NULL	1
+266	izCzdQn0	Environment, Food and Rural Affairs Committee (EFRA) inquiry opened	sunleyJ@parliament.uk	2020-11-25 15:08:31 +00:00	Most select committees do most of their work through inquiries into topics within their remit. This could be an area of policy, a draft bill, or a response to an event. Suggestions for inquiry subjects come from many sources, including the chair and commit	An inquiry into a treaty could happen at any point after the instrument has been laid, and in some rare cases, before its been laid if the committee has been given prior notice of a treaty from Government. Please check the committee inquiries page for new	Inquiry homepage 	Date will be found on the main committee websites inquiries page - https://committees.parliament.uk/inquiries/	NULL	1
 267	8FDE1V0L	Government response to the decision made by the International Trade Committee (ITC)	sunleyJ@parliament.uk	2020-11-25 15:00:10 +00:00	The Government are expected to reply to the recommendations in a select committee report within two months of publication.	Government responses will either be published as a special report by the select committee itself or laid as a command paper. 	If a command paper link to the page on gov.uk. If a special report by the select committee link to the html version.	If a command paper use date of laying. If a special report by the select committee use date of the V&P. 	NULL	1
 268	AR9hwX21	Considered by the Environment, Food and Rural Affairs Committee (EFRA)	sunleyJ@parliament.uk	2021-01-28 15:37:56 +00:00	Most inquiries result in a report to the House, containing recommendations to the department, the wider Government, and sometimes other organisations such as arms-length agencies or regulators.	Treaties can be considered by multiple select committees with different interests 	Select Committee report contents page	Date the committee met rather than the date the committee published the report 	NULL	1
 269	6u7kECCG	Government response to the decision made by the Environment, Food and Rural Affairs Committee (EFRA)	sunleyJ@parliament.uk	2020-11-25 15:00:14 +00:00	The Government are expected to reply to the recommendations in a select committee report within two months of publication.	Government responses will either be published as a special report by the select committee itself or laid as a command paper. 	If a command paper link to the page on gov.uk. If a special report by the select committee link to the html version.	If a command paper use date of laying. If a special report by the select committee use date of the V&P. 	NULL	1
 270	DpHJl0uI	Environment, Food and Rural Affairs Committee (EFRA) recommended that objection period A be extended	sunleyJ@parliament.uk	2020-11-25 14:56:23 +00:00	NULL	EFRA can recommend multiple actions for a treaty in their reports. Please actualise alongside any other recommendation steps. It may not always be obvious in a report when a recommendation has been made so please read their summary carefully. 	Contents page of report 	Date the committee met, not the date of publishing. 	NULL	1
-271	hf6FQj2g	Environment, Food and Rural Affairs Committee (EFRA) recommended a general debate be scheduled	sunleyJ@parliament.uk	2020-11-25 14:54:39 +00:00	NULL	EFRA can recommend multiple actions for a treaty in their reports. Please actualise alongside any other recommendation steps. It may not always be obvious in a report when a recommendation has been made so please read their summary carefully. 	Contents page of report 	Date the committee met, not the date of publishing. 	NULL	1
+271	hf6FQj2g	Environment, Food and Rural Affairs Committee (EFRA) recommended a general debate	sunleyJ@parliament.uk	2021-05-19 08:18:34 +00:00	NULL	EFRA can recommend multiple actions for a treaty in their reports. Please actualise alongside any other recommendation steps. It may not always be obvious in a report when a recommendation has been made so please read their summary carefully. 	Contents page of report 	Date the committee met, not the date of publishing. 	NULL	1
 272	VzXtW1za	Environment, Food and Rural Affairs Committee (EFRA) recommended the treaty should be ratified	sunleyJ@parliament.uk	2020-11-25 14:54:22 +00:00	NULL	EFRA can recommend multiple actions for a treaty in their reports. Please actualise alongside any other recommendation steps. It may not always be obvious in a report when a recommendation has been made so please read their summary carefully. 	Contents page of report 	Date the committee met, not the date of publishing. 	NULL	1
 273	jOVfaeSx	Environment, Food and Rural Affairs Committee (EFRA) recommended that the treaty should not be ratified	sunleyJ@parliament.uk	2020-11-25 14:56:38 +00:00	NULL	EFRA can recommend multiple actions for a treaty in their reports. Please actualise alongside any other recommendation steps. It may not always be obvious in a report when a recommendation has been made so please read their summary carefully. 	Contents page of report 	Date the committee met, not the date of publishing. 	NULL	1
 274	V9wpqN91	Government response to the decision made by the European Union Committee	sunleyJ@parliament.uk	2020-11-25 15:02:29 +00:00	The Government has undertaken to respond to most European Union Committee reports within two months, although there are exceptions to this rule and there is no obligation for the Government to respond. 	There is no requirement for Government to respond to a EU committee report but they still could. This will be published by the committee as correspondence, their government response webpage should be checked regularly. 	Html but pdf if no html is available	Date of correspondence 	516	1
@@ -541,3 +534,786 @@
 583	p3AL81OJ	EB	sunleyJ@parliament.uk	2021-02-10 09:47:38 +00:00	NULL	NULL	NULL	NULL	NULL	4
 584	44OzKmMQ	EC	sunleyJ@parliament.uk	2021-02-10 09:47:55 +00:00	NULL	NULL	NULL	NULL	NULL	4
 585	IlVRA6ma	CF	sunleyJ@parliament.uk	2021-02-11 12:04:00 +00:00	NULL	NULL	NULL	NULL	NULL	5
+586	p5ao5bOK	ED	sunleyJ@parliament.uk	2021-02-15 15:12:37 +00:00	NULL	NULL	NULL	NULL	NULL	4
+587	vzycfZ7f	DZ	sunleyJ@parliament.uk	2021-02-15 15:12:57 +00:00	NULL	NULL	NULL	NULL	NULL	3
+588	kWDpR6do	BA	sunleyJ@parliament.uk	2021-03-01 11:19:43 +00:00	NULL	NULL	NULL	NULL	NULL	5
+589	mZ8wWp2m	EE	sunleyJ@parliament.uk	2021-03-01 11:59:41 +00:00	NULL	NULL	NULL	NULL	NULL	4
+590	krjRNHqd	BB	sunleyJ@parliament.uk	2021-03-01 12:00:01 +00:00	NULL	NULL	NULL	NULL	NULL	5
+591	U7U08R95	EA	sunleyJ@parliament.uk	2021-03-01 12:00:26 +00:00	NULL	NULL	NULL	NULL	NULL	3
+592	M5Ij0o2R	SLSC AA	smethurstm@parliament.uk	2021-03-12 14:21:20 +00:00	NULL	NULL	NULL	NULL	NULL	4
+593	4BieiEvB	SLSC AB	smethurstm@parliament.uk	2021-03-12 14:21:34 +00:00	NULL	NULL	NULL	NULL	NULL	4
+594	9ODpeJ8Y	SLSC AC	smethurstm@parliament.uk	2021-03-12 14:21:46 +00:00	NULL	NULL	NULL	NULL	NULL	4
+595	AyvlAb6W	SLSC AD	smethurstm@parliament.uk	2021-03-12 14:24:14 +00:00	NULL	NULL	NULL	NULL	NULL	4
+596	d8jv8fnP	SLSC AE	smethurstm@parliament.uk	2021-03-12 14:24:34 +00:00	NULL	NULL	NULL	NULL	NULL	4
+597	3IBUYwB5	SLSC AF	smethurstm@parliament.uk	2021-03-12 14:24:50 +00:00	NULL	NULL	NULL	NULL	NULL	4
+598	TuQ0C8rk	SLSC AA	smethurstm@parliament.uk	2021-03-12 14:25:07 +00:00	NULL	NULL	NULL	NULL	NULL	5
+599	z0YPtepR	SLSC AB	smethurstm@parliament.uk	2021-03-12 14:25:44 +00:00	NULL	NULL	NULL	NULL	NULL	5
+600	TyGPgLwp	SLSC AA	smethurstm@parliament.uk	2021-03-12 14:26:12 +00:00	NULL	NULL	NULL	NULL	NULL	3
+601	yRPMpBVb	SLSC AB	smethurstm@parliament.uk	2021-03-12 14:26:30 +00:00	NULL	NULL	NULL	NULL	NULL	3
+602	01nxPaIj	SLSC AC	smethurstm@parliament.uk	2021-03-12 14:27:07 +00:00	NULL	NULL	NULL	NULL	NULL	3
+603	iNRENSBK	SLSC AD	smethurstm@parliament.uk	2021-03-12 14:27:16 +00:00	NULL	NULL	NULL	NULL	NULL	3
+604	RbJRkEcb	SLSC AE	smethurstm@parliament.uk	2021-03-12 14:27:25 +00:00	NULL	NULL	NULL	NULL	NULL	3
+605	Y5KysIvd	SLSC AF	smethurstm@parliament.uk	2021-03-12 14:27:35 +00:00	NULL	NULL	NULL	NULL	NULL	3
+606	06E9UCnh	SLSC AA	smethurstm@parliament.uk	2021-03-12 14:27:53 +00:00	NULL	NULL	NULL	NULL	NULL	2
+607	SKwviFgL	SLSC AB	smethurstm@parliament.uk	2021-03-12 14:28:02 +00:00	NULL	NULL	NULL	NULL	NULL	2
+608	DU1NKg0V	SLSC AC	smethurstm@parliament.uk	2021-03-12 14:28:12 +00:00	NULL	NULL	NULL	NULL	NULL	2
+609	PjU47VMY	SLSC AD	smethurstm@parliament.uk	2021-03-12 14:28:24 +00:00	NULL	NULL	NULL	NULL	NULL	2
+610	vOH9clV0	SCSI AA	sunleyJ@parliament.uk	2021-03-15 11:36:21 +00:00	NULL	NULL	NULL	NULL	NULL	4
+611	Mr7BpksY	SCSI AB	sunleyJ@parliament.uk	2021-03-15 11:36:48 +00:00	NULL	NULL	NULL	NULL	NULL	4
+612	9CCkYvuM	SCSI AA	sunleyJ@parliament.uk	2021-03-15 11:37:03 +00:00	NULL	NULL	NULL	NULL	NULL	5
+613	5tECoFsW	SCSI AB	sunleyJ@parliament.uk	2021-03-15 11:37:20 +00:00	NULL	NULL	NULL	NULL	NULL	5
+614	ZndL5G5B	SCSI AA	sunleyJ@parliament.uk	2021-03-15 11:37:37 +00:00	NULL	NULL	NULL	NULL	NULL	3
+615	C3WQ81Oe	SCSI AB	sunleyJ@parliament.uk	2021-03-15 11:37:53 +00:00	NULL	NULL	NULL	NULL	NULL	3
+616	cP8U4TsE	SCSI AA	sunleyJ@parliament.uk	2021-03-15 11:38:07 +00:00	NULL	NULL	NULL	NULL	NULL	2
+617	7euH5vqB	SCSI AB	sunleyJ@parliament.uk	2021-03-15 11:38:23 +00:00	NULL	NULL	NULL	NULL	NULL	2
+618	f3bznJkK	JCSI AA	sunleyJ@parliament.uk	2021-03-15 11:59:59 +00:00	NULL	NULL	NULL	NULL	NULL	4
+619	cYpXBQgm	JCSI AB	sunleyJ@parliament.uk	2021-03-15 12:00:18 +00:00	NULL	NULL	NULL	NULL	NULL	4
+620	YnYykDuP	JCSI AA	sunleyJ@parliament.uk	2021-03-15 12:00:37 +00:00	NULL	NULL	NULL	NULL	NULL	5
+621	1oMEU9fy	JCSI AB	sunleyJ@parliament.uk	2021-03-15 12:00:52 +00:00	NULL	NULL	NULL	NULL	NULL	5
+622	6dHkydN3	JCSI AA	sunleyJ@parliament.uk	2021-03-15 12:01:09 +00:00	NULL	NULL	NULL	NULL	NULL	3
+623	wwoJKYmo	JCSI AB	sunleyJ@parliament.uk	2021-03-15 12:01:26 +00:00	NULL	NULL	NULL	NULL	NULL	3
+624	5an9Sz9e	JCSI AA	sunleyJ@parliament.uk	2021-03-15 12:01:44 +00:00	NULL	NULL	NULL	NULL	NULL	2
+625	Y3SdJ2DM	JCSI AB	sunleyJ@parliament.uk	2021-03-15 12:01:58 +00:00	NULL	NULL	NULL	NULL	NULL	2
+626	zhMSvoqP	EVEL CERT AA	sunleyJ@parliament.uk	2021-03-15 13:50:47 +00:00	NULL	NULL	NULL	NULL	NULL	4
+627	zZ20HC4B	EVEL CERT AB	sunleyJ@parliament.uk	2021-03-15 13:51:05 +00:00	NULL	NULL	NULL	NULL	NULL	4
+628	3vHg2cYs	EVEL CERT AC	sunleyJ@parliament.uk	2021-03-15 13:51:20 +00:00	NULL	NULL	NULL	NULL	NULL	4
+629	tkrAEPBy	EVEL CERT AD	sunleyJ@parliament.uk	2021-03-15 13:51:38 +00:00	NULL	NULL	NULL	NULL	NULL	4
+630	BpewQqur	EVEL CERT AE	sunleyJ@parliament.uk	2021-03-15 13:52:07 +00:00	NULL	NULL	NULL	NULL	NULL	4
+631	loXpSHeN	EVEL CERT AF	sunleyJ@parliament.uk	2021-03-15 13:52:23 +00:00	NULL	NULL	NULL	NULL	NULL	4
+632	YqMO4QwC	EVEL CERT AG	sunleyJ@parliament.uk	2021-03-15 13:52:38 +00:00	NULL	NULL	NULL	NULL	NULL	4
+633	I0sbYaLd	EVEL CERT AH	sunleyJ@parliament.uk	2021-03-15 13:52:55 +00:00	NULL	NULL	NULL	NULL	NULL	4
+634	ATl6Mtt2	EVEL CERT AI	sunleyJ@parliament.uk	2021-03-15 13:53:08 +00:00	NULL	NULL	NULL	NULL	NULL	4
+635	2qijIn0E	EVEL CERT AJ	sunleyJ@parliament.uk	2021-03-15 13:53:15 +00:00	NULL	NULL	NULL	NULL	NULL	4
+636	p3uI9eav	EVEL CERT AK	sunleyJ@parliament.uk	2021-03-15 13:53:30 +00:00	NULL	NULL	NULL	NULL	NULL	4
+637	kschHJoe	EVEL CERT AL	sunleyJ@parliament.uk	2021-03-15 13:53:45 +00:00	NULL	NULL	NULL	NULL	NULL	4
+638	PRLOq5pG	EVEL CERT AM	sunleyJ@parliament.uk	2021-03-15 13:54:04 +00:00	NULL	NULL	NULL	NULL	NULL	4
+639	mYHzMBKT	EVEL CERT AN	sunleyJ@parliament.uk	2021-03-15 13:54:14 +00:00	NULL	NULL	NULL	NULL	NULL	4
+640	31dXxd5w	EVEL CERT AO	sunleyJ@parliament.uk	2021-03-15 13:54:54 +00:00	NULL	NULL	NULL	NULL	NULL	4
+641	tTCESCTv	EVEL CERT AP	sunleyJ@parliament.uk	2021-03-15 13:55:10 +00:00	NULL	NULL	NULL	NULL	NULL	4
+642	98T5912l	EVEL CERT AA	sunleyJ@parliament.uk	2021-03-15 14:02:29 +00:00	NULL	NULL	NULL	NULL	NULL	3
+643	BIb780dd	EVEL CERT AB	sunleyJ@parliament.uk	2021-03-15 13:55:45 +00:00	NULL	NULL	NULL	NULL	NULL	3
+644	xsXii3yc	EVEL CERT AC	sunleyJ@parliament.uk	2021-03-15 13:55:51 +00:00	NULL	NULL	NULL	NULL	NULL	3
+645	nzYxsrdA	EVEL CERT AD	sunleyJ@parliament.uk	2021-03-15 13:56:08 +00:00	NULL	NULL	NULL	NULL	NULL	3
+646	ItdBQMnH	EVEL CERT AE	sunleyJ@parliament.uk	2021-03-15 13:56:15 +00:00	NULL	NULL	NULL	NULL	NULL	3
+647	BQ1UVcoJ	EVEL CERT AF	sunleyJ@parliament.uk	2021-03-15 13:56:29 +00:00	NULL	NULL	NULL	NULL	NULL	3
+648	HsmEqHZo	EVEL CERT AG	sunleyJ@parliament.uk	2021-03-15 13:56:36 +00:00	NULL	NULL	NULL	NULL	NULL	3
+649	IXA8pZPm	EVEL CERT AH	sunleyJ@parliament.uk	2021-03-15 13:56:53 +00:00	NULL	NULL	NULL	NULL	NULL	3
+650	jRI93R1I	EVEL CERT AI	sunleyJ@parliament.uk	2021-03-15 13:57:00 +00:00	NULL	NULL	NULL	NULL	NULL	3
+651	wd7iD4i6	EVEL CERT AJ	sunleyJ@parliament.uk	2021-03-15 13:57:17 +00:00	NULL	NULL	NULL	NULL	NULL	3
+652	fAy2qL8H	EVEL CERT AK	sunleyJ@parliament.uk	2021-03-15 13:57:24 +00:00	NULL	NULL	NULL	NULL	NULL	3
+653	qN9nz8wU	EVEL CERT AL	sunleyJ@parliament.uk	2021-03-15 13:57:39 +00:00	NULL	NULL	NULL	NULL	NULL	3
+654	Cvytbj1r	EVEL CERT AM	sunleyJ@parliament.uk	2021-03-15 13:57:45 +00:00	NULL	NULL	NULL	NULL	NULL	3
+655	BandNqBQ	EVEL CERT AN	sunleyJ@parliament.uk	2021-03-15 13:58:03 +00:00	NULL	NULL	NULL	NULL	NULL	3
+656	UtguTVI7	EVEL CERT AO	sunleyJ@parliament.uk	2021-03-15 13:58:10 +00:00	NULL	NULL	NULL	NULL	NULL	3
+657	63lghhu4	EVEL CERT AA	sunleyJ@parliament.uk	2021-03-15 13:58:32 +00:00	NULL	NULL	NULL	NULL	NULL	2
+658	F0MDHrPp	EVEL CERT AB	sunleyJ@parliament.uk	2021-03-15 13:58:38 +00:00	NULL	NULL	NULL	NULL	NULL	2
+659	94QSoWYB	EVEL CERT AC	sunleyJ@parliament.uk	2021-03-15 13:58:49 +00:00	NULL	NULL	NULL	NULL	NULL	2
+660	o8xJNqxA	EVEL CERT AD	sunleyJ@parliament.uk	2021-03-15 13:59:00 +00:00	NULL	NULL	NULL	NULL	NULL	2
+661	hZ3hvHug	EVEL CERT AP	sunleyJ@parliament.uk	2021-03-15 14:28:15 +00:00	NULL	NULL	NULL	NULL	NULL	3
+662	n3pWdvxX	LGFR AA	sunleyJ@parliament.uk	2021-03-26 12:06:59 +00:00	NULL	NULL	NULL	NULL	NULL	4
+663	sws9WhCW	LGFR AB	sunleyJ@parliament.uk	2021-03-26 12:07:15 +00:00	NULL	NULL	NULL	NULL	NULL	4
+664	DViTG5LD	LGFR AC	sunleyJ@parliament.uk	2021-03-26 12:07:28 +00:00	NULL	NULL	NULL	NULL	NULL	4
+665	Sw1axnaZ	LGFR AD	sunleyJ@parliament.uk	2021-03-26 12:07:43 +00:00	NULL	NULL	NULL	NULL	NULL	4
+666	vnapVfJC	LGFR AA	sunleyJ@parliament.uk	2021-03-26 12:07:55 +00:00	NULL	NULL	NULL	NULL	NULL	3
+667	vomxLsuP	LGFR AB	sunleyJ@parliament.uk	2021-03-26 12:08:09 +00:00	NULL	NULL	NULL	NULL	NULL	3
+668	jFkemUmt	LGFR AC	sunleyJ@parliament.uk	2021-03-26 12:08:15 +00:00	NULL	NULL	NULL	NULL	NULL	3
+669	Bl2eNciS	LGFR AD	sunleyJ@parliament.uk	2021-03-26 12:08:30 +00:00	NULL	NULL	NULL	NULL	NULL	3
+670	Aa7ZrgsU	LGFR AA	sunleyJ@parliament.uk	2021-03-26 12:08:42 +00:00	NULL	NULL	NULL	NULL	NULL	2
+671	ZztI9wfl	LGFR AB	sunleyJ@parliament.uk	2021-03-26 12:09:00 +00:00	NULL	NULL	NULL	NULL	NULL	2
+672	iUQstxbx	EF	sunleyJ@parliament.uk	2021-04-08 12:59:45 +00:00	NULL	NULL	NULL	NULL	NULL	4
+673	NfGsdy5I	EB	sunleyJ@parliament.uk	2021-04-08 13:03:42 +00:00	NULL	NULL	NULL	NULL	NULL	3
+674	1390eIWO	EG	sunleyJ@parliament.uk	2021-04-09 09:49:44 +00:00	NULL	NULL	NULL	NULL	NULL	4
+675	jlHsqLHe	EH	sunleyJ@parliament.uk	2021-04-09 09:49:54 +00:00	NULL	NULL	NULL	NULL	NULL	4
+676	tWMqpoWg	EI	sunleyJ@parliament.uk	2021-04-09 09:56:15 +00:00	NULL	NULL	NULL	NULL	NULL	4
+677	RFtdVaub	EJ	sunleyJ@parliament.uk	2021-04-09 09:56:20 +00:00	NULL	NULL	NULL	NULL	NULL	4
+678	fdfgYISl	BC	sunleyJ@parliament.uk	2021-04-09 10:04:39 +00:00	NULL	NULL	NULL	NULL	NULL	5
+679	OwjAL4jT	BD	sunleyJ@parliament.uk	2021-04-09 10:10:52 +00:00	NULL	NULL	NULL	NULL	NULL	5
+680	hUqfd9rB	BE	sunleyJ@parliament.uk	2021-04-14 15:55:35 +00:00	NULL	NULL	NULL	NULL	NULL	5
+681	XjjlNX6l	BF	sunleyJ@parliament.uk	2021-04-14 15:55:47 +00:00	NULL	NULL	NULL	NULL	NULL	5
+682	K4jSwMIH	Treaty Lords AA	sunleyJ@parliament.uk	2021-08-12 13:07:25 +00:00	NULL	NULL	NULL	NULL	NULL	4
+683	MkclPOJs	Treaty Lords AB	sunleyJ@parliament.uk	2021-08-12 13:07:35 +00:00	NULL	NULL	NULL	NULL	NULL	4
+684	5FVLUIFl	Treaty Lords AC	sunleyJ@parliament.uk	2021-08-12 13:07:42 +00:00	NULL	NULL	NULL	NULL	NULL	4
+685	dDvp3ZOU	Treaty Lords AD	sunleyJ@parliament.uk	2021-08-12 13:07:54 +00:00	NULL	NULL	NULL	NULL	NULL	4
+686	lhLIPGWQ	Treaty Lords AE	sunleyJ@parliament.uk	2021-08-12 13:08:02 +00:00	NULL	NULL	NULL	NULL	NULL	4
+687	wGaVtwI3	Treaty Lords AF	sunleyJ@parliament.uk	2021-08-12 13:08:09 +00:00	NULL	NULL	NULL	NULL	NULL	4
+688	GjXtGXV9	Treaty Lords AG	sunleyJ@parliament.uk	2021-08-12 13:08:21 +00:00	NULL	NULL	NULL	NULL	NULL	4
+689	APHIDI9Y	Treaty Lords AH	sunleyJ@parliament.uk	2021-08-12 13:08:29 +00:00	NULL	NULL	NULL	NULL	NULL	4
+690	dGs840YP	Treaty Lords AI	sunleyJ@parliament.uk	2021-08-12 13:08:37 +00:00	NULL	NULL	NULL	NULL	NULL	4
+691	ucFbADwx	Treaty Lords AJ	sunleyJ@parliament.uk	2021-08-12 13:08:44 +00:00	NULL	NULL	NULL	NULL	NULL	4
+692	hCcSXjwk	Treaty Lords AK	sunleyJ@parliament.uk	2021-08-12 13:08:52 +00:00	NULL	NULL	NULL	NULL	NULL	4
+693	BTmWwEg8	Treaty Lords AL	sunleyJ@parliament.uk	2021-08-12 13:09:00 +00:00	NULL	NULL	NULL	NULL	NULL	4
+694	C6h6gRur	Treaty Lords AM	sunleyJ@parliament.uk	2021-08-12 13:09:08 +00:00	NULL	NULL	NULL	NULL	NULL	4
+695	Dzvmzo2y	Treaty Lords AN	sunleyJ@parliament.uk	2021-08-12 13:09:16 +00:00	NULL	NULL	NULL	NULL	NULL	4
+696	Zu6dNgfW	Treaty Lords AO	sunleyJ@parliament.uk	2021-08-12 13:09:24 +00:00	NULL	NULL	NULL	NULL	NULL	4
+697	IeWzr4X5	Treaty Lords AP	sunleyJ@parliament.uk	2021-08-12 13:09:33 +00:00	NULL	NULL	NULL	NULL	NULL	4
+698	RTJoKMEU	Treaty Lords AQ	sunleyJ@parliament.uk	2021-08-12 13:09:39 +00:00	NULL	NULL	NULL	NULL	NULL	4
+699	uc1SHnu7	Treaty Lords AR	sunleyJ@parliament.uk	2021-08-12 13:09:47 +00:00	NULL	NULL	NULL	NULL	NULL	4
+700	8vaLB7Dx	Treaty Lords AS	sunleyJ@parliament.uk	2021-08-12 13:09:54 +00:00	NULL	NULL	NULL	NULL	NULL	4
+701	CutKl1QS	Treaty Lords AT	sunleyJ@parliament.uk	2021-08-12 13:10:02 +00:00	NULL	NULL	NULL	NULL	NULL	4
+702	EdZZlufO	Treaty Lords AU	sunleyJ@parliament.uk	2021-08-12 13:10:11 +00:00	NULL	NULL	NULL	NULL	NULL	4
+703	SxdWN9XG	Treaty Lords AV	sunleyJ@parliament.uk	2021-08-12 13:10:19 +00:00	NULL	NULL	NULL	NULL	NULL	4
+704	9eewS5uu	Treaty Lords AW	sunleyJ@parliament.uk	2021-08-12 13:10:27 +00:00	NULL	NULL	NULL	NULL	NULL	4
+705	m7bSC5Wy	Treaty Lords AX	sunleyJ@parliament.uk	2021-08-12 13:10:35 +00:00	NULL	NULL	NULL	NULL	NULL	4
+706	84EHAyyN	Treaty Lords AY	sunleyJ@parliament.uk	2021-08-12 13:10:42 +00:00	NULL	NULL	NULL	NULL	NULL	4
+707	ALKshIlt	Treaty Lords AZ	sunleyJ@parliament.uk	2021-08-12 13:10:50 +00:00	NULL	NULL	NULL	NULL	NULL	4
+708	NlRMBsL8	Treaty Lords BA	sunleyJ@parliament.uk	2021-08-12 13:10:57 +00:00	NULL	NULL	NULL	NULL	NULL	4
+709	n9neUDWj	Treaty Lords BB	sunleyJ@parliament.uk	2021-08-12 13:11:05 +00:00	NULL	NULL	NULL	NULL	NULL	4
+710	h3VNF3cr	Treaty Lords BC	sunleyJ@parliament.uk	2021-08-12 13:11:12 +00:00	NULL	NULL	NULL	NULL	NULL	4
+711	uCcLQfN2	Treaty Lords BD	sunleyJ@parliament.uk	2021-08-12 13:11:19 +00:00	NULL	NULL	NULL	NULL	NULL	4
+712	NBKYzHZ1	Treaty Lords BE	sunleyJ@parliament.uk	2021-08-12 13:11:28 +00:00	NULL	NULL	NULL	NULL	NULL	4
+713	08Wvxmn5	Treaty Lords BF	sunleyJ@parliament.uk	2021-08-12 13:11:35 +00:00	NULL	NULL	NULL	NULL	NULL	4
+714	8Yq13LPK	Treaty Lords BG	sunleyJ@parliament.uk	2021-08-12 13:11:45 +00:00	NULL	NULL	NULL	NULL	NULL	4
+715	WZWwiQ4E	Treaty Lords BH	sunleyJ@parliament.uk	2021-08-12 13:11:53 +00:00	NULL	NULL	NULL	NULL	NULL	4
+716	TwAL6Rp8	Treaty Lords BI	sunleyJ@parliament.uk	2021-08-12 13:12:01 +00:00	NULL	NULL	NULL	NULL	NULL	4
+717	P1f5DzHb	Treaty Lords BJ	sunleyJ@parliament.uk	2021-08-12 13:12:09 +00:00	NULL	NULL	NULL	NULL	NULL	4
+718	GYuqYH9t	Treaty Lords BK	sunleyJ@parliament.uk	2021-08-12 13:12:16 +00:00	NULL	NULL	NULL	NULL	NULL	4
+719	nwxc1F3o	Treaty Lords BL	sunleyJ@parliament.uk	2021-08-12 13:12:25 +00:00	NULL	NULL	NULL	NULL	NULL	4
+720	GMijjwuX	Treaty Lords BM	sunleyJ@parliament.uk	2021-08-12 13:12:35 +00:00	NULL	NULL	NULL	NULL	NULL	4
+721	1enHjFYB	Treaty Lords BN	sunleyJ@parliament.uk	2021-08-12 13:12:43 +00:00	NULL	NULL	NULL	NULL	NULL	4
+722	uklVDQQF	Treaty Lords BO	sunleyJ@parliament.uk	2021-08-12 13:12:52 +00:00	NULL	NULL	NULL	NULL	NULL	4
+723	siyvJTlQ	Treaty Lords BP	sunleyJ@parliament.uk	2021-08-12 13:12:59 +00:00	NULL	NULL	NULL	NULL	NULL	4
+724	xQEgtRCx	Treaty Lords BQ	sunleyJ@parliament.uk	2021-08-12 13:13:16 +00:00	NULL	NULL	NULL	NULL	NULL	4
+725	6RQB4OUT	Treaty Lords BR	sunleyJ@parliament.uk	2021-08-12 13:13:24 +00:00	NULL	NULL	NULL	NULL	NULL	4
+726	W83xM0tr	Treaty Lords BS	sunleyJ@parliament.uk	2021-08-12 13:13:32 +00:00	NULL	NULL	NULL	NULL	NULL	4
+727	SYmmANwV	Treaty Lords BT	sunleyJ@parliament.uk	2021-08-12 13:13:39 +00:00	NULL	NULL	NULL	NULL	NULL	4
+728	sXlIGiQb	Treaty Lords BU	sunleyJ@parliament.uk	2021-08-12 13:13:48 +00:00	NULL	NULL	NULL	NULL	NULL	4
+729	cewus3XO	Treaty Lords BV	sunleyJ@parliament.uk	2021-08-12 13:13:56 +00:00	NULL	NULL	NULL	NULL	NULL	4
+730	LOsoCq2Q	Treaty Lords BW	sunleyJ@parliament.uk	2021-08-12 13:14:04 +00:00	NULL	NULL	NULL	NULL	NULL	4
+731	Uw7RHZGu	Treaty Lords AA	sunleyJ@parliament.uk	2021-08-12 13:14:44 +00:00	NULL	NULL	NULL	NULL	NULL	5
+732	cZ4WZJSO	Treaty Lords AB	sunleyJ@parliament.uk	2021-08-12 13:14:54 +00:00	NULL	NULL	NULL	NULL	NULL	5
+733	nG0sCS4t	Treaty Lords AC	sunleyJ@parliament.uk	2021-08-12 13:15:02 +00:00	NULL	NULL	NULL	NULL	NULL	5
+734	VfQMc7rH	Treaty Lords AD	sunleyJ@parliament.uk	2021-08-12 13:15:10 +00:00	NULL	NULL	NULL	NULL	NULL	5
+735	0qAQdnlm	Treaty Lords AE	sunleyJ@parliament.uk	2021-08-12 13:15:17 +00:00	NULL	NULL	NULL	NULL	NULL	5
+736	Ek2ObpHo	Treaty Lords AF	sunleyJ@parliament.uk	2021-08-12 13:15:25 +00:00	NULL	NULL	NULL	NULL	NULL	5
+737	cumARV6e	Treaty Lords AG	sunleyJ@parliament.uk	2021-08-12 13:15:33 +00:00	NULL	NULL	NULL	NULL	NULL	5
+738	SSolPGto	Treaty Lords AA	sunleyJ@parliament.uk	2021-08-12 13:14:30 +00:00	NULL	NULL	NULL	NULL	NULL	2
+739	0KyrFNRB	Treaty Lords AB	sunleyJ@parliament.uk	2021-08-12 12:54:57 +00:00	NULL	NULL	NULL	NULL	NULL	2
+740	rmKi8l4r	Treaty Lords AC	sunleyJ@parliament.uk	2021-08-12 12:55:07 +00:00	NULL	NULL	NULL	NULL	NULL	2
+741	NF623kZ9	Treaty Lords AD	sunleyJ@parliament.uk	2021-08-12 12:55:16 +00:00	NULL	NULL	NULL	NULL	NULL	2
+742	ntvhfzji	Treaty Lords AE	sunleyJ@parliament.uk	2021-08-12 12:55:26 +00:00	NULL	NULL	NULL	NULL	NULL	2
+743	uNIzXJ6T	Treaty Lords AF	sunleyJ@parliament.uk	2021-08-12 12:55:34 +00:00	NULL	NULL	NULL	NULL	NULL	2
+744	QJbK59Hp	Treaty Lords AG	sunleyJ@parliament.uk	2021-08-12 12:55:42 +00:00	NULL	NULL	NULL	NULL	NULL	2
+745	32u2hogd	Treaty Lords AH	sunleyJ@parliament.uk	2021-08-12 12:55:51 +00:00	NULL	NULL	NULL	NULL	NULL	2
+746	YSGl9cKO	Treaty Lords AI	sunleyJ@parliament.uk	2021-08-12 12:56:00 +00:00	NULL	NULL	NULL	NULL	NULL	2
+747	WOLpWzVX	Treaty Lords AJ	sunleyJ@parliament.uk	2021-08-12 12:56:08 +00:00	NULL	NULL	NULL	NULL	NULL	2
+748	GXEg70HI	Treaty Lords AK	sunleyJ@parliament.uk	2021-08-12 12:56:17 +00:00	NULL	NULL	NULL	NULL	NULL	2
+749	09o1CRrc	Treaty Lords AL	sunleyJ@parliament.uk	2021-08-12 12:56:40 +00:00	NULL	NULL	NULL	NULL	NULL	2
+750	Yjw6RFkW	Treaty Lords AM	sunleyJ@parliament.uk	2021-08-12 12:56:52 +00:00	NULL	NULL	NULL	NULL	NULL	2
+751	bGIaHHji	Treaty Lords AN	sunleyJ@parliament.uk	2021-08-12 12:57:00 +00:00	NULL	NULL	NULL	NULL	NULL	2
+752	5PaFLqnX	Treaty Lords AO	sunleyJ@parliament.uk	2021-08-12 12:57:08 +00:00	NULL	NULL	NULL	NULL	NULL	2
+753	2NVkg97q	Treaty Lords AP	sunleyJ@parliament.uk	2021-08-12 12:57:15 +00:00	NULL	NULL	NULL	NULL	NULL	2
+754	vTauiQ6W	Treaty Lords AQ	sunleyJ@parliament.uk	2021-08-12 12:57:23 +00:00	NULL	NULL	NULL	NULL	NULL	2
+755	dzWmWVOv	Treaty Lords AA	sunleyJ@parliament.uk	2021-08-12 12:57:35 +00:00	NULL	NULL	NULL	NULL	NULL	3
+756	e0vZpAkC	Treaty Lords AB	sunleyJ@parliament.uk	2021-08-12 13:00:22 +00:00	NULL	NULL	NULL	NULL	NULL	3
+757	YrqiRGif	Treaty Lords AC	sunleyJ@parliament.uk	2021-08-12 13:00:30 +00:00	NULL	NULL	NULL	NULL	NULL	3
+758	2FXjrgI4	Treaty Lords AD	sunleyJ@parliament.uk	2021-08-12 13:00:37 +00:00	NULL	NULL	NULL	NULL	NULL	3
+759	hKWljxxu	Treaty Lords AE	sunleyJ@parliament.uk	2021-08-12 13:00:45 +00:00	NULL	NULL	NULL	NULL	NULL	3
+760	S05IUHYk	Treaty Lords AF	sunleyJ@parliament.uk	2021-08-12 13:00:52 +00:00	NULL	NULL	NULL	NULL	NULL	3
+761	yY9E9OOg	Treaty Lords AG	sunleyJ@parliament.uk	2021-08-12 13:01:07 +00:00	NULL	NULL	NULL	NULL	NULL	3
+762	4MTTmTmB	Treaty Lords AH	sunleyJ@parliament.uk	2021-08-12 13:01:16 +00:00	NULL	NULL	NULL	NULL	NULL	3
+763	HdSelOek	Treaty Lords AI	sunleyJ@parliament.uk	2021-08-12 13:01:24 +00:00	NULL	NULL	NULL	NULL	NULL	3
+764	gDljXS9y	Treaty Lords AJ	sunleyJ@parliament.uk	2021-08-12 13:01:32 +00:00	NULL	NULL	NULL	NULL	NULL	3
+765	f6fCtviU	Treaty Lords AK	sunleyJ@parliament.uk	2021-08-12 13:01:39 +00:00	NULL	NULL	NULL	NULL	NULL	3
+766	7iYxsle3	Treaty Lords AL	sunleyJ@parliament.uk	2021-08-12 13:01:49 +00:00	NULL	NULL	NULL	NULL	NULL	3
+767	kLBB9ubl	Treaty Lords AM	sunleyJ@parliament.uk	2021-08-12 13:01:58 +00:00	NULL	NULL	NULL	NULL	NULL	3
+768	NUsACv0B	Treaty Lords AN	sunleyJ@parliament.uk	2021-08-12 13:02:07 +00:00	NULL	NULL	NULL	NULL	NULL	3
+769	6CTipdV5	Treaty Lords AO	sunleyJ@parliament.uk	2021-08-12 13:02:16 +00:00	NULL	NULL	NULL	NULL	NULL	3
+770	of6IttIC	Treaty Lords AP	sunleyJ@parliament.uk	2021-08-12 13:02:23 +00:00	NULL	NULL	NULL	NULL	NULL	3
+771	ffuYx97T	Treaty Lords AQ	sunleyJ@parliament.uk	2021-08-12 13:02:35 +00:00	NULL	NULL	NULL	NULL	NULL	3
+772	CGPZS0zr	Treaty Lords AR	sunleyJ@parliament.uk	2021-08-12 13:02:43 +00:00	NULL	NULL	NULL	NULL	NULL	3
+773	OZXeqxxS	Treaty Lords AS	sunleyJ@parliament.uk	2021-08-12 13:02:51 +00:00	NULL	NULL	NULL	NULL	NULL	3
+774	m4HuNPoS	Treaty Lords AT	sunleyJ@parliament.uk	2021-08-12 13:02:57 +00:00	NULL	NULL	NULL	NULL	NULL	3
+775	FTeQPHUZ	Treaty Lords AU	sunleyJ@parliament.uk	2021-08-12 13:03:05 +00:00	NULL	NULL	NULL	NULL	NULL	3
+776	T1DjFNiU	Treaty Lords AV	sunleyJ@parliament.uk	2021-08-12 13:03:12 +00:00	NULL	NULL	NULL	NULL	NULL	3
+777	tgsblbk5	Treaty Lords AW	sunleyJ@parliament.uk	2021-08-12 13:03:21 +00:00	NULL	NULL	NULL	NULL	NULL	3
+778	EDkUcTx1	Treaty Lords AX	sunleyJ@parliament.uk	2021-08-12 13:03:37 +00:00	NULL	NULL	NULL	NULL	NULL	3
+779	bHfDEKPI	Treaty Lords AY	sunleyJ@parliament.uk	2021-08-12 13:03:44 +00:00	NULL	NULL	NULL	NULL	NULL	3
+780	R9oGdTd5	Treaty Lords AZ	sunleyJ@parliament.uk	2021-08-12 13:03:58 +00:00	NULL	NULL	NULL	NULL	NULL	3
+781	wHaLxicB	Treaty Lords BA	sunleyJ@parliament.uk	2021-08-12 13:04:07 +00:00	NULL	NULL	NULL	NULL	NULL	3
+782	2NFQfmKH	Treaty Lords BB	sunleyJ@parliament.uk	2021-08-12 13:04:16 +00:00	NULL	NULL	NULL	NULL	NULL	3
+783	RrpmSnwh	Treaty Lords BC	sunleyJ@parliament.uk	2021-08-12 13:04:26 +00:00	NULL	NULL	NULL	NULL	NULL	3
+784	ZfhpgSdD	Treaty Lords BD	sunleyJ@parliament.uk	2021-08-12 13:04:34 +00:00	NULL	NULL	NULL	NULL	NULL	3
+785	A226Jzr2	Treaty Lords BE	sunleyJ@parliament.uk	2021-08-12 13:04:41 +00:00	NULL	NULL	NULL	NULL	NULL	3
+786	jan2KN0l	Treaty Lords BF	sunleyJ@parliament.uk	2021-08-12 13:04:49 +00:00	NULL	NULL	NULL	NULL	NULL	3
+787	vuVRgmlU	Treaty Lords BG	sunleyJ@parliament.uk	2021-08-12 13:04:56 +00:00	NULL	NULL	NULL	NULL	NULL	3
+788	2VvzG6Ht	Treaty Lords BH	sunleyJ@parliament.uk	2021-08-12 13:05:04 +00:00	NULL	NULL	NULL	NULL	NULL	3
+789	cITw9inh	Treaty Lords BI	sunleyJ@parliament.uk	2021-08-12 13:05:15 +00:00	NULL	NULL	NULL	NULL	NULL	3
+790	sXbGLTtd	Treaty Lords BJ	sunleyJ@parliament.uk	2021-08-12 13:05:22 +00:00	NULL	NULL	NULL	NULL	NULL	3
+791	lD8aWPxl	Treaty Lords BK	sunleyJ@parliament.uk	2021-08-12 13:05:29 +00:00	NULL	NULL	NULL	NULL	NULL	3
+792	Y1pjAZB9	Treaty Lords BL	sunleyJ@parliament.uk	2021-08-12 13:05:37 +00:00	NULL	NULL	NULL	NULL	NULL	3
+793	NvnCE7Sf	Treaty Lords BM	sunleyJ@parliament.uk	2021-08-12 13:05:45 +00:00	NULL	NULL	NULL	NULL	NULL	3
+794	IteZOKPP	Treaty Lords BN	sunleyJ@parliament.uk	2021-08-12 13:05:52 +00:00	NULL	NULL	NULL	NULL	NULL	3
+795	DdD6dKb9	Treaty Lords BO	sunleyJ@parliament.uk	2021-08-12 13:06:01 +00:00	NULL	NULL	NULL	NULL	NULL	3
+796	0vHOwBTo	Treaty Lords BP	sunleyJ@parliament.uk	2021-08-12 13:06:09 +00:00	NULL	NULL	NULL	NULL	NULL	3
+797	UpWhElu5	Treaty Lords BQ	sunleyJ@parliament.uk	2021-08-12 13:06:18 +00:00	NULL	NULL	NULL	NULL	NULL	3
+798	OuHGm5Zh	Treaty Lords BR	sunleyJ@parliament.uk	2021-08-12 13:06:25 +00:00	NULL	NULL	NULL	NULL	NULL	3
+799	TCIoZuQ1	Treaty Lords BS	sunleyJ@parliament.uk	2021-08-12 13:06:34 +00:00	NULL	NULL	NULL	NULL	NULL	3
+800	BYwaJWYB	Treaty Lords BT	sunleyJ@parliament.uk	2021-08-12 13:06:41 +00:00	NULL	NULL	NULL	NULL	NULL	3
+801	PEOsOAXS	Treaty Lords BU	sunleyJ@parliament.uk	2021-08-12 13:06:50 +00:00	NULL	NULL	NULL	NULL	NULL	3
+802	1zRYoOxa	Treaty Lords BV	sunleyJ@parliament.uk	2021-08-12 13:06:59 +00:00	NULL	NULL	NULL	NULL	NULL	3
+803	rOultESQ	Treaty Lords BW	sunleyJ@parliament.uk	2021-08-12 13:07:07 +00:00	NULL	NULL	NULL	NULL	NULL	3
+804	VTEP6QJZ	TREATY JCHR AA	sunleyJ@parliament.uk	2021-05-11 10:23:04 +00:00	NULL	NULL	NULL	NULL	NULL	2
+805	dFIWccJE	TREATY JCHR AB	sunleyJ@parliament.uk	2021-05-11 10:23:20 +00:00	NULL	NULL	NULL	NULL	NULL	2
+806	lZeUFBZm	TREATY JCHR AC	sunleyJ@parliament.uk	2021-05-11 10:23:33 +00:00	NULL	NULL	NULL	NULL	NULL	2
+807	xSFZlkOp	TREATY JCHR AD	sunleyJ@parliament.uk	2021-05-11 10:23:47 +00:00	NULL	NULL	NULL	NULL	NULL	2
+808	mVZYvwlo	TREATY JCHR AE	sunleyJ@parliament.uk	2021-05-11 10:23:58 +00:00	NULL	NULL	NULL	NULL	NULL	2
+809	c5kNp5V2	TREATY IAC+EAC AA	sunleyJ@parliament.uk	2021-09-21 11:36:12 +00:00	NULL	NULL	NULL	NULL	NULL	2
+810	QIMcE3if	TREATY IAC+EAC AB	sunleyJ@parliament.uk	2021-09-21 11:36:18 +00:00	NULL	NULL	NULL	NULL	NULL	2
+811	YgxXCFC1	TREATY IAC+EAC AC	sunleyJ@parliament.uk	2021-09-21 11:36:25 +00:00	NULL	NULL	NULL	NULL	NULL	2
+812	yiZ3VGiG	TREATY IAC+EAC AA	sunleyJ@parliament.uk	2021-09-21 11:36:31 +00:00	NULL	NULL	NULL	NULL	NULL	3
+813	4Hwu33WR	TREATY IAC+EAC AB	sunleyJ@parliament.uk	2021-09-21 11:36:36 +00:00	NULL	NULL	NULL	NULL	NULL	3
+814	R1j40dx6	TREATY IAC+EAC AA	sunleyJ@parliament.uk	2021-09-21 11:36:41 +00:00	NULL	NULL	NULL	NULL	NULL	4
+815	Jqqo7QjI	TREATY IAC+EAC AB	sunleyJ@parliament.uk	2021-09-21 11:36:48 +00:00	NULL	NULL	NULL	NULL	NULL	4
+816	IVeDdede	TREATY IAC+EAC AA	sunleyJ@parliament.uk	2021-09-21 11:36:56 +00:00	NULL	NULL	NULL	NULL	NULL	5
+817	CdOsM6IS	TREATY IAC+EAC AB	sunleyJ@parliament.uk	2021-09-21 11:36:07 +00:00	NULL	NULL	NULL	NULL	NULL	5
+818	tSH2fH7F	TREATY ITC AA	sunleyJ@parliament.uk	2021-05-12 09:32:29 +00:00	NULL	NULL	NULL	NULL	NULL	2
+819	T7yTdZL5	TREATY ITC AB	sunleyJ@parliament.uk	2021-05-12 09:32:47 +00:00	NULL	NULL	NULL	NULL	NULL	2
+820	hfuT9OKO	TREATY ITC AC	sunleyJ@parliament.uk	2021-05-12 09:33:17 +00:00	NULL	NULL	NULL	NULL	NULL	2
+821	l2YBza0g	TREATY ITC AD	sunleyJ@parliament.uk	2021-05-12 09:33:24 +00:00	NULL	NULL	NULL	NULL	NULL	2
+822	Sefm15Ju	TREATY ITC AE	sunleyJ@parliament.uk	2021-05-12 09:33:50 +00:00	NULL	NULL	NULL	NULL	NULL	2
+823	85pbbJ9A	TREATY ITC AF	sunleyJ@parliament.uk	2021-05-12 09:34:07 +00:00	NULL	NULL	NULL	NULL	NULL	2
+824	U1MoUyCV	TREATY ITC AA	sunleyJ@parliament.uk	2021-05-12 09:34:21 +00:00	NULL	NULL	NULL	NULL	NULL	5
+825	6WqAxcFR	TREATY ITC AB	sunleyJ@parliament.uk	2021-05-12 09:34:45 +00:00	NULL	NULL	NULL	NULL	NULL	5
+826	P6BKrZV3	TREATY ITC AA	sunleyJ@parliament.uk	2021-05-12 09:35:03 +00:00	NULL	NULL	NULL	NULL	NULL	3
+827	3VS3KKOJ	TREATY ITC AB	sunleyJ@parliament.uk	2021-05-12 09:35:20 +00:00	NULL	NULL	NULL	NULL	NULL	3
+828	TFFZZeJB	TREATY ITC AC	sunleyJ@parliament.uk	2021-05-12 09:36:11 +00:00	NULL	NULL	NULL	NULL	NULL	3
+829	Yps4sFfC	TREATY ITC AD	sunleyJ@parliament.uk	2021-05-12 09:36:30 +00:00	NULL	NULL	NULL	NULL	NULL	3
+830	6XLc1qVG	TREATY ITC AE	sunleyJ@parliament.uk	2021-05-12 09:36:44 +00:00	NULL	NULL	NULL	NULL	NULL	3
+831	DecbwFCC	TREATY ITC AF	sunleyJ@parliament.uk	2021-05-12 09:36:59 +00:00	NULL	NULL	NULL	NULL	NULL	3
+832	U0H1Ndnc	TREATY ITC AG	sunleyJ@parliament.uk	2021-05-12 09:37:23 +00:00	NULL	NULL	NULL	NULL	NULL	3
+833	clEqZLrq	TREATY ITC AH	sunleyJ@parliament.uk	2021-05-12 09:37:37 +00:00	NULL	NULL	NULL	NULL	NULL	3
+834	QCiivC8A	TREATY ITC AI	sunleyJ@parliament.uk	2021-05-12 09:38:02 +00:00	NULL	NULL	NULL	NULL	NULL	3
+835	YoyNUJau	TREATY ITC AJ	sunleyJ@parliament.uk	2021-05-12 09:38:18 +00:00	NULL	NULL	NULL	NULL	NULL	3
+836	XDYKDuzs	TREATY ITC AA	sunleyJ@parliament.uk	2021-05-12 09:38:38 +00:00	NULL	NULL	NULL	NULL	NULL	4
+837	t1hqCmTZ	TREATY ITC AB	sunleyJ@parliament.uk	2021-05-12 09:38:52 +00:00	NULL	NULL	NULL	NULL	NULL	4
+838	5G6fHdeq	TREATY ITC AC	sunleyJ@parliament.uk	2021-05-12 09:39:08 +00:00	NULL	NULL	NULL	NULL	NULL	4
+839	nHl3WMzV	TREATY ITC AD	sunleyJ@parliament.uk	2021-05-12 09:39:24 +00:00	NULL	NULL	NULL	NULL	NULL	4
+840	XaqDY972	TREATY ITC AE	sunleyJ@parliament.uk	2021-05-12 09:39:37 +00:00	NULL	NULL	NULL	NULL	NULL	4
+841	Sx2wZ7JL	TREATY ITC AF	sunleyJ@parliament.uk	2021-05-12 09:39:55 +00:00	NULL	NULL	NULL	NULL	NULL	4
+842	rUQmmc84	TREATY ITC AG	sunleyJ@parliament.uk	2021-05-12 09:40:09 +00:00	NULL	NULL	NULL	NULL	NULL	4
+843	0Z1Rq1vY	TREATY ITC AH	sunleyJ@parliament.uk	2021-05-12 09:40:26 +00:00	NULL	NULL	NULL	NULL	NULL	4
+844	JREKhRGL	TREATY ITC AI	sunleyJ@parliament.uk	2021-05-12 09:40:41 +00:00	NULL	NULL	NULL	NULL	NULL	4
+845	jWL8L4NA	TREATY ITC AJ	sunleyJ@parliament.uk	2021-05-12 09:40:58 +00:00	NULL	NULL	NULL	NULL	NULL	4
+848	GXiT60SI	Published draft under Schedule 8 the European Union (Withdrawal) Act 2018	sunleyJ@parliament.uk	2021-06-15 09:53:34 +00:00	NULL	NULL	NULL	NULL	NULL	1
+849	isWn7s3K	Notification from Department announcing the publication of the draft laid before the House of Commons	sunleyJ@parliament.uk	2021-06-15 10:24:38 +00:00	NULL	NULL	NULL	NULL	NULL	1
+850	Wt0ewA6R	Notification from Department announcing the publication of the draft laid before the House of Lords	sunleyJ@parliament.uk	2021-06-15 10:24:59 +00:00	NULL	NULL	NULL	NULL	NULL	1
+856	bus5CvdZ	Scrutiny period under Schedule 8 of the European Union (Withdrawal) Act 2018 ends	sunleyJ@parliament.uk	2021-06-15 10:41:51 +00:00	NULL	NULL	NULL	NULL	NULL	1
+857	M4GagisV	TREATY EFRA AA	sunleyJ@parliament.uk	2021-05-14 16:29:10 +00:00	NULL	NULL	NULL	NULL	NULL	4
+858	gdWRVwYC	TREATY EFRA AB	sunleyJ@parliament.uk	2021-05-14 16:29:30 +00:00	NULL	NULL	NULL	NULL	NULL	4
+859	hTAhf64R	TREATY EFRA AC	sunleyJ@parliament.uk	2021-05-14 16:30:17 +00:00	NULL	NULL	NULL	NULL	NULL	4
+860	OkinPihq	TREATY EFRA AD	sunleyJ@parliament.uk	2021-05-14 16:30:41 +00:00	NULL	NULL	NULL	NULL	NULL	4
+861	4XguFnjV	TREATY EFRA AE	sunleyJ@parliament.uk	2021-05-14 16:31:01 +00:00	NULL	NULL	NULL	NULL	NULL	4
+862	vfxcWPsq	TREATY EFRA AF	sunleyJ@parliament.uk	2021-05-14 16:31:17 +00:00	NULL	NULL	NULL	NULL	NULL	4
+863	ZxRvCI8x	TREATY EFRA AG	sunleyJ@parliament.uk	2021-05-14 16:31:47 +00:00	NULL	NULL	NULL	NULL	NULL	4
+864	dVqsvauq	TREATY EFRA AH	sunleyJ@parliament.uk	2021-05-14 16:31:54 +00:00	NULL	NULL	NULL	NULL	NULL	4
+865	174mWGw3	TREATY EFRA AI	sunleyJ@parliament.uk	2021-05-14 16:32:19 +00:00	NULL	NULL	NULL	NULL	NULL	4
+866	HMcwtFgN	TREATY EFRA AJ	sunleyJ@parliament.uk	2021-05-14 16:32:42 +00:00	NULL	NULL	NULL	NULL	NULL	4
+867	8S92dzrz	TREATY EFRA AA	sunleyJ@parliament.uk	2021-05-14 16:33:03 +00:00	NULL	NULL	NULL	NULL	NULL	5
+868	LCYFEI7Q	TREATY EFRA AB	sunleyJ@parliament.uk	2021-05-14 16:33:19 +00:00	NULL	NULL	NULL	NULL	NULL	5
+869	mWUSbKYK	TREATY EFRA AA	sunleyJ@parliament.uk	2021-05-14 16:34:09 +00:00	NULL	NULL	NULL	NULL	NULL	2
+870	2aot89qb	TREATY EFRA AB	sunleyJ@parliament.uk	2021-05-14 16:34:30 +00:00	NULL	NULL	NULL	NULL	NULL	2
+871	bEtkLAy3	TREATY EFRA AC	sunleyJ@parliament.uk	2021-05-14 16:34:51 +00:00	NULL	NULL	NULL	NULL	NULL	2
+872	iHKzpR1e	TREATY EFRA AD	sunleyJ@parliament.uk	2021-05-14 16:35:10 +00:00	NULL	NULL	NULL	NULL	NULL	2
+873	RUcboaqp	TREATY EFRA AE	sunleyJ@parliament.uk	2021-05-14 16:35:25 +00:00	NULL	NULL	NULL	NULL	NULL	2
+874	KrO5ISjy	TREATY EFRA AF	sunleyJ@parliament.uk	2021-05-14 16:35:45 +00:00	NULL	NULL	NULL	NULL	NULL	2
+875	VcCKUpsU	TREATY EFRA AA	sunleyJ@parliament.uk	2021-05-14 16:36:09 +00:00	NULL	NULL	NULL	NULL	NULL	3
+876	J32fS4BO	TREATY EFRA AB	sunleyJ@parliament.uk	2021-05-14 16:36:31 +00:00	NULL	NULL	NULL	NULL	NULL	3
+877	WKb6OdkV	TREATY EFRA AC	sunleyJ@parliament.uk	2021-05-14 16:36:55 +00:00	NULL	NULL	NULL	NULL	NULL	3
+878	upjLi4ee	TREATY EFRA AD	sunleyJ@parliament.uk	2021-05-14 16:37:11 +00:00	NULL	NULL	NULL	NULL	NULL	3
+879	PEfYT3F9	TREATY EFRA AE	sunleyJ@parliament.uk	2021-05-14 16:37:31 +00:00	NULL	NULL	NULL	NULL	NULL	3
+880	wQrqDEwy	TREATY EFRA AF	sunleyJ@parliament.uk	2021-05-14 16:37:46 +00:00	NULL	NULL	NULL	NULL	NULL	3
+881	efg0RI0E	TREATY EFRA AG	sunleyJ@parliament.uk	2021-05-14 16:38:08 +00:00	NULL	NULL	NULL	NULL	NULL	3
+882	7Hqy6wNV	TREATY EFRA AH	sunleyJ@parliament.uk	2021-05-14 16:38:23 +00:00	NULL	NULL	NULL	NULL	NULL	3
+883	WzeX0blc	TREATY EFRA AI	sunleyJ@parliament.uk	2021-05-14 16:38:37 +00:00	NULL	NULL	NULL	NULL	NULL	3
+884	tJeo4UVi	TREATY EFRA AJ	sunleyJ@parliament.uk	2021-05-14 16:38:57 +00:00	NULL	NULL	NULL	NULL	NULL	3
+900	Lx8caKG8	Ministerial statement announcing the publication of the draft	sunleyJ@parliament.uk	2021-05-19 16:20:16 +00:00	NULL	NULL	NULL	NULL	NULL	1
+977	VzEassr4	Secondary Legislation Scrutiny Committee (SLSC) makes recommendations on published draft	sunleyJ@parliament.uk	2021-06-15 10:26:43 +00:00	NULL	NULL	NULL	NULL	NULL	1
+978	Upc6HmWw	Secondary Legislation Scrutiny Committee (SLSC) makes no comment on published draft	sunleyJ@parliament.uk	2021-06-15 10:27:27 +00:00	NULL	NULL	NULL	NULL	NULL	1
+979	Xt7sNqH4	Oral evidence session by the Secondary Legislation Scrutiny Committee (SLSC)	sunleyJ@parliament.uk	2021-07-16 12:36:51 +00:00	NULL	NULL	NULL	NULL	NULL	1
+980	hqOOU8pC	CH	sunleyJ@parliament.uk	2021-07-16 12:47:31 +00:00	NULL	NULL	NULL	NULL	NULL	2
+981	5sMFOVYO	AA	sunleyJ@parliament.uk	2021-08-02 15:23:03 +00:00	Treaty withdrawn or Section 22 invoked	NULL	NULL	NULL	NULL	11
+982	7uH4gU6W	AB	sunleyJ@parliament.uk	2021-08-02 15:23:55 +00:00	Treaty has not been withdrawn and Section 22 has not been invoked	NULL	NULL	NULL	NULL	11
+983	aCSGi6kX	AC	sunleyJ@parliament.uk	2021-08-02 15:24:31 +00:00	We are in a period B	NULL	NULL	NULL	NULL	11
+984	jV4zFfrV	AD	sunleyJ@parliament.uk	2021-08-02 15:24:57 +00:00	A motion to not ratify has not been approved in THIS period B	NULL	NULL	NULL	NULL	11
+985	eyX7mMrf	AE	sunleyJ@parliament.uk	2021-08-02 15:25:33 +00:00	Motion(s) that the treaty should not be ratified can be tabled in	NULL	NULL	NULL	NULL	11
+986	k9DDeYaJ	AF	sunleyJ@parliament.uk	2021-08-02 15:25:52 +00:00	Motion(s) that the treaty should not be ratified can be tabled in period A	NULL	NULL	NULL	NULL	11
+987	vsf7ZPh7	AG	sunleyJ@parliament.uk	2021-08-02 15:26:39 +00:00	Motion(s) to not ratify extant	NULL	NULL	NULL	NULL	11
+988	wpS3c2ax	AH	sunleyJ@parliament.uk	2021-08-02 15:27:34 +00:00	Motions extant	NULL	NULL	NULL	NULL	11
+989	mAE90Arh	AI	sunleyJ@parliament.uk	2021-08-02 15:27:59 +00:00	Motion(s) to extend period A extant	NULL	NULL	NULL	NULL	11
+990	RED8092x	AJ	sunleyJ@parliament.uk	2021-08-02 15:28:13 +00:00	More motions to extend questions have been put than outcomes recorded	NULL	NULL	NULL	NULL	11
+991	8BrDW873	AK	sunleyJ@parliament.uk	2021-08-02 15:28:46 +00:00	One more referral motion has been agreed than DLC debates have taken place	NULL	NULL	NULL	NULL	11
+992	w6J2WQXe	AL	sunleyJ@parliament.uk	2021-08-02 15:29:10 +00:00	A debate has taken place	NULL	NULL	NULL	NULL	11
+993	ObRigDdJ	AM	sunleyJ@parliament.uk	2021-08-02 15:29:29 +00:00	More questions have been put than outcomes recorded	NULL	NULL	NULL	NULL	11
+994	BsyPsoCi	BD	sunleyJ@parliament.uk	2021-08-02 15:30:06 +00:00	We are in a scrutiny period	NULL	NULL	NULL	NULL	11
+995	N0pzrqkp	AN	sunleyJ@parliament.uk	2021-08-02 15:30:48 +00:00	No resolution against ratification in last period B	NULL	NULL	NULL	NULL	11
+996	Y776O6b3	AO	sunleyJ@parliament.uk	2021-08-02 15:30:59 +00:00	Period B has started and ended at least once and is currently ended	NULL	NULL	NULL	NULL	11
+997	aGoW03mm	AP	sunleyJ@parliament.uk	2021-08-02 15:31:30 +00:00	Treaty can be ratified at the end of period A	NULL	NULL	NULL	NULL	11
+998	tfO7NGrT	AQ	sunleyJ@parliament.uk	2021-08-02 15:31:43 +00:00	Treaty can be ratified at the end of a period B	NULL	NULL	NULL	NULL	11
+999	u33w8MMm	AR	sunleyJ@parliament.uk	2021-08-02 15:32:28 +00:00	Motion(s) to extend period A extant	NULL	NULL	NULL	NULL	11
+1000	IqH0086t	AS	sunleyJ@parliament.uk	2021-08-02 15:32:44 +00:00	Motion(s) to take note extant	NULL	NULL	NULL	NULL	11
+1001	9C4rRIID	AT	sunleyJ@parliament.uk	2021-08-02 15:33:07 +00:00	More questions have been put than outcomes recorded	NULL	NULL	NULL	NULL	11
+1002	XPS8AvhZ	AU	sunleyJ@parliament.uk	2021-08-02 15:33:20 +00:00	More motions to extend questions have been put than outcomes recorded	NULL	NULL	NULL	NULL	11
+1003	BPKIisUn	AV	sunleyJ@parliament.uk	2021-08-02 15:33:46 +00:00	Motions tabled	NULL	NULL	NULL	NULL	11
+1004	CMOn4GOD	AW	sunleyJ@parliament.uk	2021-08-02 15:34:01 +00:00	Non-fatal motion(s) to object to the treaty extant	NULL	NULL	NULL	NULL	11
+1005	d1T0Wz5Q	AX	sunleyJ@parliament.uk	2021-08-02 15:34:26 +00:00	Motion(s) to not ratify extant	NULL	NULL	NULL	NULL	11
+1006	BGLoSD3Z	AY	sunleyJ@parliament.uk	2021-08-02 15:35:10 +00:00	More non-fatal questions have been put than outcomes recorded	NULL	NULL	NULL	NULL	11
+1007	bMsspKsL	AZ	sunleyJ@parliament.uk	2021-08-02 15:35:30 +00:00	A debate has taken place	NULL	NULL	NULL	NULL	11
+1008	PJukuybH	BA	sunleyJ@parliament.uk	2021-08-02 15:35:44 +00:00	More questions have been put than outcomes recorded	NULL	NULL	NULL	NULL	11
+1009	d6WIQTmI	BB	sunleyJ@parliament.uk	2021-08-02 15:36:19 +00:00	We are in period A	NULL	NULL	NULL	NULL	11
+1010	Ii7jskwv	BC	sunleyJ@parliament.uk	2021-08-02 15:36:27 +00:00	We have left period A	NULL	NULL	NULL	NULL	11
+1011	5tYsYFJ2	AA	sunleyJ@parliament.uk	2021-08-02 15:37:20 +00:00	NULL	NULL	NULL	NULL	NULL	9
+1012	5UsVdvLK	AB	sunleyJ@parliament.uk	2021-08-02 15:37:33 +00:00	NULL	NULL	NULL	NULL	NULL	9
+1013	7b97qToN	AA	sunleyJ@parliament.uk	2021-08-02 15:38:02 +00:00	NULL	NULL	NULL	NULL	NULL	8
+1014	VHX9gzsY	AB	sunleyJ@parliament.uk	2021-08-02 15:38:07 +00:00	NULL	NULL	NULL	NULL	NULL	8
+1015	Ioeil8Yp	AC	sunleyJ@parliament.uk	2021-08-02 15:38:22 +00:00	NULL	NULL	NULL	NULL	NULL	8
+1016	TN1d83Kz	AD	sunleyJ@parliament.uk	2021-08-02 15:38:27 +00:00	NULL	NULL	NULL	NULL	NULL	8
+1017	NLaS4Jzo	AE	sunleyJ@parliament.uk	2021-08-02 15:43:41 +00:00	NULL	NULL	NULL	NULL	NULL	8
+1018	RWIg1cS1	AF	sunleyJ@parliament.uk	2021-08-02 15:43:47 +00:00	NULL	NULL	NULL	NULL	NULL	8
+1019	CI7461YL	AG	sunleyJ@parliament.uk	2021-08-02 15:43:51 +00:00	NULL	NULL	NULL	NULL	NULL	8
+1020	nsI2Enxv	AH	sunleyJ@parliament.uk	2021-08-02 15:43:55 +00:00	NULL	NULL	NULL	NULL	NULL	8
+1021	gpCuX2zn	AI	sunleyJ@parliament.uk	2021-08-02 15:44:00 +00:00	NULL	NULL	NULL	NULL	NULL	8
+1022	IvUWDy5t	AJ	sunleyJ@parliament.uk	2021-08-02 15:44:05 +00:00	NULL	NULL	NULL	NULL	NULL	8
+1023	1OGaBONG	AK	sunleyJ@parliament.uk	2021-08-02 15:44:12 +00:00	NULL	NULL	NULL	NULL	NULL	8
+1024	pAnTDfw4	AL	sunleyJ@parliament.uk	2021-08-02 15:44:16 +00:00	NULL	NULL	NULL	NULL	NULL	8
+1025	pdBhiw9Y	AM	sunleyJ@parliament.uk	2021-08-02 15:44:21 +00:00	NULL	NULL	NULL	NULL	NULL	8
+1026	mamQuljX	AN	sunleyJ@parliament.uk	2021-08-02 15:44:28 +00:00	NULL	NULL	NULL	NULL	NULL	8
+1027	XgA1Sccu	AO	sunleyJ@parliament.uk	2021-08-02 15:44:33 +00:00	NULL	NULL	NULL	NULL	NULL	8
+1028	xS5JAICr	AP	sunleyJ@parliament.uk	2021-08-02 15:44:37 +00:00	NULL	NULL	NULL	NULL	NULL	8
+1029	KlEzLKog	AQ	sunleyJ@parliament.uk	2021-08-02 15:44:43 +00:00	NULL	NULL	NULL	NULL	NULL	8
+1030	4Fw1VWL7	AR	sunleyJ@parliament.uk	2021-08-02 15:44:47 +00:00	NULL	NULL	NULL	NULL	NULL	8
+1031	Txp0o6XB	AS	sunleyJ@parliament.uk	2021-08-02 15:44:51 +00:00	NULL	NULL	NULL	NULL	NULL	8
+1032	BPCnTfUn	AT	sunleyJ@parliament.uk	2021-08-02 15:44:57 +00:00	NULL	NULL	NULL	NULL	NULL	8
+1033	8iTdZq2s	AU	sunleyJ@parliament.uk	2021-08-02 15:45:01 +00:00	NULL	NULL	NULL	NULL	NULL	8
+1034	5u0FaTxd	AV	sunleyJ@parliament.uk	2021-08-02 15:45:05 +00:00	NULL	NULL	NULL	NULL	NULL	8
+1035	0LYF0aXW	AW	sunleyJ@parliament.uk	2021-08-02 15:45:09 +00:00	NULL	NULL	NULL	NULL	NULL	8
+1036	lusNvWw5	AX	sunleyJ@parliament.uk	2021-08-02 15:45:13 +00:00	NULL	NULL	NULL	NULL	NULL	8
+1037	qgbIAu6U	AY	sunleyJ@parliament.uk	2021-08-02 15:45:19 +00:00	NULL	NULL	NULL	NULL	NULL	8
+1038	VxuG5c5a	AZ	sunleyJ@parliament.uk	2021-08-02 15:45:23 +00:00	NULL	NULL	NULL	NULL	NULL	8
+1039	GnFp5kTD	BA	sunleyJ@parliament.uk	2021-08-02 15:45:27 +00:00	NULL	NULL	NULL	NULL	NULL	8
+1040	RS4MgPMT	BB	sunleyJ@parliament.uk	2021-08-02 15:45:31 +00:00	NULL	NULL	NULL	NULL	NULL	8
+1041	zq7BkKos	BC	sunleyJ@parliament.uk	2021-08-02 15:45:36 +00:00	NULL	NULL	NULL	NULL	NULL	8
+1042	ixblKtFa	BD	sunleyJ@parliament.uk	2021-08-02 15:45:40 +00:00	NULL	NULL	NULL	NULL	NULL	8
+1043	wLjv1JQd	BE	sunleyJ@parliament.uk	2021-08-02 15:45:45 +00:00	NULL	NULL	NULL	NULL	NULL	8
+1044	88Eob2TX	AA	sunleyJ@parliament.uk	2021-08-02 15:46:10 +00:00	NULL	NULL	NULL	NULL	NULL	10
+1045	z6uyaCkI	AB	sunleyJ@parliament.uk	2021-08-02 15:46:14 +00:00	NULL	NULL	NULL	NULL	NULL	10
+1046	gab0qVmY	AC	sunleyJ@parliament.uk	2021-08-02 15:46:19 +00:00	NULL	NULL	NULL	NULL	NULL	10
+1047	fE4KNWLe	AD	sunleyJ@parliament.uk	2021-08-02 15:46:24 +00:00	NULL	NULL	NULL	NULL	NULL	10
+1048	ZKODjwo6	AE	sunleyJ@parliament.uk	2021-08-02 15:46:35 +00:00	NULL	NULL	NULL	NULL	NULL	10
+1049	Vjy57bpw	AF	sunleyJ@parliament.uk	2021-08-02 15:46:39 +00:00	NULL	NULL	NULL	NULL	NULL	10
+1050	exBtMPgy	AG	sunleyJ@parliament.uk	2021-08-02 15:46:43 +00:00	NULL	NULL	NULL	NULL	NULL	10
+1051	hKbOf370	AH	sunleyJ@parliament.uk	2021-08-02 15:46:47 +00:00	NULL	NULL	NULL	NULL	NULL	10
+1052	f5XcYJEu	AI	sunleyJ@parliament.uk	2021-08-02 15:46:52 +00:00	NULL	NULL	NULL	NULL	NULL	10
+1053	fHNXgwA4	AJ	sunleyJ@parliament.uk	2021-08-02 15:47:17 +00:00	NULL	NULL	NULL	NULL	NULL	10
+1054	Tkm9cbDk	AK	sunleyJ@parliament.uk	2021-08-02 15:47:26 +00:00	NULL	NULL	NULL	NULL	NULL	10
+1055	ECvFfU25	AL	sunleyJ@parliament.uk	2021-08-02 15:47:32 +00:00	NULL	NULL	NULL	NULL	NULL	10
+1056	SngEEhuv	AM	sunleyJ@parliament.uk	2021-08-02 15:47:37 +00:00	NULL	NULL	NULL	NULL	NULL	10
+1057	tdF4HRDZ	AN	sunleyJ@parliament.uk	2021-08-02 15:47:41 +00:00	NULL	NULL	NULL	NULL	NULL	10
+1058	10UFnecl	AO	sunleyJ@parliament.uk	2021-08-02 15:47:46 +00:00	NULL	NULL	NULL	NULL	NULL	10
+1059	v6ceVLQN	AP	sunleyJ@parliament.uk	2021-08-02 15:47:52 +00:00	NULL	NULL	NULL	NULL	NULL	10
+1060	6wExzLSE	AQ	sunleyJ@parliament.uk	2021-08-02 15:47:57 +00:00	NULL	NULL	NULL	NULL	NULL	10
+1061	FeBI9KR1	AR	sunleyJ@parliament.uk	2021-08-02 15:48:02 +00:00	NULL	NULL	NULL	NULL	NULL	10
+1062	fqXmeAgm	AS	sunleyJ@parliament.uk	2021-08-02 15:48:07 +00:00	NULL	NULL	NULL	NULL	NULL	10
+1063	1oi1MjWZ	AT	sunleyJ@parliament.uk	2021-08-02 15:48:11 +00:00	NULL	NULL	NULL	NULL	NULL	10
+1064	OmmO1fhj	Motion calling on the Government to extend objection period A not called	sunleyJ@parliament.uk	2021-08-03 09:45:33 +00:00	NULL	NULL	NULL	NULL	NULL	1
+1065	vwLW9n2V	Decision on a motion calling on the Government to extend objection period A deferred	sunleyJ@parliament.uk	2021-08-03 09:54:42 +00:00	NULL	NULL	NULL	NULL	NULL	1
+1066	fUicRRfU	Motion that the treaty should not be ratified not called	sunleyJ@parliament.uk	2021-08-03 10:30:54 +00:00	NULL	NULL	NULL	NULL	NULL	1
+1067	fKoxhL82	Period B starts	sunleyJ@parliament.uk	2021-08-03 10:40:13 +00:00	NULL	NULL	NULL	NULL	NULL	1
+1068	tfu7FhPQ	Motion calling on the Government to extend objection period A not called	sunleyJ@parliament.uk	2021-08-03 13:17:03 +00:00	NULL	NULL	NULL	NULL	NULL	1
+1069	SFIeHqYx	Motion to take note of the treaty not moved	sunleyJ@parliament.uk	2021-08-03 13:31:14 +00:00	NULL	NULL	NULL	NULL	NULL	1
+1070	JDovnFAf	Motion to take note of the treaty not called	sunleyJ@parliament.uk	2021-08-03 13:31:24 +00:00	NULL	NULL	NULL	NULL	NULL	1
+1071	FzVqXEXN	Question on a motion to take note of the treaty put	sunleyJ@parliament.uk	2021-08-03 13:34:57 +00:00	NULL	NULL	NULL	NULL	NULL	1
+1072	BO2A1nbf	Motion to take note of the treaty approved	sunleyJ@parliament.uk	2021-08-03 13:35:53 +00:00	NULL	NULL	NULL	NULL	NULL	1
+1073	VIxKo3Hi	Motion to take note of the treaty rejected	sunleyJ@parliament.uk	2021-08-03 13:36:08 +00:00	NULL	NULL	NULL	NULL	NULL	1
+1074	HVqDzq1L	CJ	sunleyJ@parliament.uk	2021-08-03 13:49:40 +00:00	NULL	NULL	NULL	NULL	NULL	2
+1075	tUVXd847	CK	sunleyJ@parliament.uk	2021-08-03 13:51:06 +00:00	NULL	NULL	NULL	NULL	NULL	2
+1076	08qbSCcO	Non-fatal motion to object to the treaty not called	sunleyJ@parliament.uk	2021-08-03 13:58:53 +00:00	NULL	NULL	NULL	NULL	NULL	1
+1077	NwM03XeJ	CI	sunleyJ@parliament.uk	2021-08-03 14:11:31 +00:00	NULL	NULL	NULL	NULL	NULL	2
+1078	4dAerQ6g	CL	sunleyJ@parliament.uk	2021-08-03 14:12:03 +00:00	NULL	NULL	NULL	NULL	NULL	2
+1079	5wt8xBv6	CM	sunleyJ@parliament.uk	2021-08-03 14:12:20 +00:00	NULL	NULL	NULL	NULL	NULL	2
+1080	6RCN8IV7	CN	sunleyJ@parliament.uk	2021-08-03 14:12:48 +00:00	NULL	NULL	NULL	NULL	NULL	2
+1081	JsP7d6xr	CO	sunleyJ@parliament.uk	2021-08-03 14:12:53 +00:00	NULL	NULL	NULL	NULL	NULL	2
+1082	3cmF7R1a	CP	sunleyJ@parliament.uk	2021-08-03 14:13:01 +00:00	NULL	NULL	NULL	NULL	NULL	2
+1083	fGG4XL9B	CQ	sunleyJ@parliament.uk	2021-08-03 14:13:06 +00:00	NULL	NULL	NULL	NULL	NULL	2
+1084	36A8dVxK	Motion that the treaty should not be ratified not called	sunleyJ@parliament.uk	2021-08-03 14:45:43 +00:00	NULL	NULL	NULL	NULL	NULL	1
+1085	DnI5rn4b	EK	sunleyJ@parliament.uk	2021-08-04 09:54:51 +00:00	NULL	NULL	NULL	NULL	NULL	4
+1087	MGP09TyI	EC	sunleyJ@parliament.uk	2021-08-04 09:55:05 +00:00	NULL	NULL	NULL	NULL	NULL	3
+1088	xMFW9Szf	ED	sunleyJ@parliament.uk	2021-08-04 10:00:08 +00:00	NULL	NULL	NULL	NULL	NULL	3
+1089	JaUpijT7	Motion (prayer) to stop the instrument being law not called	sunleyJ@parliament.uk	2021-08-04 10:11:54 +00:00	NULL	NULL	NULL	NULL	NULL	1
+1090	Tfjglylz	MN AA	sunleyJ@parliament.uk	2021-08-04 10:18:03 +00:00	Motion(s) to stop the instrument being law extant 	NULL	NULL	NULL	NULL	11
+1091	wIQJrc2V	MN AB	sunleyJ@parliament.uk	2021-08-04 14:16:23 +00:00	More questions have been put than outcomes recorded 	NULL	NULL	NULL	NULL	11
+1092	Bb55oW7K	EE	sunleyJ@parliament.uk	2021-08-04 14:31:16 +00:00	NULL	NULL	NULL	NULL	NULL	3
+1093	hVFMjlSH	MN AC	sunleyJ@parliament.uk	2021-08-04 14:32:38 +00:00	Non-fatal motion(s) to object to the instrument extant	NULL	NULL	NULL	NULL	11
+1094	p2UZ6QRV	Non-fatal motion (prayer) to object to the instrument not called	sunleyJ@parliament.uk	2021-08-04 14:35:57 +00:00	NULL	NULL	NULL	NULL	NULL	1
+1095	XzukN6ef	EF	sunleyJ@parliament.uk	2021-08-04 14:53:25 +00:00	NULL	NULL	NULL	NULL	NULL	3
+1096	NtKMGtI1	EL	sunleyJ@parliament.uk	2021-08-04 14:56:43 +00:00	NULL	NULL	NULL	NULL	NULL	4
+1097	ZMFtKcnK	EM	sunleyJ@parliament.uk	2021-08-04 14:56:49 +00:00	NULL	NULL	NULL	NULL	NULL	4
+1098	nt7peAjQ	EG	sunleyJ@parliament.uk	2021-08-04 15:17:12 +00:00	NULL	NULL	NULL	NULL	NULL	3
+1099	ofM2JQEu	MN AD	sunleyJ@parliament.uk	2021-08-04 15:20:06 +00:00	More questions have been put than outcomes recorded	NULL	NULL	NULL	NULL	11
+1100	RpfNOwwZ	EN	sunleyJ@parliament.uk	2021-08-04 15:36:28 +00:00	NULL	NULL	NULL	NULL	NULL	4
+1101	0XLoochu	MN AE	sunleyJ@parliament.uk	2021-08-04 15:42:28 +00:00	One more referral motion has been agreed than DLC debates have taken place	NULL	NULL	NULL	NULL	11
+1102	OLG5ctTt	MN AF	sunleyJ@parliament.uk	2021-08-04 15:56:49 +00:00	Objection period has not ended	NULL	NULL	NULL	NULL	11
+1103	e9DCJtE7	MN AG	sunleyJ@parliament.uk	2021-08-09 10:07:12 +00:00	Non-fatal motion(s) to object to the instrument extant	NULL	NULL	NULL	NULL	11
+1104	OED9sXYI	Non-fatal motion (prayer) to object to the instrument not called	sunleyJ@parliament.uk	2021-08-09 10:36:45 +00:00	NULL	NULL	NULL	NULL	NULL	1
+1105	0biKUjGg	MN AH	sunleyJ@parliament.uk	2021-08-09 10:53:33 +00:00	More questions have been put than outcomes recorded	NULL	NULL	NULL	NULL	11
+1106	y6RjlBzi	EH	sunleyJ@parliament.uk	2021-08-09 10:55:55 +00:00	NULL	NULL	NULL	NULL	NULL	3
+1107	Oylez8yx	MN AI	sunleyJ@parliament.uk	2021-08-09 11:12:45 +00:00	Motion(s) to stop the instrument being law extant	NULL	NULL	NULL	NULL	11
+1108	Tz58WWtI	Motion (prayer) to stop the instrument being law not called	sunleyJ@parliament.uk	2021-08-09 11:15:20 +00:00	NULL	NULL	NULL	NULL	NULL	1
+1109	ApRnAjuf	MN AJ	sunleyJ@parliament.uk	2021-08-09 11:32:26 +00:00	Take note motion(s) extant	NULL	NULL	NULL	NULL	11
+1110	P0pM1Tl9	MN AK	sunleyJ@parliament.uk	2021-08-09 15:05:05 +00:00	More questions have been put than outcomes recorded	NULL	NULL	NULL	NULL	11
+1111	lNtTZiJO	EI	sunleyJ@parliament.uk	2021-08-09 15:21:40 +00:00	NULL	NULL	NULL	NULL	NULL	3
+1112	FGJvohx9	Motion to take note of the instrument not moved	sunleyJ@parliament.uk	2021-08-09 15:26:15 +00:00	NULL	NULL	NULL	NULL	NULL	1
+1113	sBllpNvg	Motion to take note of the instrument not called	sunleyJ@parliament.uk	2021-08-09 15:26:41 +00:00	NULL	NULL	NULL	NULL	NULL	1
+1114	lYqcFJ3o	EO	sunleyJ@parliament.uk	2021-08-09 15:33:18 +00:00	NULL	NULL	NULL	NULL	NULL	4
+1115	orSn9YzS	Question on a motion to take note of the instrument put	sunleyJ@parliament.uk	2021-08-09 15:35:26 +00:00	NULL	NULL	NULL	NULL	NULL	1
+1116	IfgRyCs1	MN AL	sunleyJ@parliament.uk	2021-08-09 15:42:55 +00:00	More questions have been put than outcomes recorded	NULL	NULL	NULL	NULL	11
+1117	4PvVTUal	EJ	sunleyJ@parliament.uk	2021-08-09 15:43:14 +00:00	NULL	NULL	NULL	NULL	NULL	3
+1118	jTXPeyPE	Motion to take note of the instrument approved	sunleyJ@parliament.uk	2021-08-09 15:44:42 +00:00	NULL	NULL	NULL	NULL	NULL	1
+1119	Pjc40o8g	Motion to take note of the instrument rejected	sunleyJ@parliament.uk	2021-08-09 15:45:03 +00:00	NULL	NULL	NULL	NULL	NULL	1
+1120	61PXG5Ou	DN AA	sunleyJ@parliament.uk	2021-08-10 10:03:31 +00:00	Objection period has not ended	NULL	NULL	NULL	NULL	11
+1121	aPvkqANi	DN AB	sunleyJ@parliament.uk	2021-08-10 10:19:32 +00:00	Non-fatal motion(s) to object to the instrument extant	NULL	NULL	NULL	NULL	11
+1122	ARXpDiT4	DN AC	sunleyJ@parliament.uk	2021-08-10 10:44:44 +00:00	More questions have been put than outcomes recorded	NULL	NULL	NULL	NULL	11
+1123	nNB8mKe4	DN AD	sunleyJ@parliament.uk	2021-08-10 10:49:53 +00:00	One more referral motion has been agreed than DLC debates have taken place	NULL	NULL	NULL	NULL	11
+1124	tzeCafes	DN AE	sunleyJ@parliament.uk	2021-08-10 15:17:37 +00:00	Motion(s) to stop the instrument becoming law extant 	NULL	NULL	NULL	NULL	11
+1125	MabbPJ2z	Motion (prayer) to stop the instrument becoming law not called	sunleyJ@parliament.uk	2021-08-10 15:20:35 +00:00	NULL	NULL	NULL	NULL	NULL	1
+1126	Irv45dT5	DN AF	sunleyJ@parliament.uk	2021-08-10 15:38:04 +00:00	More questions have been put than outcomes recorded	NULL	NULL	NULL	NULL	11
+1127	72PcnPBR	DN AG	sunleyJ@parliament.uk	2021-08-11 10:04:40 +00:00	Motion(s) to take note of the instrument extant	NULL	NULL	NULL	NULL	11
+1128	t4KIuNv5	Motion (prayer) to stop the instrument becoming law not called	sunleyJ@parliament.uk	2021-08-11 10:35:41 +00:00	NULL	NULL	NULL	NULL	NULL	1
+1129	CNvemkU4	DN AH	sunleyJ@parliament.uk	2021-08-11 10:38:17 +00:00	Motion(s) to stop the instrument becoming law extant	NULL	NULL	NULL	NULL	11
+1130	cFjYGh4r	DN AI	sunleyJ@parliament.uk	2021-08-11 10:56:24 +00:00	Non-fatal motion(s) to object to the instrument extant	NULL	NULL	NULL	NULL	11
+1131	A4JgjWfY	DN AJ	sunleyJ@parliament.uk	2021-08-11 14:01:14 +00:00	More questions have been put than outcomes recorded	NULL	NULL	NULL	NULL	11
+1132	n6WewZI6	DN AK	sunleyJ@parliament.uk	2021-08-11 14:11:31 +00:00	More questions have been put than outcomes recorded	NULL	NULL	NULL	NULL	11
+1133	M135etNO	DN AL	sunleyJ@parliament.uk	2021-08-11 14:34:09 +00:00	More questions have been put than outcomes recorded	NULL	NULL	NULL	NULL	11
+1134	30xZ3sHs	DA AA	sunleyJ@parliament.uk	2021-08-12 10:02:10 +00:00	Motion to approve the instrument extant	NULL	NULL	NULL	NULL	11
+1135	tBp8kALH	Motion to approve the instrument not moved	sunleyJ@parliament.uk	2021-08-12 10:13:02 +00:00	NULL	NULL	NULL	NULL	NULL	1
+1136	WIAypdQX	Motion to approve the instrument not called	sunleyJ@parliament.uk	2021-08-12 10:13:45 +00:00	NULL	NULL	NULL	NULL	NULL	1
+1137	OyOKWqsY	DA AB	sunleyJ@parliament.uk	2021-08-12 10:43:01 +00:00	More questions have been put than outcomes recorded	NULL	NULL	NULL	NULL	11
+1138	e8eSWNm8	DA AC	sunleyJ@parliament.uk	2021-08-12 11:44:55 +00:00	Motion to approve the instrument extant	NULL	NULL	NULL	NULL	11
+1139	Jy8EMhZk	Motion to approve the instrument not moved	sunleyJ@parliament.uk	2021-08-12 11:53:41 +00:00	NULL	NULL	NULL	NULL	NULL	1
+1140	5dYL0Iya	Motion to approve the instrument not called	sunleyJ@parliament.uk	2021-08-12 11:53:50 +00:00	NULL	NULL	NULL	NULL	NULL	1
+1141	39kScSex	DA AD	sunleyJ@parliament.uk	2021-08-12 15:10:37 +00:00	Non-fatal motion(s) to object to the instrument extant	NULL	NULL	NULL	NULL	11
+1142	jkid9gNM	Non-fatal motion to object to the instrument not called	sunleyJ@parliament.uk	2021-08-12 15:12:47 +00:00	NULL	NULL	NULL	NULL	NULL	1
+1143	c0ZewnFD	DA AE	sunleyJ@parliament.uk	2021-08-12 15:36:19 +00:00	Motion(s) to stop the instrument becoming law extant 	NULL	NULL	NULL	NULL	11
+1144	73Y25Z62	DA AF	sunleyJ@parliament.uk	2021-08-17 10:50:01 +00:00	Instrument not withdrawn from the House of Lords 	NULL	NULL	NULL	NULL	11
+1145	801dhXTA	DA AG	sunleyJ@parliament.uk	2021-08-17 15:20:08 +00:00	More questions have been put than outcomes recorded 	NULL	NULL	NULL	NULL	11
+1146	DdOzQkSC	DA AH	sunleyJ@parliament.uk	2021-08-17 15:27:12 +00:00	More questions have been put than outcomes recorded 	NULL	NULL	NULL	NULL	11
+1147	MyasQySL	DA AI	sunleyJ@parliament.uk	2021-08-17 15:27:33 +00:00	More questions have been put than outcomes recorded 	NULL	NULL	NULL	NULL	11
+1148	xlAXbtOd	DA AJ	sunleyJ@parliament.uk	2021-08-23 09:44:24 +00:00	JCSI scrutiny reserve met - approval motion can be moved	NULL	NULL	NULL	NULL	11
+1149	cchDcpuA	BG	sunleyJ@parliament.uk	2021-08-23 13:13:37 +00:00	NULL	NULL	NULL	NULL	NULL	5
+1150	OkYXClA2	MA AA	sunleyJ@parliament.uk	2021-08-23 15:02:18 +00:00	Approval period has ended	NULL	NULL	NULL	NULL	11
+1151	ciLca67t	MA AB	sunleyJ@parliament.uk	2021-08-23 15:02:47 +00:00	Approval period has not ended	NULL	NULL	NULL	NULL	11
+1152	AYYhvoH4	MA AC	sunleyJ@parliament.uk	2021-08-23 13:19:55 +00:00	Instrument not revoked by another instrument	NULL	NULL	NULL	NULL	11
+1153	MnD1bwMx	MA AD	sunleyJ@parliament.uk	2021-08-23 13:27:07 +00:00	Motion to approve the instrument extant	NULL	NULL	NULL	NULL	11
+1154	a2DYkPeF	MA AE	sunleyJ@parliament.uk	2021-08-23 14:54:50 +00:00	More questions have been put than outcomes recorded	NULL	NULL	NULL	NULL	11
+1155	XIViOeNi	MA AF	sunleyJ@parliament.uk	2021-08-24 13:14:15 +00:00	Motion to approve the instrument extant	NULL	NULL	NULL	NULL	11
+1156	PmdCqZQn	MA AG	sunleyJ@parliament.uk	2021-08-24 13:45:39 +00:00	Non-fatal motion(s) to object to the instrument extant	NULL	NULL	NULL	NULL	11
+1157	K53wH2wm	MA AH	sunleyJ@parliament.uk	2021-08-24 14:15:41 +00:00	Motion(s) to stop the instrument being law extant	NULL	NULL	NULL	NULL	11
+1158	68ROdY7B	MA AI	sunleyJ@parliament.uk	2021-08-24 14:45:03 +00:00	JCSI scrutiny reserve condition met and approval motion can be moved	NULL	NULL	NULL	NULL	11
+1159	sBugmJfn	BH	sunleyJ@parliament.uk	2021-08-24 14:57:53 +00:00	NULL	NULL	NULL	NULL	NULL	5
+1160	CrLrREhk	BI	sunleyJ@parliament.uk	2021-08-24 14:59:18 +00:00	NULL	NULL	NULL	NULL	NULL	5
+1161	hh8MG9dg	MA AJ	sunleyJ@parliament.uk	2021-08-31 09:39:30 +00:00	More questions have been put than outcomes recorded 	NULL	NULL	NULL	NULL	11
+1162	830UypZB	MA AK	sunleyJ@parliament.uk	2021-08-31 09:55:43 +00:00	More questions have been put than outcomes recorded	NULL	NULL	NULL	NULL	11
+1163	XXadEolu	MA AL	sunleyJ@parliament.uk	2021-08-31 10:04:10 +00:00	More questions have been put than outcomes recorded 	NULL	NULL	NULL	NULL	11
+1164	DH81084i	Treaty Lords AA	sunleyJ@parliament.uk	2021-09-06 13:26:44 +00:00	Not considered by the Secondary Legislation Scrutiny Committee	NULL	NULL	NULL	NULL	11
+1165	NTgwdwYV	Treaty Lords BX	sunleyJ@parliament.uk	2021-09-06 13:08:44 +00:00	NULL	NULL	NULL	NULL	NULL	3
+1166	tMWy1SKb	Treaty Lords AB	sunleyJ@parliament.uk	2021-09-06 13:21:36 +00:00	Allocated to the EU committee or to an EU sub-committee	NULL	NULL	NULL	NULL	11
+1167	iGOxwHyg	DA AK	sunleyJ@parliament.uk	2021-09-06 13:42:33 +00:00	Instrument not withdrawn from the House of Commons	NULL	NULL	NULL	NULL	11
+1168	sTNh5JhK	MN AM	sunleyJ@parliament.uk	2021-09-06 14:16:05 +00:00	Instrument not revoked by another instrument	NULL	NULL	NULL	NULL	11
+1169	B9gwvMzf	EK	sunleyJ@parliament.uk	2021-09-06 14:16:52 +00:00	NULL	NULL	NULL	NULL	NULL	3
+1170	Iax55mbU	DN AM	sunleyJ@parliament.uk	2021-09-06 14:46:29 +00:00	Instrument not withdrawn from the House of Lords 	NULL	NULL	NULL	NULL	11
+1171	HcTcskwD	DN AN	sunleyJ@parliament.uk	2021-09-06 14:57:22 +00:00	Instrument not withdrawn from the House of Commons 	NULL	NULL	NULL	NULL	11
+1172	QGF8YAcB	PL AA	sunleyJ@parliament.uk	2021-09-07 10:53:27 +00:00	Bill printed at end of first reading in first House	NULL	NULL	NULL	NULL	11
+1173	SQv1szga	NIA AA	sunleyJ@parliament.uk	2021-09-08 13:24:49 +00:00	NULL	NULL	NULL	NULL	NULL	4
+1174	EI6AAYV8	NIA AB	sunleyJ@parliament.uk	2021-09-08 13:24:56 +00:00	NULL	NULL	NULL	NULL	NULL	4
+1175	BRva5cdL	NIA AC	sunleyJ@parliament.uk	2021-09-08 13:25:03 +00:00	NULL	NULL	NULL	NULL	NULL	4
+1176	0qgegNxv	NIA AD	sunleyJ@parliament.uk	2021-09-08 13:25:09 +00:00	NULL	NULL	NULL	NULL	NULL	4
+1177	oyHmiGkO	NIA AE	sunleyJ@parliament.uk	2021-09-08 13:25:13 +00:00	NULL	NULL	NULL	NULL	NULL	4
+1178	VisLr2g5	NIA AF	sunleyJ@parliament.uk	2021-09-08 13:25:18 +00:00	NULL	NULL	NULL	NULL	NULL	4
+1179	CdzWt52d	NIA AA	sunleyJ@parliament.uk	2021-09-08 13:18:48 +00:00	NULL	NULL	NULL	NULL	NULL	3
+1180	7uWivISZ	NIA AB	sunleyJ@parliament.uk	2021-09-08 13:18:53 +00:00	NULL	NULL	NULL	NULL	NULL	3
+1181	KVNQT6Gj	NIA AC	sunleyJ@parliament.uk	2021-09-08 13:18:59 +00:00	NULL	NULL	NULL	NULL	NULL	3
+1182	ZNbEs1xn	NIA AD	sunleyJ@parliament.uk	2021-09-08 13:19:04 +00:00	NULL	NULL	NULL	NULL	NULL	3
+1183	igkBg6bE	NIA AE	sunleyJ@parliament.uk	2021-09-08 13:19:08 +00:00	NULL	NULL	NULL	NULL	NULL	3
+1184	MmgrMquA	NIA AF	sunleyJ@parliament.uk	2021-09-08 13:19:13 +00:00	NULL	NULL	NULL	NULL	NULL	3
+1185	cgQr6g2Z	NIA AA	sunleyJ@parliament.uk	2021-09-08 13:17:55 +00:00	NULL	NULL	NULL	NULL	NULL	2
+1186	9T4VO8A4	NIA AB	sunleyJ@parliament.uk	2021-09-08 13:18:02 +00:00	NULL	NULL	NULL	NULL	NULL	2
+1187	v82PYYoB	NIA AC	sunleyJ@parliament.uk	2021-09-08 13:18:07 +00:00	NULL	NULL	NULL	NULL	NULL	2
+1188	kYw1fhpo	NIA AD	sunleyJ@parliament.uk	2021-09-08 13:18:14 +00:00	NULL	NULL	NULL	NULL	NULL	2
+1189	CLpmIe5u	Northern Ireland Assembly Legislative Consent motion tabled	sunleyJ@parliament.uk	2021-09-08 13:25:45 +00:00	NULL	NULL	NULL	NULL	NULL	1
+1190	MdSdtsSa	Question put on Northern Ireland Assembly Legislative Consent motion	sunleyJ@parliament.uk	2021-09-08 13:26:15 +00:00	NULL	NULL	NULL	NULL	NULL	1
+1191	3bo1Ppue	Northern Ireland Assembly Legislative Consent motion approved	sunleyJ@parliament.uk	2021-09-08 13:26:24 +00:00	NULL	NULL	NULL	NULL	NULL	1
+1192	JsoEHzvD	Northern Ireland Assembly Legislative Consent motion rejected	sunleyJ@parliament.uk	2021-09-08 13:25:37 +00:00	NULL	NULL	NULL	NULL	NULL	1
+1193	4Duoolc9	Welsh Parliament Legislative Consent motion tabled	sunleyJ@parliament.uk	2021-09-07 14:15:49 +00:00	NULL	NULL	NULL	NULL	NULL	1
+1194	PvHj05DD	Question put on Welsh Parliament Legislative Consent motion	sunleyJ@parliament.uk	2021-09-07 14:16:26 +00:00	NULL	NULL	NULL	NULL	NULL	1
+1195	AOqACTaV	Welsh Parliament Legislative Consent motion approved	sunleyJ@parliament.uk	2021-09-07 14:16:44 +00:00	NULL	NULL	NULL	NULL	NULL	1
+1196	pMICirK2	Welsh Parliament Legislative Consent motion rejected	sunleyJ@parliament.uk	2021-09-07 14:16:54 +00:00	NULL	NULL	NULL	NULL	NULL	1
+1197	D5yrDVMY	WP AA	sunleyJ@parliament.uk	2021-09-07 14:18:04 +00:00	NULL	NULL	NULL	NULL	NULL	2
+1198	IEGjU3cx	WP AB	sunleyJ@parliament.uk	2021-09-07 14:18:10 +00:00	NULL	NULL	NULL	NULL	NULL	2
+1199	fVKwxaZR	WP AC	sunleyJ@parliament.uk	2021-09-07 14:18:15 +00:00	NULL	NULL	NULL	NULL	NULL	2
+1200	bfV4jdsh	WP AD	sunleyJ@parliament.uk	2021-09-07 14:21:11 +00:00	NULL	NULL	NULL	NULL	NULL	2
+1201	s7bPIphY	WP AA	sunleyJ@parliament.uk	2021-09-07 14:19:00 +00:00	NULL	NULL	NULL	NULL	NULL	3
+1202	Cm78gzwI	WP AB	sunleyJ@parliament.uk	2021-09-07 14:19:05 +00:00	NULL	NULL	NULL	NULL	NULL	3
+1203	kCZTwFDH	WP AC	sunleyJ@parliament.uk	2021-09-07 14:19:10 +00:00	NULL	NULL	NULL	NULL	NULL	3
+1204	C2WautAJ	WP AD	sunleyJ@parliament.uk	2021-09-07 14:19:17 +00:00	NULL	NULL	NULL	NULL	NULL	3
+1205	hnvtBIgu	WP AE	sunleyJ@parliament.uk	2021-09-07 14:19:23 +00:00	NULL	NULL	NULL	NULL	NULL	3
+1206	yh8f6Tpz	WP AF	sunleyJ@parliament.uk	2021-09-07 14:19:28 +00:00	NULL	NULL	NULL	NULL	NULL	3
+1207	We0bD8d6	WP AA	sunleyJ@parliament.uk	2021-09-07 14:20:24 +00:00	NULL	NULL	NULL	NULL	NULL	4
+1208	v8kUac77	WP AB	sunleyJ@parliament.uk	2021-09-07 14:20:38 +00:00	NULL	NULL	NULL	NULL	NULL	4
+1209	m0KTluyE	WP AC	sunleyJ@parliament.uk	2021-09-07 14:20:44 +00:00	NULL	NULL	NULL	NULL	NULL	4
+1210	lXqcT4bT	WP AD	sunleyJ@parliament.uk	2021-09-07 14:21:35 +00:00	NULL	NULL	NULL	NULL	NULL	4
+1211	Zk5rkIaV	WP AE	sunleyJ@parliament.uk	2021-09-07 14:21:42 +00:00	NULL	NULL	NULL	NULL	NULL	4
+1212	yUKJXE7J	WP AF	sunleyJ@parliament.uk	2021-09-07 14:21:47 +00:00	NULL	NULL	NULL	NULL	NULL	4
+1213	Vm7YSOuC	Scottish Parliament Legislative Consent motion tabled	sunleyJ@parliament.uk	2021-09-15 09:39:24 +00:00	NULL	NULL	NULL	NULL	NULL	1
+1214	vAiLGnuq	Question put on Scottish Parliament Legislative Consent motion	sunleyJ@parliament.uk	2021-09-15 09:39:30 +00:00	NULL	NULL	NULL	NULL	NULL	1
+1215	6cHRl7uP	Scottish Parliament Legislative Consent motion approved	sunleyJ@parliament.uk	2021-09-15 09:39:37 +00:00	NULL	NULL	NULL	NULL	NULL	1
+1216	cyeF56HH	Scottish Parliament Legislative Consent motion rejected	sunleyJ@parliament.uk	2021-09-15 09:39:44 +00:00	NULL	NULL	NULL	NULL	NULL	1
+1217	R6MVPt0H	SP AA	sunleyJ@parliament.uk	2021-09-15 09:45:35 +00:00	NULL	NULL	NULL	NULL	NULL	4
+1218	Gwq7y8so	SP AB	sunleyJ@parliament.uk	2021-09-15 09:45:39 +00:00	NULL	NULL	NULL	NULL	NULL	4
+1219	cslnvq2W	SP AC	sunleyJ@parliament.uk	2021-09-15 09:45:44 +00:00	NULL	NULL	NULL	NULL	NULL	4
+1220	hCnWc5Lg	SP AD	sunleyJ@parliament.uk	2021-09-15 09:45:59 +00:00	NULL	NULL	NULL	NULL	NULL	4
+1221	sAKDmJ9G	SP AE	sunleyJ@parliament.uk	2021-09-15 09:46:04 +00:00	NULL	NULL	NULL	NULL	NULL	4
+1222	g7bZlQvH	SP AF	sunleyJ@parliament.uk	2021-09-15 09:46:10 +00:00	NULL	NULL	NULL	NULL	NULL	4
+1223	4GuEL98q	SP AA	sunleyJ@parliament.uk	2021-09-15 09:46:21 +00:00	NULL	NULL	NULL	NULL	NULL	3
+1224	2k2v9lwp	SP AB	sunleyJ@parliament.uk	2021-09-15 09:46:30 +00:00	NULL	NULL	NULL	NULL	NULL	3
+1225	e4bMcpSG	SP AC	sunleyJ@parliament.uk	2021-09-15 09:46:46 +00:00	NULL	NULL	NULL	NULL	NULL	3
+1226	kg6mDSDm	SP AD	sunleyJ@parliament.uk	2021-09-15 09:46:52 +00:00	NULL	NULL	NULL	NULL	NULL	3
+1227	sZgc0jO7	SP AE	sunleyJ@parliament.uk	2021-09-15 09:46:58 +00:00	NULL	NULL	NULL	NULL	NULL	3
+1228	ovbp6oyU	SP AF	sunleyJ@parliament.uk	2021-09-15 09:47:04 +00:00	NULL	NULL	NULL	NULL	NULL	3
+1229	PnUoGmUf	SP AA	sunleyJ@parliament.uk	2021-09-15 09:47:15 +00:00	NULL	NULL	NULL	NULL	NULL	2
+1230	df6LufiO	SP AB	sunleyJ@parliament.uk	2021-09-15 09:47:22 +00:00	NULL	NULL	NULL	NULL	NULL	2
+1231	ZSDPYUYE	SP AC	sunleyJ@parliament.uk	2021-09-15 09:47:28 +00:00	NULL	NULL	NULL	NULL	NULL	2
+1232	wv6pP9M0	SP AD	sunleyJ@parliament.uk	2021-09-15 09:59:58 +00:00	NULL	NULL	NULL	NULL	NULL	2
+1233	4CODmp80	Queen’s consent required	sunleyJ@parliament.uk	2021-09-15 11:24:05 +00:00	NULL	NULL	NULL	NULL	NULL	1
+1234	V29pfYrW	Queen’s consent decision	sunleyJ@parliament.uk	2021-09-15 11:24:16 +00:00	NULL	NULL	NULL	NULL	NULL	1
+1235	N5FipEWB	Queen’s consent signified	sunleyJ@parliament.uk	2021-09-15 11:24:33 +00:00	NULL	NULL	NULL	NULL	NULL	1
+1236	hImVRGpQ	Queen’s consent declined	sunleyJ@parliament.uk	2021-09-15 11:24:53 +00:00	NULL	NULL	NULL	NULL	NULL	1
+1237	4dipzIov	QC AA	sunleyJ@parliament.uk	2021-09-15 11:25:20 +00:00	More decisions have been made than outcomes recorded	NULL	NULL	NULL	NULL	11
+1238	Ixo3xALc	PL AB	sunleyJ@parliament.uk	2021-09-15 11:25:56 +00:00	Queen’s consent signified or not required	NULL	NULL	NULL	NULL	11
+1239	817CFfAV	QC AA	sunleyJ@parliament.uk	2021-09-15 11:26:35 +00:00	NULL	NULL	NULL	NULL	NULL	2
+1240	LMPNKsfc	QC AB	sunleyJ@parliament.uk	2021-09-15 11:26:53 +00:00	NULL	NULL	NULL	NULL	NULL	2
+1241	gILclmz6	QC AC	sunleyJ@parliament.uk	2021-09-15 11:27:01 +00:00	NULL	NULL	NULL	NULL	NULL	2
+1242	EDh5yra7	QC AA	sunleyJ@parliament.uk	2021-09-15 11:27:16 +00:00	NULL	NULL	NULL	NULL	NULL	5
+1243	qErF4Hn1	QC AA	sunleyJ@parliament.uk	2021-09-15 11:28:13 +00:00	NULL	NULL	NULL	NULL	NULL	4
+1244	BMXTeTqp	QC AA	sunleyJ@parliament.uk	2021-09-15 11:28:37 +00:00	NULL	NULL	NULL	NULL	NULL	8
+1245	gzzHIiEp	QC AA	sunleyJ@parliament.uk	2021-09-15 11:28:45 +00:00	NULL	NULL	NULL	NULL	NULL	10
+1246	eKogP7dF	QC AB	sunleyJ@parliament.uk	2021-09-15 11:29:24 +00:00	NULL	NULL	NULL	NULL	NULL	10
+1247	BovDzWiC	QC AA	sunleyJ@parliament.uk	2021-09-15 11:29:30 +00:00	NULL	NULL	NULL	NULL	NULL	3
+1248	NeAsXAFy	QC AB	sunleyJ@parliament.uk	2021-09-15 11:29:36 +00:00	NULL	NULL	NULL	NULL	NULL	3
+1249	uWnusduG	QC AC	sunleyJ@parliament.uk	2021-09-15 11:29:41 +00:00	NULL	NULL	NULL	NULL	NULL	3
+1250	VBhZXrRd	QC AC	sunleyJ@parliament.uk	2021-09-15 13:13:33 +00:00	NULL	NULL	NULL	NULL	NULL	10
+1251	ZFBMw9bA	PWC AA	sunleyJ@parliament.uk	2021-09-17 11:51:14 +00:00	NULL	NULL	NULL	NULL	NULL	3
+1252	0spQ5eny	PWC AB	sunleyJ@parliament.uk	2021-09-17 11:52:04 +00:00	NULL	NULL	NULL	NULL	NULL	3
+1253	D7dCHZdG	PWC AA	sunleyJ@parliament.uk	2021-09-17 11:53:02 +00:00	NULL	NULL	NULL	NULL	NULL	2
+1254	JfmDXsBc	PWC AB	sunleyJ@parliament.uk	2021-09-17 11:53:16 +00:00	NULL	NULL	NULL	NULL	NULL	2
+1255	nn8zknFE	PWC AC	sunleyJ@parliament.uk	2021-09-17 11:53:28 +00:00	NULL	NULL	NULL	NULL	NULL	2
+1256	R7oPwbF2	PWC AA	sunleyJ@parliament.uk	2021-09-17 11:53:54 +00:00	NULL	NULL	NULL	NULL	NULL	8
+1257	FEhOXscd	PWC AA	sunleyJ@parliament.uk	2021-09-17 11:54:11 +00:00	NULL	NULL	NULL	NULL	NULL	10
+1258	HwpMNsew	PWC AB	sunleyJ@parliament.uk	2021-09-17 11:54:22 +00:00	NULL	NULL	NULL	NULL	NULL	10
+1259	mKXj51sX	PWC AC	sunleyJ@parliament.uk	2021-09-17 11:54:33 +00:00	NULL	NULL	NULL	NULL	NULL	10
+1260	dJbMRelH	PWC AA	sunleyJ@parliament.uk	2021-09-17 11:55:09 +00:00	More decisions have been made than outcomes recorded 	NULL	NULL	NULL	NULL	11
+1261	QUP9ODLP	PL AC	sunleyJ@parliament.uk	2021-09-17 11:55:42 +00:00	Prince of Waless consent signified or not required	NULL	NULL	NULL	NULL	11
+1262	U2pYJ44i	Prince of Wales’s consent required	sunleyJ@parliament.uk	2021-09-17 11:56:00 +00:00	NULL	NULL	NULL	NULL	NULL	1
+1263	Cy819VfR	Prince of Waless consent decision	sunleyJ@parliament.uk	2021-09-17 11:56:18 +00:00	NULL	NULL	NULL	NULL	NULL	1
+1264	KA6rVxj6	Prince of Waless consent signified	sunleyJ@parliament.uk	2021-09-17 11:56:40 +00:00	NULL	NULL	NULL	NULL	NULL	1
+1265	B6KisQ9s	Prince of Waless consent declined	sunleyJ@parliament.uk	2021-09-17 11:56:52 +00:00	NULL	NULL	NULL	NULL	NULL	1
+1266	WQYGDDV4	GSSC AA	sunleyJ@parliament.uk	2021-09-17 12:15:16 +00:00	NULL	NULL	NULL	NULL	NULL	3
+1267	NLsjILPT	GSSC AB	sunleyJ@parliament.uk	2021-09-17 12:15:25 +00:00	NULL	NULL	NULL	NULL	NULL	3
+1268	PcWJmjXG	GSSC AA	sunleyJ@parliament.uk	2021-09-17 12:35:41 +00:00	NULL	NULL	NULL	NULL	NULL	2
+1269	0tJqxqEn	GSSC AB	sunleyJ@parliament.uk	2021-09-17 12:36:02 +00:00	NULL	NULL	NULL	NULL	NULL	2
+1270	xGxa4bO9	GSSC AC	sunleyJ@parliament.uk	2021-09-17 12:36:24 +00:00	NULL	NULL	NULL	NULL	NULL	2
+1271	KcliTlF8	GSSC AA	sunleyJ@parliament.uk	2021-09-17 12:36:34 +00:00	NULL	NULL	NULL	NULL	NULL	8
+1272	rOPSWJkq	GSSC AA	sunleyJ@parliament.uk	2021-09-17 12:36:49 +00:00	NULL	NULL	NULL	NULL	NULL	10
+1273	iMgtjpWh	GSSC AB	sunleyJ@parliament.uk	2021-09-17 12:37:04 +00:00	NULL	NULL	NULL	NULL	NULL	10
+1274	FqrBEPEk	GSSC AC	sunleyJ@parliament.uk	2021-09-17 12:37:10 +00:00	NULL	NULL	NULL	NULL	NULL	10
+1275	XpKvIQtu	GSSC AA	sunleyJ@parliament.uk	2021-09-17 12:37:39 +00:00	More decisions have been made than outcomes recorded	NULL	NULL	NULL	NULL	11
+1276	8M3KBBKA	PL AD	sunleyJ@parliament.uk	2021-09-17 12:38:21 +00:00	Grand Steward of Scotlands consent signified or not required	NULL	NULL	NULL	NULL	11
+1277	oO76cDGt	Grand Steward of Scotlands consent required	sunleyJ@parliament.uk	2021-09-17 12:38:46 +00:00	NULL	NULL	NULL	NULL	NULL	1
+1278	tiT9YNKX	Grand Steward of Scotlands consent decision	sunleyJ@parliament.uk	2021-09-17 12:39:04 +00:00	NULL	NULL	NULL	NULL	NULL	1
+1279	2Cml46A8	Grand Steward of Scotlands consent signified	sunleyJ@parliament.uk	2021-09-17 12:39:23 +00:00	NULL	NULL	NULL	NULL	NULL	1
+1280	C2g1nDbg	Grand Steward of Scotlands consent declined	sunleyJ@parliament.uk	2021-09-17 12:39:31 +00:00	NULL	NULL	NULL	NULL	NULL	1
+1281	rUJ3Jgog	Written statement invoking the urgent procedure set out in Paragraph 14(6) of Schedule 8 of the European Union (Withdrawal) Act 2018	sunleyJ@parliament.uk	2021-09-17 14:14:18 +00:00	NULL	NULL	NULL	NULL	NULL	1
+1282	VjmrZfxB	Instrument created under the urgent procedure set out in Paragraph 14(6) of Schedule 8 of the European Union (Withdrawal) Act 2018	sunleyJ@parliament.uk	2021-09-17 14:13:48 +00:00	NULL	NULL	NULL	NULL	NULL	1
+1283	C20Prk08	EL	sunleyJ@parliament.uk	2021-09-17 14:18:01 +00:00	NULL	NULL	NULL	NULL	NULL	3
+1284	xfAdfuM5	BJ	sunleyJ@parliament.uk	2021-09-17 14:18:15 +00:00	NULL	NULL	NULL	NULL	NULL	5
+1285	XZ7HfrYZ	TREATY IAC+EAC AC	sunleyJ@parliament.uk	2021-09-21 09:19:56 +00:00	NULL	NULL	NULL	NULL	NULL	4
+1286	yxi3RMRf	TREATY IAC+EAC AD	sunleyJ@parliament.uk	2021-09-21 09:20:11 +00:00	NULL	NULL	NULL	NULL	NULL	4
+1287	TnGziEl6	TREATY IAC+EAC AC	sunleyJ@parliament.uk	2021-09-21 09:20:22 +00:00	NULL	NULL	NULL	NULL	NULL	3
+1288	Ctblv3VD	TREATY IAC+EAC AD	sunleyJ@parliament.uk	2021-09-21 09:20:43 +00:00	NULL	NULL	NULL	NULL	NULL	3
+1289	cfdGgkRn	TREATY IAC+EAC AD	sunleyJ@parliament.uk	2021-09-21 09:28:02 +00:00	NULL	NULL	NULL	NULL	NULL	2
+1290	4TGzHggr	Considered by the European Affairs Committee (EAC)	sunleyJ@parliament.uk	2021-09-21 09:30:53 +00:00	NULL	NULL	NULL	NULL	NULL	1
+1291	EkBzjshk	Reported for information by the European Affairs Committee (EAC)	sunleyJ@parliament.uk	2021-09-21 09:31:36 +00:00	NULL	NULL	NULL	NULL	NULL	1
+1292	QVNoDati	Drawn to the special attention of the House by the European Affairs Committee (EAC)	sunleyJ@parliament.uk	2021-09-21 09:40:52 +00:00	NULL	NULL	NULL	NULL	NULL	1
+1293	EV8xCdwM	Government response to the decision made by the European Affairs Committee (EAC)	sunleyJ@parliament.uk	2021-09-21 09:41:02 +00:00	NULL	NULL	NULL	NULL	NULL	1
+1294	mdzmwNed	TREATY IAC+EAC AE	sunleyJ@parliament.uk	2021-09-21 09:34:06 +00:00	NULL	NULL	NULL	NULL	NULL	3
+1295	xLYsry8I	TREATY IAC+EAC AF	sunleyJ@parliament.uk	2021-09-21 09:34:13 +00:00	NULL	NULL	NULL	NULL	NULL	3
+1296	9WY6I0Kl	TREATY IAC+EAC AG	sunleyJ@parliament.uk	2021-09-21 09:34:32 +00:00	NULL	NULL	NULL	NULL	NULL	3
+1297	CMmP3CHO	TREATY IAC+EAC AH	sunleyJ@parliament.uk	2021-09-21 09:34:44 +00:00	NULL	NULL	NULL	NULL	NULL	3
+1298	qijXuXzE	TREATY IAC+EAC AE	sunleyJ@parliament.uk	2021-09-21 09:35:28 +00:00	NULL	NULL	NULL	NULL	NULL	4
+1299	v3muZiLR	TREATY IAC+EAC AF	sunleyJ@parliament.uk	2021-09-21 09:35:36 +00:00	NULL	NULL	NULL	NULL	NULL	4
+1300	kUfkf1j7	TREATY IAC+EAC AG	sunleyJ@parliament.uk	2021-09-21 09:35:43 +00:00	NULL	NULL	NULL	NULL	NULL	4
+1301	fOVz38zQ	TREATY IAC+EAC AH	sunleyJ@parliament.uk	2021-09-21 09:35:50 +00:00	NULL	NULL	NULL	NULL	NULL	4
+1302	pJK4y0VG	TREATY IAC+EAC AE	sunleyJ@parliament.uk	2021-09-21 09:36:32 +00:00	NULL	NULL	NULL	NULL	NULL	2
+1303	t45d0KJQ	TREATY IAC+EAC AF	sunleyJ@parliament.uk	2021-09-21 09:36:39 +00:00	NULL	NULL	NULL	NULL	NULL	2
+1304	57t6bXOn	TREATY IAC+EAC AG	sunleyJ@parliament.uk	2021-09-21 09:36:46 +00:00	NULL	NULL	NULL	NULL	NULL	2
+1305	1akQz19T	TREATY IAC+EAC AH	sunleyJ@parliament.uk	2021-09-21 09:36:53 +00:00	NULL	NULL	NULL	NULL	NULL	2
+1306	RDrCKkLG	TREATY IAC+EAC AC	sunleyJ@parliament.uk	2021-09-21 09:37:13 +00:00	NULL	NULL	NULL	NULL	NULL	5
+1307	IuOSgIVE	TREATY IAC+EAC AD	sunleyJ@parliament.uk	2021-09-21 09:37:20 +00:00	NULL	NULL	NULL	NULL	NULL	5
+1308	E5ACoUpV	TREATY IAC+EAC AI	sunleyJ@parliament.uk	2021-09-21 10:01:36 +00:00	NULL	NULL	NULL	NULL	NULL	2
+1309	71GGkeoN	TREATY IAC+EAC AJ	sunleyJ@parliament.uk	2021-09-21 10:01:45 +00:00	NULL	NULL	NULL	NULL	NULL	2
+1310	qkPwt5DC	TREATY IAC+EAC AI	sunleyJ@parliament.uk	2021-09-21 10:02:05 +00:00	NULL	NULL	NULL	NULL	NULL	3
+1311	PS3cYaKq	TREATY IAC+EAC AJ	sunleyJ@parliament.uk	2021-09-21 10:02:14 +00:00	NULL	NULL	NULL	NULL	NULL	3
+1312	nHSBO3EA	TREATY IAC+EAC AI	sunleyJ@parliament.uk	2021-09-21 10:02:38 +00:00	NULL	NULL	NULL	NULL	NULL	4
+1313	DTBLKI1c	TREATY IAC+EAC AJ	sunleyJ@parliament.uk	2021-09-21 10:02:46 +00:00	NULL	NULL	NULL	NULL	NULL	4
+1314	IsyjfMCL	Call for evidence opened by the European Affairs Committee (EAC)	sunleyJ@parliament.uk	2021-09-21 10:06:39 +00:00	NULL	NULL	NULL	NULL	NULL	1
+1315	YdH7Y0BG	TREATY IAC+EAC AK	sunleyJ@parliament.uk	2021-09-21 10:07:27 +00:00	NULL	NULL	NULL	NULL	NULL	2
+1316	9jd4hkB8	TREATY IAC+EAC AK	sunleyJ@parliament.uk	2021-09-21 10:07:33 +00:00	NULL	NULL	NULL	NULL	NULL	3
+1317	8jqTyMyP	TREATY IAC+EAC AK	sunleyJ@parliament.uk	2021-09-21 10:07:40 +00:00	NULL	NULL	NULL	NULL	NULL	4
+1318	FX8Obnl8	TREATY IAC+EAC AL	sunleyJ@parliament.uk	2021-09-21 10:09:52 +00:00	NULL	NULL	NULL	NULL	NULL	2
+1319	DiVCpItn	TREATY IAC+EAC AL	sunleyJ@parliament.uk	2021-09-21 10:09:57 +00:00	NULL	NULL	NULL	NULL	NULL	3
+1320	bxvbpZva	TREATY IAC+EAC AL	sunleyJ@parliament.uk	2021-09-21 10:10:02 +00:00	NULL	NULL	NULL	NULL	NULL	4
+1321	Gx8ZK76L	European Affairs Committee (EAC) inquiry opened	sunleyJ@parliament.uk	2021-09-21 10:10:26 +00:00	NULL	NULL	NULL	NULL	NULL	1
+1322	M0Q91V94	Written statement invoking the urgent procedure set out in Paragraph 14(6) of Schedule 8 of the European Union (Withdrawal) Act 2018	sunleyJ@parliament.uk	2021-09-27 12:54:31 +00:00	NULL	NULL	NULL	NULL	NULL	1
+1324	iSMq4Qtq	International Agreements Committee (IAC) called for a debate on the treaty	sunleyJ@parliament.uk	2021-10-26 12:34:54 +00:00	NULL	NULL	NULL	NULL	NULL	1
+1325	RnoIZQb8	European Affairs Committee (EAC) called for a debate on the treaty	sunleyJ@parliament.uk	2021-10-26 12:39:54 +00:00	NULL	NULL	NULL	NULL	NULL	1
+1326	akEAENGO	TREATY IAC+EAC AM	sunleyJ@parliament.uk	2021-10-26 12:49:31 +00:00	NULL	NULL	NULL	NULL	NULL	2
+1327	GwWYXLZc	TREATY IAC+EAC AM	sunleyJ@parliament.uk	2021-10-26 12:56:22 +00:00	NULL	NULL	NULL	NULL	NULL	3
+1328	0Qcciy9r	Treaty IAC+EAC AM	sunleyJ@parliament.uk	2021-10-26 12:56:49 +00:00	NULL	NULL	NULL	NULL	NULL	4
+1329	FvI2xDHk	TREATY IAC+EAC AN	sunleyJ@parliament.uk	2021-10-26 13:04:16 +00:00	NULL	NULL	NULL	NULL	NULL	2
+1330	6pPBn1Bu	TREATY IAC+EAC AN	sunleyJ@parliament.uk	2021-10-26 13:04:21 +00:00	NULL	NULL	NULL	NULL	NULL	3
+1331	F0yEKoTu	TREATY IAC+EAC AN	sunleyJ@parliament.uk	2021-10-26 13:04:34 +00:00	NULL	NULL	NULL	NULL	NULL	4
+1332	bH7eKxvB	PL AE	sunleyJ@parliament.uk	2021-11-04 10:25:49 +00:00	Bill can be introduced in the House of Commons	NULL	NULL	NULL	NULL	11
+1333	h0ENBpkr	PL AF	sunleyJ@parliament.uk	2021-11-04 10:26:27 +00:00	Bill has entered the House of Commons	NULL	NULL	NULL	NULL	11
+1334	YcKdkyEA	PL AG	sunleyJ@parliament.uk	2021-11-04 10:27:47 +00:00	Rejected at second reading	NULL	NULL	NULL	NULL	11
+1335	msO9B53v	PL AH	sunleyJ@parliament.uk	2021-11-04 10:28:12 +00:00	Bill is in the House of Commons	NULL	NULL	NULL	NULL	11
+1336	rViIhSeg	PL AI	sunleyJ@parliament.uk	2021-11-04 10:29:00 +00:00	Bill has left the House of Commons following third reading	NULL	NULL	NULL	NULL	11
+1337	DUbP4uBy	PL AJ	sunleyJ@parliament.uk	2021-11-04 10:29:32 +00:00	Bill has left the House of Commons having passed third reading	NULL	NULL	NULL	NULL	11
+1338	NrKBlJy7	PL AK	sunleyJ@parliament.uk	2021-11-04 10:30:27 +00:00	Rejected at third reading	NULL	NULL	NULL	NULL	11
+1339	jqqvx9NZ	PL AL	sunleyJ@parliament.uk	2021-11-04 10:31:04 +00:00	Bill not dead	NULL	NULL	NULL	NULL	11
+1340	8H18MvuZ	PL AM	sunleyJ@parliament.uk	2021-11-04 10:32:47 +00:00	Bill dead	NULL	NULL	NULL	NULL	11
+1341	KuhSMNwh	PL AN	sunleyJ@parliament.uk	2021-11-04 10:33:10 +00:00	Bill can be introduced in the House of Lords	NULL	NULL	NULL	NULL	11
+1342	Je5JA6Ne	PL AO	sunleyJ@parliament.uk	2021-11-04 10:33:46 +00:00	Bill has entered the House of Lords	NULL	NULL	NULL	NULL	11
+1343	GvcuCZzj	PL AP	sunleyJ@parliament.uk	2021-11-04 10:34:10 +00:00	Parliament Act is in operation	NULL	NULL	NULL	NULL	11
+1344	MUuksGon	PL AQ	sunleyJ@parliament.uk	2021-11-04 10:34:33 +00:00	Bill is in the House of Lords	NULL	NULL	NULL	NULL	11
+1345	4MaQdcs9	PL AR	sunleyJ@parliament.uk	2021-11-04 10:35:04 +00:00	Rejected at second reading	NULL	NULL	NULL	NULL	11
+1346	1eLpVKQR	PL AS	sunleyJ@parliament.uk	2021-11-04 10:35:28 +00:00	Bill has left the House of Lords following third reading	NULL	NULL	NULL	NULL	11
+1347	MyPHiEst	PL AT	sunleyJ@parliament.uk	2021-11-04 10:35:58 +00:00	Bill has left the House of Lords having passed third reading	NULL	NULL	NULL	NULL	11
+1348	46teoWyc	PL AU	sunleyJ@parliament.uk	2021-11-04 10:36:10 +00:00	Rejected at third reading	NULL	NULL	NULL	NULL	11
+1349	dqo99cpl	CFR AA	sunleyJ@parliament.uk	2021-11-04 10:38:15 +00:00	NULL	NULL	NULL	NULL	NULL	3
+1350	5wC83jjk	CFR AA	sunleyJ@parliament.uk	2021-11-04 10:38:32 +00:00	NULL	NULL	NULL	NULL	NULL	4
+1351	9tcNGn02	CFR AA	sunleyJ@parliament.uk	2021-11-04 10:38:38 +00:00	NULL	NULL	NULL	NULL	NULL	5
+1352	2lCfeSYR	Bill presented	sunleyJ@parliament.uk	2021-11-04 14:06:24 +00:00	NULL	NULL	NULL	NULL	NULL	1
+1353	fQ3Ofs87	Bill brought from the House of Lords	sunleyJ@parliament.uk	2021-11-04 14:06:53 +00:00	NULL	NULL	NULL	NULL	NULL	1
+1354	1OWTMAfx	Bill to be printed	sunleyJ@parliament.uk	2021-11-24 10:36:45 +00:00	NULL	NULL	NULL	NULL	NULL	1
+1355	2uEBZ4g9	Non-ten minute rule Public Bill created	sunleyJ@parliament.uk	2021-11-04 14:22:45 +00:00	NULL	NULL	NULL	NULL	NULL	1
+1356	yeuUh2YN	Bill in Commons as first House	sunleyJ@parliament.uk	2021-11-04 14:23:21 +00:00	NULL	NULL	NULL	NULL	NULL	1
+1357	oIXa7txL	Bill in Lords as first House	sunleyJ@parliament.uk	2021-11-04 14:23:45 +00:00	NULL	NULL	NULL	NULL	NULL	1
+1358	Yi5RtMV8	Motion for leave set down for consideration	sunleyJ@parliament.uk	2021-11-11 15:50:04 +00:00	NULL	NULL	NULL	NULL	NULL	1
+1359	kPk6tuWX	Motion for leave agreed to	sunleyJ@parliament.uk	2021-11-04 14:26:22 +00:00	NULL	NULL	NULL	NULL	NULL	1
+1360	wx2JpUmJ	Question that the bill be now read a second time rejected	sunleyJ@parliament.uk	2021-11-04 14:26:57 +00:00	NULL	NULL	NULL	NULL	NULL	1
+1361	pA5AYlyW	Reasoned amendment on second reading motion approved	sunleyJ@parliament.uk	2021-11-04 14:27:18 +00:00	NULL	NULL	NULL	NULL	NULL	1
+1362	ojg0QMOo	Question put that the bill be now read a third time	sunleyJ@parliament.uk	2021-11-04 14:27:47 +00:00	NULL	NULL	NULL	NULL	NULL	1
+1363	WfHJV0N1	Question that the bill be now read a third time agreed	sunleyJ@parliament.uk	2021-11-04 14:28:09 +00:00	NULL	NULL	NULL	NULL	NULL	1
+1364	E2f8xCbF	Question that the bill be now read a third time rejected	sunleyJ@parliament.uk	2021-11-04 14:28:34 +00:00	NULL	NULL	NULL	NULL	NULL	1
+1365	U9XohqKx	Reasoned amendment on third reading motion approved	sunleyJ@parliament.uk	2021-11-04 14:28:58 +00:00	NULL	NULL	NULL	NULL	NULL	1
+1366	bQEb8JKw	Royal Assent signified	sunleyJ@parliament.uk	2021-11-04 14:29:33 +00:00	NULL	NULL	NULL	NULL	NULL	1
+1367	9cX2fB0z	Royal Assent not given	sunleyJ@parliament.uk	2021-11-04 14:30:05 +00:00	NULL	NULL	NULL	NULL	NULL	1
+1368	5yd8jkzB	Royal Assent given	sunleyJ@parliament.uk	2021-11-04 14:30:30 +00:00	NULL	NULL	NULL	NULL	NULL	1
+1369	TDu0xZRj	Bill enacted as an Act of Parliament	sunleyJ@parliament.uk	2021-11-04 14:31:02 +00:00	NULL	NULL	NULL	NULL	NULL	1
+1370	55JmAuDv	Royal Assent signified	sunleyJ@parliament.uk	2021-11-04 14:31:31 +00:00	NULL	NULL	NULL	NULL	NULL	1
+1371	Duulenig	Question that the bill be now read a third time agreed	sunleyJ@parliament.uk	2021-11-04 14:31:58 +00:00	NULL	NULL	NULL	NULL	NULL	1
+1372	PRC0OhjN	Reasoned amendment on third reading motion approved	sunleyJ@parliament.uk	2021-11-04 14:32:20 +00:00	NULL	NULL	NULL	NULL	NULL	1
+1373	O2Vcnjkr	Question that the bill be now read a third time rejected	sunleyJ@parliament.uk	2021-11-04 14:32:35 +00:00	NULL	NULL	NULL	NULL	NULL	1
+1374	5QTp4j13	Question put that the bill be now read a third time	sunleyJ@parliament.uk	2021-11-04 14:33:08 +00:00	NULL	NULL	NULL	NULL	NULL	1
+1375	tMgalqws	Question that the bill be now read a second time rejected	sunleyJ@parliament.uk	2021-11-04 14:33:34 +00:00	NULL	NULL	NULL	NULL	NULL	1
+1376	HmaIKm6F	Reasoned amendment on second reading motion approved	sunleyJ@parliament.uk	2021-11-04 14:33:47 +00:00	NULL	NULL	NULL	NULL	NULL	1
+1377	PbnY5ubb	Bill brought from the House of Commons	sunleyJ@parliament.uk	2021-11-04 14:34:23 +00:00	NULL	NULL	NULL	NULL	NULL	1
+1378	AfZcHXGR	Bill presented	sunleyJ@parliament.uk	2021-11-04 14:34:37 +00:00	NULL	NULL	NULL	NULL	NULL	1
+1379	Zp86uesn	Bill printed	sunleyJ@parliament.uk	2021-11-04 14:35:04 +00:00	NULL	NULL	NULL	NULL	NULL	1
+1380	wtCxRHIF	CTM AA	sunleyJ@parliament.uk	2021-11-12 10:53:29 +00:00	NULL	NULL	NULL	NULL	NULL	4
+1381	Ql7KZdt4	CTM AB	sunleyJ@parliament.uk	2021-11-12 10:54:41 +00:00	NULL	NULL	NULL	NULL	NULL	4
+1382	IvxFqSgi	CTM AC	sunleyJ@parliament.uk	2021-11-12 10:54:47 +00:00	NULL	NULL	NULL	NULL	NULL	4
+1383	1yw2Dxph	CTM AD	sunleyJ@parliament.uk	2021-11-12 10:55:02 +00:00	NULL	NULL	NULL	NULL	NULL	4
+1384	u46E2PmZ	CTM AE	sunleyJ@parliament.uk	2021-11-12 10:55:10 +00:00	NULL	NULL	NULL	NULL	NULL	4
+1385	xxfcFBi5	CTM AA	sunleyJ@parliament.uk	2021-11-12 10:56:48 +00:00	NULL	NULL	NULL	NULL	NULL	3
+1386	LyAT7j3e	CTM AB	sunleyJ@parliament.uk	2021-11-12 10:57:29 +00:00	NULL	NULL	NULL	NULL	NULL	3
+1387	Hu0dIkWT	CTM AC	sunleyJ@parliament.uk	2021-11-12 10:57:35 +00:00	NULL	NULL	NULL	NULL	NULL	3
+1388	YYbTQq52	CTM AD	sunleyJ@parliament.uk	2021-11-12 10:57:49 +00:00	NULL	NULL	NULL	NULL	NULL	3
+1389	zphQphoU	CTM AE	sunleyJ@parliament.uk	2021-11-12 10:57:55 +00:00	NULL	NULL	NULL	NULL	NULL	3
+1390	4VGWS4na	CTM AF	sunleyJ@parliament.uk	2021-11-12 10:58:10 +00:00	NULL	NULL	NULL	NULL	NULL	3
+1391	EbwNhOG8	CTM AA	sunleyJ@parliament.uk	2021-11-12 10:59:16 +00:00	NULL	NULL	NULL	NULL	NULL	2
+1392	knQdIoFR	CTM AB	sunleyJ@parliament.uk	2021-11-12 10:59:22 +00:00	NULL	NULL	NULL	NULL	NULL	2
+1393	foQUkfwj	CTM AC	sunleyJ@parliament.uk	2021-11-12 10:59:38 +00:00	NULL	NULL	NULL	NULL	NULL	2
+1394	DB5QKrtR	CTM AD	sunleyJ@parliament.uk	2021-11-12 10:59:43 +00:00	NULL	NULL	NULL	NULL	NULL	2
+1395	I9Bs8VHA	CTM AE	sunleyJ@parliament.uk	2021-11-12 11:00:22 +00:00	NULL	NULL	NULL	NULL	NULL	2
+1396	25biriGZ	CTM AA	sunleyJ@parliament.uk	2021-11-12 11:00:32 +00:00	NULL	NULL	NULL	NULL	NULL	8
+1397	Tn6Gr2ag	CTM AA	sunleyJ@parliament.uk	2021-11-12 11:00:48 +00:00	NULL	NULL	NULL	NULL	NULL	10
+1398	fs1IaZKP	CTM AA	sunleyJ@parliament.uk	2021-11-12 11:01:05 +00:00	More questions have been put than recorded	NULL	NULL	NULL	NULL	11
+1399	KFcpSMaF	Motion for leave to bring in a bill moved	sunleyJ@parliament.uk	2021-11-12 11:06:41 +00:00	NULL	NULL	NULL	NULL	NULL	1
+1400	4QPtvZzD	Explanatory statement in support of motion for leave	sunleyJ@parliament.uk	2021-11-12 11:07:00 +00:00	NULL	NULL	NULL	NULL	NULL	1
+1401	dsL8PFFh	Statement in opposition to motion for leave	sunleyJ@parliament.uk	2021-11-12 11:07:32 +00:00	NULL	NULL	NULL	NULL	NULL	1
+1402	KHBCIdF9	Question on motion for leave put	sunleyJ@parliament.uk	2021-11-12 11:07:52 +00:00	NULL	NULL	NULL	NULL	NULL	1
+1403	VCFbLFR8	Motion for leave opposed	sunleyJ@parliament.uk	2021-11-12 11:08:13 +00:00	NULL	NULL	NULL	NULL	NULL	1
+1405	oZPcLpxR	Proposal for a Remedial Order created	sunleyJ@parliament.uk	2021-11-18 11:50:57 +00:00	NULL	NULL	NULL	NULL	NULL	1
+1406	8wzIRemA	Proposal for a Remedial Order withdrawn from the House of Commons	sunleyJ@parliament.uk	2021-11-18 11:51:17 +00:00	NULL	NULL	NULL	NULL	NULL	1
+1407	BfzqYc5i	Drawn to the special attention of the House by the Joint Committee on Human Rights (JCHR)	sunleyJ@parliament.uk	2021-11-18 11:51:58 +00:00	NULL	NULL	NULL	NULL	NULL	1
+1408	lFKaNjYd	Joint Committee on Human Rights (JCHR) recommends there should be no draft Order and the Government should bring forward primary legislation	sunleyJ@parliament.uk	2021-11-18 11:54:16 +00:00	NULL	NULL	NULL	NULL	NULL	1
+1409	KcCBrBM8	Joint Committee on Human Rights (JCHR) recommends a draft Order be laid in the same terms as the proposal	sunleyJ@parliament.uk	2021-11-18 11:54:30 +00:00	NULL	NULL	NULL	NULL	NULL	1
+1410	mYwqVxHP	Joint Committee on Human Rights (JCHR) recommends a draft Order be laid in an amended form	sunleyJ@parliament.uk	2021-11-18 11:54:49 +00:00	NULL	NULL	NULL	NULL	NULL	1
+1411	Zp3L1mOV	Joint Committee on Human Rights (JCHR) recommends the Order be laid under the urgent procedure in an amended form	sunleyJ@parliament.uk	2021-11-18 11:55:17 +00:00	NULL	NULL	NULL	NULL	NULL	1
+1412	qjL5RZrG	Joint Committee on Human Rights (JCHR) recommends the Order be laid under the urgent procedure in the same terms as the proposal	sunleyJ@parliament.uk	2021-11-18 11:55:46 +00:00	NULL	NULL	NULL	NULL	NULL	1
+1413	1jyjyVs7	Government response to the decision made by the Joint Committee on Human Rights (JCHR)	sunleyJ@parliament.uk	2021-11-18 11:56:21 +00:00	NULL	NULL	NULL	NULL	NULL	1
+1414	OuvYKtPM	Proposed Remedial Order scrutiny period ends	sunleyJ@parliament.uk	2021-11-18 11:57:05 +00:00	NULL	NULL	NULL	NULL	NULL	1
+1415	xYS29you	PRO AA	sunleyJ@parliament.uk	2021-11-18 12:32:50 +00:00	Decision requires recording	NULL	NULL	NULL	NULL	11
+1416	6MYGKBzo	PRO AB	sunleyJ@parliament.uk	2021-11-18 12:33:16 +00:00	Scrutiny period has not ended	NULL	NULL	NULL	NULL	11
+1417	oy7Kk8tr	Government statement of summary of representations on the draft remedial Order	sunleyJ@parliament.uk	2021-11-18 12:34:34 +00:00	NULL	NULL	NULL	NULL	NULL	1
+1418	McaQTHYQ	Government statement of summary of representations on the draft remedial Order	sunleyJ@parliament.uk	2021-11-18 12:34:46 +00:00	NULL	NULL	NULL	NULL	NULL	1
+1419	fs4hteNZ	Joint Committee on Human Rights (JCHR) recommends the draft Order should be approved	sunleyJ@parliament.uk	2021-11-18 12:35:04 +00:00	NULL	NULL	NULL	NULL	NULL	1
+1420	rIgXfDiF	Joint Committee on Human Rights (JCHR) recommends the draft Order should not be approved	sunleyJ@parliament.uk	2021-11-18 12:35:25 +00:00	NULL	NULL	NULL	NULL	NULL	1
+1421	Dj98KFIC	Proposal for a Remedial Order withdrawn from the House of Lords	sunleyJ@parliament.uk	2021-11-19 10:11:02 +00:00	NULL	NULL	NULL	NULL	NULL	1
+1422	irrPkWiB	DARO AA	sunleyJ@parliament.uk	2021-11-23 10:59:12 +00:00	Instrument not withdrawn from the House of Commons	NULL	NULL	NULL	NULL	11
+1423	BbNOKVw3	DARO AB	sunleyJ@parliament.uk	2021-11-23 11:00:04 +00:00	Motion to approve the instrument extant	NULL	NULL	NULL	NULL	11
+1424	x8OTMSvm	DARO AC	sunleyJ@parliament.uk	2021-11-23 11:00:32 +00:00	JCHR scrutiny reserve condition met and approval motion can be moved	NULL	NULL	NULL	NULL	11
+1425	71GrgRne	DARO AD	sunleyJ@parliament.uk	2021-11-23 11:00:55 +00:00	More questions have been put than outcomes recorded	NULL	NULL	NULL	NULL	11
+1426	lQUV9kTH	DARO AF	sunleyJ@parliament.uk	2021-11-23 11:02:29 +00:00	Instrument not withdrawn from the House of Lords	NULL	NULL	NULL	NULL	11
+1427	7lswrA0I	DARO AG	sunleyJ@parliament.uk	2021-11-23 11:02:49 +00:00	Non-fatal motion(s) to object to the instrument extant	NULL	NULL	NULL	NULL	11
+1428	oj6A9pPL	DARO AH	sunleyJ@parliament.uk	2021-11-23 11:03:01 +00:00	Motion to approve the instrument extant	NULL	NULL	NULL	NULL	11
+1429	KIddwGb9	DARO AI	sunleyJ@parliament.uk	2021-11-23 11:03:39 +00:00	Motion(s) to stop the instrument becoming law extant	NULL	NULL	NULL	NULL	11
+1430	TAwGke25	DARO AJ	sunleyJ@parliament.uk	2021-11-25 11:00:11 +00:00	JCHR scrutiny reserve condition met and approval motion can be moved	NULL	NULL	NULL	NULL	11
+1431	LeE3SfNn	DARO AK	sunleyJ@parliament.uk	2021-11-23 11:04:51 +00:00	More questions have been put than outcomes recorded	NULL	NULL	NULL	NULL	11
+1432	JKd2HP8k	DARO AL	sunleyJ@parliament.uk	2021-11-23 11:05:13 +00:00	There has been a debate	NULL	NULL	NULL	NULL	11
+1433	1ANLM7Ql	DARO AM	sunleyJ@parliament.uk	2021-11-23 11:05:26 +00:00	More questions have been put than outcomes recorded	NULL	NULL	NULL	NULL	11
+1434	PByQeqy0	DARO AN	sunleyJ@parliament.uk	2021-11-23 11:05:54 +00:00	More questions have been put than outcomes recorded	NULL	NULL	NULL	NULL	11
+1435	jvIKu98C	DARO AO	sunleyJ@parliament.uk	2021-11-23 11:06:17 +00:00	Pre-approval period has ended. Instrument may be approved.	NULL	NULL	NULL	NULL	11
+1436	Bodgo80N	DARO AP	sunleyJ@parliament.uk	2021-11-23 11:07:04 +00:00	Pre-approval period has not ended	NULL	NULL	NULL	NULL	11
+1437	JV9jRqTr	PL AV	sunleyJ@parliament.uk	2021-11-24 10:08:30 +00:00	Bill read the first time	NULL	NULL	NULL	NULL	11
+1438	x4UqwSBU	Question that the Bill now be read a second time agreed to	sunleyJ@parliament.uk	2021-11-24 10:09:41 +00:00	NULL	NULL	NULL	NULL	NULL	1
+1439	FTNwBSwS	PL AW	sunleyJ@parliament.uk	2021-11-24 10:10:32 +00:00	Bill read the second time	NULL	NULL	NULL	NULL	11
+1440	ZHEy7bjI	PL AX	sunleyJ@parliament.uk	2021-11-24 10:18:21 +00:00	Prerogative consent signified or not required	NULL	NULL	NULL	NULL	11
+1441	TbXnuWJQ	Bill effects recommendations from either Law Commission	sunleyJ@parliament.uk	2021-11-24 11:05:11 +00:00	NULL	NULL	NULL	NULL	NULL	1
+1442	jxjjnI0O	Deferred decision on a non-fatal motion (prayer) to object to the instrument cancelled	sunleyJ@parliament.uk	2021-12-08 16:10:53 +00:00	NULL	NULL	NULL	NULL	NULL	1
+1443	Rt5r86Sw	Deferred decision on a motion (prayer) to stop the instrument becoming law cancelled	sunleyJ@parliament.uk	2021-12-08 16:12:18 +00:00	NULL	NULL	NULL	NULL	NULL	1
+1444	1mysc3m5	Deferred decision on a motion (prayer) to stop the instrument being law cancelled	sunleyJ@parliament.uk	2021-12-08 16:18:19 +00:00	NULL	NULL	NULL	NULL	NULL	1
+1445	N1S4wXBu	Deferred decision on motion to approve the instrument cancelled	sunleyJ@parliament.uk	2021-12-08 16:21:03 +00:00	NULL	NULL	NULL	NULL	NULL	1
+1446	Dz4MZrMp	Deferred decision on a motion that the treaty should not be ratified cancelled	sunleyJ@parliament.uk	2021-12-08 16:31:03 +00:00	NULL	NULL	NULL	NULL	NULL	1
+1447	qKnGqows	CS	sunleyJ@parliament.uk	2021-12-08 16:36:11 +00:00	NULL	NULL	NULL	NULL	NULL	2
+1448	gVXJadMh	CR	sunleyJ@parliament.uk	2021-12-08 16:38:30 +00:00	NULL	NULL	NULL	NULL	NULL	2
+1449	q8vVChXw	EP	sunleyJ@parliament.uk	2021-12-14 16:22:15 +00:00	NULL	NULL	NULL	NULL	NULL	4
+1450	KWDWKWci	MA AM	sunleyJ@parliament.uk	2021-12-14 16:47:34 +00:00	Question on motion to approve the instrument has not been put	NULL	NULL	NULL	NULL	11
+1451	NG1ccfCV	EQ	sunleyJ@parliament.uk	2021-12-14 16:49:38 +00:00	NULL	NULL	NULL	NULL	NULL	4
+1452	q4XYLmOr	ER	sunleyJ@parliament.uk	2021-12-14 16:49:43 +00:00	NULL	NULL	NULL	NULL	NULL	4
+1453	YKkLnr1S	DA AL	sunleyJ@parliament.uk	2021-12-14 17:10:24 +00:00	Question on motion to approve the instrument not put 	NULL	NULL	NULL	NULL	11
+1454	by50xcTq	Ministerial statement announcing the publication of the draft	sunleyJ@parliament.uk	2021-12-15 16:35:54 +00:00	NULL	NULL	NULL	NULL	NULL	1
+1455	bS9gYK3g	DA AM	sunleyJ@parliament.uk	2021-12-15 17:20:49 +00:00	Instrument created	NULL	NULL	NULL	NULL	11
+1456	KWdpXb0T	DA AN	sunleyJ@parliament.uk	2021-12-15 17:21:15 +00:00	Instrument not created	NULL	NULL	NULL	NULL	11
+1457	wzQnfaug	DN AO	sunleyJ@parliament.uk	2021-12-15 17:37:16 +00:00	Instrument created	NULL	NULL	NULL	NULL	11
+1458	SghGLns5	DN AP	sunleyJ@parliament.uk	2021-12-15 17:37:28 +00:00	Instrument not created 	NULL	NULL	NULL	NULL	11
+1459	tEpkw4ef	MN AO	sunleyJ@parliament.uk	2021-12-16 17:13:03 +00:00	Instrument not created 	NULL	NULL	NULL	NULL	11
+1460	0pu4F9yG	MN AN	sunleyJ@parliament.uk	2021-12-16 17:13:48 +00:00	Instrument created	NULL	NULL	NULL	NULL	11
+1461	0JaxNKLw	BK	sunleyJ@parliament.uk	2021-12-16 17:30:05 +00:00	NULL	NULL	NULL	NULL	NULL	5
+1462	SeNsfTZx	BL	sunleyJ@parliament.uk	2021-12-16 17:30:13 +00:00	NULL	NULL	NULL	NULL	NULL	5
+1463	qIdPNv9O	BM	sunleyJ@parliament.uk	2021-12-16 17:30:22 +00:00	NULL	NULL	NULL	NULL	NULL	5
+1464	y8X4fGb5	BN	sunleyJ@parliament.uk	2021-12-16 17:30:29 +00:00	NULL	NULL	NULL	NULL	NULL	5
+1465	DL3Yrytn	MA AN	sunleyJ@parliament.uk	2021-12-16 17:35:11 +00:00	Instrument created	NULL	NULL	NULL	NULL	11
+1466	Zn24weYa	MA AO	sunleyJ@parliament.uk	2021-12-16 17:35:37 +00:00	Instrument not created 	NULL	NULL	NULL	NULL	11
+1467	agdfJ6b5	AU	sunleyJ@parliament.uk	2021-12-20 11:58:54 +00:00	NULL	NULL	NULL	NULL	NULL	10
+1468	G84a5Nbg	AV	sunleyJ@parliament.uk	2021-12-20 12:08:31 +00:00	NULL	NULL	NULL	NULL	NULL	10
+1469	Kfmv84S8	Deferred decision on a motion calling on the Government to extend objection period A cancelled	sunleyJ@parliament.uk	2021-12-20 12:10:33 +00:00	NULL	NULL	NULL	NULL	NULL	1
