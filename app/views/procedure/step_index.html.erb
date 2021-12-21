@@ -1,0 +1,8 @@
+<%= content_tag( 'h1', "#{@work_packages.size} work packages subject to the #{@procedure.name} procedure" ) %>
+
+
+<table>
+	<tbody>
+		<%= render :partial => 'step', :collection => @steps_with_work_pockage_count %>
+	</tbody>
+</table>
