@@ -5,6 +5,14 @@
 
 
 <table>
+	<thead>
+		<tr>
+			<%= content_tag( 'td', 'Step name' ) %>
+			<%= content_tag( 'td', 'House' ) %>
+			<%= content_tag( 'td', 'Occurence count in concluded work packages' ) %>
+			<%= content_tag( 'td', 'Plausibility score' ) %>
+		</tr>
+	</thead>
 	<tbody>
 		<%= render :partial => 'step', :collection => @steps_with_work_pockage_count %>
 	</tbody>
