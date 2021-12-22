@@ -2,7 +2,8 @@
 # A step may be attached to routes in one or more procedures.
 # A step has one or more inbound routes.
 # A step has one or more outbound routes, or none. 
-# Within a procedure, the [expected numbers of inbound and outbound routes depend on the type of the step](https://ukparliament.github.io/ontologies/procedure/flowcharts/meta/design-notes/#validating-inputs-and-outputs-to-steps).
+# Within a procedure, the [expected numbers of inbound and outbound routes depend on the type of the step](https://ukparliament.github.io/ontologies/procedure/maps/meta/design-notes/#validating-inputs-and-outputs-to-steps).
+
 # A step belongs to one House, both Houses or neither.
 class Step < ActiveRecord::Base
   
