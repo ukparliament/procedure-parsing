@@ -36,7 +36,7 @@ module PARSE_ROUTE_HASH
           0, # We pass in the actualised has happened count of the route. This is 0 until we parse either ...
             # ... a route whose source is a business step, then we set this to the count of business items, with dates in the past or of today, actualising that step ...
             # ... or a route whose source is a SUM step or an INCREMENT step, then we set this to the value output by the step.
-          0, # We pass in the parse pass count attribute of this route. This is 0 until parsed.
+          0 # We pass in the parse pass count attribute of this route. This is 0 until parsed.
         )
       end
     end
@@ -235,6 +235,6 @@ module PARSE_ROUTE_HASH
   def route_actualisation_count( route_id )
     
     # We get the actualisation count of the route in the routes hash with this ID.
-    route_object( route_id ).actualisation_count
+    route_hash( route_id )[:actualisation_count]
   end
 end
