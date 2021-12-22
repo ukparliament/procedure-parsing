@@ -1,7 +1,19 @@
 class ProcedureController < ApplicationController
 
   def index
-    @procedures = ParliamentaryProcedure.all.order( 'name' )
+    @procedures = ParliamentaryProcedure.find_by_sql(
+      "
+        select p.*
+        from parliamentary_procedures p
+        inner join (
+        	select parliamentary_procedure_id
+        	from work_packages
+        	group by parliamentary_procedure_id
+        ) work_packages
+        on work_packages.parliamentary_procedure_id = p.id
+        order by name;
+      "
+    )
 
     respond_to do |format|
       format.html
