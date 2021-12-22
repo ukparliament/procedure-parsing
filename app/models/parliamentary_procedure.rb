@@ -123,7 +123,7 @@ class ParliamentaryProcedure < ActiveRecord::Base
   # * a flag to say whether the step is in the Commons
   # * a flag to say whether the step is in the Lords
   # * a count of the number of work packages the step has been actualised in
-  def steps_with_work_package_count( work_package )
+  def steps_with_work_package_count
     Step.find_by_sql(
       "
         SELECT
