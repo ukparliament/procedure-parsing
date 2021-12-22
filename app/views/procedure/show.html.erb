@@ -6,12 +6,4 @@
 		<%= @procedure.description_massaged %>
   </blockquote>
 
-<p>
-  Routes: <%= @procedure.routes.size %></p>
-<p>
-		Work packages: <%= content_tag( 'span', link_to( "#{@procedure.work_packages.size}", procedure_work_package_list_url ) ) %>
-	</p>
-
-<p>Procedure Schema site: <a href="https://procedures.azurewebsites.net/Procedures/<%= @procedure.id %>">https://procedures.azurewebsites.net/Procedures/<%= @procedure.id %></a></p>
-
-<p>Render graph: <a href="https://procedures.azurewebsites.net/Procedures/<%= @procedure.id %>/graph">https://procedures.azurewebsites.net/Procedures/<%= @procedure.id %>/graph</a></p>
+<p>Routes: <%= content_tag( 'span', link_to( @procedure.routes.size, procedure_route_list_url( :procedure => @procedure ) ) ) %>. Business steps: <%= content_tag( 'span', link_to( @procedure.steps_with_work_package_count.size, procedure_step_list_url( :procedure => @procedure ) ) ) %>. Work packages: <%= content_tag( 'span', link_to( @procedure.work_packages.size, procedure_work_package_list_url( :procedure => @procedure ) ) ) %>.
