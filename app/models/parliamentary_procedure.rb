@@ -216,32 +216,24 @@ class ParliamentaryProcedure < ActiveRecord::Base
   def concluded_work_packages
     WorkPackage.find_by_sql(
     "
-    SELECT COUNT(bi.work_package_id) as work_package_count, a.step_id
-    FROM business_items bi, actualisations a, work_packages wp
-    
-    /* We only want to include work packages marked as procedure concluded ... */
-    /* ... so we inner join to work packages with business items actualising a step in the 'End steps' step collection. */
-    INNER JOIN (
       SELECT wp.*
-      FROM work_packages wp, business_items bi, actualisations a, steps s, step_collections sc, step_collection_types sct
-      WHERE bi.work_package_id = wp.id
-      AND bi.id = a.business_item_id
-      AND wp.parliamentary_procedure_id = #{self.id}
-      AND bi.id = a.business_item_id
-      AND a.step_id = s.id
-      AND s.id = sc.step_id
-      AND sc.parliamentary_procedure_id = #{self.id}
-      AND sc.step_collection_type_id = sct.id
-      AND sct.name = 'End steps'
+      FROM work_packages wp
     
-    ) concluded_work_packages
+      /* We only want to include work packages marked as procedure concluded ... */
+      /* ... so we inner join to work packages with business items actualising a step in the 'End steps' step collection. */
+      INNER JOIN (
+        SELECT wp.id
+        FROM work_packages wp, business_items bi, actualisations a, steps s, step_collections sc, step_collection_types sct
+        WHERE wp.id = bi.work_package_id
+        AND wp.parliamentary_procedure_id = #{self.id}
+        AND bi.id = a.business_item_id
+        AND a.step_id = s.id
+        AND s.id = sc.step_id
+        AND sc.parliamentary_procedure_id = #{self.id}
+        AND sc.step_collection_type_id = sct.id
+        AND sct.name = 'End steps'
+      ) concluded_work_packages
     ON concluded_work_packages.id = wp.id
-    WHERE bi.id = a.business_item_id
-    AND bi.work_package_id = wp.id
-    
-      
-    /* We group by the ID of the step being actualised. */
-    GROUP BY a.step_id
     "
     )
   end
