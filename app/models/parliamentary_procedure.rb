@@ -169,15 +169,15 @@ class ParliamentaryProcedure < ActiveRecord::Base
           ) lords_step
           ON s.id = lords_step.step_id
 
-        /* ... we want to get a count of the number of work packages which are subject to this procedure and where this step has been actualised. */
+        /* ... we want to get a count of the number of work packages subject to this procedure and where this step has been actualised. */
         /* We left join because we want to include zero counts for work packages where this step has not been actualised. */
         LEFT JOIN
           (
             SELECT COUNT(bi.work_package_id) as work_package_count, a.step_id
             FROM business_items bi, actualisations a, work_packages wp
             
-            /* We only want to include work packages not marked as procedure concluded ... */
-            /* ... so we inner join to work packages with business items actualising a step in the 'End step' step collection. */
+            /* We only want to include work packages marked as procedure concluded ... */
+            /* ... so we inner join to work packages with business items actualising a step in the 'End steps' step collection. */
             INNER JOIN (
               SELECT wp.*
               FROM work_packages wp, business_items bi, actualisations a, steps s, step_collections sc, step_collection_types sct
@@ -210,6 +210,39 @@ class ParliamentaryProcedure < ActiveRecord::Base
           GROUP BY s.id
           ;
       "
+    )
+  end
+  
+  def concluded_work_packages
+    WorkPackage.find_by_sql(
+    "
+    SELECT COUNT(bi.work_package_id) as work_package_count, a.step_id
+    FROM business_items bi, actualisations a, work_packages wp
+    
+    /* We only want to include work packages marked as procedure concluded ... */
+    /* ... so we inner join to work packages with business items actualising a step in the 'End steps' step collection. */
+    INNER JOIN (
+      SELECT wp.*
+      FROM work_packages wp, business_items bi, actualisations a, steps s, step_collections sc, step_collection_types sct
+      WHERE bi.work_package_id = wp.id
+      AND bi.id = a.business_item_id
+      AND wp.parliamentary_procedure_id = #{self.id}
+      AND bi.id = a.business_item_id
+      AND a.step_id = s.id
+      AND s.id = sc.step_id
+      AND sc.parliamentary_procedure_id = #{self.id}
+      AND sc.step_collection_type_id = sct.id
+      AND sct.name = 'End steps'
+    
+    ) concluded_work_packages
+    ON concluded_work_packages.id = wp.id
+    WHERE bi.id = a.business_item_id
+    AND bi.work_package_id = wp.id
+    
+      
+    /* We group by the ID of the step being actualised. */
+    GROUP BY a.step_id
+    "
     )
   end
 
