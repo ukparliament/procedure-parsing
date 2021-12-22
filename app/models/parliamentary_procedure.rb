@@ -11,9 +11,9 @@ class ParliamentaryProcedure < ActiveRecord::Base
   # We create an association to the work packages subject to a procedure.
   # Many work packages may be subject to the same procedure.
   has_many :work_packages
-    
+  
   # ## Method to return an array of start steps in a procedure.
-    # New tables have been added to the database to reflect what we plan to happen with the [step collections](https://ukparliament.github.io/ontologies/procedure/procedure-ontology.html#d4e244) work: these place steps into a collection of start steps for a given procedure. Until this work happens, we'll need to hardcode an array.
+  # New tables have been added to the database to reflect what we plan to happen with the [step collections](https://ukparliament.github.io/ontologies/procedure/procedure-ontology.html#d4e244) work: these place steps into a collection of start steps for a given procedure. Until this work happens, we'll need to hardcode an array.
   # This method returns an array of start steps and the name of the type of each step, to save on querying for this later.
   def start_steps
     Step.all.select('s.*, st.name as step_type_name' ).joins( 'as s, step_collections as sc, step_collection_types as sct, step_types as st' ).where( 's.id = sc.step_id' ).where( 'sc.step_collection_type_id = sct.id' ).where( 'sct.name = ?', 'Start steps' ).where( 'sc.parliamentary_procedure_id =?', self ).where( 's.step_type_id = st.id' )
