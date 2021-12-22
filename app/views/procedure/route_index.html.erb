@@ -1,4 +1,4 @@
-<h1>Routes: <%= @procedure.name %></h1>
+<h1><%= link_to( @procedure.name, procedure_show_url( :procedure => @procedure ) ) %> routes</h1>
 
 <table>
 	<thead>

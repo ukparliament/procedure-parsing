@@ -1,4 +1,4 @@
-<h1>Work packages: <%= @procedure.name %></h1>
+<h1><%= link_to( @procedure.name, procedure_show_url( :procedure => @procedure ) ) %> work packages</h1>
 
 <section>
 	<%= render :partial => 'work_package/work_package', :collection => @procedure.work_packages %>
