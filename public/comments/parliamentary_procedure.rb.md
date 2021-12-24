@@ -135,7 +135,7 @@ This method returns an array of start steps and the name of the type of each ste
           ) work_package_count
           ON s.id = work_package_count.step_id
         /* We group by the step ID because the same step may be the target step of many routes and we only want to include each step once. */
-          GROUP BY s.id;
+        GROUP BY s.id;
       "
     )
   end
