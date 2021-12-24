@@ -1,0 +1,8 @@
+<% if step_with_plausibility %>
+	<p>
+		&mdash; <%= step_with_plausibility.name %><br>
+		<small><%= step_with_plausibility.house_label %></small>
+		<br />
+		<small><%= "Plausibility score: #{( ( step_with_plausibility.work_package_count.to_f / @concluded_work_packages.size.to_f ) * 100 ).round(2)}%" %></small>
+	</p>
+ <% end %>
