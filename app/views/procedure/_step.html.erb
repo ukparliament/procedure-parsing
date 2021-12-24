@@ -1,6 +1,0 @@
-<tr>
-	<%= content_tag( 'th', step.name ) %>
-	<%= content_tag( 'td', step.house_label ) %>
-	<%= content_tag( 'td', step.work_package_count.to_i ) %>
-	<%= content_tag( 'td', "#{( ( step.work_package_count.to_f / @procedure.concluded_work_packages.size.to_f ) * 100 ).round(2)} %") %>
-</tr>
