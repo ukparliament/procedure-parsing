@@ -66,10 +66,24 @@
 		<summary>Steps with an input of <code>ALLOWS</code> once the procedure map has been parsed</summary>
 		<%- if @allowed_steps.length > 0 %>
 			<section>
-				<%= render :partial => 'step/step', :collection => @allowed_steps %>
+				<%= render :partial => 'step/step_with_plausibility', :collection => @allowed_steps %>
 			</section>
 		<% else %>
 			<em>There are no steps with an input of <code>ALLOWS</code> once the procedure map has been parsed.</em>
+		<% end %>
+	</details>
+</div>
+
+<div id="should-not-yet-happen">
+	<h2>Things that should not yet happen</h2>
+	<details>
+		<summary>Steps with an input of <code>FALSE</code> once the procedure map has been parsed</summary>
+		<%- if @disallowed_as_yet_steps.length > 0 %>
+			<section>
+				<%= render :partial => 'step/step_with_plausibility', :collection => @allowed_steps %>
+			</section>
+		<% else %>
+			<em>There are no steps with an input of <code>FALSE</code> once the procedure map has been parsed.</em>
 		<% end %>
 	</details>
 </div>
@@ -84,20 +98,6 @@
 			</section>
 		<% else %>
 			<em>There are no steps with an input of <code>UNTRAVSERSABLE</code> once the procedure map has been parsed.</em>
-		<% end %>
-	</details>
-</div>
-
-<div id="should-not-yet-happen">
-	<h2>Things that should not yet happen</h2>
-	<details>
-		<summary>Steps with an input of <code>FALSE</code> once the procedure map has been parsed</summary>
-		<%- if @disallowed_as_yet_steps.length > 0 %>
-			<section>
-				<%= render :partial => 'step/step', :collection => @disallowed_as_yet_steps %>
-			</section>
-		<% else %>
-			<em>There are no steps with an input of <code>FALSE</code> once the procedure map has been parsed.</em>
 		<% end %>
 	</details>
 </div>
