@@ -41,7 +41,7 @@ This is created as an instance variable because we want to write to it as we par
 
 ... or a route whose source is a SUM step or an INCREMENT step, then we set this to the value output by the step.
 
-          0, # We pass in the parse pass count attribute of this route. This is 0 until parsed.
+          0 # We pass in the parse pass count attribute of this route. This is 0 until parsed.
         )
       end
     end
@@ -243,6 +243,6 @@ We get the actualised as happened count from the source step.
   def route_actualisation_count( route_id )
 We get the actualisation count of the route in the routes hash with this ID.
 
-    route_object( route_id ).actualisation_count
+    route_hash( route_id )[:actualisation_count]
   end
 end

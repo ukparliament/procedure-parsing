@@ -59,7 +59,7 @@ a {text-decoration:underline;color:white;}
 </pre></code><code title='Line 36, lib/parsing/route_hash.rb'><pre><a name='36'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/route_hash.rb#L36'> 36</a>           0, # We pass in the actualised has happened count of the route. This is 0 until we parse either ...
 </pre></code><p>... a route whose source is a business step, then we set this to the count of business items, with dates in the past or of today, actualising that step ...</p>
 <p>... or a route whose source is a SUM step or an INCREMENT step, then we set this to the value output by the step.</p>
-<code title='Line 39, lib/parsing/route_hash.rb'><pre><a name='39'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/route_hash.rb#L39'> 39</a>           0, # We pass in the parse pass count attribute of this route. This is 0 until parsed.
+<code title='Line 39, lib/parsing/route_hash.rb'><pre><a name='39'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/route_hash.rb#L39'> 39</a>           0 # We pass in the parse pass count attribute of this route. This is 0 until parsed.
 </pre></code><code title='Line 40, lib/parsing/route_hash.rb'><pre><a name='40'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/route_hash.rb#L40'> 40</a>         )
 </pre></code><code title='Line 41, lib/parsing/route_hash.rb'><pre><a name='41'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/route_hash.rb#L41'> 41</a>       end
 </pre></code><code title='Line 42, lib/parsing/route_hash.rb'><pre><a name='42'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/route_hash.rb#L42'> 42</a>     end
@@ -209,6 +209,6 @@ a {text-decoration:underline;color:white;}
 </pre></code><h3>Method to get the actualisation count of a route.</h3>
 <code title='Line 235, lib/parsing/route_hash.rb'><pre><a name='235'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/route_hash.rb#L235'> 235</a>   def route_actualisation_count( route_id )
 </pre></code><p>We get the actualisation count of the route in the routes hash with this ID.</p>
-<code title='Line 238, lib/parsing/route_hash.rb'><pre><a name='238'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/route_hash.rb#L238'> 238</a>     route_object( route_id ).actualisation_count
+<code title='Line 238, lib/parsing/route_hash.rb'><pre><a name='238'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/route_hash.rb#L238'> 238</a>     route_hash( route_id )[:actualisation_count]
 </pre></code><code title='Line 239, lib/parsing/route_hash.rb'><pre><a name='239'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/route_hash.rb#L239'> 239</a>   end
 </pre></code><code title='Line 240, lib/parsing/route_hash.rb'><pre><a name='240'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/route_hash.rb#L240'> 240</a> end</pre></code></body></html>
