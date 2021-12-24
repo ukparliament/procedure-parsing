@@ -43,14 +43,29 @@ We include code for the main parsing rules ...
   include PARSE_STEP_HASH
   include PARSE_ROUTE_CURRENCY
   include PARSE_ASSIGN_POTENTIAL_BUSINESS_STEP_STATE
+## We show the work package including:
+
+* steps with a current state of happened, scheduled to happen and actualised with a business item with no date
+
+* steps with a potential state as determined by the parsing code
+
   def show
+We parse the work package, also getting the work package object.
+
     parse
+We get business steps actualised as having happened, being scheduled to happen or being actualised with no date.
+
     @business_items_that_have_happened = @work_package.business_items_that_have_happened
     @business_items_that_are_scheduled_to_happen = @work_package.business_items_that_are_scheduled_to_happen
     @business_items_unknown = @work_package.business_items_unknown
-    @steps_with_work_package_count = @procedure.steps_with_work_package_count
+We get all concluded work packages subject to this procedure.
+
+This is used to work out the plausibility score of potential steps.
+
     @concluded_work_packages = @procedure.concluded_work_packages
   end
+## We display a log of the parse passes.
+
   def log
     parse
   end
