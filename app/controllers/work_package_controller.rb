@@ -48,6 +48,8 @@ class WorkPackageController < ApplicationController
     @business_items_that_have_happened = @work_package.business_items_that_have_happened
     @business_items_that_are_scheduled_to_happen = @work_package.business_items_that_are_scheduled_to_happen
     @business_items_unknown = @work_package.business_items_unknown
+    @steps_with_work_package_count = @procedure.steps_with_work_package_count
+    @concluded_work_packages = @procedure.concluded_work_packages
   end
   
   def log
