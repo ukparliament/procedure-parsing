@@ -154,7 +154,7 @@ class ParliamentaryProcedure < ActiveRecord::Base
     )
   end
   
-  # ## Method to return all steps connected to routes in a procedure, each step having:
+  # ## Method to return all business steps connected to routes in a procedure, each step having:
   # * a flag to say whether the step is in the Commons
   # * a flag to say whether the step is in the Lords
   # * a count of the number of work packages the step has been actualised in
