@@ -36,7 +36,11 @@ This method returns an array of start steps and the name of the type of each ste
 
 * a flag to say whether the step has been actualised in this work package by one or more business items having a date in the past
 
+* a count of the number of actualisations of the step in this work package by one or more business items having a date in the past
+
 * a flag to say whether the step has been actualised in this work package by one or more business items, regardless of the date of those business items
+
+* a count of the number of concluded work packages subject to this procedure with the step being actualised
 
   def steps_with_actualisations_in_work_package( work_package )
     Step.find_by_sql(
@@ -79,7 +83,8 @@ This method returns an array of start steps and the name of the type of each ste
             GROUP BY hs.id
           ) lords_step
           ON s.id = lords_step.step_id
-          /* We know that a step may be actualised in a work package by one or more business items having a date in the past, or of today, or having no date. A step may be within a work package, but not actualised. */
+          /* We want to get a count of the number of business items with a date in the past, or of today, having actualised a step in this work package. */
+          /* We know that a step may be actualised in a work package by one or more business items having a date in the past, or of today, or having no date. A step may be within a procedure, but not actualised in a work package subject to that procedure. */
         /* The left join ensures that the outer step query returns records for steps that have not been actualised with a business item with a date in the past, or of today. */
         LEFT JOIN
           (
@@ -94,6 +99,8 @@ This method returns an array of start steps and the name of the type of each ste
             GROUP BY a.step_id
           ) actualisations_has_happened
           ON s.id = actualisations_has_happened.step_id
+          /* We want to know if a step has been actualised by a business item in this work package regardless of the date of the business item. */
+          /* We know that a step may be actualised in a work package by one or more business items having a date in the past, or of today, or having no date. A step may be within a procedure, but not actualised in a work package subject to that procedure. */
         /* The left join ensures that the outer step query returns records for steps that have not been actualised with a business item, regardless of the date of that business item. */
         LEFT JOIN
           (
@@ -106,7 +113,7 @@ This method returns an array of start steps and the name of the type of each ste
             GROUP BY a.id
           ) actualisations
           ON s.id = actualisations.step_id
-        /* ... we want to get a count of the number of work packages subject to this procedure and where this step has been actualised. */
+        /* We want to get a count of the number of concluded work packages subject to this procedure where this step has been actualised. */
         /* We left join because we want to include zero counts for work packages where this step has not been actualised. */
         LEFT JOIN
           (
@@ -145,7 +152,9 @@ This method returns an array of start steps and the name of the type of each ste
 
 * a flag to say whether the step is in the Lords
 
-* a count of the number of work packages the step has been actualised in
+* a count of the number of concluded work packages subject to this procedure the step has been actualised in
+
+The number of concluded work packages subject to this procedure the step has been actualised in is used to calculate the plausibility score for this step being taken in a work package subject to this procedure.
 
   def steps_with_work_package_count
     Step.find_by_sql(
@@ -185,8 +194,8 @@ This method returns an array of start steps and the name of the type of each ste
             GROUP BY hs.id
           ) lords_step
           ON s.id = lords_step.step_id
-        /* ... we want to get a count of the number of work packages subject to this procedure and where this step has been actualised. */
-        /* We left join because we want to include zero counts for work packages where this step has not been actualised. */
+          /* We want to get a count of the number of concluded work packages subject to this procedure where this step has been actualised. */
+          /* We left join because we want to include zero counts for work packages where this step has not been actualised. */
         LEFT JOIN
           (
             SELECT COUNT(bi.work_package_id) as work_package_count, a.step_id
@@ -221,30 +230,34 @@ This method returns an array of start steps and the name of the type of each ste
       "
     )
   end
+## Method to return all work packages subject to this procedure marked as procedure concluded.
+
+The number of concluded work packages subject to a procedure is used to calculate the plausibility score of a step being taken.
+
   def concluded_work_packages
     WorkPackage.find_by_sql(
-    "
-      SELECT wp.*
-      FROM work_packages wp
-      /* We only want to include work packages marked as procedure concluded ... */
-      /* ... so we inner join to work packages with business items actualising a step in the 'End steps' step collection. */
-      INNER JOIN (
-        SELECT wp.id
-        FROM work_packages wp, business_items bi, actualisations a, steps s, step_collections sc, step_collection_types sct
-        WHERE wp.id = bi.work_package_id
-        AND wp.parliamentary_procedure_id = #{self.id}
-        AND bi.id = a.business_item_id
-        AND a.step_id = s.id
-        AND s.id = sc.step_id
-        AND sc.parliamentary_procedure_id = #{self.id}
-        AND sc.step_collection_type_id = sct.id
-        AND sct.name = 'End steps'
-      ) concluded_work_packages
-    ON concluded_work_packages.id = wp.id
-    "
+      "
+        SELECT wp.*
+        FROM work_packages wp
+        /* We only want to include work packages marked as procedure concluded ... */
+        /* ... so we inner join to work packages with business items actualising a step in the 'End steps' step collection. */
+        INNER JOIN (
+          SELECT wp.id
+          FROM work_packages wp, business_items bi, actualisations a, steps s, step_collections sc, step_collection_types sct
+          WHERE wp.id = bi.work_package_id
+          AND wp.parliamentary_procedure_id = #{self.id}
+          AND bi.id = a.business_item_id
+          AND a.step_id = s.id
+          AND s.id = sc.step_id
+          AND sc.parliamentary_procedure_id = #{self.id}
+          AND sc.step_collection_type_id = sct.id
+          AND sct.name = 'End steps'
+        ) concluded_work_packages
+      ON concluded_work_packages.id = wp.id
+      "
     )
   end
-## A method to add an ellipsis to a description of a procedure, if the description text is longer than 255 characters.
+## Method to add an ellipsis to a description of a procedure, if the description text is longer than 255 characters.
 
   def description_massaged
     description.length < 256 ? description : description + " ..."
