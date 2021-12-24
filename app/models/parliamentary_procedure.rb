@@ -38,7 +38,8 @@ class ParliamentaryProcedure < ActiveRecord::Base
           SUM(lords_step.is_lords) AS is_in_lords,
           SUM(actualisations_has_happened.is_actualised_has_happened) AS is_actualised_has_happened,
           COUNT(actualisations_has_happened.actualised_as_happened_count) as actualised_as_happened_count,
-          SUM(actualisations.is_actualised) AS is_actualised
+          SUM(actualisations.is_actualised) AS is_actualised,
+          SUM(work_package_count.work_package_count) AS work_package_count
         FROM steps s
         
         /* We know that steps appear in a procedure by virtue of being attached to routes in that procedure, so we join to the routes table ... */
@@ -113,7 +114,41 @@ class ParliamentaryProcedure < ActiveRecord::Base
           ) actualisations
           ON s.id = actualisations.step_id
           
-          /* We group by the step ID because the same step may be the target step of many routes and we only want to include each step once. */
+        /* ... we want to get a count of the number of work packages subject to this procedure and where this step has been actualised. */
+        /* We left join because we want to include zero counts for work packages where this step has not been actualised. */
+        LEFT JOIN
+          (
+            SELECT COUNT(bi.work_package_id) as work_package_count, a.step_id
+            FROM business_items bi, actualisations a, work_packages wp
+          
+            /* We only want to include work packages marked as procedure concluded ... */
+            /* ... so we inner join to work packages with business items actualising a step in the 'End steps' step collection. */
+            INNER JOIN (
+              SELECT wp.*
+              FROM work_packages wp, business_items bi, actualisations a, steps s, step_collections sc, step_collection_types sct
+              WHERE bi.work_package_id = wp.id
+              AND bi.id = a.business_item_id
+              AND wp.parliamentary_procedure_id = #{self.id}
+              AND bi.id = a.business_item_id
+              AND a.step_id = s.id
+              AND s.id = sc.step_id
+              AND sc.parliamentary_procedure_id = #{self.id}
+              AND sc.step_collection_type_id = sct.id
+              AND sct.name = 'End steps'
+          
+            ) concluded_work_packages
+            ON concluded_work_packages.id = wp.id
+            WHERE bi.id = a.business_item_id
+            AND bi.work_package_id = wp.id
+          
+            
+            /* We group by the ID of the step being actualised. */
+            GROUP BY a.step_id
+          
+          ) work_package_count
+          ON s.id = work_package_count.step_id
+          
+        /* We group by the step ID because the same step may be the target step of many routes and we only want to include each step once. */
           GROUP BY s.id;
       "
     )
