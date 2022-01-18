@@ -1,0 +1,10 @@
+<div id="graph"></div>
+<script>
+	var i = "digraph {<%= render :partial => 'node', :collection => @steps %><%= render :partial => 'edge', :collection => @routes %> }";
+	var parser = new DOMParser;
+	var dom = parser.parseFromString('<!doctype html><body>' + i, 'text/html');
+	var decodedString = dom.body.textContent;
+	d3.select("#graph").graphviz().renderDot(decodedString);
+</script>
+		
+		
