@@ -66,6 +66,12 @@ class WorkPackageController < ApplicationController
     parse
   end
   
+  # ## We display a visualisation of the parse passes.
+  def visualise
+    parse
+    puts step_name(@steps.first.first)
+  end
+  
   # ## This method attempts to parse a work package subject to a procedure.
   # By taking actualised and non-actualised business steps and parsing the logical procedure map, we aim to determine business steps that may happen, should happen or should not happen in the future.
   def parse
