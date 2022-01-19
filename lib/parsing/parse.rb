@@ -41,7 +41,7 @@ module PARSE
         parse_route_from_increment_step( route_id )
       when "EQUALS"
         parse_route_from_equals_step( route_id )
-      when "SUMMATION"
+      when "Summation"
         parse_route_from_summation_step( route_id )
       end
       
