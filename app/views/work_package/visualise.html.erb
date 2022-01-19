@@ -1,3 +1,9 @@
+<%= content_tag( 'h1', 'Work package: parsed routes' ) %>
+
+<%= render :partial => 'work_package_description' %>
+
+<%= render :partial => 'view_switch' %>
+
 <div id="graph"></div>
 <script>
 	var i = "digraph {<%= render :partial => 'node', :collection => @steps %><%= render :partial => 'edge', :collection => @routes %> }";
