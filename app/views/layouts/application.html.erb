@@ -7,6 +7,55 @@
 	<script src="https://unpkg.com/d3-graphviz@2.1.0/build/d3-graphviz.min.js"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="/water.min.css">
+  <style>
+	  .node {fill: #009900; color: #009900;}
+	  
+	  /* CSS for the status of a route / edge. */
+	  /* Route with status TRUE */
+	  .edge.status-true path {
+		  stroke: blue;
+		  stroke-width: 2;
+	  }
+	  .edge.status-true polygon {
+		  fill: blue;
+		  stroke: blue;
+	  }
+	  
+	  /* Route with status ALLOWS */
+	  .edge.status-allows path {
+		  stroke: blue;
+		  stroke-dasharray: 5;
+		  stroke-width: 2;
+	  }
+	  .edge.status-allows polygon {
+		  fill: blue;
+		  stroke: blue;
+	  }
+	  
+	  /* Route with status FALSE */
+	  .edge.status-false path {
+		  stroke: red;
+		  stroke-width: 2;
+	  }
+	  .edge.status-false polygon {
+		  fill: red;
+		  stroke: red;
+	  }
+	  
+	  /* Route with status UNTRAVERSABLE */
+	  .edge.status-untraversable path {
+		  stroke: red;
+		  stroke-dasharray: 5;
+		  stroke-width: 2;
+	  }
+	  .edge.status-untraversable polygon {
+		  fill: red;
+		  stroke: red;
+	  }
+	  
+	  
+	  
+  </style>
 </head>
 <body>
 <header>
