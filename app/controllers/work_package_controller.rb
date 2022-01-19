@@ -69,7 +69,6 @@ class WorkPackageController < ApplicationController
   # ## We display a visualisation of the parse passes.
   def visualise
     parse
-    puts step_name(@steps.first.first)
   end
   
   # ## This method attempts to parse a work package subject to a procedure.
