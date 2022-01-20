@@ -55,4 +55,47 @@ class Step < ActiveRecord::Base
     # We return the house label.
     house_label
   end
+  
+  def full_label_with_house
+    full_label_with_house = self.name
+    unless self.step_type_name == 'Business step'
+      full_label_with_house += ' ' + self.step_type_name
+    else
+      full_label_with_house += ' (' + self.house_label + ')'
+    end
+    full_label_with_house
+  end
+  
+  def class_for_edge( inbound_route_status  )
+    class_for_edge = ''
+    
+    # If the step is a business step ...
+    if self.step_type_name == 'Business step'
+      
+      # ... we want to add its current state.
+      # If the business step has been actualised ...
+      if self.is_actualised
+        
+        # ... we add 'current-actualised' to the class.
+        class_for_edge += 'current-actualised'
+        
+      # If business step has not been actualised ...
+      else
+        
+        # ... we add 'current-unactualised' to the class.
+        class_for_edge += 'current-unactualised'
+      end
+      
+      # ... we want to add its future state.
+      # We add a future value to the class based on the status of the inbound route.
+      class_for_edge += " future-#{inbound_route_status.downcase}"
+      
+    # If the step is not a business step ...
+    else
+      
+      # ... we add 'non-business-step' to the class.
+      class_for_edge += 'non-business-step'
+    end
+    class_for_edge
+  end
 end
