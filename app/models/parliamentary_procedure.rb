@@ -38,6 +38,7 @@ class ParliamentaryProcedure < ActiveRecord::Base
           s.*,
           SUM(commons_step.is_commons) AS is_in_commons, 
           SUM(lords_step.is_lords) AS is_in_lords,
+          step_type.step_type_name,
           SUM(actualisations_has_happened.is_actualised_has_happened) AS is_actualised_has_happened,
           COUNT(actualisations_has_happened.actualised_as_happened_count) as actualised_as_happened_count,
           SUM(actualisations.is_actualised) AS is_actualised,
@@ -79,6 +80,14 @@ class ParliamentaryProcedure < ActiveRecord::Base
             GROUP BY hs.id
           ) lords_step
           ON s.id = lords_step.step_id
+          
+        /* We know that a step has a type, so we left join to step types. */
+        LEFT JOIN
+          (
+            SELECT st.id as step_type_id, st.name as step_type_name
+            FROM step_types st
+          ) step_type
+          ON s.step_type_id = step_type.step_type_id
           
           /* We want to get a count of the number of business items with a date in the past, or of today, having actualised a step in this work package. */
           /* We know that a step may be actualised in a work package by one or more business items having a date in the past, or of today, or having no date. A step may be within a procedure, but not actualised in a work package subject to that procedure. */
@@ -154,7 +163,7 @@ class ParliamentaryProcedure < ActiveRecord::Base
           ON s.id = work_package_count.step_id
           
         /* We group by the step ID because the same step may be the target step of many routes and we only want to include each step once. */
-        GROUP BY s.id;
+        GROUP BY s.id, step_type.step_type_name;
       "
     )
   end
