@@ -1,1 +1,1 @@
-<%= node[0] %>[<% if node[1].step_type_id == 1 -%>label=&quot;<%= ( node[1].name )%>&quot;<% if node[1].is_actualised == 1 -%>fillcolor=&quot;green&quot;<% end -%><% if  @routes[ @routes_to_steps[node[0]].first][:status] == 'TRUE' %>color=&quot;blue&quot;<% end -%><% else -%>label=&quot;&quot; fillcolor=&quot;grey&quot;<% end -%>]
+<%= node[0] %>[label=&quot;<%= ( @steps[node[0]].full_label_with_house )%>&quot;class=&quot;<%= @steps[node[0]].class_for_edge( @routes[ @routes_to_steps[node[0]].first ][:status] ) %>&quot;]
