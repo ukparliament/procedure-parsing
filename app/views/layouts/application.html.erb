@@ -15,7 +15,12 @@
 		width: 100%;
 	  }
 	  
-	  /* CSS for the status of a route / edge. */
+	  /* Non-business-steps */
+	  .node.non-business-step ellipse {
+		  fill: #ccc;
+	  }
+	  
+	  /* Status of a route / edge. */
 	  /* Route with status TRUE */
 	  .edge.status-true path {
 		  stroke: blue;
@@ -56,6 +61,38 @@
 	  .edge.status-untraversable polygon {
 		  fill: red;
 		  stroke: red;
+	  }
+	  
+	  /* Current state of a step / node. */
+	  /* Actualised business steps */
+	  .node.current-actualised ellipse {
+		  fill: #ccc;
+	  }
+	  /* Unactualised business steps */
+	  .node.current-unactualised ellipse {
+		  fill: fff;
+	  }
+	  
+	  /* CSS for the future state of a step / node. */
+	  /* Caused business steps */
+	  .node.future-true {
+		  stroke: blue;
+	  }
+	  /* Allowed business steps */
+	  .node.future-allows ellipse {
+		  stroke: blue;
+		  stroke-dasharray: 5;
+	  }
+	  
+	  /* Not allowed yet business steps */
+	  .node.future-false ellipse {
+		  stroke: red;
+	  }
+	  
+	  /* Not allowed now business steps */
+	  .node.future-untraversable ellipse {
+		  stroke: red;
+		  stroke-dasharray: 5;
 	  }
 	  
 	  
