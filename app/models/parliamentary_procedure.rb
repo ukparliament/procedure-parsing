@@ -255,7 +255,7 @@ class ParliamentaryProcedure < ActiveRecord::Base
   end
   
   # ## Method to return all work packages subject to this procedure marked as procedure concluded.
-  # This includes both Commons only and bicameral concluded work packages.
+  # This includes both Commons only and bicamerally concluded work packages.
   # The number of concluded work packages subject to a procedure is used to calculate the plausibility score of a step being taken.
   def concluded_work_packages
     WorkPackage.find_by_sql(
@@ -276,6 +276,7 @@ class ParliamentaryProcedure < ActiveRecord::Base
   end
   
   # ## Method to return all work packages subject to this procedure marked as procedure concluded in both Houses.
+  # This includes bicamerally concluded work packages only.
   # The number of concluded work packages subject to a procedure is used to calculate the plausibility score of a step being taken.
   def bicamerally_concluded_work_packages
     WorkPackage.find_by_sql(
