@@ -56,6 +56,8 @@ class Step < ActiveRecord::Base
     house_label
   end
   
+  # ## A method to construct a full label for a step.
+  # This includes the name of the step, the type of the step - unless the step is a business step, and the house label for the step.
   def full_label_with_house
     full_label_with_house = self.name
     unless self.step_type_name == 'Business step'
@@ -66,6 +68,8 @@ class Step < ActiveRecord::Base
     full_label_with_house
   end
   
+  # ## A method to construct a class for edges in the SVG map of a work package.
+  # This uses the actualisation or otherwise of the step and the parsed status of its inbound route to construct a class for the step.
   def class_for_edge( inbound_route_status  )
     class_for_edge = ''
     
@@ -97,5 +101,27 @@ class Step < ActiveRecord::Base
       class_for_edge += 'non-business-step'
     end
     class_for_edge
+  end
+  
+  # ## A method to calculate the plausibility score for a step.
+    def plausibility_score( work_package_count, concluded_work_package_count, bicamerally_concluded_work_package_count )
+    plausibility_score = ''
+
+    # If the step is marked as being in the Lords ...
+    # ... it must be either in the Lords or a joint step ...
+    if self.in_lords?
+      
+      # ... so we compare against the number of bicamerally concluded work packages.
+      # Noting that joint steps are also marked as as being in the Lords.
+      plausibility_score += "#{( ( work_package_count.to_f / bicamerally_concluded_work_package_count.to_f ) * 100 ).round(2)}%"
+      
+    # Otherwise, if the step is not in the Lords ...
+    # ... it must be either in the Commons or outside of Parliament ...
+    else
+      
+      # ... so we compare against the total number of concluded work packages.
+      plausibility_score += "#{( ( work_package_count.to_f / concluded_work_package_count.to_f ) * 100 ).round(2)}%"
+    end
+    plausibility_score
   end
 end
