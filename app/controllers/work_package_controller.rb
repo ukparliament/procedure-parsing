@@ -56,9 +56,12 @@ class WorkPackageController < ApplicationController
     @business_items_that_are_scheduled_to_happen = @work_package.business_items_that_are_scheduled_to_happen
     @business_items_unknown = @work_package.business_items_unknown
     
-    # We get all concluded work packages subject to this procedure.
-    # This is used to work out the occurrence score of potential steps.
+    # We need to calculate the occurrence score of potential steps.
+    # We get all concluded work packages subject to this procedure ...
     @concluded_work_packages = @procedure.concluded_work_packages
+    
+    # ... and call bicamerally concluded work packages subject to this procedure.
+    @bicamerally_concluded_work_packages = @procedure.bicamerally_concluded_work_packages
   end
   
   # ## We display a log of the parse passes.
