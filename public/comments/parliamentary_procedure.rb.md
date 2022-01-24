@@ -49,6 +49,7 @@ This method returns an array of start steps and the name of the type of each ste
           s.*,
           SUM(commons_step.is_commons) AS is_in_commons, 
           SUM(lords_step.is_lords) AS is_in_lords,
+          step_type.step_type_name,
           SUM(actualisations_has_happened.is_actualised_has_happened) AS is_actualised_has_happened,
           COUNT(actualisations_has_happened.actualised_as_happened_count) as actualised_as_happened_count,
           SUM(actualisations.is_actualised) AS is_actualised,
@@ -83,6 +84,13 @@ This method returns an array of start steps and the name of the type of each ste
             GROUP BY hs.id
           ) lords_step
           ON s.id = lords_step.step_id
+        /* We know that a step has a type, so we left join to step types. */
+        LEFT JOIN
+          (
+            SELECT st.id as step_type_id, st.name as step_type_name
+            FROM step_types st
+          ) step_type
+          ON s.step_type_id = step_type.step_type_id
           /* We want to get a count of the number of business items with a date in the past, or of today, having actualised a step in this work package. */
           /* We know that a step may be actualised in a work package by one or more business items having a date in the past, or of today, or having no date. A step may be within a procedure, but not actualised in a work package subject to that procedure. */
         /* The left join ensures that the outer step query returns records for steps that have not been actualised with a business item with a date in the past, or of today. */
@@ -142,7 +150,7 @@ This method returns an array of start steps and the name of the type of each ste
           ) work_package_count
           ON s.id = work_package_count.step_id
         /* We group by the step ID because the same step may be the target step of many routes and we only want to include each step once. */
-        GROUP BY s.id;
+        GROUP BY s.id, step_type.step_type_name;
       "
     )
   end
@@ -163,7 +171,7 @@ The number of concluded work packages subject to this procedure the step has bee
           s.*,
           SUM(commons_step.is_commons) AS is_in_commons, 
           SUM(lords_step.is_lords) AS is_in_lords,
-          SUM(work_package_count.work_package_count) AS work_package_count
+          COUNT(work_packages.work_package_id) AS work_package_count
         FROM steps s
         /* We know that steps appear in a procedure by virtue of being attached to routes in that procedure, so we join to the routes table ... */
         INNER JOIN routes r
@@ -198,30 +206,23 @@ The number of concluded work packages subject to this procedure the step has bee
           /* We left join because we want to include zero counts for work packages where this step has not been actualised. */
         LEFT JOIN
           (
-            SELECT COUNT(bi.work_package_id) as work_package_count, a.step_id
-            FROM business_items bi, actualisations a, work_packages wp
-            /* We only want to include work packages marked as procedure concluded ... */
-            /* ... so we inner join to work packages with business items actualising a step in the 'End steps' step collection. */
-            INNER JOIN (
-              SELECT wp.*
-              FROM work_packages wp, business_items bi, actualisations a, steps s, step_collections sc, step_collection_types sct
-              WHERE bi.work_package_id = wp.id
-              AND bi.id = a.business_item_id
-              AND wp.parliamentary_procedure_id = #{self.id}
-              AND bi.id = a.business_item_id
-              AND a.step_id = s.id
-              AND s.id = sc.step_id
-              AND sc.parliamentary_procedure_id = #{self.id}
-              AND sc.step_collection_type_id = sct.id
-              AND sct.name = 'End steps'
-            ) concluded_work_packages
-            ON concluded_work_packages.id = wp.id
-            WHERE bi.id = a.business_item_id
-            AND bi.work_package_id = wp.id
-            /* We group by the ID of the step being actualised. */
-            GROUP BY a.step_id
-          ) work_package_count
-          ON s.id = work_package_count.step_id
+            SELECT wp.id as work_package_id, a1.step_id as counted_step_id
+            FROM work_packages wp, business_items bi1, actualisations a1, business_items bi2, actualisations a2, steps s, step_collections sc, step_collection_types sct
+            /* We check the step we're interested in has been actualised in this work package. */
+            WHERE wp.parliamentary_procedure_id = #{self.id}
+            AND wp.id = bi1.work_package_id
+            AND bi1.id = a1.business_item_id
+            /* We check this work package has a business item actualising a step in the step collection of type 'End steps' */
+            AND wp.id = bi2.work_package_id
+            AND bi2.id = a2.business_item_id
+            AND a2.step_id = s.id
+            AND s.id = sc.step_id
+            AND sc.parliamentary_procedure_id = #{self.id}
+            AND sc.step_collection_type_id = sct.id
+            AND sct.name = 'End steps'
+            GROUP BY wp.id, a1.step_id
+          ) work_packages
+          ON work_packages.counted_step_id = s.id
           /* We only want to include business steps. */
           WHERE s.step_type_id = 1
           /* We group by the step ID because the same step may be the target step of many routes and we only want to include each step once. */
@@ -232,28 +233,47 @@ The number of concluded work packages subject to this procedure the step has bee
   end
 ## Method to return all work packages subject to this procedure marked as procedure concluded.
 
+This includes both Commons only and bicamerally concluded work packages.
+
 The number of concluded work packages subject to a procedure is used to calculate the plausibility score of a step being taken.
 
   def concluded_work_packages
     WorkPackage.find_by_sql(
       "
         SELECT wp.*
-        FROM work_packages wp
-        /* We only want to include work packages marked as procedure concluded ... */
-        /* ... so we inner join to work packages with business items actualising a step in the 'End steps' step collection. */
-        INNER JOIN (
-          SELECT wp.id
-          FROM work_packages wp, business_items bi, actualisations a, steps s, step_collections sc, step_collection_types sct
-          WHERE wp.id = bi.work_package_id
-          AND wp.parliamentary_procedure_id = #{self.id}
-          AND bi.id = a.business_item_id
-          AND a.step_id = s.id
-          AND s.id = sc.step_id
-          AND sc.parliamentary_procedure_id = #{self.id}
-          AND sc.step_collection_type_id = sct.id
-          AND sct.name = 'End steps'
-        ) concluded_work_packages
-      ON concluded_work_packages.id = wp.id
+        FROM work_packages wp, business_items bi, actualisations a, steps s, step_collections sc, step_collection_types sct
+        WHERE wp.parliamentary_procedure_id = #{self.id}
+        AND wp.id = bi.work_package_id
+        AND bi.id = a.business_item_id
+        AND a.step_id = s.id
+        AND s.id = sc.step_id
+        AND sc.parliamentary_procedure_id = #{self.id}
+        AND sc.step_collection_type_id = sct.id
+        AND sct.name = 'End steps'
+        GROUP BY wp.id
+      "
+    )
+  end
+## Method to return all work packages subject to this procedure marked as procedure concluded in both Houses.
+
+This includes bicamerally concluded work packages only.
+
+The number of concluded work packages subject to a procedure is used to calculate the plausibility score of a step being taken.
+
+  def bicamerally_concluded_work_packages
+    WorkPackage.find_by_sql(
+      "
+        SELECT wp.*
+        FROM work_packages wp, business_items bi, actualisations a, steps s, step_collections sc, step_collection_types sct
+        WHERE wp.parliamentary_procedure_id = #{self.id}
+        AND wp.id = bi.work_package_id
+        AND bi.id = a.business_item_id
+        AND a.step_id = s.id
+        AND s.id = sc.step_id
+        AND sc.parliamentary_procedure_id = #{self.id}
+        AND sc.step_collection_type_id = sct.id
+        AND sct.name = 'Bicameral end steps'
+        GROUP BY wp.id
       "
     )
   end
