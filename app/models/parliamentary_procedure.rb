@@ -255,29 +255,42 @@ class ParliamentaryProcedure < ActiveRecord::Base
   end
   
   # ## Method to return all work packages subject to this procedure marked as procedure concluded.
+  # This includes both Commons only and bicameral concluded work packages.
   # The number of concluded work packages subject to a procedure is used to calculate the plausibility score of a step being taken.
   def concluded_work_packages
     WorkPackage.find_by_sql(
       "
         SELECT wp.*
-        FROM work_packages wp
-    
-        /* We only want to include work packages marked as procedure concluded ... */
-        /* ... so we inner join to work packages with business items actualising a step in the 'End steps' step collection. */
-        INNER JOIN (
-          SELECT wp.id
-          FROM work_packages wp, business_items bi, actualisations a, steps s, step_collections sc, step_collection_types sct
-          WHERE wp.parliamentary_procedure_id = #{self.id}
-          AND wp.id = bi.work_package_id
-          AND bi.id = a.business_item_id
-          AND a.step_id = s.id
-          AND s.id = sc.step_id
-          AND sc.parliamentary_procedure_id = #{self.id}
-          AND sc.step_collection_type_id = sct.id
-          AND sct.name = 'End steps'
-        ) concluded_work_packages
-      ON concluded_work_packages.id = wp.id
-      GROUP BY wp.id
+        FROM work_packages wp, business_items bi, actualisations a, steps s, step_collections sc, step_collection_types sct
+        WHERE wp.parliamentary_procedure_id = #{self.id}
+        AND wp.id = bi.work_package_id
+        AND bi.id = a.business_item_id
+        AND a.step_id = s.id
+        AND s.id = sc.step_id
+        AND sc.parliamentary_procedure_id = #{self.id}
+        AND sc.step_collection_type_id = sct.id
+        AND sct.name = 'End steps'
+        GROUP BY wp.id
+      "
+    )
+  end
+  
+  # ## Method to return all work packages subject to this procedure marked as procedure concluded in both Houses.
+  # The number of concluded work packages subject to a procedure is used to calculate the plausibility score of a step being taken.
+  def bicamerally_concluded_work_packages
+    WorkPackage.find_by_sql(
+      "
+        SELECT wp.*
+        FROM work_packages wp, business_items bi, actualisations a, steps s, step_collections sc, step_collection_types sct
+        WHERE wp.parliamentary_procedure_id = #{self.id}
+        AND wp.id = bi.work_package_id
+        AND bi.id = a.business_item_id
+        AND a.step_id = s.id
+        AND s.id = sc.step_id
+        AND sc.parliamentary_procedure_id = #{self.id}
+        AND sc.step_collection_type_id = sct.id
+        AND sct.name = 'Bicameral end steps'
+        GROUP BY wp.id
       "
     )
   end
