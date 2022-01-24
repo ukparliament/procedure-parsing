@@ -68,10 +68,10 @@ class Step < ActiveRecord::Base
     full_label_with_house
   end
   
-  # ## A method to construct a class for edges in the SVG map of a work package.
+  # ## A method to construct a class for nodes (steps) in the SVG map of a work package.
   # This uses the actualisation or otherwise of the step and the parsed status of its inbound route to construct a class for the step.
-  def class_for_edge( inbound_route_status  )
-    class_for_edge = ''
+  def class_for_node( inbound_route_status  )
+    class_for_node = ''
     
     # If the step is a business step ...
     if self.step_type_name == 'Business step'
@@ -81,26 +81,26 @@ class Step < ActiveRecord::Base
       if self.is_actualised
         
         # ... we add 'current-actualised' to the class.
-        class_for_edge += 'current-actualised'
+        class_for_node += 'current-actualised'
         
       # If business step has not been actualised ...
       else
         
         # ... we add 'current-unactualised' to the class.
-        class_for_edge += 'current-unactualised'
+        class_for_node += 'current-unactualised'
       end
       
       # ... we want to add its future state.
       # We add a future value to the class based on the status of the inbound route.
-      class_for_edge += " future-#{inbound_route_status.downcase}"
+      class_for_node += " future-#{inbound_route_status.downcase}"
       
     # If the step is not a business step ...
     else
       
       # ... we add 'non-business-step' to the class.
-      class_for_edge += 'non-business-step'
+      class_for_node += 'non-business-step'
     end
-    class_for_edge
+    class_for_node
   end
   
   # ## A method to calculate the plausibility score for a step.
