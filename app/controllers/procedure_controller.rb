@@ -32,6 +32,7 @@ class ProcedureController < ApplicationController
     @procedure = ParliamentaryProcedure.find( procedure )
     @work_packages = @procedure.work_packages
     @concluded_work_packages = @procedure.concluded_work_packages
+    @bicamerally_concluded_work_packages = @procedure.bicamerally_concluded_work_packages
     @steps_with_work_package_count = @procedure.steps_with_work_package_count
   end
   
