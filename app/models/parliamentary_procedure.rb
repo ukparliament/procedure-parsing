@@ -180,7 +180,7 @@ class ParliamentaryProcedure < ActiveRecord::Base
           s.*,
           SUM(commons_step.is_commons) AS is_in_commons, 
           SUM(lords_step.is_lords) AS is_in_lords,
-          SUM(work_package_count.work_package_count) AS work_package_count
+          COUNT(work_packages.work_package_id) AS work_package_count
         FROM steps s
       
         /* We know that steps appear in a procedure by virtue of being attached to routes in that procedure, so we join to the routes table ... */
@@ -223,34 +223,26 @@ class ParliamentaryProcedure < ActiveRecord::Base
           /* We left join because we want to include zero counts for work packages where this step has not been actualised. */
         LEFT JOIN
           (
-            SELECT COUNT(bi.work_package_id) as work_package_count, a.step_id
-            FROM business_items bi, actualisations a, work_packages wp
+            SELECT wp.id as work_package_id, a1.step_id as counted_step_id
+            FROM work_packages wp, business_items bi1, actualisations a1, business_items bi2, actualisations a2, steps s, step_collections sc, step_collection_types sct
             
-            /* We only want to include work packages marked as procedure concluded ... */
-            /* ... so we inner join to work packages with business items actualising a step in the 'End steps' step collection. */
-            INNER JOIN (
-              SELECT wp.*
-              FROM work_packages wp, business_items bi, actualisations a, steps s, step_collections sc, step_collection_types sct
-              WHERE bi.work_package_id = wp.id
-              AND bi.id = a.business_item_id
-              AND wp.parliamentary_procedure_id = #{self.id}
-              AND bi.id = a.business_item_id
-              AND a.step_id = s.id
-              AND s.id = sc.step_id
-              AND sc.parliamentary_procedure_id = #{self.id}
-              AND sc.step_collection_type_id = sct.id
-              AND sct.name = 'End steps'
+            /* We check the step we're interested in has been actualised in this work package. */
+            WHERE wp.parliamentary_procedure_id = #{self.id}
+            AND wp.id = bi1.work_package_id
+            AND bi1.id = a1.business_item_id
             
-            ) concluded_work_packages
-            ON concluded_work_packages.id = wp.id
-            WHERE bi.id = a.business_item_id
-            AND bi.work_package_id = wp.id
+            /* We check this work package has a business item actualising a step in the step collection of type 'End steps' */
+            AND wp.id = bi2.work_package_id
+            AND bi2.id = a2.business_item_id
+            AND a2.step_id = s.id
+            AND s.id = sc.step_id
+            AND sc.parliamentary_procedure_id = #{self.id}
+            AND sc.step_collection_type_id = sct.id
+            AND sct.name = 'End steps'
             
-            /* We group by the ID of the step being actualised. */
-            GROUP BY a.step_id
-            
-          ) work_package_count
-          ON s.id = work_package_count.step_id
+            GROUP BY wp.id, a1.step_id
+          ) work_packages
+          ON work_packages.counted_step_id = s.id
           
           /* We only want to include business steps. */
           WHERE s.step_type_id = 1
@@ -275,8 +267,8 @@ class ParliamentaryProcedure < ActiveRecord::Base
         INNER JOIN (
           SELECT wp.id
           FROM work_packages wp, business_items bi, actualisations a, steps s, step_collections sc, step_collection_types sct
-          WHERE wp.id = bi.work_package_id
-          AND wp.parliamentary_procedure_id = #{self.id}
+          WHERE wp.parliamentary_procedure_id = #{self.id}
+          AND wp.id = bi.work_package_id
           AND bi.id = a.business_item_id
           AND a.step_id = s.id
           AND s.id = sc.step_id
@@ -285,6 +277,7 @@ class ParliamentaryProcedure < ActiveRecord::Base
           AND sct.name = 'End steps'
         ) concluded_work_packages
       ON concluded_work_packages.id = wp.id
+      GROUP BY wp.id
       "
     )
   end
