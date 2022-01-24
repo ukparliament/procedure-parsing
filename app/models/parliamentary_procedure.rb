@@ -172,7 +172,7 @@ class ParliamentaryProcedure < ActiveRecord::Base
   # * a flag to say whether the step is in the Commons
   # * a flag to say whether the step is in the Lords
   # * a count of the number of concluded work packages subject to this procedure the step has been actualised in
-  # The number of concluded work packages subject to this procedure the step has been actualised in is used to calculate the plausibility score for this step being taken in a work package subject to this procedure.
+  # The number of concluded work packages subject to this procedure the step has been actualised in is used to calculate the occurrence score for this step being taken in a work package subject to this procedure.
   def steps_with_work_package_count
     Step.find_by_sql(
       "
@@ -256,7 +256,7 @@ class ParliamentaryProcedure < ActiveRecord::Base
   
   # ## Method to return all work packages subject to this procedure marked as procedure concluded.
   # This includes both Commons only and bicamerally concluded work packages.
-  # The number of concluded work packages subject to a procedure is used to calculate the plausibility score of a step being taken.
+  # The number of concluded work packages subject to a procedure is used to calculate the occurrence score of a step being taken.
   def concluded_work_packages
     WorkPackage.find_by_sql(
       "
@@ -277,7 +277,7 @@ class ParliamentaryProcedure < ActiveRecord::Base
   
   # ## Method to return all work packages subject to this procedure marked as procedure concluded in both Houses.
   # This includes bicamerally concluded work packages only.
-  # The number of concluded work packages subject to a procedure is used to calculate the plausibility score of a step being taken.
+  # The number of concluded work packages subject to a procedure is used to calculate the occurrence score of a step being taken.
   def bicamerally_concluded_work_packages
     WorkPackage.find_by_sql(
       "

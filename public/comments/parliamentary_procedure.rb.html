@@ -191,7 +191,7 @@ a {text-decoration:underline;color:white;}
 <ul>
 <li>a count of the number of concluded work packages subject to this procedure the step has been actualised in</li>
 </ul>
-<p>The number of concluded work packages subject to this procedure the step has been actualised in is used to calculate the plausibility score for this step being taken in a work package subject to this procedure.</p>
+<p>The number of concluded work packages subject to this procedure the step has been actualised in is used to calculate the occurrence score for this step being taken in a work package subject to this procedure.</p>
 <code title='Line 176, app/models/parliamentary_procedure.rb'><pre><a name='176'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/app/models/parliamentary_procedure.rb#L176'> 176</a>   def steps_with_work_package_count
 </pre></code><code title='Line 177, app/models/parliamentary_procedure.rb'><pre><a name='177'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/app/models/parliamentary_procedure.rb#L177'> 177</a>     Step.find_by_sql(
 </pre></code><code title='Line 178, app/models/parliamentary_procedure.rb'><pre><a name='178'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/app/models/parliamentary_procedure.rb#L178'> 178</a>       "
@@ -261,7 +261,7 @@ a {text-decoration:underline;color:white;}
 </pre></code><code title='Line 255, app/models/parliamentary_procedure.rb'><pre><a name='255'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/app/models/parliamentary_procedure.rb#L255'> 255</a>   end
 </pre></code><h2>Method to return all work packages subject to this procedure marked as procedure concluded.</h2>
 <p>This includes both Commons only and bicamerally concluded work packages.</p>
-<p>The number of concluded work packages subject to a procedure is used to calculate the plausibility score of a step being taken.</p>
+<p>The number of concluded work packages subject to a procedure is used to calculate the occurrence score of a step being taken.</p>
 <code title='Line 260, app/models/parliamentary_procedure.rb'><pre><a name='260'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/app/models/parliamentary_procedure.rb#L260'> 260</a>   def concluded_work_packages
 </pre></code><code title='Line 261, app/models/parliamentary_procedure.rb'><pre><a name='261'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/app/models/parliamentary_procedure.rb#L261'> 261</a>     WorkPackage.find_by_sql(
 </pre></code><code title='Line 262, app/models/parliamentary_procedure.rb'><pre><a name='262'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/app/models/parliamentary_procedure.rb#L262'> 262</a>       "
@@ -281,7 +281,7 @@ a {text-decoration:underline;color:white;}
 </pre></code><code title='Line 276, app/models/parliamentary_procedure.rb'><pre><a name='276'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/app/models/parliamentary_procedure.rb#L276'> 276</a>   end
 </pre></code><h2>Method to return all work packages subject to this procedure marked as procedure concluded in both Houses.</h2>
 <p>This includes bicamerally concluded work packages only.</p>
-<p>The number of concluded work packages subject to a procedure is used to calculate the plausibility score of a step being taken.</p>
+<p>The number of concluded work packages subject to a procedure is used to calculate the occurrence score of a step being taken.</p>
 <code title='Line 281, app/models/parliamentary_procedure.rb'><pre><a name='281'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/app/models/parliamentary_procedure.rb#L281'> 281</a>   def bicamerally_concluded_work_packages
 </pre></code><code title='Line 282, app/models/parliamentary_procedure.rb'><pre><a name='282'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/app/models/parliamentary_procedure.rb#L282'> 282</a>     WorkPackage.find_by_sql(
 </pre></code><code title='Line 283, app/models/parliamentary_procedure.rb'><pre><a name='283'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/app/models/parliamentary_procedure.rb#L283'> 283</a>       "
