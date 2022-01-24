@@ -57,7 +57,7 @@ class WorkPackageController < ApplicationController
     @business_items_unknown = @work_package.business_items_unknown
     
     # We get all concluded work packages subject to this procedure.
-    # This is used to work out the plausibility score of potential steps.
+    # This is used to work out the occurrence score of potential steps.
     @concluded_work_packages = @procedure.concluded_work_packages
   end
   

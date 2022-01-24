@@ -60,13 +60,18 @@ We get business steps actualised as having happened, being scheduled to happen o
     @business_items_unknown = @work_package.business_items_unknown
 We get all concluded work packages subject to this procedure.
 
-This is used to work out the plausibility score of potential steps.
+This is used to work out the occurrence score of potential steps.
 
     @concluded_work_packages = @procedure.concluded_work_packages
   end
 ## We display a log of the parse passes.
 
   def log
+    parse
+  end
+## We display a visualisation of the parse passes.
+
+  def visualise
     parse
   end
 ## This method attempts to parse a work package subject to a procedure.
