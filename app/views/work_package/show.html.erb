@@ -66,7 +66,7 @@
 		<summary>Steps with an input of <code>ALLOWS</code> once the procedure map has been parsed</summary>
 		<%- if @allowed_steps.length > 0 %>
 			<section>
-				<%= render :partial => 'step/step_with_plausibility', :collection => @allowed_steps %>
+				<%= render :partial => 'step/step_with_occurrence', :collection => @allowed_steps %>
 			</section>
 		<% else %>
 			<em>There are no steps with an input of <code>ALLOWS</code> once the procedure map has been parsed.</em>
@@ -80,7 +80,7 @@
 		<summary>Steps with an input of <code>FALSE</code> once the procedure map has been parsed</summary>
 		<%- if @disallowed_as_yet_steps.length > 0 %>
 			<section>
-				<%= render :partial => 'step/step_with_plausibility', :collection => @disallowed_as_yet_steps %>
+				<%= render :partial => 'step/step_with_occurrence', :collection => @disallowed_as_yet_steps %>
 			</section>
 		<% else %>
 			<em>There are no steps with an input of <code>FALSE</code> once the procedure map has been parsed.</em>
