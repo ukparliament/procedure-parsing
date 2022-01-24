@@ -1,10 +1,11 @@
 <h1><%= link_to( @procedure.name, procedure_show_url( :procedure => @procedure ) ) %> business steps</h1>
 
 
-<%= content_tag( 'p', "There are #{@work_packages.size} work packages subject to the #{@procedure.name} procedure of which #{@procedure.concluded_work_packages.size} have concluded." ) %>
+<%= content_tag( 'p', "There are #{@work_packages.size} work packages subject to the #{@procedure.name} procedure. #{@concluded_work_packages.size} have concluded, of which #{@bicamerally_concluded_work_packages.size}. have concluded in both Houses." ) %>
 
 <%= content_tag( 'p', "The plausibility score is based on the number of concluded work packages subject to this procedure with the step actualised divided by the total number of concluded work packages subject to this procedure." ) %>
 
+<%= content_tag( 'p', "For steps taking place in the House of Commons or outside of Parliament, the plausibility score is compared to the total number of concluded work packages. For steps taking place in the House of Lords or as joint steps, the plausibility score is compared to the total number of work packages having concluded in both Houses." ) %>
 
 <table>
 	<thead>
