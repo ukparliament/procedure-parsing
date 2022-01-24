@@ -103,9 +103,9 @@ class Step < ActiveRecord::Base
     class_for_node
   end
   
-  # ## A method to calculate the plausibility score for a step.
-    def plausibility_score( work_package_count, concluded_work_package_count, bicamerally_concluded_work_package_count )
-    plausibility_score = ''
+  # ## A method to calculate the occurrence score for a step.
+    def occurrence_score( work_package_count, concluded_work_package_count, bicamerally_concluded_work_package_count )
+    occurrence_score = ''
 
     # If the step is marked as being in the Lords ...
     # ... it must be either in the Lords or a joint step ...
@@ -113,15 +113,15 @@ class Step < ActiveRecord::Base
       
       # ... so we compare against the number of bicamerally concluded work packages.
       # Noting that joint steps are also marked as as being in the Lords.
-      plausibility_score += "#{( ( work_package_count.to_f / bicamerally_concluded_work_package_count.to_f ) * 100 ).round(2)}%"
+      occurrence_score += "#{( ( work_package_count.to_f / bicamerally_concluded_work_package_count.to_f ) * 100 ).round(2)}%"
       
     # Otherwise, if the step is not in the Lords ...
     # ... it must be either in the Commons or outside of Parliament ...
     else
       
       # ... so we compare against the total number of concluded work packages.
-      plausibility_score += "#{( ( work_package_count.to_f / concluded_work_package_count.to_f ) * 100 ).round(2)}%"
+      occurrence_score += "#{( ( work_package_count.to_f / concluded_work_package_count.to_f ) * 100 ).round(2)}%"
     end
-    plausibility_score
+    occurrence_score
   end
 end

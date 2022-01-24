@@ -3,5 +3,5 @@
 	<%= content_tag( 'td', business_step.name ) %>
 	<%= content_tag( 'td', business_step.house_label ) %>
 	<%= content_tag( 'td', business_step.work_package_count.to_i ) %>
-	<%= content_tag( 'td', business_step.plausibility_score( business_step.work_package_count, @concluded_work_packages.size, @bicamerally_concluded_work_packages.size ) ) %>
+	<%= content_tag( 'td', business_step.occurrence_score( business_step.work_package_count, @concluded_work_packages.size, @bicamerally_concluded_work_packages.size ) ) %>
 </tr>
