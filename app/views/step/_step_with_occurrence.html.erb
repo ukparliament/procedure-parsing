@@ -1,0 +1,8 @@
+<% if step_with_occurrence %>
+	<p>
+		&mdash; <%= step_with_occurrence.name %><br>
+		<small><%= step_with_occurrence.house_label %></small>
+		<br />
+		<small><%= "Occurence score: #{( ( step_with_occurrence.work_package_count.to_f / @concluded_work_packages.size.to_f ) * 100 ).round(2)}%" %></small>
+	</p>
+ <% end %>
