@@ -56,6 +56,38 @@ class Step < ActiveRecord::Base
     house_label
   end
   
+  def house_label_short
+    house_label = ''
+    
+    # If the step takes place in both Houses ...
+    if self.in_commons? and self.in_lords?
+      
+      # ... we set the label to say both Houses. 
+      house_label = 'Commons and Lords'
+      
+    # Otherwise, if the step only takes place in the House of Commons ...
+    elsif self.in_commons?
+      
+      # ... we set the label to say House of Commons.
+      house_label = 'Commons'
+      
+    # Otherwise, if the step only takes place in the House of Lords ...
+    elsif self.in_lords?
+      
+      # ... we set the label to say House of Lords.
+      house_label = 'Lords'
+      
+    # Otherwise, the step must take place in neither House ...
+    else
+      
+      # ... so we set the label appropriately.
+      house_label = 'Neither House'
+    end
+    
+    # We return the house label.
+    house_label
+  end
+  
   # ## A method to construct a full label for a step.
   # This includes the name of the step, the type of the step - unless the step is a business step, and the house label for the step.
   def full_label_with_house

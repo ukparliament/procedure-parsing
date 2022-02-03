@@ -1,7 +1,7 @@
 <tr>
 	<td><%= business_step.id %></td>
 	<td><%= business_step.name %></td>
-	<td><%= business_step.house_label %></td>
+	<td><%= business_step.house_label_short %></td>
 	<td><%= business_step.work_package_count.to_i %></td>
 	<td><%= business_step.occurrence_score( business_step.work_package_count, @concluded_work_packages.size, @bicamerally_concluded_work_packages.size ) %></td>
 </tr>
