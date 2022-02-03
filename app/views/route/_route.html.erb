@@ -1,4 +1,4 @@
 <tr>
-	<%= content_tag( 'td', "#{route.source_step_name} - #{route.source_step_type}" ) %>
-	<%= content_tag( 'td', "#{route.target_step_name} - #{route.target_step_type}" ) %>
-</td>
+<td><%= route.source_step_type %>: <%= route.source_step_name %></td>
+	<td><%= route.target_step_type %>: <%= route.target_step_name %></td>	
+</tr>
