@@ -1,7 +1,20 @@
 <h1><%= link_to( @procedure.name, procedure_show_url( :procedure => @procedure ) ) %> business steps</h1>
 
+<p>
+There are <%= @work_packages.size %> work packages subject to the <%= @procedure.name %> procedure. <%= @concluded_work_packages.size %> have concluded, 
 
-<%= content_tag( 'p', "There are #{@work_packages.size} work packages subject to the #{@procedure.name} procedure. #{@concluded_work_packages.size} have concluded, of which #{@bicamerally_concluded_work_packages.size}. have concluded in both Houses." ) %>
+<% case @bicamerally_concluded_work_packages.size 
+		   when 0 %>
+		of which none have concluded in both Houses.
+		<% when 1 %>
+		of which one has concluded in both Houses.
+		
+		<% else %>
+		
+		of which <%= @bicamerally_concluded_work_packages.size %> have concluded in both Houses.
+		<% end %>
+		</p>
+
 
 <%= content_tag( 'p', "The occurrence score is based on the number of concluded work packages subject to this procedure with the step actualised divided by the total number of concluded work packages subject to this procedure." ) %>
 
