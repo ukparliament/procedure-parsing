@@ -11,5 +11,10 @@
 <script>
 	var i = "digraph {node [width=1 fixedsize=true shape=rectangle fontname=\"sans-serif\" fontsize=\"18\"]; <%= render :partial => 'node', :collection => @steps %><%= render :partial => 'edge', :collection => @routes %> }";
 	var new_i = i.replace(/&quot;/g, '\"').replace(/&gt;/g, '>');
-d3.select("#graph").graphviz().renderDot(new_i);
+// d3.select("#graph").graphviz().renderDot(new_i);
+
+d3.select("#graph")
+  .graphviz()
+    .dot(new_i)
+    .render();
 </script>
