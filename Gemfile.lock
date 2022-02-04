@@ -103,9 +103,6 @@ GEM
     rb-inotify (0.10.1)
       ffi (~> 1.0)
     redcarpet (3.5.1)
-    rexml (3.2.5)
-    ruby-graphviz (1.2.5)
-      rexml
     sass (3.7.4)
       sass-listen (~> 4.0.0)
     sass-listen (4.0.0)
@@ -150,7 +147,6 @@ DEPENDENCIES
   pg
   rails (= 5.0.7.2)
   redcarpet
-  ruby-graphviz
   sass-rails (~> 5.0)
   spring
   web-console (~> 2.0)
