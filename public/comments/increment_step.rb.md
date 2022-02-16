@@ -43,9 +43,11 @@ Otherwise, the inbound route to the source step does not have a status of 'UNTRA
 ... increment it by 1 ...
 
           increment = actualisation_count + 1
-... and set the actualisation count of this route to the incremented value.
+... set the actualisation count of this route to the incremented value ...
 
-          update_route_hash( route_id, nil, nil, nil, increment, nil )
+... and the status of this route to 'TRUE'.
+
+          update_route_hash( route_id, nil, 'TRUE', nil, increment, nil )
         end
 Otherwise, the inbound route is not parsed and will be parsed on a later pass.
 

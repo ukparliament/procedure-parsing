@@ -42,8 +42,9 @@ module PARSE_SUM_STEP
           # ... and we sum the actualisation counts of the two routes ...
           sum = route_actualisation_count( first_inbound_route_id ) + route_actualisation_count( second_inbound_route_id )
           
-          # ... and set the actualisation count of this route to the value of the sum.
-          update_route_hash( route_id, nil, nil, nil, sum, nil )
+          # ... set the actualisation count of this route to the value of the sum ...
+          # ... and the status of this route to 'TRUE'.
+          update_route_hash( route_id, nil, 'TRUE', nil, sum, nil )
         end
         
       # ### Otherwise, one or both of the inbound routes have not been parsed and this route will be parsed on a later pass.

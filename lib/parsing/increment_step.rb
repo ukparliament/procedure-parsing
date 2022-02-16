@@ -41,8 +41,9 @@ module PARSE_INCREMENT_STEP
           # ... increment it by 1 ...
           increment = actualisation_count + 1
         
-          # ... and set the actualisation count of this route to the incremented value.
-          update_route_hash( route_id, nil, nil, nil, increment, nil )
+          # ... set the actualisation count of this route to the incremented value ...
+          # ... and the status of this route to 'TRUE'.
+          update_route_hash( route_id, nil, 'TRUE', nil, increment, nil )
         end
         
       # Otherwise, the inbound route is not parsed and will be parsed on a later pass.
