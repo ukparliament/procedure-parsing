@@ -24,6 +24,7 @@ Rails.application.routes.draw do
   get 'work-packages/:work_package/parse' => 'work_package#parse', as: :work_package_parse
   get 'work-packages/:work_package/parse/log' => 'work_package#log', as: :work_package_log
   get 'work-packages/:work_package/parse/visualise' => 'work_package#visualise', as: :work_package_visualise
+  get 'work-packages/:work_package/parse/skeleton' => 'work_package#skeleton', as: :work_package_skeleton
   
   get 'steps' => 'step#index', as: :step_list
   post 'steps/create' => 'step#create', as: :step_create
