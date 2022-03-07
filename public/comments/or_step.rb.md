@@ -37,6 +37,12 @@ We refer to the [OR step truth table](https://ukparliament.github.io/ontologies/
 ... we set the status of this route to 'TRUE'.
 
           update_route_hash( route_id, nil, 'TRUE', nil, nil, nil )
+Otherwise, if either inbound route to the source step has a status of 'ALLOWS' ...
+
+        elsif route_status_attribute( first_inbound_route_id ) == 'ALLOWS' or route_status_attribute( second_inbound_route_id ) == 'ALLOWS'
+... we set the status of this route to 'ALLOWS'.
+
+          update_route_hash( route_id, nil, 'ALLOWS', nil, nil, nil )
 Otherwise, if either inbound route to the source step has a status of 'UNTRAVERSABLE' ...
 
         elsif route_is_untraversable?( first_inbound_route_id ) or route_is_untraversable?( second_inbound_route_id )
