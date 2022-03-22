@@ -1,9 +1,9 @@
 1	Jwc6nqJi	Business step	A business step is a step that can be actualised by a business item.	smethurstm@parliament.uk	2020-11-20 14:41:11 +00:00
-2	NgLRLaVh	Decision	A decision step describes the requirement for a decision to be made before the to route can be followed. Routes may be indicated as allowed rather than causal by means of a decision step. A route linking a business step actualised by a business item with a	smethurstm@parliament.uk	2020-12-22 12:03:33 +00:00
-3	hPJvtbRW	NOT	NULL	smethurstm@parliament.uk	2020-12-22 12:03:41 +00:00
-4	t39lJiko	AND	NULL	smethurstm@parliament.uk	2020-12-22 12:03:50 +00:00
-5	NouCqeQQ	OR	NULL	smethurstm@parliament.uk	2020-12-22 12:03:58 +00:00
-8	dyK7ZrHO	SUM	NULL	sunleyj@parliament.uk	2021-07-21 10:01:15 +00:00
-9	zdW4Mw14	INCREMENT	NULL	sunleyj@parliament.uk	2021-07-21 10:01:29 +00:00
-10	cRQlxG7d	EQUALS	NULL	sunleyj@parliament.uk	2021-07-21 10:01:34 +00:00
-11	MCWIKbHY	Summation	NULL	sunleyJ@parliament.uk	2021-08-04 15:43:07 +00:00
+2	NgLRLaVh	Decision	A decision step describes the requirement for a decision to be made before the to route can be followed. Routes may be indicated as allowed rather than causal by means of a decision step. A route linking a business step actualised by a business item with a	sunleyJ@parliament.uk	2020-12-22 12:04:12 +00:00
+3	hPJvtbRW	NOT	NULL	sunleyJ@parliament.uk	2020-12-22 12:04:18 +00:00
+4	t39lJiko	AND	NULL	sunleyJ@parliament.uk	2020-12-22 12:04:23 +00:00
+5	NouCqeQQ	OR	NULL	sunleyJ@parliament.uk	2020-12-22 12:04:30 +00:00
+8	SFKy7wHE	SUM	NULL	sunleyJ@parliament.uk	2021-08-02 15:18:27 +00:00
+9	rLo1ejlV	INCREMENT	NULL	sunleyJ@parliament.uk	2021-08-02 15:19:27 +00:00
+10	usOpqSEW	EQUALS	NULL	sunleyJ@parliament.uk	2021-08-02 15:19:33 +00:00
+11	GBJqbKkE	Summation	NULL	sunleyJ@parliament.uk	2021-08-04 15:43:17 +00:00
