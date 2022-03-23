@@ -6,4 +6,6 @@
 
 <%= content_tag( 'p', link_to( 'Get the parse log as .dot file', :format => :dot ) ) %>
 
+<%= content_tag( 'h2', "Parse passes (#{@parse_log.size})" ) %>
+
 <%= render :partial => 'log', :collection => @parse_log %>
