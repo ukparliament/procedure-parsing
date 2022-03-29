@@ -51,21 +51,13 @@ a {text-decoration:underline;color:white;}
 </pre></code><p>... we update the route parsed attribute to true.</p>
 <code title='Line 28, lib/parsing/sum_step.rb'><pre><a name='28'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/sum_step.rb#L28'> 28</a>         update_route_hash( route_id, nil, nil, true, nil, nil )
 </pre></code><p>Referring to the <a href="https://ukparliament.github.io/ontologies/procedure/maps/meta/design-notes/#arithmetic-steps">design notes for artithmetic steps</a> ...</p>
-<p>... if either inbound route to the source step has a status of &#39;UNTRAVERSABLE&#39; ...</p>
-<code title='Line 33, lib/parsing/sum_step.rb'><pre><a name='33'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/sum_step.rb#L33'> 33</a>         if route_is_untraversable?( first_inbound_route_id ) or route_is_untraversable?( second_inbound_route_id )
-</pre></code><p>... we set the status of this route to &#39;UNTRAVERSABLE&#39; ...</p>
-<p>... tainting the roads off the bridge as closed if the bridge is closed.</p>
-<code title='Line 37, lib/parsing/sum_step.rb'><pre><a name='37'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/sum_step.rb#L37'> 37</a>           update_route_hash( route_id, nil, 'UNTRAVERSABLE', nil, nil, nil )
-</pre></code><p>Otherwise, neither inbound route to the source step has a status of &#39;UNTRAVERSABLE&#39; ...</p>
-<code title='Line 40, lib/parsing/sum_step.rb'><pre><a name='40'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/sum_step.rb#L40'> 40</a>         else
-</pre></code><p>... and we sum the actualisation counts of the two routes ...</p>
-<code title='Line 43, lib/parsing/sum_step.rb'><pre><a name='43'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/sum_step.rb#L43'> 43</a>           sum = route_actualisation_count( first_inbound_route_id ) + route_actualisation_count( second_inbound_route_id )
+<p>... we sum the actualisation counts of the two routes ...</p>
+<code title='Line 33, lib/parsing/sum_step.rb'><pre><a name='33'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/sum_step.rb#L33'> 33</a>         sum = route_actualisation_count( first_inbound_route_id ) + route_actualisation_count( second_inbound_route_id )
 </pre></code><p>... set the actualisation count of this route to the value of the sum ...</p>
 <p>... and the status of this route to &#39;TRUE&#39;.</p>
-<code title='Line 47, lib/parsing/sum_step.rb'><pre><a name='47'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/sum_step.rb#L47'> 47</a>           update_route_hash( route_id, nil, 'TRUE', nil, sum, nil )
-</pre></code><code title='Line 48, lib/parsing/sum_step.rb'><pre><a name='48'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/sum_step.rb#L48'> 48</a>         end
+<code title='Line 37, lib/parsing/sum_step.rb'><pre><a name='37'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/sum_step.rb#L37'> 37</a>         update_route_hash( route_id, nil, 'TRUE', nil, sum, nil )
 </pre></code><h3>Otherwise, one or both of the inbound routes have not been parsed and this route will be parsed on a later pass.</h3>
-<code title='Line 51, lib/parsing/sum_step.rb'><pre><a name='51'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/sum_step.rb#L51'> 51</a>       end
-</pre></code><code title='Line 52, lib/parsing/sum_step.rb'><pre><a name='52'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/sum_step.rb#L52'> 52</a>     end
-</pre></code><code title='Line 53, lib/parsing/sum_step.rb'><pre><a name='53'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/sum_step.rb#L53'> 53</a>   end
-</pre></code><code title='Line 54, lib/parsing/sum_step.rb'><pre><a name='54'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/sum_step.rb#L54'> 54</a> end</pre></code></body></html>
+<code title='Line 40, lib/parsing/sum_step.rb'><pre><a name='40'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/sum_step.rb#L40'> 40</a>       end
+</pre></code><code title='Line 41, lib/parsing/sum_step.rb'><pre><a name='41'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/sum_step.rb#L41'> 41</a>     end
+</pre></code><code title='Line 42, lib/parsing/sum_step.rb'><pre><a name='42'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/sum_step.rb#L42'> 42</a>   end
+</pre></code><code title='Line 43, lib/parsing/sum_step.rb'><pre><a name='43'  class='githubline' href='https://github.com/ukparliament/procedure-parsing/tree/master/lib/parsing/sum_step.rb#L43'> 43</a> end</pre></code></body></html>

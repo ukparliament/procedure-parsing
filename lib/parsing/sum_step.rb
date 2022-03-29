@@ -29,23 +29,12 @@ module PARSE_SUM_STEP
         
         # Referring to the [design notes for artithmetic steps](https://ukparliament.github.io/ontologies/procedure/maps/meta/design-notes/#arithmetic-steps) ...
         
-        # ... if either inbound route to the source step has a status of 'UNTRAVERSABLE' ...
-        if route_is_untraversable?( first_inbound_route_id ) or route_is_untraversable?( second_inbound_route_id )
+        # ... we sum the actualisation counts of the two routes ...
+        sum = route_actualisation_count( first_inbound_route_id ) + route_actualisation_count( second_inbound_route_id )
         
-          # ... we set the status of this route to 'UNTRAVERSABLE' ...
-          # ... tainting the roads off the bridge as closed if the bridge is closed.
-          update_route_hash( route_id, nil, 'UNTRAVERSABLE', nil, nil, nil )
-          
-        # Otherwise, neither inbound route to the source step has a status of 'UNTRAVERSABLE' ...
-        else
-          
-          # ... and we sum the actualisation counts of the two routes ...
-          sum = route_actualisation_count( first_inbound_route_id ) + route_actualisation_count( second_inbound_route_id )
-          
-          # ... set the actualisation count of this route to the value of the sum ...
-          # ... and the status of this route to 'TRUE'.
-          update_route_hash( route_id, nil, 'TRUE', nil, sum, nil )
-        end
+        # ... set the actualisation count of this route to the value of the sum ...
+        # ... and the status of this route to 'TRUE'.
+        update_route_hash( route_id, nil, 'TRUE', nil, sum, nil )
         
       # ### Otherwise, one or both of the inbound routes have not been parsed and this route will be parsed on a later pass.
       end
