@@ -43,14 +43,6 @@ Otherwise, if either inbound route to the source step has a status of 'ALLOWS' .
 ... we set the status of this route to 'ALLOWS'.
 
           update_route_hash( route_id, nil, 'ALLOWS', nil, nil, nil )
-Otherwise, if either inbound route to the source step has a status of 'UNTRAVERSABLE' ...
-
-        elsif route_is_untraversable?( first_inbound_route_id ) or route_is_untraversable?( second_inbound_route_id )
-... we set the status of this route to 'UNTRAVERSABLE' ...
-
-... tainting the roads off the bridge as closed if the bridge is closed.
-
-          update_route_hash( route_id, nil, 'UNTRAVERSABLE', nil, nil, nil )
 Otherwise, if either inbound route has a status of 'FALSE' ...
 
         elsif route_status_attribute( first_inbound_route_id ) == 'FALSE' or route_status_attribute( second_inbound_route_id ) == 'FALSE'
