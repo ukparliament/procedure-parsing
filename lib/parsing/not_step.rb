@@ -39,12 +39,6 @@ module PARSE_NOT_STEP
           
           # ... we set the status of this route to 'TRUE'.
           update_route_hash( route_id, nil, 'TRUE', nil, nil, nil )
-          
-        # Otherwise, the status of the inbound route being neither ‘TRUE’ nor ‘FALSE’ ...
-        else
-          
-          # ... we set the status of this route to the status of the inbound route.
-          update_route_hash( route_id, nil, route_status_attribute( inbound_route_id ), nil, nil, nil )
         end
         
       # Otherwise, the inbound route is not parsed and will be parsed on a later pass.
