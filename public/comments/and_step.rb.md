@@ -37,6 +37,12 @@ Referring to the [AND step truth table](https://ukparliament.github.io/ontologie
 ... we set the status of this route to 'FALSE'.
 
           update_route_hash( route_id, nil, 'FALSE', nil, nil, nil )
+Otherwise, if either inbound input route to the source step has a status of 'ALLOWS' ...
+
+        elsif route_status_attribute( first_inbound_route_id ) == 'ALLOWS' or route_status_attribute( second_inbound_route_id ) == 'ALLOWS'
+... we set the status of this route to 'ALLOWS'.
+
+          update_route_hash( route_id, nil, 'ALLOWS', nil, nil, nil )
 Otherwise, if both inbound routes have a status of 'TRUE' ...
 
         elsif route_status_attribute( first_inbound_route_id ) == 'TRUE' and route_status_attribute( second_inbound_route_id ) == 'TRUE'
