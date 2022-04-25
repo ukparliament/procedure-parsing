@@ -34,7 +34,7 @@ class BusinessItem < ActiveRecord::Base
 
   def web_link_domain
      if web_link
-       uri = URI.parse(web_link)
+       uri = URI.parse( web_link.strip )
        case uri.scheme
        when "https"
          uri.host
