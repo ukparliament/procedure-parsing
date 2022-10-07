@@ -1,8 +1,8 @@
 source 'https://rubygems.org'
 
-ruby '~> 2.6.6'
+ruby '2.7.3'
 
-gem 'rails', '5.0.7.2'
+gem 'rails', '7.0.2.4'
 gem 'pg'
 gem 'sass-rails', '~> 5.0'
 gem 'jbuilder', '~> 2.0'
