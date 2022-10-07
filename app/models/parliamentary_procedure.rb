@@ -36,6 +36,7 @@ class ParliamentaryProcedure < ActiveRecord::Base
       "
         SELECT
           s.*,
+          step_display_depth.display_depth AS display_depth,
           SUM(commons_step.is_commons) AS is_in_commons, 
           SUM(lords_step.is_lords) AS is_in_lords,
           step_type.step_type_name,
@@ -80,6 +81,15 @@ class ParliamentaryProcedure < ActiveRecord::Base
             GROUP BY hs.id
           ) lords_step
           ON s.id = lords_step.step_id
+          
+        /* We know that a step may have a depth in a procedure, so we left join to the step_display_depths table. */
+        LEFT JOIN
+          (
+            SELECT sdd.display_depth as display_depth, sdd.step_id
+            FROM step_display_depths sdd
+            WHERE sdd.parliamentary_procedure_id = #{self.id}
+          ) step_display_depth
+          ON s.id = step_display_depth.step_id
           
         /* We know that a step has a type, so we left join to step types. */
         LEFT JOIN
@@ -154,7 +164,7 @@ class ParliamentaryProcedure < ActiveRecord::Base
           ON work_packages.counted_step_id = s.id
           
         /* We group by the step ID because the same step may be the target step of many routes and we only want to include each step once. */
-        GROUP BY s.id, step_type.step_type_name;
+        GROUP BY s.id, step_type.step_type_name, step_display_depth.display_depth;
       "
     )
   end
