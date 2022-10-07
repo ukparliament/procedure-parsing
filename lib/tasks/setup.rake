@@ -12,7 +12,8 @@ task :setup => [
   :import_business_items,
   :import_actualisations,
   :import_step_collection_types,
-  :import_step_collections] do
+  :import_step_collections,
+  :import_step_display_depths] do
 end
 
 task :import_step_types => :environment do
@@ -142,5 +143,15 @@ task :import_step_collections => :environment do
     step_collection.parliamentary_procedure_id = row[2]
     step_collection.step_collection_type_id = row[0]
     step_collection.save
+  end
+end
+task :import_step_display_depths => :environment do
+  puts "importing step display depths"
+  CSV.foreach( 'db/data/step_display_depths.tsv', :col_sep => "\t" ) do |row|
+    step_display_depth = StepDisplayDepth.new
+    step_display_depth.step_id = row[2]
+    step_display_depth.parliamentary_procedure_id = row[3]
+    step_display_depth.display_depth = row[4]
+    step_display_depth.save
   end
 end
