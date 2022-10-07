@@ -130,5 +130,11 @@ class WorkPackageController < ApplicationController
         parse_route_with_id( route_id )
       end
     end
+    
+    # We order the arrays of caused, allowed, disallowed yet and disallowed now steps by the depth of the step in the procedure, allowing for the fact that some steps may not have been given a depth in the procedure.
+    @caused_steps.sort! { |a,b| a.display_depth && b.display_depth ? a.display_depth <=> b.display_depth : a.display_depth ? -1 : 1 }
+    @allowed_steps.sort! { |a,b| a.display_depth && b.display_depth ? a.display_depth <=> b.display_depth : a.display_depth ? -1 : 1 }
+    @disallowed_as_yet_steps.sort! { |a,b| a.display_depth && b.display_depth ? a.display_depth <=> b.display_depth : a.display_depth ? -1 : 1 }
+    @disallowed_now_steps.sort! { |a,b| a.display_depth && b.display_depth ? a.display_depth <=> b.display_depth : a.display_depth ? -1 : 1 }
   end
 end
