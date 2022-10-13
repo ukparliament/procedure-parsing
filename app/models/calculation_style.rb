@@ -1,0 +1,2 @@
+class CalculationStyle < ApplicationRecord
+end
