@@ -1,9 +1,11 @@
+drop table if exists calculation_style_applicabilities;
 drop table if exists step_display_depths;
 drop table if exists step_collections;
 drop table if exists actualisations;
 drop table if exists business_items;
 drop table if exists house_steps;
 drop table if exists work_packages;
+drop table if exists clocks;
 drop table if exists procedure_routes;
 drop table if exists parliamentary_procedures;
 drop table if exists routes;
@@ -11,8 +13,15 @@ drop table if exists houses;
 drop table if exists steps;
 drop table if exists step_types;
 drop table if exists step_collection_types;
+drop table if exists calculation_styles;
 
 
+
+create table calculation_styles (
+	id serial,
+	style varchar(255) not null,
+	primary key (id)
+);
 create table step_collection_types (
 	id serial,
 	name varchar(255) not null,
@@ -58,6 +67,17 @@ create table parliamentary_procedures (
 	description varchar(1000) not null,
 	primary key (id)
 );
+create table clocks (
+	id serial,
+	day_count int not null,
+	start_step_id int not null,
+	end_step_id int not null,
+	parliamentary_procedure_id int not null,
+	constraint fk_start_step foreign key (start_step_id) references steps(id),
+	constraint fk_end_step foreign key (end_step_id) references steps(id),
+	constraint fk_parliamentary_procedure foreign key (parliamentary_procedure_id) references parliamentary_procedures(id),
+	primary key (id)
+);
 create table procedure_routes (
 	id serial,
 	parliamentary_procedure_id int not null,
@@ -68,11 +88,15 @@ create table procedure_routes (
 );
 create table work_packages (
 	id serial,
-	web_link varchar(255) not null,
 	triple_store_id char(8) not null,
+	web_link varchar(255) not null,
+	day_count int,
+	is_clock_frozen boolean default false,
 	work_packaged_thing_triple_store_id char(8) not null,
 	parliamentary_procedure_id int not null,
+	calculation_style_id int,
 	constraint fk_parliamentary_procedure foreign key (parliamentary_procedure_id) references parliamentary_procedures(id),
+	constraint fk_calculation_style foreign key (calculation_style_id) references calculation_styles(id),
 	primary key (id)
 );
 create table house_steps (
@@ -117,5 +141,13 @@ create table step_display_depths (
 	display_depth float not null,
 	constraint fk_step foreign key (step_id) references steps(id),
 	constraint fk_parliamentary_procedure foreign key (parliamentary_procedure_id) references parliamentary_procedures(id),
+	primary key (id)
+);
+create table calculation_style_applicabilities (
+	id serial,
+	parliamentary_procedure_id int not null,
+	calculation_style_id int not null,
+	constraint fk_parliamentary_procedure foreign key (parliamentary_procedure_id) references parliamentary_procedures(id),
+	constraint fk_calculation_style foreign key (calculation_style_id) references calculation_styles(id),
 	primary key (id)
 );
