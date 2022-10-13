@@ -1,6 +1,7 @@
 require 'csv'
 
 task :setup => [
+  :import_calculation_styles,
   :import_step_types,
   :import_steps,
   :import_houses,
@@ -13,9 +14,20 @@ task :setup => [
   :import_actualisations,
   :import_step_collection_types,
   :import_step_collections,
-  :import_step_display_depths] do
+  :import_step_display_depths,
+  :import_calculation_style_applicabilities,
+  :import_clocks] do
 end
 
+
+task :import_calculation_styles => :environment do
+  puts "importing calculation styles"
+  CSV.foreach( 'db/data/calculation_styles.tsv', :col_sep => "\t" ) do |row|
+    calculation_style = CalculationStyle.new
+    calculation_style.style = row[0]
+    calculation_style.save
+  end
+end
 task :import_step_types => :environment do
   puts "importing step types"
   CSV.foreach( 'db/data/step_types.tsv', :col_sep => "\t" ) do |row|
@@ -92,6 +104,7 @@ task :import_work_packages => :environment do
     work_package.web_link = row[2]
     work_package.work_packaged_thing_triple_store_id = row[3]
     work_package.parliamentary_procedure_id = row[4]
+    work_package.calculation_style_id = 5
     work_package.save
   end
 end
@@ -153,5 +166,25 @@ task :import_step_display_depths => :environment do
     step_display_depth.parliamentary_procedure_id = row[3]
     step_display_depth.display_depth = row[4]
     step_display_depth.save
+  end
+end
+task :import_calculation_style_applicabilities => :environment do
+  puts "importing calculation style applicabilities"
+  CSV.foreach( 'db/data/calculation_style_applicabilities.tsv', :col_sep => "\t" ) do |row|
+    calculation_style_applicability = CalculationStyleApplicability.new
+    calculation_style_applicability.parliamentary_procedure_id = row[0]
+    calculation_style_applicability.calculation_style_id = row[1]
+    calculation_style_applicability.save
+  end
+end
+task :import_clocks => :environment do
+  puts "importing clocks"
+  CSV.foreach( 'db/data/clocks.tsv', :col_sep => "\t" ) do |row|
+    clock = Clock.new
+    clock.day_count = row[0]
+    clock.start_step_id = row[1]
+    clock.end_step_id = row[2]
+    clock.parliamentary_procedure_id = row[3]
+    clock.save
   end
 end
