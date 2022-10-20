@@ -1,6 +1,7 @@
+drop table if exists step_collection_memberships;
+drop table if exists step_collections;
 drop table if exists calculation_style_applicabilities;
 drop table if exists step_display_depths;
-drop table if exists step_collections;
 drop table if exists actualisations;
 drop table if exists business_items;
 drop table if exists house_steps;
@@ -12,7 +13,6 @@ drop table if exists routes;
 drop table if exists houses;
 drop table if exists steps;
 drop table if exists step_types;
-drop table if exists step_collection_types;
 drop table if exists calculation_styles;
 
 
@@ -20,11 +20,6 @@ drop table if exists calculation_styles;
 create table calculation_styles (
 	id serial,
 	style varchar(255) not null,
-	primary key (id)
-);
-create table step_collection_types (
-	id serial,
-	name varchar(255) not null,
 	primary key (id)
 );
 create table houses (
@@ -124,16 +119,6 @@ create table actualisations (
 	constraint fk_step foreign key (step_id) references steps(id),
 	primary key (id)
 );
-create table step_collections (
-	id serial,
-	step_id int not null,
-	parliamentary_procedure_id int not null,
-	step_collection_type_id int not null,
-	constraint fk_step foreign key (step_id) references steps(id),
-	constraint fk_parliamentary_procedure foreign key (parliamentary_procedure_id) references parliamentary_procedures(id),
-	constraint fk_step_collection_type foreign key (step_collection_type_id) references step_collection_types(id),
-	primary key (id)
-);
 create table step_display_depths (
 	id serial,
 	step_id int not null,
@@ -149,5 +134,22 @@ create table calculation_style_applicabilities (
 	calculation_style_id int not null,
 	constraint fk_parliamentary_procedure foreign key (parliamentary_procedure_id) references parliamentary_procedures(id),
 	constraint fk_calculation_style foreign key (calculation_style_id) references calculation_styles(id),
+	primary key (id)
+);
+create table step_collections (
+	id serial,
+	label varchar(255) not null,
+	house_id int,
+	parliamentary_procedure_id int,
+	constraint fk_parliamentary_procedure foreign key (parliamentary_procedure_id) references parliamentary_procedures(id),
+	constraint fk_house foreign key (house_id) references houses(id),
+	primary key (id)
+);
+create table step_collection_memberships (
+	id serial,
+	step_id int not null,
+	step_collection_id int not null,
+	constraint fk_step foreign key (step_id) references steps(id),
+	constraint fk_step_collection foreign key (step_collection_id) references step_collections(id),
 	primary key (id)
 );
