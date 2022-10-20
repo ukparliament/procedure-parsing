@@ -12,11 +12,11 @@ task :setup => [
   :import_house_steps,
   :import_business_items,
   :import_actualisations,
-  :import_step_collection_types,
-  :import_step_collections,
   :import_step_display_depths,
   :import_calculation_style_applicabilities,
-  :import_clocks] do
+  :import_clocks,
+  :import_step_collections,
+  :import_step_collection_memberships] do
 end
 
 
@@ -140,24 +140,6 @@ task :import_actualisations => :environment do
     actualisation.save
   end
 end
-task :import_step_collection_types => :environment do
-  puts "importing step collection types"
-  CSV.foreach( 'db/data/step_collection_types.tsv', :col_sep => "\t" ) do |row|
-    step_collection_type = StepCollectionType.new
-    step_collection_type.name = row[0]
-    step_collection_type.save
-  end
-end
-task :import_step_collections => :environment do
-  puts "importing step collections"
-  CSV.foreach( 'db/data/step_collections.tsv', :col_sep => "\t" ) do |row|
-    step_collection = StepCollection.new
-    step_collection.step_id = row[4]
-    step_collection.parliamentary_procedure_id = row[2]
-    step_collection.step_collection_type_id = row[0]
-    step_collection.save
-  end
-end
 task :import_step_display_depths => :environment do
   puts "importing step display depths"
   CSV.foreach( 'db/data/step_display_depths.tsv', :col_sep => "\t" ) do |row|
@@ -188,3 +170,30 @@ task :import_clocks => :environment do
     clock.save
   end
 end
+task :import_step_collections => :environment do
+  puts "importing step collections"
+  CSV.foreach( 'db/data/step_collections.tsv', :col_sep => "\t" ) do |row|
+    step_collection = StepCollection.new
+    step_collection.label = row[0]
+    if row[1] != 'None'
+      house = House.find_by_name( row[1].strip )
+      step_collection.house = house
+    end
+    if row[2] != 'None'
+      parliamentary_procedure = ParliamentaryProcedure.find_by_name( row[2].strip )
+      step_collection.parliamentary_procedure = parliamentary_procedure
+    end
+    step_collection.save
+  end
+end
+task :import_step_collection_memberships => :environment do
+  puts "importing step collection memberships"
+  CSV.foreach( 'db/data/step_collection_memberships.tsv', :col_sep => "\t" ) do |row|
+    step_collection_membership = StepCollectionMembership.new
+    step_collection_membership.step_id = row[0]
+    step_collection = StepCollection.find_by_label( row[2].strip )
+    step_collection_membership.step_collection = step_collection
+    step_collection_membership.save
+  end
+end
+
