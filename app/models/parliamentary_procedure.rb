@@ -16,7 +16,17 @@ class ParliamentaryProcedure < ActiveRecord::Base
   # New tables have been added to the database to reflect what we plan to happen with the [step collections](https://ukparliament.github.io/ontologies/procedure/procedure-ontology.html#d4e244) work: these place steps into a collection of start steps for a given procedure. Until this work happens, we'll need to hardcode an array.
   # This method returns an array of start steps and the name of the type of each step, to save on querying for this later.
   def start_steps
-    Step.all.select('s.*, st.name as step_type_name' ).joins( 'as s, step_collections as sc, step_collection_types as sct, step_types as st' ).where( 's.id = sc.step_id' ).where( 'sc.step_collection_type_id = sct.id' ).where( 'sct.name = ?', 'Start steps' ).where( 'sc.parliamentary_procedure_id =?', self ).where( 's.step_type_id = st.id' )
+    Step.all
+      .select('s.*, st.name as step_type_name' )
+      .joins( 'as s, step_collection_memberships as scm, step_collections as sc, step_types as st, procedure_routes as pr, routes as r' )
+      .where( 's.id = scm.step_id' )
+      .where( 'scm.step_collection_id = sc.id' )
+      .where( 'sc.label = ?', 'Start steps' )
+      .where( 's.step_type_id = st.id' )
+      .where( 's.id = r.from_step_id' )
+      .where( 'r.id = pr.route_id' )
+      .where( 'pr.parliamentary_procedure_id = ?', self )
+      .group( 's.id, st.name' )
   end
   
   # ## Method to return all routes which appear in a procedure, together with the name and type of the source step of each route and the name and type of the target step of each route. This saves us having to query for these later.
@@ -143,21 +153,20 @@ class ParliamentaryProcedure < ActiveRecord::Base
         LEFT JOIN
           (
             SELECT wp.id as work_package_id, a1.step_id as counted_step_id
-            FROM work_packages wp, business_items bi1, actualisations a1, business_items bi2, actualisations a2, steps s, step_collections sc, step_collection_types sct
+            FROM work_packages wp, business_items bi1, actualisations a1, business_items bi2, actualisations a2, steps s, step_collection_memberships scm, step_collections sc
             
             /* We check the step we're interested in has been actualised in this work package. */
             WHERE wp.parliamentary_procedure_id = #{self.id}
             AND wp.id = bi1.work_package_id
             AND bi1.id = a1.business_item_id
             
-            /* We check this work package has a business item actualising a step in the step collection of type 'End steps' */
+            /* We check this work package has a business item actualising a step in the step collection 'End steps' */
             AND wp.id = bi2.work_package_id
             AND bi2.id = a2.business_item_id
             AND a2.step_id = s.id
-            AND s.id = sc.step_id
-            AND sc.parliamentary_procedure_id = #{self.id}
-            AND sc.step_collection_type_id = sct.id
-            AND sct.name = 'End steps'
+            AND s.id = scm.step_id
+            AND scm.step_collection_id = sc.id
+            AND sc.label = 'End steps'
             
             GROUP BY wp.id, a1.step_id
           ) work_packages
@@ -225,21 +234,20 @@ class ParliamentaryProcedure < ActiveRecord::Base
         LEFT JOIN
           (
             SELECT wp.id as work_package_id, a1.step_id as counted_step_id
-            FROM work_packages wp, business_items bi1, actualisations a1, business_items bi2, actualisations a2, steps s, step_collections sc, step_collection_types sct
+            FROM work_packages wp, business_items bi1, actualisations a1, business_items bi2, actualisations a2, steps s, step_collection_memberships scm, step_collections sc
             
             /* We check the step we're interested in has been actualised in this work package. */
             WHERE wp.parliamentary_procedure_id = #{self.id}
             AND wp.id = bi1.work_package_id
             AND bi1.id = a1.business_item_id
             
-            /* We check this work package has a business item actualising a step in the step collection of type 'End steps' */
+            /* We check this work package has a business item actualising a step in the step collection 'End steps' */
             AND wp.id = bi2.work_package_id
             AND bi2.id = a2.business_item_id
             AND a2.step_id = s.id
-            AND s.id = sc.step_id
-            AND sc.parliamentary_procedure_id = #{self.id}
-            AND sc.step_collection_type_id = sct.id
-            AND sct.name = 'End steps'
+            AND s.id = scm.step_id
+            AND scm.step_collection_id = sc.id
+            AND sc.label = 'End steps'
             
             GROUP BY wp.id, a1.step_id
           ) work_packages
@@ -262,15 +270,14 @@ class ParliamentaryProcedure < ActiveRecord::Base
     WorkPackage.find_by_sql(
       "
         SELECT wp.*
-        FROM work_packages wp, business_items bi, actualisations a, steps s, step_collections sc, step_collection_types sct
+        FROM work_packages wp, business_items bi, actualisations a, steps s, step_collection_memberships scm, step_collections sc
         WHERE wp.parliamentary_procedure_id = #{self.id}
         AND wp.id = bi.work_package_id
         AND bi.id = a.business_item_id
         AND a.step_id = s.id
-        AND s.id = sc.step_id
-        AND sc.parliamentary_procedure_id = #{self.id}
-        AND sc.step_collection_type_id = sct.id
-        AND sct.name = 'End steps'
+        AND s.id = scm.step_id
+        AND scm.step_collection_id = sc.id
+        AND sc.label = 'End steps'
         GROUP BY wp.id
       "
     )
@@ -283,15 +290,14 @@ class ParliamentaryProcedure < ActiveRecord::Base
     WorkPackage.find_by_sql(
       "
         SELECT wp.*
-        FROM work_packages wp, business_items bi, actualisations a, steps s, step_collections sc, step_collection_types sct
+        FROM work_packages wp, business_items bi, actualisations a, steps s, step_collection_memberships scm, step_collections sc
         WHERE wp.parliamentary_procedure_id = #{self.id}
         AND wp.id = bi.work_package_id
         AND bi.id = a.business_item_id
         AND a.step_id = s.id
-        AND s.id = sc.step_id
-        AND sc.parliamentary_procedure_id = #{self.id}
-        AND sc.step_collection_type_id = sct.id
-        AND sct.name = 'Bicameral end steps'
+        AND s.id = scm.step_id
+        AND scm.step_collection_id = sc.id
+        AND sc.label = 'Bicameral end steps'
         GROUP BY wp.id
       "
     )
