@@ -123,7 +123,7 @@ create table step_display_depths (
 	id serial,
 	step_id int not null,
 	parliamentary_procedure_id int not null,
-	display_depth float not null,
+	display_depth float(2) not null,
 	constraint fk_step foreign key (step_id) references steps(id),
 	constraint fk_parliamentary_procedure foreign key (parliamentary_procedure_id) references parliamentary_procedures(id),
 	primary key (id)
