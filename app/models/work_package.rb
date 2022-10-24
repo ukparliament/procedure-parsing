@@ -20,23 +20,48 @@ class WorkPackage < ActiveRecord::Base
   def business_items_that_have_happened
     BusinessItem.find_by_sql(
       "
-        SELECT bi.*, step_display_depth.display_depth as display_depth
-        FROM business_items bi, actualisations a, steps s
+        SELECT bi.*, step_display_depth.minimum_display_depth as minimum_display_depth
+        FROM business_items bi
         
-        /* Left join to get the step depth where present. */
-        LEFT JOIN
-          (
-            SELECT sdd.display_depth as display_depth, sdd.step_id
-            FROM step_display_depths sdd
-            WHERE sdd.parliamentary_procedure_id = #{self.parliamentary_procedure.id}
-          ) step_display_depth
-          ON s.id = step_display_depth.step_id
-          
+        /* We only want to include business items that actualise a step in the 'Website visible steps' collection. */
+        /* So we left join to actualisations, steps and step collections ... */
+        LEFT JOIN (
+        
+          /* ... counting the number of actualisations of steps in the 'Website visible steps' collection. */
+          SELECT a.business_item_id, count(a.id) AS actualisation_count
+          FROM actualisations a, steps s, step_collection_memberships scm, step_collections sc
+          WHERE a.step_id = s.id
+          AND s.id = scm.step_id
+          AND scm.step_collection_id = sc.id
+          AND sc.label = 'Website visible steps'
+          GROUP BY a.business_item_id
+        ) actualisations
+        ON actualisations.business_item_id = bi.id
+        
+        /* We want to order by the minimum step depth of all steps actualised by the business item. */
+        /* So we left join to actualistions, steps and step display depths ... */
+        LEFT JOIN (
+        
+          /* ... returning the minimum display depth of steps actualised by this business item in this procedure. */
+          SELECT a.business_item_id, MIN(sdd.display_depth) AS minimum_display_depth
+          FROM actualisations a, steps s, step_display_depths sdd
+          WHERE a.step_id = s.id
+          AND s.id = sdd.step_id
+          AND sdd.parliamentary_procedure_id = #{self.parliamentary_procedure_id}
+          GROUP BY a.business_item_id
+        ) step_display_depth
+        ON step_display_depth.business_item_id = bi.id
+        
         WHERE bi.work_package_id = #{self.id}
+        
+        /* We only include business items with a date of today or earlier. */
         AND bi.date <= '#{Date.today}'
-        AND bi.id = a.business_item_id
-        AND a.step_id = s.id
-        ORDER BY bi.date, display_depth;
+        
+        /* We only include business items actualising visible steps. */
+        AND actualisations.actualisation_count > 0
+        
+        /* We order, first by the date of the business item, then by the step depth. */
+        ORDER BY bi.date, step_display_depth.minimum_display_depth;
       "
     )
   end
@@ -44,23 +69,48 @@ class WorkPackage < ActiveRecord::Base
   def business_items_that_are_scheduled_to_happen
     BusinessItem.find_by_sql(
       "
-        SELECT bi.*, step_display_depth.display_depth as display_depth
-        FROM business_items bi, actualisations a, steps s
+        SELECT bi.*, step_display_depth.minimum_display_depth as minimum_display_depth
+        FROM business_items bi
         
-        /* Left join to get the step depth where present. */
-        LEFT JOIN
-          (
-            SELECT sdd.display_depth as display_depth, sdd.step_id
-            FROM step_display_depths sdd
-            WHERE sdd.parliamentary_procedure_id = #{self.parliamentary_procedure.id}
-          ) step_display_depth
-          ON s.id = step_display_depth.step_id
-          
+        /* We only want to include business items that actualise a step in the 'Website visible steps' collection. */
+        /* So we left join to actualisations, steps and step collections ... */
+        LEFT JOIN (
+        
+          /* ... counting the number of actualisations of steps in the 'Website visible steps' collection. */
+          SELECT a.business_item_id, count(a.id) AS actualisation_count
+          FROM actualisations a, steps s, step_collection_memberships scm, step_collections sc
+          WHERE a.step_id = s.id
+          AND s.id = scm.step_id
+          AND scm.step_collection_id = sc.id
+          AND sc.label = 'Website visible steps'
+          GROUP BY a.business_item_id
+        ) actualisations
+        ON actualisations.business_item_id = bi.id
+        
+        /* We want to order by the minimum step depth of all steps actualised by the business item. */
+        /* So we left join to actualistions, steps and step display depths ... */
+        LEFT JOIN (
+        
+          /* ... returning the minimum display depth of steps actualised by this business item in this procedure. */
+          SELECT a.business_item_id, MIN(sdd.display_depth) AS minimum_display_depth
+          FROM actualisations a, steps s, step_display_depths sdd
+          WHERE a.step_id = s.id
+          AND s.id = sdd.step_id
+          AND sdd.parliamentary_procedure_id = #{self.parliamentary_procedure_id}
+          GROUP BY a.business_item_id
+        ) step_display_depth
+        ON step_display_depth.business_item_id = bi.id
+        
         WHERE bi.work_package_id = #{self.id}
+        
+        /* We only include business items with a date in the future. */
         AND bi.date > '#{Date.today}'
-        AND bi.id = a.business_item_id
-        AND a.step_id = s.id
-        ORDER BY bi.date, display_depth;
+        
+        /* We only include business items actualising visible steps. */
+        AND actualisations.actualisation_count > 0
+        
+        /* We order, first by the date of the business item, then by the step depth. */
+        ORDER BY bi.date, step_display_depth.minimum_display_depth;
       "
     )
   end
@@ -68,23 +118,48 @@ class WorkPackage < ActiveRecord::Base
   def business_items_unknown
     BusinessItem.find_by_sql(
       "
-        SELECT bi.*, step_display_depth.display_depth as display_depth
-        FROM business_items bi, actualisations a, steps s
+        SELECT bi.*, step_display_depth.minimum_display_depth as minimum_display_depth
+        FROM business_items bi
         
-        /* Left join to get the step depth where present. */
-        LEFT JOIN
-          (
-            SELECT sdd.display_depth as display_depth, sdd.step_id
-            FROM step_display_depths sdd
-            WHERE sdd.parliamentary_procedure_id = #{self.parliamentary_procedure.id}
-          ) step_display_depth
-          ON s.id = step_display_depth.step_id
-          
+        /* We only want to include business items that actualise a step in the 'Website visible steps' collection. */
+        /* So we left join to actualisations, steps and step collections ... */
+        LEFT JOIN (
+        
+          /* ... counting the number of actualisations of steps in the 'Website visible steps' collection. */
+          SELECT a.business_item_id, count(a.id) AS actualisation_count
+          FROM actualisations a, steps s, step_collection_memberships scm, step_collections sc
+          WHERE a.step_id = s.id
+          AND s.id = scm.step_id
+          AND scm.step_collection_id = sc.id
+          AND sc.label = 'Website visible steps'
+          GROUP BY a.business_item_id
+        ) actualisations
+        ON actualisations.business_item_id = bi.id
+        
+        /* We want to order by the minimum step depth of all steps actualised by the business item. */
+        /* So we left join to actualistions, steps and step display depths ... */
+        LEFT JOIN (
+        
+          /* ... returning the minimum display depth of steps actualised by this business item in this procedure. */
+          SELECT a.business_item_id, MIN(sdd.display_depth) AS minimum_display_depth
+          FROM actualisations a, steps s, step_display_depths sdd
+          WHERE a.step_id = s.id
+          AND s.id = sdd.step_id
+          AND sdd.parliamentary_procedure_id = #{self.parliamentary_procedure_id}
+          GROUP BY a.business_item_id
+        ) step_display_depth
+        ON step_display_depth.business_item_id = bi.id
+        
         WHERE bi.work_package_id = #{self.id}
+        
+        /* We only include business items with no date. */
         AND bi.date is null
-        AND bi.id = a.business_item_id
-        AND a.step_id = s.id
-        ORDER BY bi.date, display_depth;
+        
+        /* We only include business items actualising visible steps. */
+        AND actualisations.actualisation_count > 0
+        
+        /* We order, first by the date of the business item, then by the step depth. */
+        ORDER BY bi.date, step_display_depth.minimum_display_depth;
       "
     )
   end
