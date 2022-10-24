@@ -16,7 +16,8 @@ task :setup => [
   :import_calculation_style_applicabilities,
   :import_clocks,
   :import_step_collections,
-  :import_step_collection_memberships] do
+  :import_step_collection_memberships,
+  :populate_website_visible_steps] do
 end
 
 
@@ -192,6 +193,27 @@ task :import_step_collection_memberships => :environment do
     step_collection_membership = StepCollectionMembership.new
     step_collection_membership.step_id = row[0]
     step_collection = StepCollection.find_by_label( row[2].strip )
+    step_collection_membership.step_collection = step_collection
+    step_collection_membership.save
+  end
+end
+task :populate_website_visible_steps => :environment do
+  puts "populating website visible step collection"
+  
+  # Create a new step collection.
+  step_collection = StepCollection.new
+  step_collection.label = 'Website visible steps'
+  step_collection.save
+  
+  # Get all business steps.
+  steps = Step.all.where( 'step_type_id = 1' )
+  
+  # For each business step ...
+  steps.each do |step|
+    
+    # ... create a new step collection membership.
+    step_collection_membership = StepCollectionMembership.new
+    step_collection_membership.step = step
     step_collection_membership.step_collection = step_collection
     step_collection_membership.save
   end
