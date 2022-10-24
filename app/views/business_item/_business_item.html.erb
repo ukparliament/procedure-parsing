@@ -1,16 +1,15 @@
 <article>
-	<p>
 		<%- if business_item.date %>
 			<time><%= business_item.date %></time>
     	<% end %>
 		<a href="<%= business_item.web_link %>" title="<%= business_item.web_link %>">
 			<%= business_item.web_link_domain %>
 		</a>
-		<% business_item.steps_with_house_count.each do | step_with_house_count | %>
+		<% business_item.visible_steps_with_house_count( @procedure ).each do | visible_step_with_house_count | %>
     		<p>
-				&mdash; <%= step_with_house_count.name %>
+				&mdash; <%= visible_step_with_house_count.name %>
 				<br>
-				<small><%= step_with_house_count.house_label %></small>
+				<small><%= visible_step_with_house_count.house_label %></small>
 			</p>
 		<% end %>
 	</p>
