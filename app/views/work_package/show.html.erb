@@ -5,8 +5,8 @@
 <%= render :partial => 'view_switch' %>
 
 <div id="happened">
-	<h2>Things that have happened (<%= @business_items_that_have_happened.length %>)</h2>
-	<details>
+	<h2>Things that have happened (<%= @business_items_that_have_happened.length %> business <%= 'item'.pluralize( @business_items_that_have_happened.length ) %>)</h2>
+	<details open>
 		<summary>Steps actualised with business items having a date in the past, or today</summary>
 		<%- if @business_items_that_have_happened.length > 0 %>
 			<section>
@@ -19,7 +19,7 @@
 </div>
 
 <div id="scheduled">
-	<h2>Things that are scheduled to happen (<%= @business_items_that_are_scheduled_to_happen.length %>)</h2>
+	<h2>Things that are scheduled to happen (<%= @business_items_that_are_scheduled_to_happen.length %> business <%= 'item'.pluralize( @business_items_that_are_scheduled_to_happen.length ) %>)</h2>
 	<details>
 		<summary>Steps actualised with business items having a date in the future</summary>
 		<%- if @business_items_that_are_scheduled_to_happen.length > 0 %>
@@ -33,7 +33,7 @@
 </div>
 
 <div id="actualised-with-no-date">
-	<h2>Things that may have happened or may be scheduled to happen (<%= @business_items_unknown.length %>)</h2>
+	<h2>Things that may have happened or may be scheduled to happen (<%= @business_items_unknown.length %> business <%= 'item'.pluralize( @business_items_unknown.length ) %>)</h2>
 	<details>
 		<summary>Steps actualised with business items having no date</summary>
 		<%- if @business_items_unknown.length > 0 %>
@@ -47,7 +47,7 @@
 </div>
 
 <div id="should-happen">
-	<h2>Things that should happen (<%= @caused_steps.length %>)</h2>
+	<h2>Things that should happen (<%= @caused_steps.length %> <%= 'step'.pluralize( @caused_steps.length ) %>)</h2>
 	<details open>
 		<summary>Steps with an input of <code>TRUE</code> once the procedure map has been parsed</summary>
 		<%- if @caused_steps.length > 0 %>
@@ -61,7 +61,7 @@
 </div>
 
 <div id="may-happen">
-	<h2>Things that may happen (<%= @allowed_steps.length %>)</h2>
+	<h2>Things that may happen (<%= @allowed_steps.length %> <%= 'step'.pluralize( @allowed_steps.length ) %>)</h2>
 	<details open>
 		<summary>Steps with an input of <code>ALLOWS</code> once the procedure map has been parsed</summary>
 		<%- if @allowed_steps.length > 0 %>
@@ -75,7 +75,7 @@
 </div>
 
 <div id="should-not-yet-happen">
-	<h2>Things that should not yet happen (<%= @disallowed_as_yet_steps.length %>)</h2>
+	<h2>Things that should not yet happen (<%= @disallowed_as_yet_steps.length %> <%= 'step'.pluralize( @disallowed_as_yet_steps.length ) %>)</h2>
 	<details open>
 		<summary>Steps with an input of <code>FALSE</code> once the procedure map has been parsed</summary>
 		<%- if @disallowed_as_yet_steps.length > 0 %>
@@ -89,7 +89,7 @@
 </div>
 
 <div id="should-not-now-happen">
-	<h2>Things that should not now happen (<%= @disallowed_now_steps.length %>)</h2>
+	<h2>Things that should not now happen (<%= @disallowed_now_steps.length %> <%= 'step'.pluralize( @disallowed_now_steps.length ) %>)</h2>
 	<details>
 		<summary>Steps with an input of <code>UNTRAVSERSABLE</code> once the procedure map has been parsed</summary>
 		<%- if @disallowed_now_steps.length > 0 %>
