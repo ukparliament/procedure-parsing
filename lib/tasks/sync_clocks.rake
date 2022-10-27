@@ -13,12 +13,12 @@ task :reset_clocks => :environment do
   puts "Resetting clocks"
   
   # We find all business items with a date in the future, which actualise a business step which acts as the end step for a clock.
-  @updateable_clock_ends = BusinessItem.find_by_sql(
+  @updateable_clocks = BusinessItem.find_by_sql(
     "
       /* We return ... */
       SELECT
       
-        /* ... the business item. */
+        /* ... the business item actualising the business step which acts as the end step for a clock. */
         bi1.*,
         
         /* ... the work package database ID. */
@@ -56,7 +56,7 @@ task :reset_clocks => :environment do
         actualisations a1,
         steps s1,
         
-        /* ... the business item actualising the business step which acts as the end step for a clock. */
+        /* ... the business item actualising the business step which acts as the start step for a clock. */
         business_items bi2,
         actualisations a2,
         steps s2
@@ -90,34 +90,34 @@ task :reset_clocks => :environment do
   )
   
   # We tell the user the number of business items whose date may need updating.
-  puts "#{@updateable_clock_ends.count} business items may need their dates updating."
+  puts "#{@updateable_clocks.count} business items may need their dates updating."
   
   # We set a counter to report how many business items were updated.
   updated_count = 0
   
   # For each business items whose date may need updating ...
-  @updateable_clock_ends.each do |clock_end_business_item|
+  @updateable_clocks.each do |updateable_clock|
     
     # ... we set the current_clock end date.
-    current_clock_end_date = clock_end_business_item.clock_end_date
+    current_clock_end_date = updateable_clock.clock_end_date
     
     # ... we set the current clock start date.
-    clock_start_date = clock_end_business_item.clock_start_date
+    clock_start_date = updateable_clock.clock_start_date
     
     # ... we set the calculation style to be used.
-    calculation_style = clock_end_business_item.calculation_style
+    calculation_style = updateable_clock.calculation_style
     
     # If the work package has a day count override ...
-    if clock_end_business_item.work_package_day_count
+    if updateable_clock.work_package_day_count
       
       # ... we set work package day count as the day count.
-      day_count = clock_end_business_item.work_package_day_count
+      day_count = updateable_clock.work_package_day_count
       
     # Otherwise, if the work package does not have a day count override ...
     else
       
       # ... we set the clock end day count as the day count.
-      day_count = clock_end_business_item.clock_day_count
+      day_count = updateable_clock.clock_day_count
     end
     
     # We construct the egg timer request URL.
@@ -135,20 +135,20 @@ task :reset_clocks => :environment do
       
       # ... we tell the user we're updating the clock.
       puts "======="
-      puts "Resetting clock end date from #{current_clock_end_date} to #{egg_timer_clock_end_date} for work package #{clock_end_business_item.work_package_triplestore_id} (#{clock_end_business_item.work_package_database_id})"
-      puts "Based on an egg timer calculation counting #{day_count} days from #{clock_end_business_item.clock_start_date} according to calculation style #{clock_end_business_item.calculation_style}."
-      puts "Clock day count: #{clock_end_business_item.clock_day_count}"
-      puts "Work package day count: #{clock_end_business_item.work_package_day_count}"
+      puts "Resetting clock end date from #{current_clock_end_date} to #{egg_timer_clock_end_date} for work package #{updateable_clock.work_package_triplestore_id} (#{updateable_clock.work_package_database_id})"
+      puts "Based on an egg timer calculation counting #{day_count} days from #{updateable_clock.clock_start_date} according to calculation style #{updateable_clock.calculation_style}."
+      puts "Clock day count: #{updateable_clock.clock_day_count}"
+      puts "Work package day count: #{updateable_clock.work_package_day_count}"
       puts "======="
       
       # ... we increment the number of business items needing updating.
       updated_count += 1
       
       # ... we update the date on the clock end business item ...
-      clock_end_business_item.date = egg_timer_clock_end_date
+      updateable_clock.date = egg_timer_clock_end_date
       
       # ... and save the clock end business item.
-      clock_end_business_item.save
+      updateable_clock.save
     end 
   end
   
