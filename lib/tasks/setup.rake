@@ -168,6 +168,8 @@ task :import_clocks => :environment do
     clock.start_step_id = row[1]
     clock.end_step_id = row[2]
     clock.parliamentary_procedure_id = row[3]
+    clock.label = row[4]
+    clock.description = row[5]
     clock.save
   end
 end
