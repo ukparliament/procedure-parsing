@@ -64,6 +64,8 @@ create table parliamentary_procedures (
 );
 create table clocks (
 	id serial,
+	label varchar(255) not null,
+	description text,
 	day_count int not null,
 	start_step_id int not null,
 	end_step_id int not null,
