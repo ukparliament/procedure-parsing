@@ -24,20 +24,20 @@ create table calculation_styles (
 );
 create table houses (
 	id serial,
-	triple_store_id char(8) not null,
+	triplestore_id char(8) not null,
 	name varchar(100) not null,
 	primary key (id)
 );
 create table step_types (
 	id serial,
-	triple_store_id char(8) not null,
+	triplestore_id char(8) not null,
 	name varchar(255) not null,
 	description varchar(500) not null,
 	primary key (id)
 );
 create table steps (
 	id serial,
-	triple_store_id char(8),
+	triplestore_id char(8),
 	name varchar(255) not null,
 	description varchar(500) not null,
 	step_type_id int not null,
@@ -46,7 +46,7 @@ create table steps (
 );
 create table routes (
 	id serial,
-	triple_store_id char(8),
+	triplestore_id char(8),
 	from_step_id int not null,
 	to_step_id int not null,
 	start_date date,
@@ -57,7 +57,7 @@ create table routes (
 );
 create table parliamentary_procedures (
 	id serial,
-	triple_store_id char(8) not null,
+	triplestore_id char(8) not null,
 	name varchar(100) not null,
 	description varchar(1000) not null,
 	primary key (id)
@@ -85,11 +85,11 @@ create table procedure_routes (
 );
 create table work_packages (
 	id serial,
-	triple_store_id char(8) not null,
+	triplestore_id char(8) not null,
 	web_link varchar(255) not null,
 	day_count int,
 	is_clock_frozen boolean default false,
-	work_packaged_thing_triple_store_id char(8) not null,
+	work_packaged_thing_triplestore_id char(8) not null,
 	parliamentary_procedure_id int not null,
 	calculation_style_id int,
 	constraint fk_parliamentary_procedure foreign key (parliamentary_procedure_id) references parliamentary_procedures(id),
@@ -106,8 +106,8 @@ create table house_steps (
 );
 create table business_items (
 	id serial,
-	triple_store_id char(8) not null,
-	web_link varchar(255),
+	triplestore_id char(8) not null,
+	web_link varchar(1000),
 	date date,
 	work_package_id int not null,
 	constraint fk_work_package foreign key (work_package_id) references work_packages(id),
