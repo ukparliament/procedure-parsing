@@ -1,1 +1,1 @@
-<p>An <%= link_to( 'instrument', @work_package.web_link ) %> subject to the <%= link_to( @procedure.name, procedure_show_url( :procedure => @procedure ) ) %> procedure having <%= content_tag( 'strong', @routes.size ) %> routes.</p>
+<p>An <%= link_to( 'instrument', @work_package.web_link ) %> subject to the <%= link_to( @procedure.name, procedure_show_url( :procedure => @procedure.triplestore_id ) ) %> procedure having <%= content_tag( 'strong', @routes.size ) %> routes.</p>
