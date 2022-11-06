@@ -1,4 +1,4 @@
-<h1><%= link_to( @procedure.name, procedure_show_url( :procedure => @procedure ) ) %> business steps</h1>
+<h1><%= link_to( @procedure.name, procedure_show_url( :procedure => @procedure.triplestore_id ) ) %> business steps</h1>
 
 <p>
 There are <%= @work_packages.size %> work packages subject to the <%= @procedure.name %> procedure. <%= @concluded_work_packages.size %> have concluded, 
