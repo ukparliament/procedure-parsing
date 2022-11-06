@@ -5,14 +5,14 @@
 	<q><%= @procedure.description_massaged %></q>
 
 
-<p>Routes &mdash; <%= content_tag( 'span', link_to( @procedure.routes.size, procedure_route_list_url( :procedure => @procedure ) ) ) %>
+<p>Routes &mdash; <%= content_tag( 'span', link_to( @procedure.routes.size, procedure_route_list_url( :procedure => @procedure.triplestore_id ) ) ) %>
 
 <br>
 
-Business steps &mdash; <%= content_tag( 'span', link_to( @procedure.steps_with_work_package_count.size, procedure_step_list_url( :procedure => @procedure ) ) ) %>
+Business steps &mdash; <%= content_tag( 'span', link_to( @procedure.steps_with_work_package_count.size, procedure_step_list_url( :procedure => @procedure.triplestore_id ) ) ) %>
 
 <br>
 
-Work packages &mdash; <%= content_tag( 'span', link_to( @procedure.work_packages.size, procedure_work_package_list_url( :procedure => @procedure ) ) ) %>
+Work packages &mdash; <%= content_tag( 'span', link_to( @procedure.work_packages.size, procedure_work_package_list_url( :procedure => @procedure.triplestore_id ) ) ) %>
 
 </p>
