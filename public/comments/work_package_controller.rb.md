@@ -58,11 +58,14 @@ We get business steps actualised as having happened, being scheduled to happen o
     @business_items_that_have_happened = @work_package.business_items_that_have_happened
     @business_items_that_are_scheduled_to_happen = @work_package.business_items_that_are_scheduled_to_happen
     @business_items_unknown = @work_package.business_items_unknown
-We get all concluded work packages subject to this procedure.
+We need to calculate the occurrence score of potential steps.
 
-This is used to work out the occurrence score of potential steps.
+We get all concluded work packages subject to this procedure ...
 
     @concluded_work_packages = @procedure.concluded_work_packages
+... and call bicamerally concluded work packages subject to this procedure.
+
+    @bicamerally_concluded_work_packages = @procedure.bicamerally_concluded_work_packages
   end
 ## We display a log of the parse passes.
 
@@ -74,6 +77,10 @@ This is used to work out the occurrence score of potential steps.
   def visualise
     parse
   end
+  def skeleton
+    parse
+    render layout: false
+  end
 ## This method attempts to parse a work package subject to a procedure.
 
 By taking actualised and non-actualised business steps and parsing the logical procedure map, we aim to determine business steps that may happen, should happen or should not happen in the future.
@@ -82,7 +89,7 @@ By taking actualised and non-actualised business steps and parsing the logical p
 We get the work package we're attempting to parse.
 
     work_package = params[:work_package]
-    @work_package = WorkPackage.find( work_package )
+    @work_package = WorkPackage.find_by_triplestore_id( work_package )
 We get the procedure the work package is subject to.
 
 The procedure is stored as an instance variable because we want to report from it later.
@@ -133,5 +140,11 @@ We loop through the start steps in the procedure ...
         parse_route_with_id( route_id )
       end
     end
+We order the arrays of caused, allowed, disallowed yet and disallowed now steps by the depth of the step in the procedure, allowing for the fact that some steps may not have been given a depth in the procedure.
+
+    @caused_steps.sort! { |a,b| a.display_depth && b.display_depth ? a.display_depth <=> b.display_depth : a.display_depth ? -1 : 1 }
+    @allowed_steps.sort! { |a,b| a.display_depth && b.display_depth ? a.display_depth <=> b.display_depth : a.display_depth ? -1 : 1 }
+    @disallowed_as_yet_steps.sort! { |a,b| a.display_depth && b.display_depth ? a.display_depth <=> b.display_depth : a.display_depth ? -1 : 1 }
+    @disallowed_now_steps.sort! { |a,b| a.display_depth && b.display_depth ? a.display_depth <=> b.display_depth : a.display_depth ? -1 : 1 }
   end
 end

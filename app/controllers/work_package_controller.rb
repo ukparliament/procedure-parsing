@@ -85,7 +85,7 @@ class WorkPackageController < ApplicationController
     
     # We get the work package we're attempting to parse.
     work_package = params[:work_package]
-    @work_package = WorkPackage.find( work_package )
+    @work_package = WorkPackage.find_by_triplestore_id( work_package )
   
     # We get the procedure the work package is subject to.
     # The procedure is stored as an instance variable because we want to report from it later.
