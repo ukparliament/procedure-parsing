@@ -24,12 +24,12 @@ class ProcedureController < ApplicationController
   
   def show
     procedure = params[:procedure]
-    @procedure = ParliamentaryProcedure.find( procedure )
+    @procedure = ParliamentaryProcedure.find_by_triplestore_id( procedure )
   end
   
   def step_index
     procedure = params[:procedure]
-    @procedure = ParliamentaryProcedure.find( procedure )
+    @procedure = ParliamentaryProcedure.find_by_triplestore_id( procedure )
     @work_packages = @procedure.work_packages
     @concluded_work_packages = @procedure.concluded_work_packages
     @bicamerally_concluded_work_packages = @procedure.bicamerally_concluded_work_packages
@@ -38,12 +38,12 @@ class ProcedureController < ApplicationController
   
   def work_package_index
     procedure = params[:procedure]
-    @procedure = ParliamentaryProcedure.find( procedure )
+    @procedure = ParliamentaryProcedure.find_by_triplestore_id( procedure )
   end
   
   def route_index
     procedure = params[:procedure]
-    @procedure = ParliamentaryProcedure.find( procedure )
+    @procedure = ParliamentaryProcedure.find_by_triplestore_id( procedure )
     @routes = @procedure.routes_with_steps
   end
 end
