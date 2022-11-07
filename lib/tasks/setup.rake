@@ -101,9 +101,9 @@ task :import_work_packages => :environment do
   CSV.foreach( 'db/data/work_packages.tsv', :col_sep => "\t" ) do |row|
     work_package = WorkPackage.new
     work_package.id = row[0]
-    work_package.triplestore_id = row[1]
+    work_package.triplestore_id = row[3]
     work_package.web_link = row[2]
-    work_package.work_packaged_thing_triplestore_id = row[3]
+    work_package.work_packaged_thing_triplestore_id = row[1]
     work_package.parliamentary_procedure_id = row[4]
     work_package.calculation_style_id = 5
     work_package.save
