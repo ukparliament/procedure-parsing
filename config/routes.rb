@@ -25,6 +25,8 @@ Rails.application.routes.draw do
   get 'work-packages/:work_package/parse/visualise' => 'work_package#visualise', as: :work_package_visualise
   get 'work-packages/:work_package/parse/skeleton' => 'work_package#skeleton', as: :work_package_skeleton
   
+  get 'instruments/:instrument' => 'instrument#show', as: :instrument_show
+  
   get 'meta' => 'meta#index', as: :meta_list
   get 'meta/schema' => 'meta#schema', as: :meta_schema
   get 'meta/comments' => 'meta#comments', as: :meta_comments
