@@ -1,0 +1,5 @@
+<%= content_tag( 'h1', 'Bookmarklet' ) %>
+
+<p>Drag the procedure flipper link to your bookmarks bar.</p>
+
+<p><a href="javascript:(function()%7Bvar url %3D document.URL %3B%0A%0Aconst myUrl %3D new URL(url)%3B%0A%0A if (window.location.origin %3D%3D 'https%3A%2F%2Fstatutoryinstruments.parliament.uk')%0A%0A%7Bwindow.location.href %3D 'https%3A%2F%2Fparliamentary-procedures.herokuapp.com/work-packages/' %2B myUrl.pathname.split('%2F').reverse()[1]%7D%0A%0Aelse if (window.location.origin %3D%3D 'https%3A%2F%2Ftreaties.parliament.uk')%0A%0A%7Bwindow.location.href %3D 'https%3A%2F%2Fparliamentary-procedures.herokuapp.com/instruments/' %2B myUrl.pathname.split('%2F').reverse()[1]%7D%0A%0Aelse if (window.location.origin %3D%3D 'https%3A%2F%2Fwww.legislation.gov.uk')%0A%0A%7Bwindow.location.href %3D 'https%3A%2F%2Flegislation.glitch.me' %2B myUrl.pathname%7D%0A%0Aelse %7Balert('oops')%7D%3B%7D)()%3B">Procedure flipper</a>

@@ -8,4 +8,7 @@ class MetaController < ApplicationController
   
   def comments
   end
+  
+  def bookmarklet
+  end
 end
