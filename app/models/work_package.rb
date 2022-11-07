@@ -253,7 +253,7 @@ class WorkPackage < ActiveRecord::Base
       
       # ... we link to the treaty website.
       parliament_link = 'https://treaties.parliament.uk/treaty/'
-      parliament_link += self.triplestore_id
+      parliament_link += self.work_packaged_thing_triplestore_id
       
     # Otherwise ...
     else
