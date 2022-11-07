@@ -244,4 +244,28 @@ class WorkPackage < ActiveRecord::Base
       business_items_unknown.to_s
     end
   end
+  
+  def parliament_link
+    parliament_link =''
+    
+    # If the instrument is subject to the CRaG treaty procedure ...
+    if self.parliamentary_procedure_id == 6
+      
+      # ... we link to the treaty website.
+      parliament_link = 'https://treaties.parliament.uk/treaty/'
+      parliament_link += self.triplestore_id
+      
+    # Otherwise ...
+    else
+      
+      # ... we link to the statutory instruments website.
+      parliament_link = 'https://statutoryinstruments.parliament.uk/instrument/' 
+      parliament_link += self.work_packaged_thing_triplestore_id
+      parliament_link += '/timeline/'
+      parliament_link += self.triplestore_id
+    end
+    parliament_link
+  end
 end
+
+
