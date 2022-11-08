@@ -2,4 +2,12 @@
 
 <p>Drag the procedure flipper link to your bookmarks bar.</p>
 
-<p><a href="javascript:(function()%7Bvar url %3D document.URL %3B%0A%0Aconst myUrl %3D new URL(url)%3B%0A%0A if (window.location.origin %3D%3D 'https%3A%2F%2Fstatutoryinstruments.parliament.uk')%0A%0A%7Bwindow.location.href %3D 'https%3A%2F%2Fparliamentary-procedures.herokuapp.com/work-packages/' %2B myUrl.pathname.split('%2F').reverse()[1]%7D%0A%0Aelse if (window.location.origin %3D%3D 'https%3A%2F%2Ftreaties.parliament.uk')%0A%0A%7Bwindow.location.href %3D 'https%3A%2F%2Fparliamentary-procedures.herokuapp.com/instruments/' %2B myUrl.pathname.split('%2F').reverse()[1]%7D%0A%0Aelse if (window.location.origin %3D%3D 'https%3A%2F%2Fwww.legislation.gov.uk')%0A%0A%7Bwindow.location.href %3D 'https%3A%2F%2Flegislation.glitch.me' %2B myUrl.pathname%7D%0A%0Aelse %7Balert('oops')%7D%3B%7D)()%3B">Procedure flipper</a>
+<p><a href="javascript:(function()%7B%0Avar%20url%20%3D%20document.URL%20%3B%0Aconst%20myUrl%20%3D%20new%20URL(url)%3B%0Aif%20(window.location.origin%20%3D%3D%20%27https%3A%2F%2Fstatutoryinstruments.parliament.uk%27%20%26%26%20window.location.pathname.split(%27%2F%27).length%20%3D%3D%206)%0A%7Bwindow.location.href%20%3D%20%27https%3A%2F%2Fparliamentary-procedures.herokuapp.com%2Fwork-packages%2F%27%20%2B%20myUrl.pathname.split(%27%2F%27).reverse()%5B1%5D%7D%0Aelse%20if%20(window.location.origin%20%3D%3D%20%27https%3A%2F%2Fstatutoryinstruments.parliament.uk%27%20%26%26%20window.location.pathname.split(%27%2F%27).length%20%3D%3D%204)%0A%7Bwindow.location.href%20%3D%20%27https%3A%2F%2Fparliamentary-procedures.herokuapp.com%2Finstruments%2F%27%20%2B%20myUrl.pathname.split(%27%2F%27).reverse()%5B1%5D%7D%0Aelse%20if%20(window.location.origin%20%3D%3D%20%27https%3A%2F%2Ftreaties.parliament.uk%27)%0A%7Bwindow.location.href%20%3D%20%27https%3A%2F%2Fparliamentary-procedures.herokuapp.com%2Finstruments%2F%27%20%2B%20myUrl.pathname.split(%27%2F%27)%5B2%5D%7D%0Aelse%20%7Balert(%27Sorry.%20This%20URL%20is%20not%20flippable.%27)%7D%3B%7D)()%3B">Procedure flipper</a>
+	
+<p>The bookmarklet flips from URLs like:</p>
+<ul>
+	<li><a href="https://statutoryinstruments.parliament.uk/instrument/tR0diGDz/">https://statutoryinstruments.parliament.uk/instrument/tR0diGDz/</a></li>
+	<li><a href="https://statutoryinstruments.parliament.uk/instrument/tR0diGDz/timeline/sV1u5kIu/">https://statutoryinstruments.parliament.uk/instrument/tR0diGDz/timeline/sV1u5kIu/</a></li>
+	<li><a href="https://treaties.parliament.uk/treaty/snzFSs5u/">https://treaties.parliament.uk/treaty/snzFSs5u/</a></li>
+</ul>
+<p>to a view of the work package as parsed.</p>
