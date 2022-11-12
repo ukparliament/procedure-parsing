@@ -86,7 +86,8 @@ create table procedure_routes (
 create table work_packages (
 	id serial,
 	triplestore_id char(8) not null,
-	web_link varchar(255) not null,
+	web_link varchar(255),
+	web_link_response_code varchar(10),
 	day_count int,
 	is_clock_frozen boolean default false,
 	work_packaged_thing_triplestore_id char(8) not null,
@@ -108,6 +109,7 @@ create table business_items (
 	id serial,
 	triplestore_id char(8) not null,
 	web_link varchar(1000),
+	web_link_response_code varchar(10),
 	date date,
 	work_package_id int not null,
 	constraint fk_work_package foreign key (work_package_id) references work_packages(id),
