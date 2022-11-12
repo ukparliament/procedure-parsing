@@ -11,4 +11,8 @@ class MetaController < ApplicationController
   
   def bookmarklet
   end
+  
+  def link_check
+    @work_packages = WorkPackage.all
+  end
 end
