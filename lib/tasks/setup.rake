@@ -17,7 +17,8 @@ task :setup => [
   :import_clocks,
   :import_step_collections,
   :import_step_collection_memberships,
-  :populate_website_visible_steps] do
+  :populate_website_visible_steps,
+  :get_response_codes_for_work_package_web_link ] do
 end
 
 
@@ -102,7 +103,7 @@ task :import_work_packages => :environment do
     work_package = WorkPackage.new
     work_package.id = row[0]
     work_package.triplestore_id = row[3]
-    work_package.web_link = row[2]
+    work_package.web_link = row[2] if row[2]
     work_package.work_packaged_thing_triplestore_id = row[1]
     work_package.parliamentary_procedure_id = row[4]
     work_package.calculation_style_id = 5
@@ -125,7 +126,7 @@ task :import_business_items => :environment do
     business_item = BusinessItem.new
     business_item.id = row[0]
     business_item.triplestore_id = row[1]
-    business_item.web_link = row[2]
+    business_item.web_link = row[2] if row[2]
     business_item.work_package_id = row[3]
     business_item.date = row[6]
     business_item.save
@@ -220,4 +221,37 @@ task :populate_website_visible_steps => :environment do
     step_collection_membership.save
   end
 end
+task :get_response_codes_for_work_package_web_link => :environment do
+  puts "getting response codes for work package web links"
+  
+  # We get all work packages where the web link is not null and the web link response code.
+  # We filter out work package 3103 because the link is broken in a way I don't understand.
+  # Broke link being https://www.legislation.gov.uk/uksi/2020/759/made
+  work_packages = WorkPackage.all.where( 'web_link is not null' ).where( 'web_link_response_code is null' ).where( "id != ?", 3103 )
+  
+  work_packages.each do |wp|
+    response_code = ''
+    if wp.web_link_http_count_correct?
+      require 'net/http'
+      response = Net::HTTP.get_response( URI.parse( wp.web_link.strip ) )
+      wp.web_link_response_code = response.code
+      wp.save
+    end
+  end
+end
 
+# No point running this because most business item web links are to parliament.uk which is behind cloudflare so returns a 403 - forbidden.
+#task :get_response_codes_for_business_item_web_link => :environment do
+#  puts "getting response codes for business item web links"
+  
+#  business_items = BusinessItem.all.where( 'web_link is not null' ).where( 'web_link_response_code is null' )
+#  business_items.each do |bi|
+#    response_code = ''
+#    if bi.web_link_http_count_correct?
+#      require 'net/http'
+#      response = Net::HTTP.get_response( URI.parse( bi.web_link.strip ) )
+#      bi.web_link_response_code = response.code
+#      bi.save
+#    end
+#  end
+#end
