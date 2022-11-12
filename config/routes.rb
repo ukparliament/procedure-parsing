@@ -31,6 +31,7 @@ Rails.application.routes.draw do
   get 'meta/schema' => 'meta#schema', as: :meta_schema
   get 'meta/comments' => 'meta#comments', as: :meta_comments
   get 'meta/bookmarklet' => 'meta#bookmarklet', as: :meta_bookmarklet
+  get 'meta/link-check' => 'meta#link_check', as: :meta_link_check
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
