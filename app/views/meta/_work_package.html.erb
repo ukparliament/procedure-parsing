@@ -1,0 +1,13 @@
+<tr>
+	<%= content_tag( 'td', link_to( work_package.id, "https://procedureeditor.azurewebsites.net/WorkPackage/#{work_package.id}" ) ) %>
+	<%= content_tag( 'td', work_package.triplestore_id ) %>
+	<td>
+		<% if work_package.has_web_link? -%>
+			<%= link_to( work_package.has_web_link?, work_package.web_link ) %>
+		<% else -%>
+			<%= work_package.has_web_link? %>
+		<% end -%>
+	</td>
+	<%= content_tag( 'td', work_package.web_link_http_count_correct? ) %>
+	<%= content_tag( 'td', work_package.web_link_response_code ) %>
+</tr>
