@@ -268,6 +268,23 @@ class WorkPackage < ActiveRecord::Base
     end
     parliament_link
   end
+  
+  def has_web_link?
+    has_weblink = false
+    has_weblink = true unless self.web_link.nil?
+    has_weblink
+  end
+  
+  def web_link_http_count
+    self.web_link.split( 'http' ).size
+  end
+  
+  def web_link_http_count_correct?
+    correct = false
+    if self.web_link_http_count == 2
+      correct = true
+    end
+    correct
+  end
 end
-
 
