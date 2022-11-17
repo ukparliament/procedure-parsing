@@ -270,8 +270,8 @@ class WorkPackage < ActiveRecord::Base
   end
   
   def has_web_link?
-    has_weblink = false
-    has_weblink = true unless self.web_link.nil?
+    has_weblink = true
+    has_weblink = false if self.web_link.nil?
     has_weblink
   end
   
