@@ -19,5 +19,5 @@
 /.idea/
 /db/schema.rb
 /procedure.iml
-
+/lib/tasks/link_check.rake
 
