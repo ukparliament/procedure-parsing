@@ -1,0 +1,13 @@
+<tr>
+	<%= content_tag( 'td', link_to( business_item.id, "https://procedureeditor.azurewebsites.net/BusinessItem/#{business_item.id}" ) ) %>
+	<%= content_tag( 'td', business_item.triplestore_id ) %>
+	<% if business_item.has_web_link? -%>
+		<%= content_tag( 'td', link_to( business_item.has_web_link?, business_item.web_link ) ) %>
+		<%= content_tag( 'td', business_item.web_link_http_count_correct? ) %>
+		<%= content_tag( 'td', business_item.web_link_response_code ) %>
+	<% else -%>
+		<%= content_tag( 'td', business_item.has_web_link? ) %>
+		<%= content_tag( 'td', 'N/A' ) %>
+		<%= content_tag( 'td', 'N/A' ) %>
+	<% end -%>
+</tr>

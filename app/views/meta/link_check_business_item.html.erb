@@ -1,0 +1,18 @@
+<%= content_tag( 'h1', 'Link check business items' ) %>
+
+<%= content_tag( 'p', link_to( 'Download as CSV', meta_link_check_business_item_url( :format => 'csv' ) ) ) %>
+
+<table>
+	<thead>
+		<tr>
+			<%= content_tag( 'td', 'Database ID' ) %>
+			<%= content_tag( 'td', 'Triplestore ID' ) %>
+			<%= content_tag( 'td', 'Has weblink' ) %>
+			<%= content_tag( 'td', 'Web link has one http' ) %>
+			<%= content_tag( 'td', 'Web link response code' ) %>
+		</tr>
+	</thead>
+	<tbody>
+		<%= render :partial => 'business_item', :collection => @business_items %>
+	</tbody>
+</table>
