@@ -1,1 +1,1 @@
-<%= work_package.id %>,<%= work_package.triplestore_id %>,<%= work_package.web_link %>,<%= work_package.web_link_http_count_correct? %>,<%= work_package.web_link_response_code %>
+<%= work_package.id %>,<%= work_package.triplestore_id %>,<% if work_package.web_link %><%= work_package.web_link %>,<%= work_package.web_link_http_count_correct? %>,<%= work_package.web_link_response_code %><% else -%>N/A,N/A,N/A<% end -%>
