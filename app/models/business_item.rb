@@ -119,4 +119,22 @@ class BusinessItem < ActiveRecord::Base
     end
     step_names
   end
+  
+  def has_web_link?
+    has_weblink = true
+    has_weblink = false if self.web_link.nil?
+    has_weblink
+  end
+  
+  def web_link_http_count
+    self.web_link.split( 'http' ).size
+  end
+  
+  def web_link_http_count_correct?
+    correct = false
+    if self.web_link_http_count == 2
+      correct = true
+    end
+    correct
+  end
 end
