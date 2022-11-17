@@ -13,6 +13,13 @@ class MetaController < ApplicationController
   end
   
   def link_check
-    @work_packages = WorkPackage.all
+  end
+  
+  def link_check_work_package
+    @work_packages = WorkPackage.all.order( 'id' )
+  end
+  
+  def link_check_business_item
+    @business_items = BusinessItem.all.order( 'id' )
   end
 end
