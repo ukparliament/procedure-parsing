@@ -32,6 +32,8 @@ Rails.application.routes.draw do
   get 'meta/comments' => 'meta#comments', as: :meta_comments
   get 'meta/bookmarklet' => 'meta#bookmarklet', as: :meta_bookmarklet
   get 'meta/link-check' => 'meta#link_check', as: :meta_link_check
+  get 'meta/link-check/work-packages' => 'meta#link_check_work_package', as: :meta_link_check_work_package
+  get 'meta/link-check/business-items' => 'meta#link_check_business_item', as: :meta_link_check_business_item
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
