@@ -1,0 +1,541 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" xmlns:xl="http://www.w3.org/1999/xlink" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns="http://www.w3.org/2000/svg" viewBox="230.5 538.5 3346 1362" width="3346" height="1362">
+  <defs>
+    <filter id="Shadow" filterUnits="userSpaceOnUse" x="-104.1" y="402.3">
+      <feGaussianBlur in="SourceAlpha" result="blur" stdDeviation="1.308"/>
+      <feOffset in="blur" result="offset" dx="0" dy="2"/>
+      <feFlood flood-color="black" flood-opacity=".5" result="flood"/>
+      <feComposite in="flood" in2="offset" operator="in"/>
+    </filter>
+    <marker orient="auto" overflow="visible" markerUnits="strokeWidth" id="DoubleBar_Marker" stroke-linejoin="miter" stroke-miterlimit="10" viewBox="-1 -5 16 10" markerWidth="16" markerHeight="10" color="black">
+      <g>
+        <path d="M 14 0 L 0 0 M 5 4 L 5 -4 M 0 4 L 0 -4" fill="none" stroke="currentColor" stroke-width="1"/>
+      </g>
+    </marker>
+    <marker orient="auto" overflow="visible" markerUnits="strokeWidth" id="CrowBall_Marker" stroke-linejoin="miter" stroke-miterlimit="10" viewBox="-19 -5 20 10" markerWidth="20" markerHeight="10" color="black">
+      <g>
+        <path d="M -18 0 L -6 0 M -18 -4 L -8 0 L -18 4 M -.87868 -2.12132 C .29289 -.949747 .29289 .949747 -.87868 2.12132 C -2.05025 3.29289 -3.94975 3.29289 -5.12132 2.12132 C -6.292893 .949747 -6.292893 -.949747 -5.12132 -2.12132 C -3.94975 -3.29289 -2.05025 -3.29289 -.87868 -2.12132" fill="none" stroke="currentColor" stroke-width="1"/>
+      </g>
+    </marker>
+    <marker orient="auto" overflow="visible" markerUnits="strokeWidth" id="BarBall_Marker" stroke-linejoin="miter" stroke-miterlimit="10" viewBox="-1 -5 20 10" markerWidth="20" markerHeight="10" color="black">
+      <g>
+        <path d="M 18 0 L 6 0 M 9 4 L 9 -4 M .87868 2.12132 C -.29289 .949747 -.29289 -.949747 .87868 -2.12132 C 2.05025 -3.29289 3.94975 -3.29289 5.12132 -2.12132 C 6.292893 -.949747 6.292893 .949747 5.12132 2.12132 C 3.94975 3.29289 2.05025 3.29289 .87868 2.12132" fill="none" stroke="currentColor" stroke-width="1"/>
+      </g>
+    </marker>
+  </defs>
+  <g id="Canvas_1" stroke-opacity="1" fill="none" stroke-dasharray="none" fill-opacity="1" stroke="none">
+    <title>Canvas 1</title>
+    <rect fill="white" x="230.5" y="538.5" width="3346" height="1362"/>
+    <g id="Canvas_1_Layer_1">
+      <title>Layer 1</title>
+      <g id="Graphic_37_shadow" filter="url(#Shadow)">
+        <rect x="1404" y="1134" width="360" height="14" fill="white"/>
+        <rect x="1404" y="1134" width="360" height="14" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Graphic_38_shadow" filter="url(#Shadow)">
+        <rect x="1404" y="1148" width="360" height="42" fill="white"/>
+        <rect x="1404" y="1148" width="360" height="42" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Graphic_46_shadow" filter="url(#Shadow)">
+        <rect x="2484" y="1825" width="360" height="14" fill="white"/>
+        <rect x="2484" y="1825" width="360" height="14" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Graphic_47_shadow" filter="url(#Shadow)">
+        <rect x="2484" y="1839" width="360" height="56" fill="white"/>
+        <rect x="2484" y="1839" width="360" height="56" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Graphic_49_shadow" filter="url(#Shadow)">
+        <rect x="783" y="765" width="360" height="14" fill="white"/>
+        <rect x="783" y="765" width="360" height="14" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Graphic_50_shadow" filter="url(#Shadow)">
+        <rect x="783" y="779" width="360" height="84" fill="white"/>
+        <rect x="783" y="779" width="360" height="84" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Graphic_52_shadow" filter="url(#Shadow)">
+        <rect x="234" y="747" width="360" height="14" fill="white"/>
+        <rect x="234" y="747" width="360" height="14" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Graphic_53_shadow" filter="url(#Shadow)">
+        <rect x="234" y="761" width="360" height="126" fill="white"/>
+        <rect x="234" y="761" width="360" height="126" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Graphic_61_shadow" filter="url(#Shadow)">
+        <rect x="2484" y="772" width="360" height="14" fill="white"/>
+        <rect x="2484" y="772" width="360" height="14" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Graphic_62_shadow" filter="url(#Shadow)">
+        <rect x="2484" y="786" width="360" height="70" fill="white"/>
+        <rect x="2484" y="786" width="360" height="70" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Graphic_68_shadow" filter="url(#Shadow)">
+        <rect x="1404" y="781" width="360" height="14" fill="white"/>
+        <rect x="1404" y="781" width="360" height="14" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Graphic_69_shadow" filter="url(#Shadow)">
+        <rect x="1404" y="795" width="360" height="42" fill="white"/>
+        <rect x="1404" y="795" width="360" height="42" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Graphic_73_shadow" filter="url(#Shadow)">
+        <rect x="1404" y="1008" width="360" height="14" fill="white"/>
+        <rect x="1404" y="1008" width="360" height="14" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Graphic_74_shadow" filter="url(#Shadow)">
+        <rect x="1404" y="1022" width="360" height="42" fill="white"/>
+        <rect x="1404" y="1022" width="360" height="42" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Graphic_78_shadow" filter="url(#Shadow)">
+        <rect x="2268" y="1107" width="360" height="14" fill="white"/>
+        <rect x="2268" y="1107" width="360" height="14" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Graphic_79_shadow" filter="url(#Shadow)">
+        <rect x="2268" y="1121" width="360" height="84" fill="white"/>
+        <rect x="2268" y="1121" width="360" height="84" stroke="#ff2600" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Graphic_87_shadow" filter="url(#Shadow)">
+        <rect x="2268" y="1278" width="360" height="14" fill="white"/>
+        <rect x="2268" y="1278" width="360" height="14" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Graphic_88_shadow" filter="url(#Shadow)">
+        <rect x="2268" y="1292" width="360" height="42" fill="white"/>
+        <rect x="2268" y="1292" width="360" height="42" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Graphic_150_shadow" filter="url(#Shadow)">
+        <rect x="2484" y="540" width="360" height="14" fill="white"/>
+        <rect x="2484" y="540" width="360" height="14" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Graphic_151_shadow" filter="url(#Shadow)">
+        <rect x="2484" y="554" width="360" height="56" fill="white"/>
+        <rect x="2484" y="554" width="360" height="56" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Graphic_178_shadow" filter="url(#Shadow)">
+        <rect x="1845" y="1122" width="360" height="14" fill="white"/>
+        <rect x="1845" y="1122" width="360" height="14" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Graphic_179_shadow" filter="url(#Shadow)">
+        <rect x="1845" y="1136" width="360" height="70" fill="white"/>
+        <rect x="1845" y="1136" width="360" height="70" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Graphic_181_shadow" filter="url(#Shadow)">
+        <rect x="1845" y="1024" width="360" height="14" fill="white"/>
+        <rect x="1845" y="1024" width="360" height="14" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Graphic_182_shadow" filter="url(#Shadow)">
+        <rect x="1845" y="1038" width="360" height="42" fill="white"/>
+        <rect x="1845" y="1038" width="360" height="42" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Graphic_187_shadow" filter="url(#Shadow)">
+        <rect x="234" y="1845" width="360" height="14" fill="white"/>
+        <rect x="234" y="1845" width="360" height="14" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Graphic_188_shadow" filter="url(#Shadow)">
+        <rect x="234" y="1859" width="360" height="28" fill="white"/>
+        <rect x="234" y="1859" width="360" height="28" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Graphic_190_shadow" filter="url(#Shadow)">
+        <rect x="2754" y="1089" width="360" height="14" fill="white"/>
+        <rect x="2754" y="1089" width="360" height="14" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Graphic_191_shadow" filter="url(#Shadow)">
+        <rect x="2754" y="1103" width="360" height="126" fill="white"/>
+        <rect x="2754" y="1103" width="360" height="126" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Graphic_197_shadow" filter="url(#Shadow)">
+        <rect x="3213" y="1125" width="360" height="14" fill="white"/>
+        <rect x="3213" y="1125" width="360" height="14" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Graphic_198_shadow" filter="url(#Shadow)">
+        <rect x="3213" y="1139" width="360" height="56" fill="white"/>
+        <rect x="3213" y="1139" width="360" height="56" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Graphic_202_shadow" filter="url(#Shadow)">
+        <rect x="783" y="1834" width="360" height="14" fill="white"/>
+        <rect x="783" y="1834" width="360" height="14" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Graphic_203_shadow" filter="url(#Shadow)">
+        <rect x="783" y="1848" width="360" height="42" fill="white"/>
+        <rect x="783" y="1848" width="360" height="42" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Group_36">
+        <g id="Graphic_38">
+          <rect x="1404" y="1148" width="360" height="42" fill="white"/>
+          <rect x="1404" y="1148" width="360" height="42" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+          <text transform="translate(1409 1148)" fill="black">
+            <tspan font-family="Helvetica" font-size="12" fill="black" x="0" y="11">id</tspan>
+            <tspan font-family="Helvetica" font-size="12" fill="black" x="0" y="25">triple_store_id</tspan>
+            <tspan font-family="Helvetica" font-size="12" fill="black" x="0" y="39">name</tspan>
+          </text>
+        </g>
+        <g id="Graphic_37">
+          <rect x="1404" y="1134" width="360" height="14" fill="white"/>
+          <rect x="1404" y="1134" width="360" height="14" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+          <text transform="translate(1409 1134)" fill="black">
+            <tspan font-family="Helvetica" font-weight="bold" font-size="12" fill="black" x="153.99414" y="11">houses</tspan>
+          </text>
+        </g>
+      </g>
+      <g id="Group_45">
+        <g id="Graphic_47">
+          <rect x="2484" y="1839" width="360" height="56" fill="white"/>
+          <rect x="2484" y="1839" width="360" height="56" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+          <text transform="translate(2489 1839)" fill="black">
+            <tspan font-family="Helvetica" font-size="12" fill="black" x="0" y="11">id</tspan>
+            <tspan font-family="Helvetica" font-size="12" fill="black" x="0" y="25">triple_store_id</tspan>
+            <tspan font-family="Helvetica" font-size="12" fill="black" x="0" y="39">name</tspan>
+            <tspan font-family="Helvetica" font-size="12" fill="black" x="0" y="53">description</tspan>
+          </text>
+        </g>
+        <g id="Graphic_46">
+          <rect x="2484" y="1825" width="360" height="14" fill="white"/>
+          <rect x="2484" y="1825" width="360" height="14" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+          <text transform="translate(2489 1825)" fill="black">
+            <tspan font-family="Helvetica" font-weight="bold" font-size="12" fill="black" x="99.63379" y="11">parliamentary_procedures</tspan>
+          </text>
+        </g>
+      </g>
+      <g id="Group_48">
+        <g id="Graphic_50">
+          <rect x="783" y="779" width="360" height="84" fill="white"/>
+          <rect x="783" y="779" width="360" height="84" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+          <text transform="translate(788 779)" fill="black">
+            <tspan font-family="Helvetica" font-size="12" fill="black" x="0" y="11">d</tspan>
+            <tspan font-family="Helvetica" font-size="12" fill="black" x="0" y="25">triple_store_id</tspan>
+            <tspan font-family="Helvetica" font-size="12" fill="black" x="0" y="39">web_link</tspan>
+            <tspan font-family="Helvetica" font-size="12" fill="black" x="0" y="53">web_link_response_code</tspan>
+            <tspan font-family="Helvetica" font-size="12" fill="black" x="0" y="67">date</tspan>
+            <tspan font-family="Helvetica" font-size="12" fill="black" x="0" y="81">work_package_id</tspan>
+          </text>
+        </g>
+        <g id="Graphic_49">
+          <rect x="783" y="765" width="360" height="14" fill="white"/>
+          <rect x="783" y="765" width="360" height="14" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+          <text transform="translate(788 765)" fill="black">
+            <tspan font-family="Helvetica" font-weight="bold" font-size="12" fill="black" x="129.97949" y="11">business_items</tspan>
+          </text>
+        </g>
+      </g>
+      <g id="Group_51">
+        <g id="Graphic_53">
+          <rect x="234" y="761" width="360" height="126" fill="white"/>
+          <rect x="234" y="761" width="360" height="126" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+          <text transform="translate(239 761)" fill="black">
+            <tspan font-family="Helvetica" font-size="12" fill="black" x="0" y="11">id</tspan>
+            <tspan font-family="Helvetica" font-size="12" fill="black" x="0" y="25">triple_store_id</tspan>
+            <tspan font-family="Helvetica" font-size="12" fill="black" x="0" y="39">web_link</tspan>
+            <tspan font-family="Helvetica" font-size="12" fill="black" x="0" y="53">web_link_response_code</tspan>
+            <tspan font-family="Helvetica" font-size="12" fill="black" x="0" y="67">day_count</tspan>
+            <tspan font-family="Helvetica" font-size="12" fill="black" x="0" y="81">is_clock_frozen</tspan>
+            <tspan font-family="Helvetica" font-size="12" fill="black" x="0" y="95">calculation_style</tspan>
+            <tspan font-family="Helvetica" font-size="12" fill="black" x="0" y="109">work_packaged_thing_triple_store_id</tspan>
+            <tspan font-family="Helvetica" font-size="12" fill="black" x="0" y="123">parliamentary_procedure_id</tspan>
+          </text>
+        </g>
+        <g id="Graphic_52">
+          <rect x="234" y="747" width="360" height="14" fill="white"/>
+          <rect x="234" y="747" width="360" height="14" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+          <text transform="translate(239 747)" fill="black">
+            <tspan font-family="Helvetica" font-weight="bold" font-size="12" fill="black" x="130.30762" y="11">work_packages</tspan>
+          </text>
+        </g>
+      </g>
+      <g id="Line_54">
+        <line x1="764.5003" y1="815.0847" x2="608.4998" y2="815.9372" marker-end="url(#DoubleBar_Marker)" marker-start="url(#CrowBall_Marker)" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_59">
+        <line x1="581.79106" y1="894.7805" x2="2575.3413" y2="1818.9018" marker-end="url(#DoubleBar_Marker)" marker-start="url(#CrowBall_Marker)" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Group_60">
+        <g id="Graphic_62">
+          <rect x="2484" y="786" width="360" height="70" fill="white"/>
+          <rect x="2484" y="786" width="360" height="70" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+          <text transform="translate(2489 786)" fill="black">
+            <tspan font-family="Helvetica" font-size="12" fill="black" x="0" y="11">id</tspan>
+            <tspan font-family="Helvetica" font-size="12" fill="black" x="0" y="25">triple_store_id</tspan>
+            <tspan font-family="Helvetica" font-size="12" fill="black" x="0" y="39">name</tspan>
+            <tspan font-family="Helvetica" font-size="12" fill="black" x="0" y="53">description</tspan>
+            <tspan font-family="Helvetica" font-size="12" fill="black" x="0" y="67">step_type_id</tspan>
+          </text>
+        </g>
+        <g id="Graphic_61">
+          <rect x="2484" y="772" width="360" height="14" fill="white"/>
+          <rect x="2484" y="772" width="360" height="14" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+          <text transform="translate(2489 772)" fill="black">
+            <tspan font-family="Helvetica" font-weight="bold" font-size="12" fill="black" x="159.32617" y="11">steps</tspan>
+          </text>
+        </g>
+      </g>
+      <g id="Group_67">
+        <g id="Graphic_69">
+          <rect x="1404" y="795" width="360" height="42" fill="white"/>
+          <rect x="1404" y="795" width="360" height="42" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+          <text transform="translate(1409 795)" fill="black">
+            <tspan font-family="Helvetica" font-size="12" fill="black" x="0" y="11">id</tspan>
+            <tspan font-family="Helvetica" font-size="12" fill="black" x="0" y="25">business_item_id</tspan>
+            <tspan font-family="Helvetica" font-size="12" fill="black" x="0" y="39">step_id</tspan>
+          </text>
+        </g>
+        <g id="Graphic_68">
+          <rect x="1404" y="781" width="360" height="14" fill="white"/>
+          <rect x="1404" y="781" width="360" height="14" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+          <text transform="translate(1409 781)" fill="black">
+            <tspan font-family="Helvetica" font-weight="bold" font-size="12" fill="black" x="134.98633" y="11">actualisations</tspan>
+          </text>
+        </g>
+      </g>
+      <g id="Line_70">
+        <line x1="1385.5006" y1="810.5982" x2="1157.4995" y2="812.434" marker-end="url(#DoubleBar_Marker)" marker-start="url(#CrowBall_Marker)" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_71">
+        <line x1="1782.4998" y1="809.919" x2="2469.5002" y2="813.0995" marker-end="url(#DoubleBar_Marker)" marker-start="url(#CrowBall_Marker)" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Group_72">
+        <g id="Graphic_74">
+          <rect x="1404" y="1022" width="360" height="42" fill="white"/>
+          <rect x="1404" y="1022" width="360" height="42" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+          <text transform="translate(1409 1022)" fill="black">
+            <tspan font-family="Helvetica" font-size="12" fill="black" x="0" y="11">id</tspan>
+            <tspan font-family="Helvetica" font-size="12" fill="black" x="0" y="25">step_id</tspan>
+            <tspan font-family="Helvetica" font-size="12" fill="black" x="0" y="39">house_id</tspan>
+          </text>
+        </g>
+        <g id="Graphic_73">
+          <rect x="1404" y="1008" width="360" height="14" fill="white"/>
+          <rect x="1404" y="1008" width="360" height="14" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+          <text transform="translate(1409 1008)" fill="black">
+            <tspan font-family="Helvetica" font-weight="bold" font-size="12" fill="black" x="138.32031" y="11">house_steps</tspan>
+          </text>
+        </g>
+      </g>
+      <g id="Line_75">
+        <line x1="1738.3373" y1="1004.2751" x2="2469.797" y2="853.9195" marker-end="url(#DoubleBar_Marker)" marker-start="url(#CrowBall_Marker)" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_76">
+        <line x1="1584" y1="1082.5" x2="1584" y2="1119.5" marker-end="url(#DoubleBar_Marker)" marker-start="url(#CrowBall_Marker)" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Group_77">
+        <g id="Graphic_79">
+          <rect x="2268" y="1121" width="360" height="84" fill="white"/>
+          <rect x="2268" y="1121" width="360" height="84" stroke="#ff2600" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+          <text transform="translate(2273 1121)" fill="black">
+            <tspan font-family="Helvetica" font-size="12" fill="black" x="0" y="11">id</tspan>
+            <tspan font-family="Helvetica" font-size="12" fill="black" x="0" y="25">triple_store_id</tspan>
+            <tspan font-family="Helvetica" font-size="12" fill="black" x="0" y="39">from_step_id</tspan>
+            <tspan font-family="Helvetica" font-size="12" fill="black" x="0" y="53">to_step_id</tspan>
+            <tspan font-family="Helvetica" font-size="12" fill="black" x="0" y="67">start_date</tspan>
+            <tspan font-family="Helvetica" font-size="12" fill="black" x="0" y="81">end_date</tspan>
+          </text>
+        </g>
+        <g id="Graphic_78">
+          <rect x="2268" y="1107" width="360" height="14" fill="white"/>
+          <rect x="2268" y="1107" width="360" height="14" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+          <text transform="translate(2273 1107)" fill="black">
+            <tspan font-family="Helvetica" font-weight="bold" font-size="12" fill="black" x="156.66309" y="11">routes</tspan>
+          </text>
+        </g>
+      </g>
+      <g id="Line_80">
+        <path d="M 2470.2914 1089.3409 C 2481.695 1049.6065 2488.0066 1008.4003 2511 972 C 2535.0694 933.8963 2577.4315 901.0378 2613.0867 866.2618" marker-end="url(#DoubleBar_Marker)" marker-start="url(#CrowBall_Marker)" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_81">
+        <path d="M 2512.0165 1094.3848 C 2550.1568 1060.0805 2596.0062 1027.2868 2619 990 C 2642.087 952.5621 2642.1452 910.5746 2650.0902 870.1502" marker-end="url(#DoubleBar_Marker)" marker-start="url(#CrowBall_Marker)" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Group_86">
+        <g id="Graphic_88">
+          <rect x="2268" y="1292" width="360" height="42" fill="white"/>
+          <rect x="2268" y="1292" width="360" height="42" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+          <text transform="translate(2273 1292)" fill="black">
+            <tspan font-family="Helvetica" font-size="12" fill="black" x="0" y="11">id</tspan>
+            <tspan font-family="Helvetica" font-size="12" fill="black" x="0" y="25">route_id</tspan>
+            <tspan font-family="Helvetica" font-size="12" fill="black" x="0" y="39">parliamentary_procedure_id</tspan>
+          </text>
+        </g>
+        <g id="Graphic_87">
+          <rect x="2268" y="1278" width="360" height="14" fill="white"/>
+          <rect x="2268" y="1278" width="360" height="14" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+          <text transform="translate(2273 1278)" fill="black">
+            <tspan font-family="Helvetica" font-weight="bold" font-size="12" fill="black" x="123.98535" y="11">procedure_routes</tspan>
+          </text>
+        </g>
+      </g>
+      <g id="Line_89">
+        <line x1="2448" y1="1259.5" x2="2448" y2="1219.5" marker-end="url(#DoubleBar_Marker)" marker-start="url(#CrowBall_Marker)" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_90">
+        <line x1="2465.6372" y1="1351.2362" x2="2645.0866" y2="1811.4905" marker-end="url(#DoubleBar_Marker)" marker-start="url(#CrowBall_Marker)" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Group_149">
+        <g id="Graphic_151">
+          <rect x="2484" y="554" width="360" height="56" fill="white"/>
+          <rect x="2484" y="554" width="360" height="56" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+          <text transform="translate(2489 554)" fill="black">
+            <tspan font-family="Helvetica" font-size="12" fill="black" x="0" y="11">id</tspan>
+            <tspan font-family="Helvetica" font-size="12" fill="black" x="0" y="25">triple_store_id</tspan>
+            <tspan font-family="Helvetica" font-size="12" fill="black" x="0" y="39">name</tspan>
+            <tspan font-family="Helvetica" font-size="12" fill="black" x="0" y="53">description</tspan>
+          </text>
+        </g>
+        <g id="Graphic_150">
+          <rect x="2484" y="540" width="360" height="14" fill="white"/>
+          <rect x="2484" y="540" width="360" height="14" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+          <text transform="translate(2489 540)" fill="black">
+            <tspan font-family="Helvetica" font-weight="bold" font-size="12" fill="black" x="143.65234" y="11">step_types</tspan>
+          </text>
+        </g>
+      </g>
+      <g id="Line_152">
+        <line x1="2664" y1="753.5" x2="2664" y2="624.5" marker-end="url(#DoubleBar_Marker)" marker-start="url(#CrowBall_Marker)" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Group_177">
+        <g id="Graphic_179">
+          <rect x="1845" y="1136" width="360" height="70" fill="white"/>
+          <rect x="1845" y="1136" width="360" height="70" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+          <text transform="translate(1850 1136)" fill="black">
+            <tspan font-family="Helvetica" font-size="12" fill="black" x="0" y="11">id</tspan>
+            <tspan font-family="Helvetica" font-size="12" fill="black" x="0" y="25">label</tspan>
+            <tspan font-family="Helvetica" font-size="12" fill="black" x="0" y="39">house_id</tspan>
+            <tspan font-family="Helvetica" font-size="12" fill="black" x="0" y="53">parliamentary_procedure_id</tspan>
+            <tspan font-family="Helvetica" font-size="12" fill="black" x="0" y="67">step_collection_type_id</tspan>
+          </text>
+        </g>
+        <g id="Graphic_178">
+          <rect x="1845" y="1122" width="360" height="14" fill="white"/>
+          <rect x="1845" y="1122" width="360" height="14" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+          <text transform="translate(1850 1122)" fill="black">
+            <tspan font-family="Helvetica" font-weight="bold" font-size="12" fill="black" x="127.98438" y="11">step_collections</tspan>
+          </text>
+        </g>
+      </g>
+      <g id="Group_180">
+        <g id="Graphic_182">
+          <rect x="1845" y="1038" width="360" height="42" fill="white"/>
+          <rect x="1845" y="1038" width="360" height="42" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+          <text transform="translate(1850 1038)" fill="black">
+            <tspan font-family="Helvetica" font-size="12" fill="black" x="0" y="11">id</tspan>
+            <tspan font-family="Helvetica" font-size="12" fill="black" x="0" y="25">step_id</tspan>
+            <tspan font-family="Helvetica" font-size="12" fill="black" x="0" y="39">step_collection_id</tspan>
+          </text>
+        </g>
+        <g id="Graphic_181">
+          <rect x="1845" y="1024" width="360" height="14" fill="white"/>
+          <rect x="1845" y="1024" width="360" height="14" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+          <text transform="translate(1850 1024)" fill="black">
+            <tspan font-family="Helvetica" font-weight="bold" font-size="12" fill="black" x="88.96973" y="11">step_collection_memberships</tspan>
+          </text>
+        </g>
+      </g>
+      <g id="Line_184">
+        <line x1="1826.5002" y1="1163.0998" x2="1782.4998" y2="1162.9002" marker-end="url(#BarBall_Marker)" marker-start="url(#CrowBall_Marker)" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_185">
+        <line x1="2076.072" y1="1219.6276" x2="2619.3548" y2="1811.3724" marker-end="url(#BarBall_Marker)" marker-start="url(#CrowBall_Marker)" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Group_186">
+        <g id="Graphic_188">
+          <rect x="234" y="1859" width="360" height="28" fill="white"/>
+          <rect x="234" y="1859" width="360" height="28" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+          <text transform="translate(239 1859)" fill="black">
+            <tspan font-family="Helvetica" font-size="12" fill="black" x="0" y="11">id</tspan>
+            <tspan font-family="Helvetica" font-size="12" fill="black" x="0" y="25">style</tspan>
+          </text>
+        </g>
+        <g id="Graphic_187">
+          <rect x="234" y="1845" width="360" height="14" fill="white"/>
+          <rect x="234" y="1845" width="360" height="14" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+          <text transform="translate(239 1845)" fill="black">
+            <tspan font-family="Helvetica" font-weight="bold" font-size="12" fill="black" x="123.3086" y="11">calculation_styles</tspan>
+          </text>
+        </g>
+      </g>
+      <g id="Group_189">
+        <g id="Graphic_191">
+          <rect x="2754" y="1103" width="360" height="126" fill="white"/>
+          <rect x="2754" y="1103" width="360" height="126" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+          <text transform="translate(2759 1103)" fill="black">
+            <tspan font-family="Helvetica" font-size="12" fill="black" x="0" y="11">id</tspan>
+            <tspan font-family="Helvetica" font-size="12" fill="black" x="0" y="25">label</tspan>
+            <tspan font-family="Helvetica" font-size="12" fill="black" x="0" y="39">description</tspan>
+            <tspan font-family="Helvetica" font-size="12" fill="black" x="0" y="53">day_count</tspan>
+            <tspan font-family="Helvetica" font-size="12" fill="black" x="0" y="67">start_step_id</tspan>
+            <tspan font-family="Helvetica" font-size="12" fill="black" x="0" y="81">end_step_id</tspan>
+            <tspan font-family="Helvetica" font-size="12" fill="black" x="0" y="95">parliamentary_procedure_id</tspan>
+          </text>
+        </g>
+        <g id="Graphic_190">
+          <rect x="2754" y="1089" width="360" height="14" fill="white"/>
+          <rect x="2754" y="1089" width="360" height="14" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+          <text transform="translate(2759 1089)" fill="black">
+            <tspan font-family="Helvetica" font-weight="bold" font-size="12" fill="black" x="156.32031" y="11">clocks</tspan>
+          </text>
+        </g>
+      </g>
+      <g id="Line_192">
+        <line x1="2900.389" y1="1246.2637" x2="2682.6924" y2="1811.469" marker-end="url(#DoubleBar_Marker)" marker-start="url(#CrowBall_Marker)" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_193">
+        <path d="M 2854.0453 1075.8602 C 2829.857 1052.1699 2805.95 1031.9368 2781 999 C 2754.0795 963.462 2725.93 913.1149 2698.242 868.2948" marker-end="url(#DoubleBar_Marker)" marker-start="url(#CrowBall_Marker)" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_194">
+        <path d="M 2895.957 1071.8842 C 2880.8253 1032.1935 2871.022 989.8999 2844 956 C 2815.8053 920.6288 2768.8498 894.3763 2728.773 864.7864" marker-end="url(#DoubleBar_Marker)" marker-start="url(#CrowBall_Marker)" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_195">
+        <line x1="414" y1="905.5" x2="414" y2="1826.5" marker-end="url(#BarBall_Marker)" marker-start="url(#CrowBall_Marker)" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Group_196">
+        <g id="Graphic_198">
+          <rect x="3213" y="1139" width="360" height="56" fill="white"/>
+          <rect x="3213" y="1139" width="360" height="56" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+          <text transform="translate(3218 1139)" fill="black">
+            <tspan font-family="Helvetica" font-size="12" fill="black" x="0" y="11">id</tspan>
+            <tspan font-family="Helvetica" font-size="12" fill="black" x="0" y="25">step_id</tspan>
+            <tspan font-family="Helvetica" font-size="12" fill="black" x="0" y="39">parliamentary_procedure_id</tspan>
+            <tspan font-family="Helvetica" font-size="12" fill="black" x="0" y="53">display_depth</tspan>
+          </text>
+        </g>
+        <g id="Graphic_197">
+          <rect x="3213" y="1125" width="360" height="14" fill="white"/>
+          <rect x="3213" y="1125" width="360" height="14" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+          <text transform="translate(3218 1125)" fill="black">
+            <tspan font-family="Helvetica" font-weight="bold" font-size="12" fill="black" x="115.64746" y="11">step_display_depths</tspan>
+          </text>
+        </g>
+      </g>
+      <g id="Line_199">
+        <line x1="3302.544" y1="1117.0676" x2="2765.5908" y2="862.2173" marker-end="url(#DoubleBar_Marker)" marker-start="url(#CrowBall_Marker)" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_200">
+        <line x1="3343.2058" y1="1207.8134" x2="2710.909" y2="1814.957" marker-end="url(#DoubleBar_Marker)" marker-start="url(#CrowBall_Marker)" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Group_201">
+        <g id="Graphic_203">
+          <rect x="783" y="1848" width="360" height="42" fill="white"/>
+          <rect x="783" y="1848" width="360" height="42" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+          <text transform="translate(788 1848)" fill="black">
+            <tspan font-family="Helvetica" font-size="12" fill="black" x="0" y="11">id</tspan>
+            <tspan font-family="Helvetica" font-size="12" fill="black" x="0" y="25">parliamentary_procedure_id</tspan>
+            <tspan font-family="Helvetica" font-size="12" fill="black" x="0" y="39">calculation_style_id</tspan>
+          </text>
+        </g>
+        <g id="Graphic_202">
+          <rect x="783" y="1834" width="360" height="14" fill="white"/>
+          <rect x="783" y="1834" width="360" height="14" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+          <text transform="translate(788 1834)" fill="black">
+            <tspan font-family="Helvetica" font-weight="bold" font-size="12" fill="black" x="83.62891" y="11">calculation_style_applicabilities</tspan>
+          </text>
+        </g>
+      </g>
+      <g id="Line_204">
+        <line x1="1161.5" y1="1861.7666" x2="2469.5" y2="1860.2287" marker-end="url(#DoubleBar_Marker)" marker-start="url(#CrowBall_Marker)" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_205">
+        <line x1="764.5005" y1="1863.4463" x2="608.4996" y2="1864.5829" marker-end="url(#DoubleBar_Marker)" marker-start="url(#CrowBall_Marker)" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_206">
+        <line x1="2025" y1="1098.5" x2="2025" y2="1107.5" marker-end="url(#DoubleBar_Marker)" marker-start="url(#CrowBall_Marker)" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_207">
+        <line x1="2117.513" y1="1017.5429" x2="2537.6472" y2="861.061" marker-end="url(#DoubleBar_Marker)" marker-start="url(#CrowBall_Marker)" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+    </g>
+  </g>
+</svg>
