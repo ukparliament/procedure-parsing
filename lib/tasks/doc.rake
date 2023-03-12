@@ -13,8 +13,8 @@ def commentariat(with_path)
   markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, no_intra_emphasis: true, autolink: true, underline: true, hightlight: true, quote: true)
   html_out = ''
   markdown_out = ''
-  html_path = './public/comments/' + with_path.split('/').last + '.html'
-  markdown_path = './public/comments/' + with_path.split('/').last + '.md'
+  html_path = './public/procedure-parsing/comments/' + with_path.split('/').last + '.html'
+  markdown_path = './public/procedure-parsing/comments/' + with_path.split('/').last + '.md'
 
   html_out << %{<!DOCTYPE html>
 <html lang="en-GB">
@@ -48,7 +48,7 @@ a {text-decoration:underline;color:white;}
     </style>
     <title>#{with_path}</title>
   </head>
-  <body><p><a href="/procedures/meta/comments">/procedures/meta/comments</a></p>}
+  <body><p><a href="/procedure-parsing/meta/comments">/procedure-parsing/meta/comments</a></p>}
 
   File.foreach(with_path).with_index do |line, line_num|
     comment_line = /^\s*#\s*(?<content>.*)/.match(line)
