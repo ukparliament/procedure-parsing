@@ -5,35 +5,36 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'home#index'
-
+  get 'procedure-parser' => 'home#index', as: :home
+  
+  
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
   
-  get 'procedures' => 'procedure#index', as: :procedure_list
-  get 'procedures/:procedure' => 'procedure#show', as: :procedure_show
-  get 'procedures/:procedure/work-packages' => 'procedure#work_package_index', as: :procedure_work_package_list
-  get 'procedures/:procedure/steps' => 'procedure#step_index', as: :procedure_step_list
-  get 'procedures/:procedure/routes' => 'procedure#route_index', as: :procedure_route_list
+  get 'procedure-parser/procedures' => 'procedure#index', as: :procedure_list
+  get 'procedure-parser/procedures/:procedure' => 'procedure#show', as: :procedure_show
+  get 'procedure-parser/procedures/:procedure/work-packages' => 'procedure#work_package_index', as: :procedure_work_package_list
+  get 'procedure-parser/procedures/:procedure/steps' => 'procedure#step_index', as: :procedure_step_list
+  get 'procedure-parser/procedures/:procedure/routes' => 'procedure#route_index', as: :procedure_route_list
   
-  get 'work-packages/:work_package' => 'work_package#show', as: :work_package_show
-  get 'work-packages/:work_package/parse' => 'work_package#parse', as: :work_package_parse
-  get 'work-packages/:work_package/parse/log' => 'work_package#log', as: :work_package_log
-  get 'work-packages/:work_package/parse/visualise' => 'work_package#visualise', as: :work_package_visualise
-  get 'work-packages/:work_package/parse/skeleton' => 'work_package#skeleton', as: :work_package_skeleton
+  get 'procedure-parser/work-packages/:work_package' => 'work_package#show', as: :work_package_show
+  get 'procedure-parser/work-packages/:work_package/parse' => 'work_package#parse', as: :work_package_parse
+  get 'procedure-parser/work-packages/:work_package/parse/log' => 'work_package#log', as: :work_package_log
+  get 'procedure-parser/work-packages/:work_package/parse/visualise' => 'work_package#visualise', as: :work_package_visualise
+  get 'procedure-parser/work-packages/:work_package/parse/skeleton' => 'work_package#skeleton', as: :work_package_skeleton
   
-  get 'instruments/:instrument' => 'instrument#show', as: :instrument_show
+  get 'procedure-parser/instruments/:instrument' => 'instrument#show', as: :instrument_show
   
-  get 'meta' => 'meta#index', as: :meta_list
-  get 'meta/schema' => 'meta#schema', as: :meta_schema
-  get 'meta/comments' => 'meta#comments', as: :meta_comments
-  get 'meta/bookmarklet' => 'meta#bookmarklet', as: :meta_bookmarklet
-  get 'meta/link-check' => 'meta#link_check', as: :meta_link_check
-  get 'meta/link-check/work-packages' => 'meta#link_check_work_package', as: :meta_link_check_work_package
-  get 'meta/link-check/business-items' => 'meta#link_check_business_item', as: :meta_link_check_business_item
+  get 'procedure-parser/meta' => 'meta#index', as: :meta_list
+  get 'procedure-parser/meta/schema' => 'meta#schema', as: :meta_schema
+  get 'procedure-parser/meta/comments' => 'meta#comments', as: :meta_comments
+  get 'procedure-parser/meta/bookmarklet' => 'meta#bookmarklet', as: :meta_bookmarklet
+  get 'procedure-parser/meta/link-check' => 'meta#link_check', as: :meta_link_check
+  get 'procedure-parser/meta/link-check/work-packages' => 'meta#link_check_work_package', as: :meta_link_check_work_package
+  get 'procedure-parser/meta/link-check/business-items' => 'meta#link_check_business_item', as: :meta_link_check_business_item
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
