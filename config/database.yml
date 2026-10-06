@@ -1,7 +1,7 @@
 development:
   adapter: postgresql
   encoding: unicode
-  database: procedures
+  database: procedure_editor_dump
   host: localhost
   pool: 5
 production:
